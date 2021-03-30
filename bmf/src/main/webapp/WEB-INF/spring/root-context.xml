@@ -14,7 +14,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
 		
 		<!--  mysql을 자기 PC에 저장했을 경우
 		
@@ -32,3 +32,6 @@
 	</bean>	
 		
 </beans>
+
+
+

@@ -1,4 +1,4 @@
-package com.bemyfriend.bmf.common.patch;
+package com.bemyfriend.bmf.common.batch;
 
 import java.io.IOException;
 import java.net.URL;

@@ -8,7 +8,11 @@
     <!-- 페이징 처리는 추후에~ -->
 	<select id="selectReviewList" resultType="board">
 
-      select * from review order by review_no desc limit ${startRow},${endRow}
-    </select>
+      select * from review order by review_no desc limit #{startRow},#{endRow}
+    </select> 
        
+    <insert id="insertreview">
+    insert into review(user_id,review_title,review_content) 
+    values(#{userId},#{reviewTitle},#{reviewContent})
+    </insert>
 </mapper>

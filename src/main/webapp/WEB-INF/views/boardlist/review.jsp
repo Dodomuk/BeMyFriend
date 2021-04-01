@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/include/head.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/include/head.jsp"%>
+<!-- date 형식을 바꾸기 위한 jstl -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,8 +38,8 @@
 
 <body>
 	<div class="content">
-		<h2 class="tit">* 게시판</h2>	
-		
+		<h2 class="tit">* 게시판</h2>
+
 		<table style="text-align: center" border="1">
 			<thead>
 				<tr>
@@ -46,34 +50,55 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="board">
-	           <tr>
-						<td>${board.reviewNo}</td>
-                 		<td>${board.reviewTitle}</td>
-						<td>${board.userId}</td>
-						<td>${board.reviewDate}</td>
+				<c:if test="${empty reviewList}">
+					<tr>
+						<td>데이터가 존재하지 않습니다.</td>
 					</tr>
-				</c:forEach>
+				</c:if>
+				<c:if test="${!empty reviewList}">
+					<c:forEach items="${reviewList}" var="review">
+						<tr>
+							<td>${review.reviewNo}</td>
+							<td>${review.reviewTitle}</td>
+							<td>${review.userId}</td>
+							<td>
+							<c:if test="${review.reviewDate ne nowDate}">
+							<fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
+							</c:if>
+							<c:if test="${review.reviewDate eq nowDate}">
+							<fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" />
+							</c:if>
+                            </td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<tr>
+					<td colspan="5">
+					<a href="/boardlist/reviewForm" class="btn btn_default">글쓰기</a></td>
+				</tr>
 			</tbody>
-		</table> 
+		</table>
+		
 		<p>-----------------------------------------------</p>
-			<a href="<%= request.getContextPath() %>/board/form">게시글 쓰기</a>
 		
 		<!-- section pagination -->
- 		<%-- <div class="paging">
-			<a href="${context}/${paging.type}/list" class="nav first">《</a> <a
-				href="${context}/${paging.type}/list?page=${paging.prev}">〈</a>
+		<div class="paging">
+			<a href="${context}/${paging.type}/boardlist/form" class="nav first">《</a>
+			<a href="${context}/${paging.type}/boardlist/form=${paging.prev}">〈</i></a>
 
 			<c:forEach begin="${paging.blockStart}" end="${paging.blockEnd}"
 				var="page">
-				<a href="${context}/${paging.type}/list?page=${page}"><span>${page}</span></a>
+				<a href="${context}/${paging.type}/boardlist/form?page=${page}"><span>${page}</span></a>
 			</c:forEach>
 
-			<a href="${context}/${paging.type}/list?page=${paging.next}">〉</a> <a
-				href="${context}/${paging.type}/list?page=${paging.lastPage}">》</a>
-		</div>  --%>
-		<!-- // section pagination -->
+			<a
+				href="${context}/${paging.type}/boardlist/form?page=${paging.next}">〉</a>
+			<a
+				href="${context}/${paging.type}/boardlist/form?page=${paging.lastPage}">》</a>
+		</div>
 	</div>
+	<!-- // section pagination -->
+
 </body>
 <script src="../../resources/js/jquery.min.js"></script>
 <script src="../../resources/js/jquery-migrate-3.0.1.min.js"></script>

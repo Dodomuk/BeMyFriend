@@ -13,14 +13,7 @@
           <span>등록일 : ${board.regDate}</span>
           <span>작성자 : ${board.userId}</span>
       </div>
-      <div class="info file_info">
-      	<c:forEach var="file" items="${flist}">
-      	 	<button type="button" class="btn_down-file"  
-      	 			onclick="downloadFile('${file.originFileName}','${file.renameFileName}','${file.savePath}')">  
-      	 		${file.originFileName}   
-        	 </button>
-      	</c:forEach>
-      </div>
+ 
       <div class="article_content">
           ${board.content}
       </div>

@@ -44,14 +44,14 @@ public class Paging {
 		//현재 페이지 값보다 작은 blockCnt의 배수 중 가장 큰 값에 1을 더하면 시작값
 		blockStart = ((currentPage-1)/blockCnt) * blockCnt + 1;
 		blockEnd = blockStart + blockCnt -1;
-		
+	    
 		blockStart = blockStart < 1? 1:blockStart;
 		blockEnd = blockEnd > lastPage? lastPage:blockEnd;
 	}    
 	
 	private void calQueryStartAndEnd() {
 		endRow = currentPage * cntPerPage;
-		startRow = endRow - cntPerPage + 1;
+		startRow = endRow - cntPerPage+1;
 	}
 	
 	private void calPrevAndNext() {

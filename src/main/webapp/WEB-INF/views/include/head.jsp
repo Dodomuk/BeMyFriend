@@ -7,7 +7,7 @@
 <%-- 모든 페이지에서 공통적으로 사용할 헤더정보를 담은 헤더태그 --%>
 <head>
 	<meta charset="UTF-8">
-	<title>pclass</title>
+	<title>Be My Friend</title>
 	<%-- 
 		contextPath를 context변수에 저장 
 		ex)이 프로젝트에서는 contextPath가 jsp임으로 jsp가 context변수에 담긴다. 

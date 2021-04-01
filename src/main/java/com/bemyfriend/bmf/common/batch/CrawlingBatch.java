@@ -30,39 +30,37 @@ public class CrawlingBatch {
 	// 회원등급은 분기에 한 번 바꾸겠다 -> 30 0 3 30 4,8,12 -> 4월 8월 12월 30일 3시 0분 30초에 돌아간다.)
 	
 	@Scheduled(cron = "5 5 5 5 5 *")
-	public void crawlingBaseBall() {
-		
-		//File file = new File("/Users/miyoung/Desktop/JAVA/CODE/06_Spring/resources/image/test.jpg");
-		
-		try {
-			
-			/*UrlResource resource = new UrlResource("https://dimg.donga.com/wps/NEWS/IMAGE/2020/08/21/102583646.1.jpg");
-			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
-			
-			bos.write(resource.getInputStream().readAllBytes());*/
-			
-			Document doc = 
-						Jsoup.parse(new URL("https://www.koreabaseball.com/TeamRank/TeamRank.aspx"), 5000);
-			
-			Elements teamScore = doc.select("#cphContents_cphContents_cphContents_udpRecord > table > tbody > tr");
-			String[] colArr= {"rank","teamName","match", "win", "loose", "tie", "rate"};
-			
-			for (Element element : teamScore) {
-
-				Map<String, String> data = new LinkedHashMap<String, String>(); //순서보장을 위해 LinkedHashMap 사용
-				
-				for (int i = 0; i < 7; i++) {
-					
-					data.put(colArr[i],element.children().get(i).text());
-
-				}
-				crawlingRepository.insertBaseBall(data);
-			}
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-	}
+	   public void crawlingCompanyName() {
+	      try {
+	         Document doc = 
+	               Jsoup.parse(new URL("https://www.saramin.co.kr/zf_user/search?searchType=search&company_cd=0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C9%2C10&keydownAccess=&searchword=%EC%9E%A5%EC%95%A0%EC%9D%B8+%EC%B1%84%EC%9A%A9&panel_type=&search_optional_item=y&search_done=y&panel_count=y"),5000);
+	         Elements comName = doc.select("#recruit_info_list > div.content > div > div.area_corp > strong > a > span");
+	         Elements comDeadline = doc.select("#recruit_info_list > div.content > div > div.area_job > div.job_date > span");
+	         System.out.println(comName);
+	         System.out.println("=====================================");
+	         System.out.println(comDeadline);
+	         System.out.println("=====================================");
+	         //System.out.println(comName.get(0).text());
+	         //System.out.println(comDeadline.get(0).text().substring(0, 1));
+	         Map<String,String> data = new LinkedHashMap<String, String>();
+	         
+	         for (int i = 0; i < comName.size(); i++) {
+	            data.put("event_com_name", comName.get(i).text());
+	            if(comDeadline.get(i).text().substring(0, 1).equals("~")) {
+	               data.put("event_end_date", comDeadline.get(i).text().substring(2));
+	            }else {
+	               data.put("event_end_date", comDeadline.get(i).text());
+	            }
+	            
+	            crawlingRepository.insertRecruit(data);
+	         }
+	         
+	         
+	      } catch (IOException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }
+	   }
 	
 	
 	public void crawlingOcean() {

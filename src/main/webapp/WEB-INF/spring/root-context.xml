@@ -19,8 +19,24 @@
 		<property name="username" value="bm"/>
 		<property name="password" value="USER11"/>	
 	</bean>
+	
+	
+	<!-- //월렛으로 oracle 연결
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+      <property name="URL" value="jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=/Users/miyoung/06_oracle/Wallet_pclassDB"/>
+      <property name="connectionCacheProperties">
+         <props>
+            <prop key="user">admin</prop>
+            <prop key="password"></prop>
+         </props>
+      </property>
+	</bean>
+	-->
 		
-	<!-- sql -->
+		
+		
+		
+	<!-- mybatis sql -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
   		<property name="dataSource" ref="dataSource" />
   		<property name="configLocation" value="classpath:mybatis/config.xml"/>

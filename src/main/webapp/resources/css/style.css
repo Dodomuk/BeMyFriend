@@ -9804,11 +9804,7 @@ textarea.form-control {
     
 
  
- .col-md-7-p {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 58.33333%;
-    width: 100%;
-   }
+ 
  
 .smKey #searchText{
     width: 500px;
@@ -9908,3 +9904,25 @@ div#ftco-nav {
 
 
  /* miyoung */
+ 
+ 
+ .col-md-7-p {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 58.33333%;
+    width: 100%;
+   }
+   
+  
+ .col-md-7-p-log {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 58.33333%;
+    width: 40%;
+   }
+   
+ 
+ 
+ .no-gutters-log {
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: center;
+}

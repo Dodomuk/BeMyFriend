@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.bemyfriend.bmf.board.model.service.impl.BoardServiceImpl;
 import com.bemyfriend.bmf.board.model.vo.Board;
 import com.bemyfriend.bmf.common.util.paging.Paging;
-//푸시 확인겸 넣는 주석
+
 @Controller
 @RequestMapping("boardlist")
 public class BoardController {

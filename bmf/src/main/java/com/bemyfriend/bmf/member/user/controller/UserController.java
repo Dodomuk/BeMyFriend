@@ -1,18 +1,35 @@
 package com.bemyfriend.bmf.member.user.controller;
 
+
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RequestMapping("member/user")
+import com.bemyfriend.bmf.member.user.model.service.UserService;
+import com.bemyfriend.bmf.member.user.model.service.impl.UserServiceImpl;
+import com.bemyfriend.bmf.member.user.model.vo.User;
+
+
 @Controller
+@RequestMapping("member/user")
 public class UserController {
+	
+	@Autowired
+	private UserService userService;
 	
 	
 	@GetMapping("join")
 	public String join() { // 회원가입페이지 이동
-		
 		return "member/user/join";
 	}
 	
@@ -21,9 +38,12 @@ public class UserController {
 	
 	
 	@GetMapping("idcheck")
-	public String idCheck(String userId) {
-		System.out.println("파라미터로 들어온값 : " + userId);
-		return null;
+	@ResponseBody //메소드 반환값 응답바디에 담아주기
+	public String idCheck(String userId) { //@RequestParam 생략 상태
+		if(userService.selectMemberById(userId) != null) {
+			return "fail";
+		}
+		return "available";
 	}
 	
 	
@@ -31,7 +51,21 @@ public class UserController {
 	
 	
 	@PostMapping("mailauth")
-	public String authenticateEmail() {
+	public String authenticateEmail(@ModelAttribute User persistInfo
+									,Errors errors
+									,HttpSession session
+									,Model model) {
+		
+		// 에러유무 파악
+		if(errors.hasErrors()) {
+			return "member/user/join";
+		}
+		
+		String authPath = UUID.randomUUID().toString(); //유니크한 아이디 생성하기
+		session.setAttribute("authPath", authPath);
+		session.setAttribute("persistInfo", persistInfo);
+		
+		userService.authenticateEmail(persistInfo, authPath);
 		
 		return null;
 	}
@@ -50,85 +84,27 @@ public class UserController {
 	
 	
 	
+	
+	
+	
+	
 	@GetMapping("login")
 	public String login(String userId, String userPw) {
 		
-		System.out.println("파라미터로 들어온 아이디 : "+ userId);
-		System.out.println("파라미터로 들어온 비밀번호 : "+ userPw);
 		return "/member/user/login";
 	}
 	
 	
 	
 	
-	
+	@GetMapping("loginimpl")
 	public String loginmpl() {
+		
+		
 		return null;
 	}
 	
 	
-	
-	
-	
-	public void logout() {
-		
-	}
-	
-	
-	
-	
-	
-	public void withdraw() {
-		
-	}
-	
-	
-	
-	
-	
-	public void findId() {
-		
-	}
-	
-	
-	
-	
-	
-	public void findPw() {
-		
-	}
-	
-	
-	
-	
-	
-	public void userProfie() {
-		
-	}
-	
-	
-	
-	
-	
-	public void userResume() {
-		
-	}
-	
-	
-	
-	
-	
-	public void userCoverLetter() {
-		
-	}
-	
-	
-	
-	
-	
-	public void modifyInfo() {
-		
-	}
 	
 	
 	

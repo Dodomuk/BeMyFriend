@@ -15,23 +15,61 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		
-		<!--  mysql을 자기 PC에 저장했을 경우
-		
-		value="jdbc:mysql://127.0.0.1:"mysql포트번호"/"스키마이름"?useSSL=false&amp;serverTimezone=UTC" -->
-		
-		 
-		<!--  그렇지 않은 경우
-		
-		value="jdbc:mysql://"데이터베이스 주소":"mysql포트번호"/"스키마이름"?useSSL=false&amp;serverTimezone=UTC"  -->
-		
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/BMF?useSSL=false&amp;serverTimezone=UTC"/> 
-		<!-- username에 커넥션 이름, password에 비밀번호! -->
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/bmf?useSSL=false&amp;serverTimezone=UTC"/> 
 		<property name="username" value="root"/> 
-		<property name="password" value=""/> 
+		<property name="password" value="1*al2238520"/> 
 	</bean>	
 		
+	<!-- sql -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource" ref="dataSource" />
+  		<property name="configLocation" value="classpath:mybatis/config.xml"/>
+	</bean>
+		
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	
+	
+		
+	<!-- 메일 계정 정보 -->
+	<bean id="mailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.naver.com"></property>
+		<property name="username" value="qkraldud5020@naver.com"></property>
+		<property name ="password" value="1*"></property>
+		<property name="port" value="465"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.ssl.enable">true</prop>
+				<prop key="mail.debug">true</prop><!-- 메일발송 잘 됐는지 확인 -->
+			</props>
+		</property>
+	</bean>
+		
+		
+		
+	<!-- 파일 업로드 위한 bean등록 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxInMemorySize" value = "10485760"/>
+		<property name="maxUploadSize" value = "10485760"/>
+	</bean>
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+   	<mybatis-spring:scan base-package="com.bemyfriend.bmf, board" 
+				  annotation="org.apache.ibatis.annotations.Mapper"/>
+    
+    <context:component-scan base-package="com.bemyfriend.bmf">
+    </context:component-scan>
+    
 </beans>
-
-
-

@@ -1,4 +1,4 @@
-package com.bemyfriend.bmf;
+package com.bemyfriend.bmf.index;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

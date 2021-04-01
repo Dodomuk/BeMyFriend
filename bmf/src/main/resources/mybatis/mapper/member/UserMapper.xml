@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bemyfriend.bmf.member.model.repository.UserRepository">
+
+ 
+ 	<!-- 회원정보 수정하기 -->
+ 	<update id="updateUserInfo"><!--update문 resultType 필요X -->
+ 		UPDATE USER
+ 			<set>
+ 				<if test="userPw != null">
+ 					user_pw = #{userPw}
+ 				</if>
+ 				<if test="userName != null">
+ 					,user_name = #{userName}
+ 				</if>
+ 				<if test="userAdd != null">
+ 					,user_add = #{userAdd}
+ 				</if>	
+ 				<if test="userMail != null">
+ 					,user_mail = #{userMail}
+ 				</if>
+ 				<if test="userBirth != null">
+ 					,user_birth = #{userBirth}
+ 				</if>
+ 			</set>
+ 		WHERE USER_ID = #{userId}
+ 	</update>
+ 
+ 
+ 
+ 
+ 
+ 
+</mapper>

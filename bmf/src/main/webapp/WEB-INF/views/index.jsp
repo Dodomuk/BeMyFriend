@@ -60,7 +60,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="../../index.jsp"><span
+			<a class="navbar-brand" href="index.jsp"><span
 				class="flaticon-pawprint-1 mr-2"></span>Pet sitting</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
@@ -69,10 +69,22 @@
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="index.jsp"
+						class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="vet.jsp" class="nav-link">Veterinarian</a></li>
-					<li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
+						<li class="nav-item">게시판
+					<ul class="dropdown">
+
+						<li><a href="boardlist/review">취업/면접</a></li>
+				
+						<li><a href="boardlist/mediaInfo">매체 정보</a></li>
+				      
+						<li><a href="boardlist/lawInfo">법률 정보</a></li>
+						
+						<li><a href="boardlist/qna">QnA</a></li>
+						
+					</ul></li>
 					<li class="nav-item"><a href="gallery.jsp" class="nav-link">Gallery</a></li>
 					<li class="nav-item"><a href="pricing.jsp" class="nav-link">Pricing</a></li>
 					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>

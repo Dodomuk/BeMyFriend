@@ -1,4 +1,4 @@
-package com.bemyfriend.bmf.member.user;
+package com.bemyfriend.bmf.member;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -44,7 +44,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void idCheckTest() throws Exception {
-		mockMvc.perform(get("/member/user/idcheck").param("userId", "testId"))
+		mockMvc.perform(get("/member/user/idcheck").param("userId", "test"))
 				.andDo(print());
 
 	}
@@ -61,7 +61,7 @@ public class UserControllerTest {
 	@Test
 	public void login() throws Exception {
 		mockMvc.perform(get("/member/user/login")
-						.param("userId", "testId")
+						.param("userId", "test")
 						.param("userPw", "12345")).andDo(print());
 	}
 	

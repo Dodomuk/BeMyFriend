@@ -68,4 +68,5 @@
 
 
 </body>
+<script src="../../../../resources/js/member.js"></script>
 </html>

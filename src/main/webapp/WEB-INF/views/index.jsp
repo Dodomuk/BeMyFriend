@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../../../../resources/css/flaticon.css">
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
-  <body>
+  <body onload = "javascript:popup()">
 	<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
@@ -593,7 +593,7 @@
 								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
 							</ul>
 
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get
+							<a class="btn btn-primary d-block px-2 py-3" onclick ="payment();">Get
 								Started</a>
 						</div>
 					</div>
@@ -613,7 +613,7 @@
 								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
 							</ul>
 
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get
+							<a class="btn btn-primary d-block px-2 py-3" onclick ="payment();">Get
 								Started</a>
 						</div>
 					</div>
@@ -633,7 +633,7 @@
 								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
 							</ul>
 
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get
+							<a class="btn btn-primary d-block px-2 py-3" onclick ="payment()">Get
 								Started</a>
 						</div>
 					</div>
@@ -1013,7 +1013,11 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
-
+	
+<!-- whalee js -->
+<script src="../resources/js/whaleeTest.js"></script>
+<!-- 결제 모듈 js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
     
   </body>

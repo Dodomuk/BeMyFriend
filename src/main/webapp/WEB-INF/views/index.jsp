@@ -21,7 +21,9 @@
     <link rel="stylesheet" href="../../../../resources/css/flaticon.css">
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
-  <body onload = "javascript:popup()">
+  <!-- 팝업팝업 -->
+  <!-- <body onload = "javascript:popup()"> -->
+  <body>
 	<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
@@ -82,7 +84,7 @@
 						        	<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
 						        	<li class="nav-item"><a href="vet.html" class="nav-link">법률/매체</a></li>
 						        	<li class="nav-item"><a href="services.html" class="nav-link">커뮤니티</a></li>
-							        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 							        
 							        <c:choose>

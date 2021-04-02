@@ -61,35 +61,45 @@
 		</div>
 	</div>
 	<!-- logo -->
-			<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">	
-				<div class="controll_nav">
-					<div class= "logo_space">
-						<div class="mainlogo" style="background-image: url('../../resources/images/logo_b.png')"></div>
-						<div><a class="navbar-brand" href="/index">BeMyFriends</a></div>
-					</div>
-					
-					
+	<nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="controll_nav">
+			<div class="logo_space">
+				<div class="mainlogo"
+					style="background-image: url('../../resources/images/logo_b.png')"></div>
+				<div>
+					<a class="navbar-brand" href="/index">BeMyFriends</a>
+				</div>
+			</div>
+
+
 			<!-- nav bar -->
-					<div class="nav-search">
-						<div class="conheight">
-				     		<div class="collapse navbar-collapse" id="ftco-nav">
-							    <div class="wrapSearch">
-						            <div class="smKey">
-						                <input type="text" id="searchText" title="searchJob" name="stext" maxlength="50" style="background: none;">
-						                <button type="submit"  class="searchBtn" id="common_search_btn"><i class="fas fa-search"></i></button>
-									</div>
-					    		</div>
-					   		</div>
-						    <div id="navwidth">
-						    	<ul class="navbar-nav ml-auto">
-						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
-						        	<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item"><a href="vet.html" class="nav-link">법률/매체</a></li>
-						        	<li class="nav-item"><a href="services.html" class="nav-link">커뮤니티</a></li>
-							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
-							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-							        
-							        <%-- <c:choose>
+			<div class="nav-search">
+				<div class="conheight">
+					<div class="collapse navbar-collapse" id="ftco-nav">
+						<div class="wrapSearch">
+							<div class="smKey">
+								<input type="text" id="searchText" title="searchJob"
+									name="stext" maxlength="50" style="background: none;">
+								<button type="submit" class="searchBtn" id="common_search_btn">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div id="navwidth">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+							<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
+							<li class="nav-item"><a href="vet.html" class="nav-link">법률/매체</a></li>
+							<li class="nav-item"><a href="services.html"
+								class="nav-link">커뮤니티</a></li>
+							<li class="nav-item"><a href="/sign/signIndex"
+								class="nav-link">수화를배워보자아</a></li>
+							<li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+
+							<%-- <c:choose>
 										<c:when test ="${sessionScope.userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume" class="nav-link">자료실</a></li>
 										</c:when>
@@ -106,12 +116,12 @@
 											<li class="nav-item active"><a href="/member/company/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
 									</c:choose> --%>
-						        </ul>
-						    </div>
-						</div>
+						</ul>
 					</div>
 				</div>
-			</nav>
+			</div>
+		</div>
+	</nav>
 	<!-- END nav -->
 	<section class="hero-wrap hero-wrap-2"
 		style="background-image: url('../resources/images/bg_2.jpg');"
@@ -125,19 +135,35 @@
 								class="ion-ios-arrow-forward"></i></a></span> <span>화 <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-0 bread">이거슨 수화</h1>
+					<h1 class="mb-0 bread">이거슨 수화1</h1>
+
+
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section class="ftco-section">
-		<div class="container">
-			<div class="row">
 
+		<div class="container">
+		
+		<!-- 수화 검색창 -->
+		<div class="row mb-5">
+			<div class="col text-center">
+					<div class="wrapSearch">
+							<input type="text" id="searchText_2" title="searchJob" name="stext"
+								maxlength="50" style="background: none;">
+							<button type="submit" class="searchBtn_2" id="common_search_btn">
+								<i class="fas fa-search"></i>
+							</button>
+					</div>
+			</div>
+		</div>
+			<div class="row">
 				<!-- 수화 임시 테스트용 -->
 				<div class="col-md-4 ftco-animate">
 					<div class="mb-4 img d-flex align-items-end">
+
 
 						<video id="html5Video" controls="true" preload="auto" width="100%"
 							height="100%" controlslist="nodownload">

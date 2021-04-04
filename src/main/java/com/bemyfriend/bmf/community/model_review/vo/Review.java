@@ -1,19 +1,20 @@
-package com.bemyfriend.bmf.board.model.vo;
+package com.bemyfriend.bmf.community.model_review.vo;
 
 import java.util.Date;
 
-public class Board {
+public class Review {
 
     private int reviewNo;
 	private String userId;
 	private String reviewTitle;
 	private String reviewContent;
 	private Date reviewDate;
-	public Board() {
+	
+	public Review() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Board(int reviewNo, String userId, String reviewTitle, String reviewContent, Date reviewDate) {
+	public Review(int reviewNo, String userId, String reviewTitle, String reviewContent, Date reviewDate) {
 		super();
 		this.reviewNo = reviewNo;
 		this.userId = userId;

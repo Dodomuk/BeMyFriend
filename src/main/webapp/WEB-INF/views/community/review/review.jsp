@@ -50,7 +50,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:if test="${empty reviewList}">
+	<!-- 			<c:if test="${empty reviewList}">
 					<tr>
 						<td>데이터가 존재하지 않습니다.</td>
 					</tr>
@@ -75,14 +75,14 @@
 				<tr>
 					<td colspan="5">
 					<a href="/boardlist/reviewForm" class="btn btn_default">글쓰기</a></td>
-				</tr>
+				</tr> -->
 			</tbody>
 		</table>
 		
 		<p>-----------------------------------------------</p>
 		
 		<!-- section pagination -->
-		<div class="paging">
+	<!-- 	<div class="paging">
 			<a href="${context}/${paging.type}/boardlist/form" class="nav first">《</a>
 			<a href="${context}/${paging.type}/boardlist/form=${paging.prev}">〈</i></a>
 
@@ -96,7 +96,9 @@
 			<a
 				href="${context}/${paging.type}/boardlist/form?page=${paging.lastPage}">》</a>
 		</div>
+	-->
 	</div>
+	
 	<!-- // section pagination -->
 
 </body>

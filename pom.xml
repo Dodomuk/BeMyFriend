@@ -53,6 +53,7 @@
 		    <artifactId>ojdbc8</artifactId>
 		    <version>19.7.0.0</version>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
 		<dependency>
 		    <groupId>com.oracle.database.security</groupId>

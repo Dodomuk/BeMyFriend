@@ -11,13 +11,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+<!--  DB 계정 정보  -->
+	 <bean id = "dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		<property name="username" value="bm"/>
-		<property name="password" value="USER11"/>	
+		<property name="url" value="jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=C:/CODE/wallet/Wallet_pclassDB"/>
+		<property name="username" value="admin"/>
+		<property name="password" value="1*aL201210380"/>
 	</bean>
 	
 	
@@ -82,7 +81,7 @@
 		
 		
 		
-   	<mybatis-spring:scan base-package="com.bemyfriend.bmf, board" 
+   	<mybatis-spring:scan base-package="com.bemyfriend.bmf, review" 
 				  annotation="org.apache.ibatis.annotations.Mapper"/>
     
     <context:component-scan base-package="com.bemyfriend.bmf">

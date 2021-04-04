@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -13,13 +14,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
 public class OracleConnectionTest {
 
-	 @Inject
-	private DataSource ds;
-	
 	 @Test
 	 public void testConnection() throws Exception{
 		 
-		 try (Connection con = ds.getConnection()) {
+		 try (Connection con = DriverManager
+				 .getConnection("jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=C:/CODE/git/wallet/Wallet_pclassDB", "admin", "1*aL201210380")) {
 			 
 	            System.out.println("\n >>>>>>>>>> Connection 출력 : " + con + "\n");
 	 

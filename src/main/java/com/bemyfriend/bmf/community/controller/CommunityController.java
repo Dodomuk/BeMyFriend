@@ -1,4 +1,4 @@
-package com.bemyfriend.bmf.board.controller;
+package com.bemyfriend.bmf.community.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,21 +11,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bemyfriend.bmf.board.model.service.impl.BoardServiceImpl;
-import com.bemyfriend.bmf.board.model.vo.Board;
 import com.bemyfriend.bmf.common.util.paging.Paging;
+import com.bemyfriend.bmf.community.model_review.service.impl.ReviewServiceImpl;
+import com.bemyfriend.bmf.community.model_review.vo.Review;
 
 @Controller
-@RequestMapping("boardlist")
-public class BoardController {
+@RequestMapping("community")
+public class CommunityController {
 
 	@Autowired
-	private BoardServiceImpl boardService;
+	private ReviewServiceImpl reviewService;
 	
-	@GetMapping("review")
-	// model 안에 request 존재. model에 데이터를 저장하면 request
+	@GetMapping("review/review")
 	public String list(
-			/* @RequestParam(defaultValue = "1") */Paging page, Model model, @ModelAttribute("boardInfo") Board board) {
+			/* @RequestParam(defaultValue = "1") */Paging page, Model model, @ModelAttribute("reviewInfo") Review review) {
 
 		Date today = new Date();	
 		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
@@ -33,10 +32,10 @@ public class BoardController {
 		
 		System.out.println(now);
 		System.out.println("여기서부터 게시판 시작");
-			System.out.println(boardService.selectReviewList(page));
-			model.addAttribute("reviewList",boardService.selectReviewList(page));
+			System.out.println(reviewService.selectReviewList(page));
+			model.addAttribute("reviewList",reviewService.selectReviewList(page));
 			model.addAttribute("page",page);
-			return "boardlist/review";
+			return "community/review/review";
 		}
 	
 	
@@ -44,42 +43,32 @@ public class BoardController {
 	public String listForm()
 	{
 		System.out.println("여기서부터 게시판 글 작성 시작");
-		return "boardlist/reviewForm";
+		return "community/reviewForm";
 	}
 	
 	@PostMapping("reviewForm")
-	public String write(Board board)
+	public String write(Review review)
 	{
 		System.out.println("다시 게시판으로 redirect");
 		
-		boardService.insertReview(board);
-		return "redirect:boardlist/review";
+		reviewService.insertReview(review);
+		return "community/review";
 	}
 	
 	
 	//더미데이터 넣으려고 임시로 만들어둔 경로 (junit용)
 	@GetMapping("lawInfo")
-	public String lawInfo(Model model,Board board){
+	public String lawInfo(Model model,Review review){
 		
 		  for(int i=1; i<=100; i++) {
 		  
-		    board.setUserId("ex00000" +i);
-		    board.setReviewTitle("연습"+i);
-		    board.setReviewContent("이것은 연습용 데이터입니당" +i);
-			boardService.insertDummi(board);
+		    review.setUserId("ex00000" +i);
+		    review.setReviewTitle("연습"+i);
+		    review.setReviewContent("이것은 연습용 데이터입니당" +i);
+		    reviewService.insertDummi(review);
 		  }
 		
-		return "boardlist/lawInfo";
-	}
-	
-	@GetMapping("mediaInfo")
-	public String mediaInfo(){
-		return "boardlist/mediaInfo";
-	}
-	
-	@GetMapping("qna")
-	public String qna(){
-		return "boardlist/qna";
+		return "community/lawInfo";
 	}
 }
 

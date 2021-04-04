@@ -24,6 +24,11 @@ public class CompanyHire {
 	private String jobImage;
 	
 	
+	public CompanyHire() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 	
 	public CompanyHire(int jobNo, String comId, String jobTitle, Date jobDeadline, String jobStep, String jobType,

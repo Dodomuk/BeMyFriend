@@ -8,7 +8,7 @@ public interface UserService {
 	//실질적인 코드 구현은 ServiceImpl에서 진행
 	
 	
-	User memberAuthenticate(String userId, String userPw);
+	User memberAuthenticate(User user);
 	
 	User selectMemberById(String userId);
 	

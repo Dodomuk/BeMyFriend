@@ -11,12 +11,18 @@ public class User {
 	private String userTell;
 	private String userMail;
 	private Date userBirth;
+	private Date userJoindate;
+	private int userIsleave;
 	
 	
+	
+	public User() {
+		
+	}
 	
 	
 	public User(String userId, String userPw, String userName, String userAdd, String userTell, String userMail,
-			Date userBirth) {
+			Date userBirth, Date userJoindate, int userIsleave) {
 		super();
 		this.userId = userId;
 		this.userPw = userPw;
@@ -25,6 +31,8 @@ public class User {
 		this.userTell = userTell;
 		this.userMail = userMail;
 		this.userBirth = userBirth;
+		this.userJoindate = userJoindate;
+		this.userIsleave = userIsleave;
 	}
 
 
@@ -128,12 +136,41 @@ public class User {
 
 
 
+	public Date getUserJoindate() {
+		return userJoindate;
+	}
+
+
+
+
+	public void setUserJoindate(Date userJoindate) {
+		this.userJoindate = userJoindate;
+	}
+
+
+
+
+	public int getUserIsleave() {
+		return userIsleave;
+	}
+
+
+
+
+	public void setUserIsleave(int userIsleave) {
+		this.userIsleave = userIsleave;
+	}
+
+
+
+
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userAdd=" + userAdd
-				+ ", userTell=" + userTell + ", userMail=" + userMail + ", userBirth=" + userBirth + "]";
-	}
-
+				+ ", userTell=" + userTell + ", userMail=" + userMail + ", userBirth=" + userBirth + ", userJoindate="
+				+ userJoindate + ", userIsleave=" + userIsleave + "]";
+	} 
+	
 	
 	
 	

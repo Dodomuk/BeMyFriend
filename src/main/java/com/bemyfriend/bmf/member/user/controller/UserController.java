@@ -12,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,8 +25,13 @@ import com.bemyfriend.bmf.member.user.model.vo.User;
 @RequestMapping("member/user")
 public class UserController {
 	
-	@Autowired
-	private UserService userService;
+	
+	private final UserService userService;
+	
+	
+	public UserController(UserService userService) {
+		this.userService = userService; //의존성 주입
+	}
 	
 	
 	@GetMapping("join")
@@ -99,18 +105,25 @@ public class UserController {
 	
 	
 	
-	@GetMapping("loginimpl")
-	public String loginmpl() {
-		// 로그인 완료되면 메인 페이지로 이동
+	@PostMapping("loginimpl")
+	@ResponseBody								  //session에 저장해야 함
+	public String loginmpl(@RequestBody User user, HttpSession session) {
+		// 로그인 완료되면 success/ fail 문자열 반환(=>ResponseBody에 찍힘)
+		// ResponseBody에 찍힌 문자열은 .then((text) => {
+		// 이 형태로 fatch를 이용해 꺼내게 되는 것
 		
-		return "/index";
-	}
+		User userMember = userService.memberAuthenticate(user);
+		System.out.println(userMember);
+		if(userMember == null) { // 없는 회원이라면
+			return "fail";
 	
+		}
+			session.setAttribute("userMember", userMember);
+			return "success";
+		}
+
 	
-	
-	
-	
-	
+
 	
 
 }

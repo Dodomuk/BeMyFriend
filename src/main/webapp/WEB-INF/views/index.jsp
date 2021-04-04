@@ -35,18 +35,14 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:choose>
-									<c:when test ="${sessionScope.userMember == null || sessionScope.comMember == null}">
+				    			<c:if test="${sessionScope.userMember == null and sessionScope.comMember == null}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
-									</c:when>
-								</c:choose>
-				    			
-				    			<c:choose>
-									<c:when test ="${sessionScope.comMember != null}">
-										<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
-									</c:when>
-								</c:choose>
+								</c:if>
+
+								<c:if test ="${sessionScope.comMember != null}">
+									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
+								</c:if>
 				    			
 				    		</p>
 		        		</div>
@@ -858,7 +854,7 @@
 											<div class="icon">
 												<span class="fa fa-chevron-down"></span>
 											</div>
-											<select name="" id="" class="form-control">
+											<select name="aa" id="aaa" class="form-control">
 												<option value="">Select services</option>
 												<option value="">Cat Sitting</option>
 												<option value="">Dog Walk</option>

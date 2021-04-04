@@ -12,13 +12,21 @@ public class Company {
 	private String comMail;
 	private String comType;
 	private String comManager;
+	private Date comJoindate;
+	private int comIsleave;
+
 	
 	
 	
-	
-	
+	public Company() {
+		
+	}
+
+
+
+
 	public Company(String comId, String comPw, String comAddress, String comTell, String comMail, String comType,
-			String comManager) {
+			String comManager, Date comJoindate, int comIsleave) {
 		super();
 		this.comId = comId;
 		this.comPw = comPw;
@@ -27,7 +35,8 @@ public class Company {
 		this.comMail = comMail;
 		this.comType = comType;
 		this.comManager = comManager;
-		
+		this.comJoindate = comJoindate;
+		this.comIsleave = comIsleave;
 	}
 
 
@@ -131,13 +140,40 @@ public class Company {
 
 
 
+	public Date getComJoindate() {
+		return comJoindate;
+	}
+
+
+
+
+	public void setComJoindate(Date comJoindate) {
+		this.comJoindate = comJoindate;
+	}
+
+
+
+
+	public int getComIsleave() {
+		return comIsleave;
+	}
+
+
+
+
+	public void setComIsleave(int comIsleave) {
+		this.comIsleave = comIsleave;
+	}
+
+
+
 
 	@Override
 	public String toString() {
 		return "Company [comId=" + comId + ", comPw=" + comPw + ", comAddress=" + comAddress + ", comTell=" + comTell
-				+ ", comMail=" + comMail + ", comType=" + comType + ", comManager=" + comManager + "]";
+				+ ", comMail=" + comMail + ", comType=" + comType + ", comManager=" + comManager + ", comJoindate="
+				+ comJoindate + ", comIsleave=" + comIsleave + "]";
 	}
-
 	
 	
 	

@@ -15,6 +15,11 @@ public class CompanySupport {
 	
 	
 	
+	public CompanySupport() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	public CompanySupport(String comId, int supLift, int supElv, int supBath, int supVoice, int supBlock, int supSign,
 			int supPark, int supCharge, int supWelfare) {
 		super();

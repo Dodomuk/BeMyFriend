@@ -1,7 +1,7 @@
 package com.bemyfriend.bmf.member.user.model.service.impl;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.bemyfriend.bmf.member.user.model.repository.UserRepository;
@@ -11,8 +11,9 @@ import com.bemyfriend.bmf.member.user.model.vo.User;
 @Service // @Component 와 다를 것이 없음.
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+	
+	private final UserRepository userRepository;
+	
 	
 	
 	public UserServiceImpl(UserRepository userRepository) {
@@ -20,10 +21,17 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	
+	
+	
+	
 	@Override
-	public User memberAuthenticate(String userId, String userPw) {
+	public User memberAuthenticate(User user) {
 		
-		return userRepository.memberAuthenticate(userId, userPw);
+		
+		String userId = user.getUserId();
+		String userPw = user.getUserPw();
+		
+		return userRepository.memberAuthenticate(userId ,userPw );
 	}
 
 	@Override

@@ -9926,3 +9926,9 @@ div#ftco-nav {
     margin-left: 0;
     justify-content: center;
 }
+
+.form-group-log {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}

@@ -3,6 +3,7 @@ package com.bemyfriend.bmf.member.user.model.repository;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -18,28 +19,28 @@ public interface UserRepository {
 
 	
 	//회원가입시 해당 아이디가 있는지 확인(idCheck)
-	@Select("SELECT * FROM USER WHERE USER_ID = #{userId}")
+	@Select("SELECT * FROM USERS WHERE USER_ID = #{userId}")
 	User selectMemberById(String userId);
 	
 	
 	//회원가입하기
-	@Insert("INSERT INTO USER(user_id, user_pw, user_name, user_add, user_tell, user_mail, user_birth)"
+	@Insert("INSERT INTO USERS(user_id, user_pw, user_name, user_add, user_tell, user_mail, user_birth)"
 			+ "values(#{userId},#{userPw},#{userName},#{userAdd}, #{userTell}, #{userMail}, #{userBirth}")
 	int insertUser(User user);
 	
 	
 	//로그인하기
-	@Select("SELECT * FROM USER WHERE USER_ID = #{userId} and USER_PW = ${userPw}")
-	User memberAuthenticate(String userId, String userPw);
+	@Select("SELECT * FROM USERS WHERE USER_ID = #{userId} and USER_PW = ${userPw}")
+	User memberAuthenticate(@Param("userId") String userId, @Param("userPw")String userPw);
 		
 	
 	//아이디 찾기
-	@Select("SELECT user_id from USER WHERE USER_NAME = #{userName} and user_mail = #{userMail}")
+	@Select("SELECT user_id from USERS WHERE USER_NAME = #{userName} and user_mail = #{userMail}")
 	User selectUserForFindId(String userName, String userMail);
 	
 	
 	//비밀번호 찾기
-	@Select("SELECT * FROM USER WHERE USER_ID = #{user_id} and USER_TELL = #{userTell}")
+	@Select("SELECT * FROM USERSS WHERE USER_ID = #{user_id} and USER_TELL = #{userTell}")
 	int selectUserForFindPw(String userId, String userTell);
 	
 	

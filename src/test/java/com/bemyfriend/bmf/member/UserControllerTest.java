@@ -67,10 +67,17 @@ public class UserControllerTest {
 	
 	
 	@Test
-	public void mypage() throws Exception {
-		mockMvc.perform(get("/mypage")).andDo(print());
+	public void loginimpl() throws Exception {
+		mockMvc.perform(post("/member/user/loginimpl")
+						.param("userId", "test")
+						.param("userPw", "12345")).andDo(print());
 	}
 	
+	
+	
+	
+	
+
 	
 
 	

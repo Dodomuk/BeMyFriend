@@ -12,27 +12,14 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	<!-- DB 계정 정보 -->
+	 <bean id = "dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		<property name="username" value="bm"/>
-		<property name="password" value="USER11"/>	
+		<property name="url" value="jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=/Users/miyoung/06_oracle/Wallet_pclassDB"/>
+		<property name="username" value="admin"/>
+		<property name="password" value=""/>
 	</bean>
-	
-	
-	<!-- //월렛으로 oracle 연결
-	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
-      <property name="URL" value="jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=/Users/miyoung/06_oracle/Wallet_pclassDB"/>
-      <property name="connectionCacheProperties">
-         <props>
-            <prop key="user">admin</prop>
-            <prop key="password"></prop>
-         </props>
-      </property>
-	</bean>
-	-->
-		
+
 		
 		
 		

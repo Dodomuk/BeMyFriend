@@ -15,4 +15,9 @@ public class IndexController {
 	public String main(){
 		return "index";
 	}
+	
+	@GetMapping("/popup")
+	public String popup(){
+		return "util/popup/popup";
+	}
 }

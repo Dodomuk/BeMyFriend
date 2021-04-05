@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.bemyfriend.bmf.board.model.vo.Board;
+import com.bemyfriend.bmf.community.model_review.vo.Review;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

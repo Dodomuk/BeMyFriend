@@ -9905,6 +9905,7 @@ div#ftco-nav {
 
  /* miyoung */
  
+
  
  .col-md-7-p {
     -webkit-box-flex: 0;
@@ -9932,3 +9933,32 @@ div#ftco-nav {
     display: flex;
     justify-content: center;
 }
+
+ /* Lee */
+ .smKey_2 {
+	display:flex;
+}
+ 
+ #searchText_2{
+    width: 500px;
+    padding: 0 10px 3px 12px;
+    height: 35px;
+    font: 16px/35px '맑은 고딕',Malgun Gothic,'돋움',Dotum,sans-serif;
+    letter-spacing: -1px;
+    border: 2px solid darkseagreen;
+    border-radius: 6px;
+ }
+ 
+.searchBtn_2{
+	background-color: darkseagreen;
+	border: 1px solid darkseagreen;
+	width: 50px;
+	height: 35px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.searchBtn_2:hover{
+	background-color: cadetblue;
+}
+

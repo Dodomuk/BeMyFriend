@@ -18,7 +18,7 @@ public class OracleConnectionTest {
 	 public void testConnection() throws Exception{
 		 
 		 try (Connection con = DriverManager
-				 .getConnection("jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=C:/CODE/git/wallet/Wallet_pclassDB", "admin", "1*aL201210380")) {
+				 .getConnection("jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=C:/CODE/wallet/Wallet_pclassDB", "admin", "1*aL201210380")) {
 			 
 	            System.out.println("\n >>>>>>>>>> Connection 출력 : " + con + "\n");
 	 

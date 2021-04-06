@@ -33,20 +33,18 @@ public class PagingTest {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.webApp).build();
 	}
 	
-	/*
-	@Test
+	
+	/*@Test
 	 public void inputDummi() throws Exception{
 		
-			    mockMvc.perform(get("/boardlist/lawInfo")).andDo(print())
-				.andExpect(status().isOk());
-			  
-			 
+			    mockMvc.perform(get("/community/inputDummi")).andDo(print())
+				.andExpect(status().isOk());	 
 
 	 }*/
 	
 	@Test
 	public void pagingDefault() throws Exception{
-		mockMvc.perform(get("/boardlist/review")).andDo(print())
+		mockMvc.perform(get("/community/review/review")).andDo(print())
 		.andExpect(status().isOk());
 	}
 	

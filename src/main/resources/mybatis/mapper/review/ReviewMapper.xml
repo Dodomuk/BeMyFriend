@@ -16,11 +16,16 @@
                  from review a
                  )
              where
-             rnum between 1 and 3 <!-- 추후 수정 -->
+             rnum between ${startRow} and ${endRow} 
     </select>  
         
-    <insert id="insertreview">
+    <insert id="insertReview">
     insert into review(review_no,user_id,review_title,review_content) 
     values(sc_rv_idx.nextval,#{userId},#{reviewTitle},#{reviewContent})
     </insert>
+    
+    <!-- 게시글 상세보기 조회 -->
+    <select id="viewId" resultType="review" parameterType="int">
+    select *from review where review_no = #{view}
+    </select>
 </mapper>

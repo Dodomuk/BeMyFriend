@@ -12,9 +12,9 @@ import com.bemyfriend.bmf.community.model_review.vo.Review;
 @Mapper
 public interface ReviewMapper {
 
-	public List<Review> selectReviewList(Paging paging); 
+	public List<Review> selectReviewList(Paging page); 
 	
-	public Object view(int review_no);
+	public Review viewId(int reviewNo);
 	
 	public Integer insertReview(Review review);
 	// 게시글 업로드
@@ -22,9 +22,11 @@ public interface ReviewMapper {
 	  //더미데이터 집어넣으려고 임시로 만듦
 	  @Insert("insert into review(review_no,user_id,review_title,review_content)" 
 	  + " values(sc_rv_idx.nextval,#{userId},#{reviewTitle},#{reviewContent})") 
-	  int insertBoard(Review review);
+	  int insertDummi(Review review);
 
 	  @Select("select count(*) from review")
 	  int selectContentCnt();
+	  
+	  
    
 }

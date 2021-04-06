@@ -10,21 +10,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_review.service.impl.ReviewServiceImpl;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
 
 @Controller
-@RequestMapping("community")
+@RequestMapping("community/review")
 public class CommunityController {
 
 	@Autowired
 	private ReviewServiceImpl reviewService;
 	
-	@GetMapping("review/review")
+	// 게시판 메인
+	@GetMapping("/review")
 	public String list(
-			/* @RequestParam(defaultValue = "1") */Paging page, Model model, @ModelAttribute("reviewInfo") Review review) {
+			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("reviewInfo") Review review) {
 
 		Date today = new Date();	
 		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
@@ -33,42 +34,49 @@ public class CommunityController {
 		System.out.println(now);
 		System.out.println("여기서부터 게시판 시작");
 			System.out.println(reviewService.selectReviewList(page));
-			model.addAttribute("reviewList",reviewService.selectReviewList(page));
+			model.addAllAttributes(reviewService.selectReviewList(page));
 			model.addAttribute("page",page);
 			return "community/review/review";
 		}
 	
-	
-	@GetMapping("reviewForm")
+	// 게시글 작성 
+	@GetMapping("/reviewForm")
 	public String listForm()
 	{
 		System.out.println("여기서부터 게시판 글 작성 시작");
-		return "community/reviewForm";
+		return "community/review/reviewForm";
 	}
 	
-	@PostMapping("reviewForm")
+	@PostMapping("uploadForm")
 	public String write(Review review)
 	{
 		System.out.println("다시 게시판으로 redirect");
 		
 		reviewService.insertReview(review);
-		return "community/review";
+		return "redirect:/community/review/review";
 	}
 	
+	//게시글 보기
+	@GetMapping("/reviewView")
+	public String view(Review review,Model model,@RequestParam("view")int view) 
+	{
+	    System.out.println("게시글 보기");
+	    model.addAttribute("view", reviewService.viewId(view));
+	    return "/community/review/reviewView";
+	}
 	
 	//더미데이터 넣으려고 임시로 만들어둔 경로 (junit용)
-	@GetMapping("lawInfo")
+	@GetMapping("inputDummi")
 	public String lawInfo(Model model,Review review){
 		
 		  for(int i=1; i<=100; i++) {
-		  
 		    review.setUserId("ex00000" +i);
 		    review.setReviewTitle("연습"+i);
 		    review.setReviewContent("이것은 연습용 데이터입니당" +i);
 		    reviewService.insertDummi(review);
 		  }
 		
-		return "community/lawInfo";
+		return "inputDummi";
 	}
 }
 

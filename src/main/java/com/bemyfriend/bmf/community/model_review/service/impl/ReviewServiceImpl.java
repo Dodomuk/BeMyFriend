@@ -1,8 +1,7 @@
 package com.bemyfriend.bmf.community.model_review.service.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -18,27 +17,41 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Inject
 	private ReviewMapper mapper;
+    
+	@Override
+	public Map<String, Object> selectReviewList(int currentPage) {
 
-	public List<Review> selectReviewList(Paging paging) {
-		
-		paging = Paging.builder()
-				.currentPage(1)
-				.blockCnt(5)
+		Paging paging = Paging.builder()
+				.currentPage(currentPage)
+				.blockCnt(10)
 				.cntPerPage(20)
 				.type("review")
 				.total(mapper.selectContentCnt())
 				.build();
 
-		return mapper.selectReviewList(paging);
+		Map<String, Object> commandMap = new HashMap<String, Object>();
+		
+		commandMap.put("paging", paging);
+		commandMap.put("reviewList", mapper.selectReviewList(paging));
+		
+		return commandMap;
 	}
-
+	
+	@Override
+	public Review viewId(int reviewNo) {
+		return mapper.viewId(reviewNo);
+	}
+	
 	public int insertDummi(Review review) {
-		return mapper.insertBoard(review);
+		return mapper.insertDummi(review);
 	}
 
 	public Integer insertReview(Review review) {
-		System.out.println("커뮤니티 서비스" + review);
+		System.out.println("리뷰 게시판 게시글 추가" + review);
 		return mapper.insertReview(review);	
 	}
+
+
+
 
 }

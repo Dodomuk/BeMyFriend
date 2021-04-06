@@ -54,7 +54,7 @@ public class Review {
 	}
 	@Override
 	public String toString() {
-		return "Board [reviewNo=" + reviewNo + ", userId=" + userId + ", reviewTitle=" + reviewTitle
+		return "리뷰 내용: [reviewNo=" + reviewNo + ", userId=" + userId + ", reviewTitle=" + reviewTitle
 				+ ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + "]";
 	}
 

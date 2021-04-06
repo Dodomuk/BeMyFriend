@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+<title>비 마이 프랜드</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,11 +34,31 @@
 
 <link rel="stylesheet" href="../../resources/css/flaticon.css">
 <link rel="stylesheet" href="../../resources/css/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<style type="text/css">
+	.content{
+		width:80vw;
+		position:relative;
+		left:10vw;
+		display: flex;
+		flex-direction:column;
+		justify-content: center;
+	}
+
+	.paging{
+		width:30vw;
+		position:relative;
+		left:25vw;
+		display: flex;
+		justify-content:space-around;
+	}
+</style>
 </head>
 
 <body>
 	<div class="content">
-		<h2 class="tit">* 게시판</h2>
+		<h2 class="tit">리뷰 게시판</h2>
 
 		<table style="text-align: center" border="1">
 			<thead>
@@ -50,23 +70,23 @@
 				</tr>
 			</thead>
 			<tbody>
-	<!-- 			<c:if test="${empty reviewList}">
-					<tr>
-						<td>데이터가 존재하지 않습니다.</td>
-					</tr>
+	 			<c:if test="${empty reviewList}">
+					<td>
+						<p>데이터가 존재하지 않습니다.</p>
+					<td>
 				</c:if>
 				<c:if test="${!empty reviewList}">
 					<c:forEach items="${reviewList}" var="review">
 						<tr>
-							<td>${review.reviewNo}</td>
-							<td>${review.reviewTitle}</td>
+							<td id="rv_no">${review.reviewNo}</td>
+							<td id="rv_title"><a href="${context}/community/review/reviewView?view=${review.reviewNo}">${review.reviewTitle}</a></td>
 							<td>${review.userId}</td>
 							<td>
 							<c:if test="${review.reviewDate ne nowDate}">
 							<fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
 							</c:if>
 							<c:if test="${review.reviewDate eq nowDate}">
-							<fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" />
+							<fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" /><!-- 확인해봐야됨 -->
 							</c:if>
                             </td>
 						</tr>
@@ -74,34 +94,45 @@
 				</c:if>
 				<tr>
 					<td colspan="5">
-					<a href="/boardlist/reviewForm" class="btn btn_default">글쓰기</a></td>
-				</tr> -->
+					<a href="/community/review/reviewForm" class="btn btn_default">글쓰기</a></td>
+				</tr> 
 			</tbody>
 		</table>
 		
 		<p>-----------------------------------------------</p>
 		
 		<!-- section pagination -->
-	<!-- 	<div class="paging">
-			<a href="${context}/${paging.type}/boardlist/form" class="nav first">《</a>
-			<a href="${context}/${paging.type}/boardlist/form=${paging.prev}">〈</i></a>
+		<div class="paging">
+			<a href="${context}/${paging.type}/community/review/review" class="nav first">《</a>
+			<a href="${context}/${paging.type}/community/review/review=${paging.prev}">〈</i></a>
 
 			<c:forEach begin="${paging.blockStart}" end="${paging.blockEnd}"
 				var="page">
-				<a href="${context}/${paging.type}/boardlist/form?page=${page}"><span>${page}</span></a>
+				<a href="${context}/${paging.type}/community/review/review?page=${page}"><span>${page}</span></a>
 			</c:forEach>
 
 			<a
-				href="${context}/${paging.type}/boardlist/form?page=${paging.next}">〉</a>
+				href="${context}/${paging.type}/community/review/review?page=${paging.next}">〉</a>
 			<a
-				href="${context}/${paging.type}/boardlist/form?page=${paging.lastPage}">》</a>
+				href="${context}/${paging.type}/community/review/review?page=${paging.lastPage}">》</a>
 		</div>
-	-->
 	</div>
 	
 	<!-- // section pagination -->
 
 </body>
+<script type="text/javascript">
+
+   function view_move($("#rv_no")){
+	   
+	   e.preventDefault();
+	   
+  	 var rv_no = "${context}/community/review/reviewView" +"?view=" + $("#rv_no").text();
+  	   location.href =  rv_no;
+   }
+   
+</script>
+
 <script src="../../resources/js/jquery.min.js"></script>
 <script src="../../resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="../../resources/js/popper.min.js"></script>

@@ -13,6 +13,8 @@
 		ex)이 프로젝트에서는 contextPath가 jsp임으로 jsp가 context변수에 담긴다. 
 	--%>
 	
+	
+	
 		<!-- 1:1채팅 -->
 <script>
  (function() {
@@ -55,6 +57,7 @@
   });
 </script>
 <!--  -->
+	
 	
 	<script type="text/javascript" src="/resources/js/common/urlEncoder.js"></script>
 	<script type="text/javascript" src="/resources/js/common/asyncPageError.js"></script>

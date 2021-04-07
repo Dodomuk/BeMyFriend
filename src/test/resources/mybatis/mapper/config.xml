@@ -12,12 +12,16 @@
 	<typeAliases>
 		<typeAlias type="com.bemyfriend.bmf.board.model.vo.Board" alias="board"/>
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
+		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
+		
 	</typeAliases>
 
 	
 	<mappers>
 		<mapper resource="mybatis/mapper/board/BoardMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
+		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
+		
 	</mappers>
 	
 </configuration>

@@ -24,7 +24,7 @@ public class ReviewServiceImpl implements ReviewService {
 		Paging paging = Paging.builder()
 				.currentPage(currentPage)
 				.blockCnt(10)
-				.cntPerPage(20)
+				.cntPerPage(16)
 				.type("review")
 				.total(mapper.selectContentCnt())
 				.build();
@@ -42,15 +42,26 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.viewId(reviewNo);
 	}
 	
+	@Override
+	public boolean deleteReview(int no) {
+		System.out.println("게시물 삭제");
+		return mapper.deleteReview(no);
+	}
+	
 	public int insertDummi(Review review) {
 		return mapper.insertDummi(review);
 	}
 
 	public Integer insertReview(Review review) {
-		System.out.println("리뷰 게시판 게시글 추가" + review);
+		System.out.println("리뷰 게시판 게시글 추가" + review.getReviewNo());
 		return mapper.insertReview(review);	
 	}
-
+	
+	@Override
+	public boolean updateReview(Review review) {
+		System.out.println("게시글 수정");
+		return mapper.updateReview(review);
+	}
 
 
 

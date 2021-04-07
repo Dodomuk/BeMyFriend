@@ -1,5 +1,6 @@
 package com.bemyfriend.bmf.community.model_review.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Review {
@@ -47,6 +48,7 @@ public class Review {
 		this.reviewContent = reviewContent;
 	}
 	public Date getReviewDate() {
+		
 		return reviewDate;
 	}
 	public void setReviewDate(Date reviewDate) {

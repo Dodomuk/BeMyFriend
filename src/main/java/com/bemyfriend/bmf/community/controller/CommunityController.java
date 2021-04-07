@@ -63,6 +63,29 @@ public class CommunityController {
 	    System.out.println("게시글 보기");
 	    model.addAttribute("view", reviewService.viewId(view));
 	    return "/community/review/reviewView";
+	} 
+	
+	//게시글 삭제
+	@GetMapping("delete")
+	public String delete(int no) {
+		reviewService.deleteReview(no);
+		return "redirect:/community/review/review"; 
+	}
+	
+	//게시글 수정 화면 이동
+	@GetMapping("reviewFix")
+	public String update(Review review,Model model,@RequestParam("view")int view) {
+		model.addAttribute("view", reviewService.viewId(view));
+		return "community/review/reviewFix";
+	}
+	
+	
+	//게시글 수정
+	@PostMapping("updateForm")
+	public String updateForm(Review review)
+	{
+		reviewService.updateReview(review);
+		return "redirect:/community/review/review?no="+review.getReviewNo();
 	}
 	
 	//더미데이터 넣으려고 임시로 만들어둔 경로 (junit용)
@@ -78,5 +101,6 @@ public class CommunityController {
 		
 		return "inputDummi";
 	}
+	
 }
 

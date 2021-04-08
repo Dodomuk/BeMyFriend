@@ -36,8 +36,12 @@
     </delete>
     
     <!-- 게시글 수정 -->
-    <update id="updateReview" parameterType="review">
-         update review set user_id = #{userId}, review_title=#{reviewTitle}, review_content=#{reviewContent} where review_no = #{no} 
+    <update id="updateReview">
+         update review set user_id=#{userId}, review_title=#{reviewTitle}, review_content=#{reviewContent} where review_no = ${reviewNo} 
     </update>
     
+    <!-- 게시판 조회수  -->
+    <update id="viewCount">
+          update review set view_cnt= view_cnt+1 where review_no = ${view}
+    </update> 
 </mapper>

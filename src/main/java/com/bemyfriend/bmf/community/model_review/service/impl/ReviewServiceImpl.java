@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_review.mapper.ReviewMapper;
@@ -58,11 +60,16 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	@Override
-	public boolean updateReview(Review review) {
+	public void updateReview(Review review) {
 		System.out.println("게시글 수정");
-		return mapper.updateReview(review);
+		mapper.updateReview(review);
+	}
+	
+	@Override
+	public void viewCount(int no) {
+		mapper.viewCount(no);
 	}
 
-
+    
 
 }

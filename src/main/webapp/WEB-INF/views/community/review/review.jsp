@@ -86,6 +86,7 @@
               <div class="media-body p-3">
                 <h3 class="heading">${review.reviewTitle}</h3>
                 <p>${review.userId}</p>
+                <p>${review.viewCnt}</p> 
                 <span class="position">
                <c:choose>
                 <c:when test="${review.reviewDate eq today}">

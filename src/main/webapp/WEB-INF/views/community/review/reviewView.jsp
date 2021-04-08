@@ -25,8 +25,8 @@
        <div class="btn_section btn_delete" id="del_btn">
        <span>삭제</span>
       </div>
-      <div class="btn_section btn_modify" id="fix_btn">
-        <span>수정</span> <!-- 나중에 미영누나 회원가입 창 완성되면 세션 값 유무로 다시ㄱㄱ -->
+      <div class="btn btn-outline-info" id="fix_btn">
+        수정 <!-- 나중에 미영누나 회원가입 창 완성되면 세션 값 유무로 다시ㄱㄱ -->
       </div>
       
    </div>
@@ -47,12 +47,14 @@ $(function(){
   });
 });
 
+    /* 뒤로가기 */
 $(function(){
 	  $("#back_btn").click(function(){  
 		  history.back();			  
 	  });
 	});
 	
+	/* 수정 */
 $(function(){
 	  $("#fix_btn").click(function(){  
 		 location.href = "${context}/community/review/reviewFix?no=${view.reviewNo}";		  

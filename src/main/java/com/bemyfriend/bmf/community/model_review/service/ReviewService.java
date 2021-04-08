@@ -12,5 +12,7 @@ public interface ReviewService {
 	 
      public boolean deleteReview(int no);
      
-     public boolean updateReview(Review review);
+     public void updateReview(Review review);
+     
+     public void viewCount(int no);
 }

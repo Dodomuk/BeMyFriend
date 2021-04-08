@@ -20,7 +20,9 @@ public interface ReviewMapper {
 	
 	public boolean deleteReview(int no);
 	
-	public boolean updateReview(Review review);
+	public void updateReview(Review review);
+	
+	public void viewCount(int no);
 	
 	// 게시글 업로드
 	

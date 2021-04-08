@@ -32,6 +32,8 @@ public interface ReviewMapper {
 	  @Select("select count(*) from review")
 	  int selectContentCnt();
 	  
+	  @Select("select * from review")
+	  Review selectReview();
 	  
    
 }

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.bemyfriend.bmf.calendar.model.repository.CalendarRepository;
 import com.bemyfriend.bmf.calendar.model.service.CalendarService;
-import com.bemyfriend.bmf.calendar.model.vo.Calendar;
 
 
 
@@ -29,9 +28,12 @@ public class CalendarServiceImpl implements CalendarService{
 	
 	
 	@Override
-	public List<Calendar> selectCalendarRecruit() {
-		// TODO Auto-generated method stub
-		return calendarRepository.selectCalendarRecruit();
+	public Map<String,Object> selectCalendarRecruit() {
+		
+		Map<String,Object> commandMap = new HashMap<String, Object>();
+		commandMap.put("calendarList", calendarRepository.selectCalendarRecruit());
+		
+		return commandMap;
 	}
 	
 	

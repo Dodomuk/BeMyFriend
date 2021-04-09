@@ -107,6 +107,8 @@
 		</dependency>
 
 
+
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -150,6 +152,8 @@
 			<scope>runtime</scope>
 		</dependency>
 
+
+
 		<!-- Spring Validator -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
 		<dependency>
@@ -158,12 +162,17 @@
 			<version>6.2.0.Final</version>
 		</dependency>
 
+
+
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+
+
 
 		<!-- Servlet -->
 		<dependency>
@@ -185,6 +194,7 @@
 		</dependency>
 
 
+
 		<!-- 마이바티스 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
@@ -203,6 +213,9 @@
 			<artifactId>spring-orm</artifactId>
 			<version>5.3.3</version>
 		</dependency>
+		
+		
+		
 		<!-- DataBase Connection Pool : connection 객체를 미리 생성해 가지고 있다가 요청이 들어오면 
 			 connection을 제공할 수 있도록 저장해주는 객체 -->
 		<!-- 사용중 -->
@@ -211,6 +224,8 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.8.0</version>
 		</dependency>
+
+
 
 		<!-- request의 파라미터와 자바 객체를 바인드 해주는 dependency -->
 		<dependency>
@@ -239,19 +254,23 @@
 
 
 
-		<!-- 메일 발송 -->
+		<!-- 메일 발송을 위한 dependency -->
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version>
 		</dependency>
 		
-		<!-- web crawling -->
+		
+		
+		<!-- web crawling(웹 크롤링) -->
 		<dependency>
 		    <groupId>org.jsoup</groupId>
 		    <artifactId>jsoup</artifactId>
 		    <version>1.13.1</version>
 		</dependency>
+
+
 
 
 		<!-- Test -->

@@ -147,28 +147,27 @@
 								<div class="col-md-7-p-log">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 					
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<div id="contactForm" class="contactForm">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group">
-														<label class="label" for="userId">아이디</label>
+														<label class="label" id="userId" for="userId">아이디</label>
 														<input type="text" class="form-control" name="userId" id="userId" >
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" id="userPw" for="userPw" >비밀번호</label>
-														<input type ="text" class="form-control" name="userPw" id="userPw">
+														<input type ="password" class="form-control" name="userPw" id="userPw">
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group-log">
-														<input type="submit" onclick="login()" value="로그인" class="btn btn-primary">
-														<div class="submitting"></div>
+													<div class="form-group-log-p">
+														<button type="submit" onclick="login()" class="btn btn-primary">로그인</button>
 													</div>
 												</div>
 											</div>
-										</form>
+										</div>
 									</div>
 								</div>
 								

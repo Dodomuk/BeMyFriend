@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
   <body>
-	
-   		<!-- header bar -->
+	<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -36,19 +35,18 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:if test="${sessionScope.userMember == null and sessionScope.comMember == null}">
+				    			<c:choose>
+									<c:when test ="${sessionScope.userMember == null || sessionScope.comMember == null}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
-								</c:if>
-								<c:if test="${sessionScope.userMember != null}">
-										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
-								</c:if>
-								<c:if test="${sessionScope.comMember != null}">
-				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
-								</c:if>
-								<c:if test ="${sessionScope.comMember != null}">
-									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
-								</c:if>
+									</c:when>
+								</c:choose>
+				    			
+				    			<c:choose>
+									<c:when test ="${sessionScope.comMember != null}">
+										<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
+									</c:when>
+								</c:choose>
 				    			
 				    		</p>
 		        		</div>
@@ -82,9 +80,9 @@
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
 						        	<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item"><a href="/lawAndMedia" class="nav-link">법률/매체</a></li>
-						        	<li class="nav-item"><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
-							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
+						        	<li class="nav-item"><a href="vet.html" class="nav-link">법률/매체</a></li>
+						        	<li class="nav-item"><a href="services.html" class="nav-link">커뮤니티</a></li>
+							        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 							        
 							        <c:choose>
@@ -128,8 +126,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Join <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-0 bread">Join</h1>
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Login <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-0 bread">Login</h1>
           </div>
         </div>
       </div>
@@ -139,85 +137,24 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">기업회원 가입하기</h2>
+						<h2 class="heading-section">회원가입하기</h2>
 					</div>
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-md-12">
 						<div class="wrapper">
-							<div class="row no-gutters">
-								<div class="col-md-7-p">
+							<div class="row no-gutters-log">
+								<div class="col-md-7-p-log">
 									<div class="contact-wrap w-100 p-md-5 p-4">
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="name">아이디</label>
-															<div class="idcheck-group">
-																<input type="text" class="form-control" name="name" id="name" >
-																<button type="button" onclick="idCheck()" class="btn btn-primary-p">확인</button>
-															</div>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="#">기업명</label>
-														<input type="text" class="form-control" name="name"  id="name"></input>
-													</div>
-												</div>
-												<div class="col-md-6"> 
-													<div class="form-group">
-														<label class="label" for="email">비밀번호</label>
-														<input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호를 입력하세요.">
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="subject">비밀번호 확인</label>
-														<input type="password" class="form-control" name="checkpw" id="checkpw" placeholder="비밀번호를 다시 입력해주세요.">
-													</div>
-												</div>
-												
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="#">기업주소</label>
-														<input type="text" class="form-control" name="address"  id="address"></input>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="#">기업전화번호</label>
-														<input type="text" class="form-control" name="tell"  id="tell"></input>
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="#">기업이메일</label>
-														<input type="email" class="form-control" name="email"  id="email"></input>
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="#">기업형태</label><br>
-															<input type="radio" class ="status" name="status1" id="status1"> 스타트업<br>
-															<input type="radio" class ="status" name="status2" id="status2"> 중소기업<br>
-															<input type="radio" class ="status" name="status3" id="status3"> 중견기업<br>
-															<input type="radio" class ="status" name="status4" id="status4"> 대기업				
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="#">인사담당자</label>
-														<input type="text" class="form-control" name="personmgr"  id="personmgr"></input>
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group-log-p">
-														<button type="submit" class="btn btn-primary">회원가입</button>
+					
+										<div id="contactForm" class="contactForm">
+													<div class="form-group-log">
+														<button type="button" onclick="location.href='/member/user/join'"  class="btn btn-primary">개인 회원가입</button>
+														<button type="button" onclick="location.href='/member/company/join'" class="btn btn-primary">기업 회원가입</button>
 													</div>
 												</div>
 											</div>
-										</form>
+										</div>
 									</div>
 								</div>
 								
@@ -229,7 +166,7 @@
 		</section>
 
 		
-
+<!-- footer -->
     <footer class="footer">
 			<div class="container">
 				<div class="row">
@@ -305,8 +242,10 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
+  
+  
+  
+  
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
@@ -321,6 +260,7 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
+  <script src="../../../../resources/js/user.js"></script>
 
 
     

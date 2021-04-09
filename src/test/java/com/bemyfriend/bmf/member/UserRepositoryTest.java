@@ -24,10 +24,11 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void memberAuthenticate() {
-		String userId = "test";
-		String userPw = "12345";
-		User user = userRepository.memberAuthenticate(userId, userPw);
-		System.out.println(user);
+		User user = new User();
+		user.setUserId("test");
+		user.setUserPw("123456789");
+		User usermember = userRepository.memberAuthenticate(user);
+		System.out.println(usermember);
 	}
 	
 	

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
   <body>
-	
+
    		<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
@@ -88,19 +88,19 @@
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume" class="nav-link">자료실</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item"><a href="member/company/hire" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item active"><a href="/member/user/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item active"><a href="/member/company/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
 									</c:choose>
@@ -129,7 +129,7 @@
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Join <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-0 bread">Join</h1>
+            <h1 class="mb-0 bread">mypage</h1>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">기업회원 가입하기</h2>
+						<h2 class="heading-section">개인회원정보</h2>
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -148,76 +148,68 @@
 							<div class="row no-gutters">
 								<div class="col-md-7-p">
 									<div class="contact-wrap w-100 p-md-5 p-4">
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+					
+										<form:form modelAttribute="User" action="${context}/member/user/updateinfo" method="POST" id="updateform" name="updateform" class="updateform">
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="name">아이디</label>
-															<div class="idcheck-group">
-																<input type="text" class="form-control" name="name" id="name" >
-																<button type="button" onclick="idCheck()" class="btn btn-primary-p">확인</button>
-															</div>
+														<label class="label" id="check-group">아이디</label><span id="idCheck"></span>
+														<input type="text" value ="${userMember.userId}" class="form-control" name="userId" id="userId" readonly>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="#">기업명</label>
-														<input type="text" class="form-control" name="name"  id="name"></input>
-													</div>
-												</div>
-												<div class="col-md-6"> 
-													<div class="form-group">
-														<label class="label" for="email">비밀번호</label>
-														<input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호를 입력하세요.">
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="subject">비밀번호 확인</label>
-														<input type="password" class="form-control" name="checkpw" id="checkpw" placeholder="비밀번호를 다시 입력해주세요.">
+														<label class="label">이름</label>
+														<input type="text" class="form-control" name="userName" id="userName"  value ="${userMember.userName}">
 													</div>
 												</div>
 												
-												<div class="col-md-6">
+												
+												<div class="col-md-6"> 
 													<div class="form-group">
-														<label class="label" for="#">기업주소</label>
-														<input type="text" class="form-control" name="address"  id="address"></input>
+														<label class="label" id="check-group">비밀번호</label><span id="pw_check"></span>
+														<input type="password" class="form-control" name="userPw" id="userPw" placeholder="비밀번호/변경할 비밀번호를 입력하세요.">
+													</div>
+												</div>
+												
+												<div class="col-md-6"> 
+													<div class="form-group">
+														<label class="label" id="check-group">비밀번호 확인</label><span id="pw_confirm"></span>
+														<input type="password" class="form-control" id="checkpw" placeholder="비밀번호를 다시 입력하세요." > <!-- 확인비번 전송X -->
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="#">기업전화번호</label>
-														<input type="text" class="form-control" name="tell"  id="tell"></input>
+														<label class="label" >전화번호</label>
+														<input type="tel" class="form-control" name="userTell" id="userTell" value ="${userMember.userTell}" >
 													</div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="#">기업이메일</label>
-														<input type="email" class="form-control" name="email"  id="email"></input>
+														<label class="label" >이메일</label>
+														<input type="email" class="form-control" name="userMail" id="userMail"  value ="${userMember.userMail}">
 													</div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="#">기업형태</label><br>
-															<input type="radio" class ="status" name="status1" id="status1"> 스타트업<br>
-															<input type="radio" class ="status" name="status2" id="status2"> 중소기업<br>
-															<input type="radio" class ="status" name="status3" id="status3"> 중견기업<br>
-															<input type="radio" class ="status" name="status4" id="status4"> 대기업				
+														<label class="label" >주소</label>
+														<input type="text" class="form-control" name="userAdd" id="userAdd" value ="${userMember.userAdd}">
 													</div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="#">인사담당자</label>
-														<input type="text" class="form-control" name="personmgr"  id="personmgr"></input>
+														<label class="label" >생년월일</label>
+														<input type="date" class="form-control" name="userBirth" id="userBirth" value ="${userMember.userBirth}">
 													</div>
 												</div>
+												
 												<div class="col-md-12">
 													<div class="form-group-log-p">
-														<button type="submit" class="btn btn-primary">회원가입</button>
+														<button type="submit" class="btn btn-primary" id="modifyInfo">회원정보 수정</button>
 													</div>
 												</div>
 											</div>
-										</form>
+										</form:form>
 									</div>
 								</div>
 								
@@ -307,6 +299,9 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
+
+	
+
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
@@ -321,6 +316,7 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
+  <script src="../../../../resources/js/user.js"></script> 
 
 
     

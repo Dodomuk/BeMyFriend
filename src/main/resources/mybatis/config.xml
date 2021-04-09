@@ -12,6 +12,7 @@
 	<typeAliases>
 		<typeAlias type="com.bemyfriend.bmf.community.model_review.vo.Review" alias="review"/>
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
+		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.Company" alias="company"/>
 	</typeAliases>
 
 	<mappers>

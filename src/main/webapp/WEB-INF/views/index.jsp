@@ -40,6 +40,7 @@
 				    			<c:if test="${sessionScope.userMember == null and sessionScope.comMember == null}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
+				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
 								</c:if>
 								<c:if test="${sessionScope.userMember != null}">
 										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
@@ -47,8 +48,6 @@
 								<c:if test="${sessionScope.comMember != null}">
 				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
 								</c:if>
-								
-
 								<c:if test ="${sessionScope.comMember != null}">
 									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
 								</c:if>
@@ -75,10 +74,10 @@
 						<div class="conheight">
 				     		<div class="collapse navbar-collapse" id="ftco-nav">
 							    <div class="wrapSearch">
-						            <div class="smKey">
-						                <input type="text" id="searchText" title="searchJob" name="stext" maxlength="50" style="background: none;">
+						            <form class="smKey searchTitle"  action="${context}/search/searchtitle" method="GET" id="searchTitle" name ="searchTitle">
+						                <input type="text" id="searchText" title="searchJob" name="searchText" maxlength="50" style="background: none;">
 						                <button type="submit"  class="searchBtn" id="common_search_btn"><i class="fas fa-search"></i></button>
-									</div>
+									</form>
 					    		</div>
 					   		</div>
 						    <div id="navwidth">

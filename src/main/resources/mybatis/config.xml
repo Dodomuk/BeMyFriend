@@ -13,11 +13,13 @@
 		<typeAlias type="com.bemyfriend.bmf.community.model_review.vo.Review" alias="review"/>
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
 		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.Company" alias="company"/>
+		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mapper/review/ReviewMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
+		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 	</mappers>
 	
 </configuration>

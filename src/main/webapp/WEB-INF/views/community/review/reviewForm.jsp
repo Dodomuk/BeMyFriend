@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
+<%@ include file="/WEB-INF/views/include/community_head.jsp"%>
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/board.css" />
 <link rel="stylesheet" href="/resources/css/reset.css" />
-<!-- 제이쿼리 유무 물어보기 -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
 	<div class="content">
-		<h2 class="tit">*게시판 글쓰기</h2>
+		<h2 class="tit">게시판 글쓰기</h2>
 
-		<form method="post" class="form-group">
+		<form action="${context}/community/review/uploadForm" method="post" class="form-group">
 			<table style="text-align: center" border="1">
 				<thead>
 					<tr>
@@ -26,7 +26,7 @@
 					</tr>
 					<tr>
 						<th><span>작성자</span></th>
-						<td><input class="form-control" name="reviewWriter" /></td>
+						<td><input class="form-control" name="userId" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -55,4 +55,21 @@ $(function(){
 });
 
 </script>
+<script src="../../resources/js/jquery.min.js"></script>
+<script src="../../resources/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../../resources/js/popper.min.js"></script>
+<script src="../../resources/js/bootstrap.min.js"></script>
+<script src="../../resources/js/jquery.easing.1.3.js"></script>
+<script src="../../resources/js/jquery.waypoints.min.js"></script>
+<script src="../../resources/js/jquery.stellar.min.js"></script>
+<script src="../../resources/js/jquery.animateNumber.min.js"></script>
+<script src="../../resources/js/bootstrap-datepicker.js"></script>
+<script src="../../resources/js/jquery.timepicker.min.js"></script>
+<script src="../../resources/js/owl.carousel.min.js"></script>
+<script src="../../resources/js/jquery.magnific-popup.min.js"></script>
+<script src="../../resources/js/scrollax.min.js"></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="../../resources/js/google-map.js"></script>
+<script src="../../resources/js/main.js"></script>
 </html>

@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/include/head.jsp"%>
-<!-- date 형식을 바꾸기 위한 jstl -->
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-
+<%@include file="/WEB-INF/views/include/community_head.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+<title>비 마이 프랜드</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,74 +31,140 @@
 
 <link rel="stylesheet" href="../../resources/css/flaticon.css">
 <link rel="stylesheet" href="../../resources/css/style.css">
+
+<style type="text/css">
+	.content{
+		width:80vw;
+		position:relative;
+		left:10vw;
+		display: flex;
+		flex-direction:column;
+		justify-content: center;
+	}
+
+	.paging{
+		width:30vw;
+		position:relative;
+		left:25vw;
+		display: flex;
+		justify-content:space-around;
+		font-size: x-large;
+	}
+</style>
 </head>
 
 <body>
 	<div class="content">
-		<h2 class="tit">* 게시판</h2>
+		<h2 class="tit">리뷰 게시판</h2>
 
-		<table style="text-align: center" border="1">
-			<thead>
-				<tr>
-					<th style="width: 10%; height: 20%;"><span>번호</span></th>
-					<th style="width: 70%;"><span>제목</span></th>
-					<th style="width: 10%;"><span>작성자</span></th>
-					<th style="width: 10%;"><span>등록일</span></th>
-				</tr>
-			</thead>
-			<tbody>
-	<!-- 			<c:if test="${empty reviewList}">
-					<tr>
-						<td>데이터가 존재하지 않습니다.</td>
+
+  <section class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row mb-5 pb-10">
+    		
+             <!-- 오늘 날짜와 게시글 날짜 비교 -->
+            <c:set var="date" value="<%=new java.util.Date()%>"/>
+            <c:set var="today"><fmt:formatDate value="${date}" pattern="yyyy.MM.dd" /></c:set> 
+
+            <!-- 테이블 값이 null 일 경우  -->
+            <c:if test="${empty reviewList}">
+	 			    <tr>
+	 			    <td></td>
+					<td>
+						<p>데이터가 존재하지 않습니다.</p>
+					<td>
+					<td></td>
+					<td></td>
 					</tr>
 				</c:if>
-				<c:if test="${!empty reviewList}">
-					<c:forEach items="${reviewList}" var="review">
-						<tr>
-							<td>${review.reviewNo}</td>
-							<td>${review.reviewTitle}</td>
-							<td>${review.userId}</td>
-							<td>
-							<c:if test="${review.reviewDate ne nowDate}">
-							<fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
-							</c:if>
-							<c:if test="${review.reviewDate eq nowDate}">
-							<fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" />
-							</c:if>
-                            </td>
-						</tr>
-					</c:forEach>
-				</c:if>
-				<tr>
-					<td colspan="5">
-					<a href="/boardlist/reviewForm" class="btn btn_default">글쓰기</a></td>
-				</tr> -->
-			</tbody>
-		</table>
-		
-		<p>-----------------------------------------------</p>
-		
+			
+			<!-- 테이블 값이 null이 아닐 경우 -->	
+            <c:if test="${!empty reviewList}">
+			<c:forEach items="${reviewList}" var="review">
+			    <div class="col-md-3 pb-5 d-flex align-self-stretch px-3 ftco-animate">
+            <div class="d-block services text-center">
+              <div class="media-body p-3">
+                <h3 class="heading">${review.reviewTitle}</h3>
+                <p>${review.userId}</p>
+                <p>${review.viewCnt}</p> 
+                <span class="position">
+               <c:choose>
+                <c:when test="${review.reviewDate eq today}">
+                             <fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" />
+				</c:when>
+                <c:otherwise>
+                             <fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
+				</c:otherwise>
+				</c:choose>		
+                </span>
+                <p></p>
+                <a href="${context}/community/review/reviewView?view=${review.reviewNo}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+                <span></span>
+              </div>
+            </div>      
+          </div> 
+            </c:forEach>
+            </c:if> 
+            
+        </div>
+        <div  style="padding-left:85%;">
+                            <div class="badge bg-primary text-wrap" style="width: 6rem;">
+  <a href="${context}/community/review/reviewForm" class="btn btn_default">글쓰기</a>
+   </div>
+</div>
+    	</div>
+    </section>
+
+					
+				
 		<!-- section pagination -->
-	<!-- 	<div class="paging">
-			<a href="${context}/${paging.type}/boardlist/form" class="nav first">《</a>
-			<a href="${context}/${paging.type}/boardlist/form=${paging.prev}">〈</i></a>
+		<div class="paging">
+			<a href="${context}/community/review/review" class="nav first">《</a>
+			<a href="${context}/community/review/review?page=${paging.prev}">〈</i></a>
 
 			<c:forEach begin="${paging.blockStart}" end="${paging.blockEnd}"
 				var="page">
-				<a href="${context}/${paging.type}/boardlist/form?page=${page}"><span>${page}</span></a>
+				<a href="${context}/community/review/review?page=${page}"><span>
+				<c:choose>
+				   <c:when test = "${page%10 eq 1}">B</c:when>
+				   <c:when test = "${page%10 eq 2}">E</c:when>
+				   <c:when test = "${page%10 eq 3}">&nbsp;M</c:when>
+				   <c:when test = "${page%10 eq 4}">Y</c:when>
+				   <c:when test = "${page%10 eq 5}">&nbsp;F</c:when>
+				   <c:when test = "${page%10 eq 6}">R</c:when>
+				   <c:when test = "${page%10 eq 7}">I</c:when>
+				   <c:when test = "${page%10 eq 8}">E</c:when>
+				   <c:when test = "${page%10 eq 9}">N</c:when>
+				   <c:when test = "${page%10 eq 0}">D</c:when>
+				</c:choose>
+				</span></a>
 			</c:forEach>
 
 			<a
-				href="${context}/${paging.type}/boardlist/form?page=${paging.next}">〉</a>
+				href="${context}/community/review/review?page=${paging.next}">〉</a>
 			<a
-				href="${context}/${paging.type}/boardlist/form?page=${paging.lastPage}">》</a>
+				href="${context}/community/review/review?page=${paging.lastPage}">》</a>
 		</div>
-	-->
 	</div>
 	
 	<!-- // section pagination -->
 
+
 </body>
+
+<!-- 코드 확인하고 삭제 예정 ****-->
+<script type="text/javascript">
+
+   function view_move($("#rv_no")){
+	   
+	   e.preventDefault();
+	   
+  	 var rv_no = "${context}/community/review/reviewView" +"?view=" + $("#rv_no").text();
+  	   location.href =  rv_no;
+   }
+   
+</script>
+
 <script src="../../resources/js/jquery.min.js"></script>
 <script src="../../resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="../../resources/js/popper.min.js"></script>

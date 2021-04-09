@@ -295,6 +295,15 @@
 			<scope>test</scope>
 		</dependency>
 		 <!-- HikariCP 라이브러리 -->
+		 
+		 <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>5.3.3</version>
+</dependency>
+         <!-- 트랜잭션 -->
+		 
   <dependency>
    <groupId>com.zaxxer</groupId>
    <artifactId>HikariCP</artifactId>

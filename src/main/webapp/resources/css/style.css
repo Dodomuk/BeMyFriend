@@ -9939,7 +9939,7 @@ div#ftco-nav {
 	display:flex;
 }
  
- #searchText_2{
+ #signSearchText{
     width: 500px;
     padding: 0 10px 3px 12px;
     height: 35px;
@@ -9949,7 +9949,7 @@ div#ftco-nav {
     border-radius: 6px;
  }
  
-.searchBtn_2{
+.signSearchBtn{
 	background-color: darkseagreen;
 	border: 1px solid darkseagreen;
 	width: 50px;
@@ -9958,7 +9958,8 @@ div#ftco-nav {
 	cursor: pointer;
 }
 
-.searchBtn_2:hover{
+.signSearchBtn:hover{
 	background-color: cadetblue;
 }
+
 

@@ -16,7 +16,7 @@
                  from review a
                  )
              where
-             rnum between ${startRow} and ${endRow}  order by review_no desc
+             rnum between ${startRow} and ${endRow}  order by review_no desc;
     </select>  
         
     <insert id="insertReview">

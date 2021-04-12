@@ -1,6 +1,8 @@
 package com.bemyfriend.bmf.member.user.model.repository;
 
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -25,13 +27,13 @@ public interface UserRepository {
 	
 	//회원가입하기
 	@Insert("INSERT INTO USERS(user_id, user_pw, user_name, user_add, user_tell, user_mail, user_birth)"
-			+ "values(#{userId},#{userPw},#{userName},#{userAdd}, #{userTell}, #{userMail}, #{userBirth}")
-	int insertUser(User user);
+			+ "values(#{userId},#{userPw},#{userName},#{userAdd}, #{userTell}, #{userMail}, #{userBirth})")
+	int insertUser(User persistUser);
 	
 	
 	//로그인하기
-	@Select("SELECT * FROM USERS WHERE USER_ID = #{userId} and USER_PW = ${userPw}")
-	User memberAuthenticate(@Param("userId") String userId, @Param("userPw")String userPw);
+	@Select("SELECT * FROM USERS WHERE USER_ID = #{userId} and USER_PW = #{userPw}")
+	User memberAuthenticate(User user);
 		
 	
 	//아이디 찾기
@@ -40,12 +42,12 @@ public interface UserRepository {
 	
 	
 	//비밀번호 찾기
-	@Select("SELECT * FROM USERSS WHERE USER_ID = #{user_id} and USER_TELL = #{userTell}")
+	@Select("SELECT * FROM USERS WHERE USER_ID = #{user_id} and USER_TELL = #{userTell}")
 	int selectUserForFindPw(String userId, String userTell);
 	
 	
 	//회원탈퇴하기
-	@Update("UPDATE USER SET USER_ISLEAVE = '1' WHERE USER_ID = #{userId})")
+	@Update("UPDATE USERS SET USER_ISLEAVE = '1' WHERE USER_ID = #{userId})")
 	int withdrawUser(String userId);
 	
 	
@@ -54,6 +56,7 @@ public interface UserRepository {
 	
 	//회원정보수정하기 
 	int updateUserInfo(User user);
+
 	
 	
 	

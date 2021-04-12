@@ -23,6 +23,21 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
+	
+	<!-- RestTemplate 사용 위한 bean 등록 -->
+	<beans:bean id="SimpleClientHttpRequestFactory" class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+		<beans:property name="connectTimeout" value ="5000"/>
+		<beans:property name="readTimeout" value ="5000"/>
+	</beans:bean>
+	<beans:bean class="org.springframework.web.client.RestTemplate">
+		<beans:constructor-arg name="requestFactory" ref="SimpleClientHttpRequestFactory"/>
+	</beans:bean>
+	
+	
+	
+	
+	
 	<context:component-scan base-package="com.bemyfriend.bmf" />
 	
 	

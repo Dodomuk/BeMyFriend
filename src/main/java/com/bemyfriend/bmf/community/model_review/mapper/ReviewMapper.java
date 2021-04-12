@@ -17,6 +17,13 @@ public interface ReviewMapper {
 	public Review viewId(int reviewNo);
 	
 	public Integer insertReview(Review review);
+	
+	public boolean deleteReview(int no);
+	
+	public void updateReview(Review review);
+	
+	public void viewCount(int no);
+	
 	// 게시글 업로드
 	
 	  //더미데이터 집어넣으려고 임시로 만듦
@@ -27,6 +34,8 @@ public interface ReviewMapper {
 	  @Select("select count(*) from review")
 	  int selectContentCnt();
 	  
+	  @Select("select * from review")
+	  Review selectReview();
 	  
    
 }

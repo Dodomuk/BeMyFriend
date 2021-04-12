@@ -151,24 +151,24 @@
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group">
-														<label class="label" for="id">아이디</label>
-														<input type="text" class="form-control" name="id" id="id" >
+														<label class="label">아이디</label>
+														<input type="text" class="form-control" name="userId" id="userId" >
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<label class="label" for="pw" >비밀번호</label>
-														<input type ="text" class="form-control" name="pw" id="pw">
+														<label class="label">비밀번호</label>
+														<input type ="password" class="form-control" name="userPw" id="userPw">
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group-log">
+													<div class="form-group-log-p">
 														<button type="submit" onclick="login()"  class="btn btn-primary">로그인</button>
-														<div class="submitting"></div>
 													</div>
 												</div>
 											</div>
 										</div>
+										
 									</div>
 								</div>
 								
@@ -259,7 +259,7 @@
   
   
   
-  <script type="text/javascript"> const urlToLogin = 'loginimpl';</script>
+  
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
@@ -274,7 +274,7 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
-  <script src="../../../../resources/js/member.js"></script>
+  <script src="../../../../resources/js/user.js"></script>
 
 
     

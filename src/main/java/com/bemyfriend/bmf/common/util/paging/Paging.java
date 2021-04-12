@@ -37,7 +37,7 @@ public class Paging {
 	}
 	
 	private void calLastPage() {
-		lastPage = (int)Math.ceil(total/cntPerPage);
+		lastPage = (total-1)/cntPerPage + 1;
 	}
 	
 	private void calBlockStartAndEnd() {
@@ -56,7 +56,7 @@ public class Paging {
 	
 	private void calPrevAndNext() {
 		prev = currentPage == 1? currentPage:currentPage-1;
-		next = currentPage == lastPage? lastPage:lastPage+1;
+		next = currentPage == lastPage? lastPage:currentPage+1;
 	}
 	
 	public static PagingBuilder builder() {

@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
   <body>
-	<!-- header bar -->
+
+   		<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -35,18 +36,19 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:choose>
-									<c:when test ="${sessionScope.userMember == null || sessionScope.comMember == null}">
+				    			<c:if test="${sessionScope.userMember == null and sessionScope.comMember == null}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
-									</c:when>
-								</c:choose>
-				    			
-				    			<c:choose>
-									<c:when test ="${sessionScope.comMember != null}">
-										<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
-									</c:when>
-								</c:choose>
+								</c:if>
+								<c:if test="${sessionScope.userMember != null}">
+										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
+								</c:if>
+								<c:if test="${sessionScope.comMember != null}">
+				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
+								</c:if>
+								<c:if test ="${sessionScope.comMember != null}">
+									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
+								</c:if>
 				    			
 				    		</p>
 		        		</div>
@@ -80,9 +82,9 @@
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
 						        	<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item"><a href="vet.html" class="nav-link">법률/매체</a></li>
-						        	<li class="nav-item"><a href="services.html" class="nav-link">커뮤니티</a></li>
-							        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+						        	<li class="nav-item"><a href="/lawAndMedia" class="nav-link">법률/매체</a></li>
+						        	<li class="nav-item"><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
+							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 							        
 							        <c:choose>
@@ -137,7 +139,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">회원가입하기</h2>
+						<h2 class="heading-section">개인회원 가입하기</h2>
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -147,40 +149,72 @@
 								<div class="col-md-7-p">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 					
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<form:form modelAttribute="User" action="${context}/member/user/mailauth" method="POST" id="contactForm" name="contactForm" class="contactForm">
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="name">Full Name</label>
-														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+														<div>
+															<label class="label" id="check-group">아이디</label><span id="idCheck"></span>
+														</div>
+														<div class="idcheck-group">
+															<input type="text" class="form-control" name="userId" id="userId" >
+															<button type="button" onclick="idCheck()" class="btn btn-primary-p">확인</button>
+														</div>
 													</div>
 												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label">이름</label>
+														<input type="text" class="form-control" name="userName" id="userName" >
+													</div>
+												</div>
+												
+												
 												<div class="col-md-6"> 
 													<div class="form-group">
-														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+														<label class="label">비밀번호</label>
+														<input type="password" class="form-control" name="userPw" id="userPw" placeholder="비밀번호를 입력하세요.">
 													</div>
 												</div>
-												<div class="col-md-12">
+												
+												<div class="col-md-6"> 
 													<div class="form-group">
-														<label class="label" for="subject">Subject</label>
-														<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+														<label class="label" id="check-group">비밀번호 확인</label><span id="pw_confirm"></span>
+														<input type="password" class="form-control" id="checkpw" placeholder="비밀번호를 다시 입력하세요." > <!-- 확인비번 전송X -->
 													</div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="#">Message</label>
-														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+														<label class="label" >전화번호</label>
+														<input type="tel" class="form-control" name="userTell" id="userTell" placeholder="숫자만 입력하세요." >
 													</div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-6">
 													<div class="form-group">
-														<input type="submit" value="Send Message" class="btn btn-primary">
-														<div class="submitting"></div>
+														<label class="label" >이메일</label>
+														<input type="email" class="form-control" name="userMail" id="userMail" >
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" >주소</label>
+														<input type="text" class="form-control" name="userAdd" id="userAdd" >
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" >생년월일</label>
+														<input type="date" class="form-control" name="userBirth" id="userBirth" >
+													</div>
+												</div>
+												
+												<div class="col-md-12">
+													<div class="form-group-log-p">
+														<button type="submit" class="btn btn-primary">회원가입</button>
 													</div>
 												</div>
 											</div>
-										</form>
+										</form:form>
 									</div>
 								</div>
 								
@@ -270,6 +304,9 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
+
+	
+
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
@@ -284,7 +321,7 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
-
+  <script src="../../../../resources/js/user.js"></script> 
 
     
   </body>

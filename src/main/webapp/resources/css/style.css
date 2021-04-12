@@ -9931,8 +9931,127 @@ div#ftco-nav {
 .form-group-log {
     margin-bottom: 1rem;
     display: flex;
+    justify-content: space-between;
+}
+
+
+.form-group-log-p {
+    margin-bottom: 1rem;
+    display: flex;
     justify-content: center;
 }
+
+.form-group .status{
+	color: grey !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.idcheck-group {
+    display: flex;
+}
+
+.btn.btn-primary-p {
+    background: #00bd56;
+    border: 1px solid #00bd56;
+    color: #fff;
+    width: 10vh;
+    height: 5vh;
+    font-size: 0.5px;
+}
+
+.btn-primary-p:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc; }
+  .btn-primary-p:focus, .btn-primary.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+  .btn-primary-p.disabled, .btn-primary-p:disabled {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff; }
+  .btn-primary-p:not(:disabled):not(.disabled):active, .btn-primary-p:not(:disabled):not(.disabled).active,
+  .show > .btn-primary-p.dropdown-toggle {
+    color: #fff;
+    background-color: #0062cc;
+    border-color: #005cbf; }
+    .btn-primary-p:not(:disabled):not(.disabled):active:focus, .btn-primary-p:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-primary-p.dropdown-toggle:focus {
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+      
+  	.btn.btn-primary-p {
+    background: #00bd56;
+    border: 1px solid #00bd56;
+    color: #fff; }
+    .btn.btn-primary-p:hover {
+      border: 1px solid #00bd56;
+      background: transparent;
+      color: #00bd56; }
+    
+ #check-group {
+    color: #00bd56 !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    width: 70px;
+}
+
+span#idCheck{
+	font-size: smaller;
+    color: crimson;
+}
+
+.updateForm .label {
+  color: #00bd56 !important;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600; }
+
+.updateForm .form-control {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0; }
+
+.updateForm .form-control {
+  height: 36px;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  border-radius: 2px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  .updateForm .form-control::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgba(0, 0, 0, 0.5) !important; }
+  .updateForm .form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(0, 0, 0, 0.5) !important; }
+  .updateForm .form-control:-ms-input-placeholder {
+    /* IE 0+ */
+    color: rgba(0, 0, 0, 0.5) !important; }
+  .updateForm .form-control:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgba(0, 0, 0, 0.5) !important; }
+  .updateForm .form-control:focus, .updateForm .form-control:active {
+    border-color: #00bd56 !important; }
+
+.updateForm textarea.form-control {
+  height: inherit !important; }
+
+#pw_confirm{
+	font-size: smaller;
+    color: crimson;
+}
+
+#pw_check{
+	font-size: smaller;
+    color: crimson;
+}
+
 
  /* Lee */
  .smKey_2 {

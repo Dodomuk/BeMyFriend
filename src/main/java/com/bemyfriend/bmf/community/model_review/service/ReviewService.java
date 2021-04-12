@@ -9,4 +9,10 @@ public interface ReviewService {
 	 public Map<String, Object> selectReviewList(int currentPage); 
 	
 	 public Review viewId(int reviewNo);
+	 
+     public boolean deleteReview(int no);
+     
+     public void updateReview(Review review);
+     
+     public void viewCount(int no);
 }

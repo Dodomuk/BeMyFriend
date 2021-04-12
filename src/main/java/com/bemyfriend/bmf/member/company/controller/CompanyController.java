@@ -24,11 +24,34 @@ public class CompanyController {
 		this.companyService = companyService;
 	}
 	
+	
+	
+	@GetMapping("join")
+	public String join() {
+		return "/member/company/join";
+	}
+	
+	
+	@PostMapping("mailauth")
+	public String joinImpl() {
+		
+		
+		return "/common/result";
+		
+	}
+	
+	
+	
+	
+	
 	@GetMapping("login")
 	public String login(String comId, String comPw) {
 		
 		return "/member/company/login";
 	}
+	
+	
+	
 	
 	
 	@PostMapping("loginImpl")
@@ -46,5 +69,19 @@ public class CompanyController {
 		return "success";
 		
 	}
+	
+	
+	
+	
+	
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();
+		
+		return "/index";
+	}
+	
+	
 	
 }

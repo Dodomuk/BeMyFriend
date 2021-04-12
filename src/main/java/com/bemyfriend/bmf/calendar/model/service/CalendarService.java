@@ -1,5 +1,11 @@
 package com.bemyfriend.bmf.calendar.model.service;
 
-public class CalendarService {
+import java.util.List;
+import java.util.Map;
+
+
+public interface CalendarService {
+	
+	public Map<String,Object> selectCalendarRecruit();
 
 }

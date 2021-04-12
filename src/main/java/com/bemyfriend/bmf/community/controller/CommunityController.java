@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,8 +63,33 @@ public class CommunityController {
 	public String view(Review review,Model model,@RequestParam("view")int view) 
 	{
 	    System.out.println("게시글 보기");
+	    reviewService.viewCount(view);
 	    model.addAttribute("view", reviewService.viewId(view));
 	    return "/community/review/reviewView";
+	} 
+	
+	//게시글 삭제
+	@GetMapping("delete")
+	public String delete(int no) {
+		reviewService.deleteReview(no);
+		return "redirect:/community/review/review"; 
+	}
+	
+	//게시글 수정 화면 이동
+	@GetMapping("reviewFix")
+	public String update(int no, Model model) {
+		model.addAttribute("view", reviewService.viewId(no));
+		return "community/review/reviewFix";
+	}
+	
+	
+	//게시글 수정
+	@PostMapping("updateForm")
+	public String updateForm(Review review)
+	{
+		reviewService.updateReview(review);
+		
+		return "redirect:/community/review/review";
 	}
 	
 	//더미데이터 넣으려고 임시로 만들어둔 경로 (junit용)
@@ -78,5 +105,6 @@ public class CommunityController {
 		
 		return "inputDummi";
 	}
+	
 }
 

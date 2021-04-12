@@ -17,6 +17,8 @@
           <span>작성자 : ${view.userId}</span>
       </div>
      
+     
+     
       <div class="btn_section btn_list" id="back_btn">
           <span>목록</span>
       </div>

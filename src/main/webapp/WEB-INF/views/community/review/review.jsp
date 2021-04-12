@@ -85,16 +85,9 @@
               <div class="media-body p-3">
                 <h3 class="heading">${review.reviewTitle}</h3>
                 <p>${review.userId}</p>
-                <p>${review.viewCnt}</p> 
+                <p>조회수 : ${review.viewCnt}</p> 
                 <span class="position">
-               <c:choose>
-                <c:when test="${review.reviewDate eq today}">
-                             <fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" />
-				</c:when>
-                <c:otherwise>
                              <fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
-				</c:otherwise>
-				</c:choose>		
                 </span>
                 <p></p>
                 <a href="${context}/community/review/reviewView?view=${review.reviewNo}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>

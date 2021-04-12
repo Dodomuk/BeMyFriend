@@ -18,7 +18,7 @@
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="mybatis/mapper/review/ReviewMapper.xml"/>
+		<mapper resource="mybatis/mapper/community/review/ReviewMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 		<mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/>

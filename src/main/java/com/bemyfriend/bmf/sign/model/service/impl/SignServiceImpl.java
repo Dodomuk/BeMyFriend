@@ -89,8 +89,6 @@ public class SignServiceImpl implements SignService{
 
 		try {
 
-			System.out.println("origin_no2 : " + origin_no);
-
 			Document doc = Jsoup.connect(SIGN_SEND_DATA_URL)
 					.data("origin_no", origin_no)
 					.method(Connection.Method.GET)
@@ -106,35 +104,6 @@ public class SignServiceImpl implements SignService{
 			Elements videoElement = videoDoc.select("source"); //src
 			Elements imageElement = doc.select(".example img"); //얜 전부쓰고
 			Elements explainElement = doc.select(".content_view_dis dd"); // 앤 1번만 쓰면되고
-			
-			System.out.println("-----------------------------------------------------");
-			System.out.println("videoElement2 : " + videoElement);
-			System.out.println("-----------------------------------------------------");
-			
-			for(int i = 0; i < videoElement.size(); i++) {
-
-				Element videoSrc = videoElement.get(i);
-				String url = videoSrc.attr("src"); 
-
-				System.out.println("videoUrl : " + url);
-				//System.out.println("videoUrl : " + imageSrc);
-			}
-			
-			for(int i = 0; i < imageElement.size(); i++) {
-				
-				Element imageSrc = imageElement.get(i);
-				String url = imageSrc.attr("src"); 
-				
-				System.out.println("imageUrl : " + url);
-			} // 얘는 전부
-			
-			for(int i = 0; i < explainElement.size(); i++) {
-				
-				Element imageSrc = explainElement.get(i);
-				String url = imageSrc.text(); 
-				
-				System.out.println("Explain : " + url);
-			}
 			
 			Element videoSrc = videoElement.get(1);
 			String url = videoSrc.attr("src"); 

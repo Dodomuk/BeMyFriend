@@ -171,41 +171,45 @@
 					<div class="col-md-4 ftco-animate">
 						<div class="mb-4 img d-flex align-items-end">
 							<form method="get" action="/sign/selectSignData">
-								
+
 								<button>
 									<img src="<c:out value="${signDataListData.imgSrc}" />" />
 								</button>
-								<input type = "hidden" name = "selectSignData" value ="${signDataListData.origin_no}"/>
-								
+								<input type="hidden" name="selectSignData"
+									value="${signDataListData.origin_no}" />
+
 							</form>
 						</div>
 						<form method="get" action="/sign/selectSignData">
-							
+
 							<button>
 								<span><c:out value="${signDataListData.title}" /></span>
 							</button>
-							<input type = "hidden" name = "selectSignData" value = "<c:out value="${signDataListData.origin_no}" />"/>
+							<input type="hidden" name="selectSignData"
+								value="<c:out value="${signDataListData.origin_no}" />" />
 						</form>
 					</div>
 				</c:forEach>
-				
+
 				<c:forEach var="signResponseData" items="${signResponseData}">
-				<!-- 수화 임시 테스트용 -->
-				<div class="col-md-4 ftco-animate">
-					<div class="mb-4 img d-flex align-items-end">
+					<!-- 수화 임시 테스트용 -->
+					<div class="col-md-4 ftco-animate">
+						<div class="mb-4 img d-flex align-items-end">
 
-						<img src="<c:out value="${signResponseData.imageUrl}" />" />
-						<video id="html5Video" controls="true" preload="auto" width="100%"
-							height="100%" controlslist="nodownload">
+							
+							
+							<video id="html5Video" controls="true" preload="auto"
+								width="100%" height="100%" controlslist="nodownload">
 
-							<source
-								src="<c:out value="${signResponseData.videoUrl}" />"
-								type="video/mp4">
-						</video>
+								<source src="<c:out value="${signResponseData.videoUrl}" />"
+									type="video/mp4">
+							</video>
 
+							<img src="<c:out value="${signResponseData.imageUrl}" />" width="100%" height="50%" />
+						</div>
+						<span>"<c:out value="${signResponseData.explain}" />"
+						</span>
 					</div>
-					<span>"<c:out value="${signResponseData.explain}" />" </span>
-				</div>
 				</c:forEach>
 
 			</div>

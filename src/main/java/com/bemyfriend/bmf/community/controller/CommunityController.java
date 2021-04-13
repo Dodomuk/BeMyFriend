@@ -11,19 +11,28 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bemyfriend.bmf.common.util.paging.Paging;
+import com.bemyfriend.bmf.community.model_lawAndMedia.service.impl.LawMediaServiceImpl;
+import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law;
+import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media;
 import com.bemyfriend.bmf.community.model_review.service.impl.ReviewServiceImpl;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
+import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 
 @Controller
-@RequestMapping("community/review")
+@RequestMapping("community")
 public class CommunityController {
 
 	@Autowired
 	private ReviewServiceImpl reviewService;
+	@Autowired
+	private LawMediaServiceImpl lawMediaService;
 	
+	//----------------------------------------------------------------------------------------리뷰 게시판
 	// 게시판 메인
-	@GetMapping("/review")
+	@GetMapping("/review/review")
 	public String list(
 			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("reviewInfo") Review review) {
 
@@ -40,14 +49,14 @@ public class CommunityController {
 		}
 	
 	// 게시글 작성 
-	@GetMapping("/reviewForm")
+	@GetMapping("/review/reviewForm")
 	public String listForm()
 	{
 		System.out.println("여기서부터 게시판 글 작성 시작");
 		return "community/review/reviewForm";
 	}
 	
-	@PostMapping("uploadForm")
+	@PostMapping("/review/uploadForm")
 	public String write(Review review)
 	{
 		System.out.println("다시 게시판으로 redirect");
@@ -57,7 +66,7 @@ public class CommunityController {
 	}
 	
 	//게시글 보기
-	@GetMapping("/reviewView")
+	@GetMapping("/review/reviewView")
 	public String view(Review review,Model model,@RequestParam("view")int view) 
 	{
 	    System.out.println("게시글 보기");
@@ -66,15 +75,25 @@ public class CommunityController {
 	    return "/community/review/reviewView";
 	} 
 	
+	//게시글 댓글 작성
+	@PostMapping("/reviewcomment")
+	public String comment(ReviewComment reviewComment,Paging paging,RedirectAttributes ra) {
+		ra.addAttribute("replyId",reviewComment.getReplyUserId());
+		ra.addAttribute("replyContent",reviewComment.getReviewCommentContent());
+		ra.addAttribute("replyDate",reviewComment.getReviewCommentDate());
+		return "redirect:/community/review/reviewView";
+		
+	}
+	
 	//게시글 삭제
-	@GetMapping("delete")
+	@GetMapping("/review/delete")
 	public String delete(int no) {
 		reviewService.deleteReview(no);
 		return "redirect:/community/review/review"; 
 	}
 	
 	//게시글 수정 화면 이동
-	@GetMapping("reviewFix")
+	@GetMapping("/review/reviewFix")
 	public String update(int no, Model model) {
 		model.addAttribute("view", reviewService.viewId(no));
 		return "community/review/reviewFix";
@@ -82,7 +101,7 @@ public class CommunityController {
 	
 	
 	//게시글 수정
-	@PostMapping("updateForm")
+	@PostMapping("/review/updateForm")
 	public String updateForm(Review review)
 	{
 		reviewService.updateReview(review);
@@ -102,6 +121,33 @@ public class CommunityController {
 		  }
 		
 		return "inputDummi";
+	}
+	
+	
+	//-------------------------------------------------------------------------------법률/매체 게시판
+	
+	@GetMapping("law")
+	public String lawMain(@RequestParam(defaultValue = "1")int lawPage,
+			Model model, Law law) {
+		
+		System.out.println("여기서부터 법률/매체 게시판 시작");
+			System.out.println(lawMediaService.selectLawList(lawPage));
+			model.addAllAttributes(lawMediaService.selectLawList(lawPage));
+			model.addAttribute("lawPage",lawPage);
+			
+			return "community/lawAndMedia/law";
+	}
+	
+	@GetMapping("media")
+	public String lawMain(@RequestParam(defaultValue = "1")int mediaPage,
+			Model model, Media media) {
+		
+		System.out.println("여기서부터 법률/매체 게시판 시작");
+			System.out.println(lawMediaService.selectLawList(mediaPage));
+			model.addAllAttributes(lawMediaService.selectLawList(mediaPage));
+			model.addAttribute("mediaPage",mediaPage);
+
+			return "community/lawAndMedia/media";
 	}
 	
 }

@@ -13,6 +13,7 @@ import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_review.mapper.ReviewMapper;
 import com.bemyfriend.bmf.community.model_review.service.ReviewService;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
+import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -68,6 +69,11 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void viewCount(int no) {
 		mapper.viewCount(no);
+	}
+
+	@Override
+	public void reviewReply(ReviewComment reviewComment) {
+		mapper.reviewReply(reviewComment);
 	}
 
     

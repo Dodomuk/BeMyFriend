@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
+import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 
 @Mapper
 public interface ReviewMapper {
@@ -23,6 +24,8 @@ public interface ReviewMapper {
 	public void updateReview(Review review);
 	
 	public void viewCount(int no);
+	
+	public void reviewReply(ReviewComment reviewComment);
 	
 	// 게시글 업로드
 	

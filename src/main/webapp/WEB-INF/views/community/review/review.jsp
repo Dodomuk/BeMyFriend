@@ -53,9 +53,20 @@
 </head>
 
 <body>
-	<div class="content">
-		<h2 class="tit">리뷰 게시판</h2>
 
+	<!-- 커뮤니티 nav -->
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a class="nav-link active" href="${context}/community/review/review">기업 리뷰</a>
+		</li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/law">법률</a></li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/media">매체</a></li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/qna">QNA</a>
+		</li>
+	</ul>
+	<!-- 커뮤니티 nav 끝 -->
+	
+	
+		<h2 class="tit">리뷰 게시판</h2>
 
   <section class="ftco-section bg-light">
     	<div class="container">
@@ -110,12 +121,23 @@
 					
 				
 		<!-- section pagination -->
-		<div class="paging">
-			<a href="${context}/community/review/review" class="nav first">《</a>
-			<a href="${context}/community/review/review?page=${paging.prev}">〈</i></a>
+		    <section class="ftco-section bg-light">
+      <div class="container">
+		 <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+			<li><a href="${context}/community/review/review" class="nav first">《</a></li>
+			<li><a href="${context}/community/review/review?page=${paging.prev}">&lt;</a></li>
 
 			<c:forEach begin="${paging.blockStart}" end="${paging.blockEnd}"
 				var="page">
+				<c:if test="${page eq paging.currentPage}">
+				<li class="active">
+				</c:if>
+				<c:if test="${page ne paging.currentPage}">
+				<li>
+				</c:if>
 				<a href="${context}/community/review/review?page=${page}"><span>
 				<c:choose>
 				   <c:when test = "${page%10 eq 1}">B</c:when>
@@ -129,15 +151,17 @@
 				   <c:when test = "${page%10 eq 9}">N</c:when>
 				   <c:when test = "${page%10 eq 0}">D</c:when>
 				</c:choose>
-				</span></a>
+				</span></a></li>
 			</c:forEach>
 
-			<a
-				href="${context}/community/review/review?page=${paging.next}">〉</a>
-			<a
-				href="${context}/community/review/review?page=${paging.lastPage}">》</a>
-		</div>
-	</div>
+			<li><a href="${context}/community/review/review?page=${paging.next}">&gt;</a></li>
+			<li><a href="${context}/community/review/review?page=${paging.lastPage}">》</a></li>
+			</ul>
+	            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 	
 	<!-- // section pagination -->
 

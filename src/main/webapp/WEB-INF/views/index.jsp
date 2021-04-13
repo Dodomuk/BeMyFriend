@@ -83,9 +83,8 @@
 						    <div id="navwidth">
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
-						        	<li class="nav-item"><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item"><a href="/lawAndMedia" class="nav-link">법률/매체</a></li>
-						        	<li class="nav-item"><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
+						        	<li class="nav-item "><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
+						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 							        
@@ -968,8 +967,18 @@
 						<ul class="list-unstyled">
               <li><a href="/index" class="py-2 d-block">Home</a></li>
               <li><a href="/recruit" class="py-2 d-block">채용정보</a></li>
-              <li><a href="#" class="py-2 d-block">법률/매체</a></li>
-              <li><a href="#" class="py-2 d-block">커뮤니티</a></li>
+              <li class="nav-item dropdown">
+				<a class="py-2 d-block nav-link dropdown-toggle" data-toggle="dropdown"
+				 href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding-left:0;">커뮤니티</a>
+						        	
+						        	<div class="dropdown-menu" style="background-color:black;">
+									<a class="dropdown-item" href="/community/review/review">리뷰 게시판</a>
+								
+									<a class="dropdown-item" href="/community/law">법률/매체</a>
+									
+									<a class="dropdown-item" href="/community/qna">QNA</a>
+									</div>
+									</li>
              <!--  <li><a href="#" class="py-2 d-block">Blog</a></li> --> 
              <!--  <li><a href="" class="py-2 d-block">mypage</a></li> -->
             </ul>
@@ -1006,7 +1015,6 @@
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
-  <script src="../../../../resources/js/bootstrap.min.js"></script>
   <script src="../../../../resources/js/jquery.easing.1.3.js"></script>
   <script src="../../../../resources/js/jquery.waypoints.min.js"></script>
   <script src="../../../../resources/js/jquery.stellar.min.js"></script>
@@ -1017,7 +1025,8 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
-	
+  <script src="../../../../resources/js/bootstrap.min.js"></script>
+  
 <!-- whalee js -->
 <script src="../resources/js/whaleeTest.js"></script>
 <!-- 결제 모듈 js -->

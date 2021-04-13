@@ -130,7 +130,7 @@ public class CommunityController {
 	public String lawMain(@RequestParam(defaultValue = "1")int lawPage,
 			Model model, Law law) {
 		
-		System.out.println("여기서부터 법률/매체 게시판 시작");
+		System.out.println("여기서부터 법률 게시판 시작");
 			System.out.println(lawMediaService.selectLawList(lawPage));
 			model.addAllAttributes(lawMediaService.selectLawList(lawPage));
 			model.addAttribute("lawPage",lawPage);
@@ -138,17 +138,39 @@ public class CommunityController {
 			return "community/lawAndMedia/law";
 	}
 	
+	@GetMapping("lawView")
+	public String lawView(Law law,Model model,@RequestParam("lawView")int lawView) 
+	{
+	    System.out.println("법률 게시글 보기");
+	    model.addAttribute("lawView", lawMediaService.viewLawId(lawView));
+	    return "community/lawAndMedia/lawView";
+	} 
+	
 	@GetMapping("media")
-	public String lawMain(@RequestParam(defaultValue = "1")int mediaPage,
+	public String mediaMain(@RequestParam(defaultValue = "1")int mediaPage,
 			Model model, Media media) {
 		
-		System.out.println("여기서부터 법률/매체 게시판 시작");
-			System.out.println(lawMediaService.selectLawList(mediaPage));
-			model.addAllAttributes(lawMediaService.selectLawList(mediaPage));
+		System.out.println("여기서부터 매체 게시판 시작");
+			System.out.println(lawMediaService.selectMediaList(mediaPage));
+			model.addAllAttributes(lawMediaService.selectMediaList(mediaPage));
 			model.addAttribute("mediaPage",mediaPage);
 
 			return "community/lawAndMedia/media";
 	}
+
+	@GetMapping("mediaView")
+	public String mediaView(Media media,Model model,@RequestParam("mediaView")int mediaView) 
+	{
+	    System.out.println("미디어 게시글 보기");
+	    model.addAttribute("mediaView", lawMediaService.viewMediaId(mediaView));
+	    return "community/lawAndMedia/mediaView";
+	} 
 	
+	//-------------------------------------------------------------------------------QNA 게시판
+	
+	@GetMapping("qna")
+	public String qna() {
+		return "community/qna/qna";
+	}
 }
 

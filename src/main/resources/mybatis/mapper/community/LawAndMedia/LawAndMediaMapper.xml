@@ -20,8 +20,8 @@
     </select>  
        
     <!-- 게시글 상세보기 조회 -->
-    <select id="lawViewId" resultType="law" parameterType="int">
-    select *from review where law_no = #{view}
+    <select id="viewLawId" resultType="law" parameterType="int">
+    select *from law where law_no = #{lawView}
     </select>
     
     
@@ -40,8 +40,8 @@
     </select>  
        
     <!-- 게시글 상세보기 조회 -->
-    <select id="mediaViewId" resultType="media" parameterType="int">
-    select *from media where media_no = #{view}
+    <select id="viewMediaId" resultType="media" parameterType="int">
+    select *from media where media_no = #{mediaView}
     </select>
     
 </mapper>

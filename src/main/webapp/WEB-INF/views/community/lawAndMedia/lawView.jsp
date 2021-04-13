@@ -1,6 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/include/head.jsp"%>
+<%@ include file="/WEB-INF/views/include/head.jsp" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,15 +20,6 @@
     <link rel="stylesheet" href="../../../../resources/css/jquery.timepicker.css">
     <link rel="stylesheet" href="../../../../resources/css/flaticon.css">
     <link rel="stylesheet" href="../../../../resources/css/style.css">
-  <style type="text/css">
-  .box_img_wrap{    
-
-     width : 300px; height: 200px;
-
-border: 1px solid #d2d2d2;
-
-}
-</style>
   </head>
   <body>
 	<!-- header bar -->
@@ -120,93 +111,53 @@ border: 1px solid #d2d2d2;
 		</div>
 		
     <!-- END nav -->
-   
- <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-0 bread">법률/매체</h1>
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">법률<i class="ion-ios-arrow-forward"></i></a></span></p>
+            <h1 class="mb-0 bread">법률</h1>
           </div>
         </div>
       </div>
     </section>
-	<!-- 커뮤니티 nav -->
-	<ul class="nav nav-tabs">
-		<li class="nav-item"><a class="nav-link" href="${context}/community/review/review">기업 리뷰</a>
-		</li>
-		<li class="nav-item"><a class="nav-link active" href="${context}/community/law">법률</a></li>
-		<li class="nav-item"><a class="nav-link" href="${context}/community/media">매체</a></li>
-		<li class="nav-item"><a class="nav-link" href="${context}/community/qna">QNA</a>
-		</li>
-	</ul>
-	<!-- 커뮤니티 nav 끝 -->
 
-	<section class="ftco-section bg-light">
+    <section class="ftco-section ftco-degree-bg">
       <div class="container">
-        <div class="row d-flex">
-        
-                        <c:if test="${!empty lawList}">
-                <c:forEach items="${lawList}" var="law">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-             <div class="box_img_wrap" onclick="location.href='${context}/community/lawView?lawView=${law.lawNo}';" style="background-image: url('/resources/law/${law.lawImg}')" >
-              </div>
-              <div class="text p-4">
-              	<div class="meta mb-2">
-                  <div><fmt:formatDate value="${law.lawDate}" pattern="yyyy.MM.dd" /></div>
-                  <div>${law.lawNo}</div>
-                  <div><a href="${context}/community/lawView?lawView=${law.lawNo}" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="${context}/community/lawView?lawView=${law.lawNo}">${law.lawTitle}</a></h3>
+        <div class="row">
+          <div class="col-lg-8 ftco-animate">
+          	<p>
+              <img src="images/law/${lawView.lawImg}" alt="" class="img-fluid">
+            </p>
+            <h2 class="mb-3">${lawView.lawTitle}</h2>
+            <p>${lawView.lawContent}</p>
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">다들</a>
+                <a href="#" class="tag-cloud-link">법을</a>
+                <a href="#" class="tag-cloud-link">지키자</a>
+                <a href="#" class="tag-cloud-link">아님말고</a>
               </div>
             </div>
-          </div>
-          </c:forEach>
-          </c:if>
-        </div>
-        
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="${context}/community/law?lawPage=${lawPaging.prev}">&lt;</a></li>
-               
-                <c:forEach begin="${lawPaging.blockStart}" end="${lawPaging.blockEnd}"
-				var="lawPag">
-              
-                <c:choose>
-                
-                 <c:when test="${lawPag eq lawPaging.currentPage}">
-                 <li class="active">
-                   <a href="${context}/community/law?lawPage=${lawPag}">
-                   <span>${lawPaging.currentPage}</span>
-                                  
-                </a></li>
-                </c:when>
-                
-                <c:otherwise>
-                 <li><a href="${context}/community/law?lawPage=${lawPag}">
-                   <span>${lawPag}</span>
-                </a></li>
-                </c:otherwise>
-                
-                </c:choose>
-                </c:forEach>
-                
-                <li><a href="${context}/community/law?lawPage=${lawPaging.next}">&gt;</a></li>
-              </ul>
+            
+            <div class="about-author d-flex p-4 bg-light">
+              <div class="bio mr-5">
+                <img src="/resources/law/귀여운팽귄.jpg" alt="Image placeholder" class="img-fluid mb-4">
+              </div>
+              <div class="desc">
+                <h3>관리자</h3> <!-- 나중에 받아올 세션값 -->
+               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-	
-	<!-- // section pagination -->
+</div>
+</div>
+</div>
+</section>
 
-
- <footer class="footer">
+           
+<footer class="footer">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -282,6 +233,7 @@ border: 1px solid #d2d2d2;
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
@@ -297,6 +249,7 @@ border: 1px solid #d2d2d2;
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
 
+
     
   </body>
-</html> --%>
+</html>

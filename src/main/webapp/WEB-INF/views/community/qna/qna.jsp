@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
-=======
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/include/head.jsp"%>
@@ -722,5 +709,4 @@ border: 1px solid #d2d2d2;
 
     
   </body>
-</html> --%>
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
+</html>

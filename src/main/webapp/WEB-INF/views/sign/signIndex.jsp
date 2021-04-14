@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,11 +135,19 @@
 			<div class="row no-gutters slider-text align-items-end">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs mb-2">
+<<<<<<< HEAD
 						<span class="mr-2"><a href="index.html">수 to the <i
 								class="ion-ios-arrow-forward"></i></a></span> <span>화 <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
 					<h1 class="mb-0 bread">이거슨 수화1</h1>
+=======
+						<span class="mr-2"><a href="index.html">Learn Sign
+								Language<i class="ion-ios-arrow-forward"></i>
+						</a></span> <span>화 <i class="ion-ios-arrow-forward"></i></span>
+					</p>
+					<h1 class="mb-0 bread">수화를 배워봅시다</h1>
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 
 
 				</div>
@@ -146,6 +158,7 @@
 	<section class="ftco-section">
 
 		<div class="container">
+<<<<<<< HEAD
 		
 		<!-- 수화 검색창 -->
 		<div class="row mb-5">
@@ -340,6 +353,73 @@
 						</div>
 					</div>
 				</div>
+=======
+
+			<!-- 수화 검색창 -->
+			<div class="row mb-5">
+				<div class="col text-center">
+					<div class="wrapSearch">
+						<form method="get" action="/sign/signSearch">
+							<input type="text" id="signSearchText" title="searchJob"
+								name="searchKeyword" maxlength="50" style="background: none;">
+							<button type="submit" class="signSearchBtn"
+								id="common_search_btn">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- 수화 임시 테스트용 -->
+
+
+				<c:forEach var="signDataListData" items="${signDataList}">
+					<div class="col-md-4 ftco-animate">
+						<div class="mb-4 img d-flex align-items-end">
+							<form method="get" action="/sign/selectSignData">
+
+								<button>
+									<img src="<c:out value="${signDataListData.imgSrc}" />" />
+								</button>
+								<input type="hidden" name="selectSignData"
+									value="${signDataListData.origin_no}" />
+
+							</form>
+						</div>
+						<form method="get" action="/sign/selectSignData">
+
+							<button>
+								<span><c:out value="${signDataListData.title}" /></span>
+							</button>
+							<input type="hidden" name="selectSignData"
+								value="<c:out value="${signDataListData.origin_no}" />" />
+						</form>
+					</div>
+				</c:forEach>
+
+				<c:forEach var="signResponseData" items="${signResponseData}">
+					<!-- 수화 임시 테스트용 -->
+					<div class="col-md-4 ftco-animate">
+						<div class="mb-4 img d-flex align-items-end">
+
+							
+							
+							<video id="html5Video" controls="true" preload="auto"
+								width="100%" height="100%" controlslist="nodownload">
+
+								<source src="<c:out value="${signResponseData.videoUrl}" />"
+									type="video/mp4">
+							</video>
+
+							<img src="<c:out value="${signResponseData.imageUrl}" />" width="100%" height="50%" />
+						</div>
+						<span>"<c:out value="${signResponseData.explain}" />"
+						</span>
+					</div>
+				</c:forEach>
+
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 			</div>
 			<div class="row mt-5">
 				<div class="col text-center">

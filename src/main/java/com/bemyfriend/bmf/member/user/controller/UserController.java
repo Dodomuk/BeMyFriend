@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf.member.user.controller;
 
 
+
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,12 +32,14 @@ import com.bemyfriend.bmf.member.user.model.vo.User;
 import com.bemyfriend.bmf.member.user.validator.UserValidator;
 
 
+
 @Controller
 @RequestMapping("member/user")
 public class UserController {
 	
 	
 	private final UserService userService;
+
 	private final UserValidator userValidator;
 	
 	
@@ -56,6 +60,7 @@ public class UserController {
 		//validator를 만들고, Controller에 i@nitBinder가 붙은 메소드를 만들고 Controller 파라미터에 값을 실제로 바인딩해주는
 		//webDataBinder를 받아와서 파라미터값을 바인딩 하기 전에 수행시킬 validator로 우리가 만든 userValidator 등록
 	}
+
 	
 	
 	//join.jsp로 이동
@@ -99,12 +104,11 @@ public class UserController {
 			persistUser.setUserAdd(userAdd);
 		}
 		
-	
+
 		String authPath = UUID.randomUUID().toString(); //유니크한 아이디 생성
 		session.setAttribute("authPath", authPath);
 		session.setAttribute("persistUser", persistUser);
-		
-		 
+
 		userService.authenticateEmail(persistUser, authPath);
 		model.addAttribute("alertMsg", "이메일이 발송되었습니다.");
 		model.addAttribute("url",ConfigCode.DOMAIN+"/index");
@@ -130,7 +134,6 @@ public class UserController {
 			
 			throw new ToAlertException(ErrorCode.AUTH02);
 		}
-		
 
 		userService.insertUser(persistUser);
 		//세션 만료시키기
@@ -208,10 +211,7 @@ public class UserController {
 		return "member/user/find_result";
 	}	
 	
-	
-	
-	
-	
+
 	
 	
 	//로그인 페이지로 이동
@@ -234,7 +234,7 @@ public class UserController {
 		// ResponseBody에 찍힌 문자열은 .then((text) => {
 		// 이 형태로 fatch를 이용해 꺼내게 되는 것
 		User userMember = userService.memberAuthenticate(user);
-		
+
 		 // 없는 회원이라면
 		if(userMember == null) {
 			return "fail";
@@ -244,6 +244,7 @@ public class UserController {
 			return "success";
 		}
 	}
+
 	
 	
 	
@@ -252,6 +253,7 @@ public class UserController {
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
 		userService.userLogout(session);
+
 		
 		return "/index";
 	}
@@ -282,12 +284,13 @@ public class UserController {
 			User userMember = userService.selectMemberById(user.getUserId());			
 			
 			session.setAttribute("userMember", userMember);
+
 			model.addAttribute("alertMsg", "회원정보 수정이 성공하였습니다.");
 			model.addAttribute("url",ConfigCode.DOMAIN+"/member/user/mypage");
 			return "common/result";
 			
 		}else {
-			
+
 			model.addAttribute("alertMsg", "회원정보 수정이 실패하였습니다.");
 			model.addAttribute("url",ConfigCode.DOMAIN+"member/user/mypage");
 			return "common/result";
@@ -295,6 +298,7 @@ public class UserController {
 		
 		
 	}
+
 	
 	
 	//회원탈퇴하기
@@ -314,6 +318,6 @@ public class UserController {
 			return "fail";
 		
 	}
-	
+
 
 }

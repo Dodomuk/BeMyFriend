@@ -27,6 +27,7 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyRepository.memberAuthenticate(comId, comPw);
 	}
 
+
 	
 	
 	// 아이디 체크
@@ -35,5 +36,6 @@ public class CompanyServiceImpl implements CompanyService{
 		
 		return companyRepository.selectMemberById(comId);
 	}
+
 
 }

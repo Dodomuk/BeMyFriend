@@ -35,6 +35,7 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
+<<<<<<< HEAD
 				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
@@ -49,6 +50,20 @@
 								<c:if test ="${sessionScope.comMember != null}">
 									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
 								</c:if>
+=======
+				    			<c:choose>
+									<c:when test ="${sessionScope.userMember == null || sessionScope.comMember == null}">
+										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
+				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
+									</c:when>
+								</c:choose>
+				    			
+				    			<c:choose>
+									<c:when test ="${sessionScope.comMember != null}">
+										<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
+									</c:when>
+								</c:choose>
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 				    			
 				    		</p>
 		        		</div>
@@ -163,6 +178,7 @@
 														<input type ="password" class="form-control" name="userPw" id="userPw">
 													</div>
 												</div>
+<<<<<<< HEAD
 												<div class="login_btn_form">
 													<div class="col-md-12">
 														<div class="form-group-log">
@@ -173,6 +189,11 @@
 														<div class="form-group-log">
 															<button type="submit" onclick="location.href='/member/user/findinfo'"  class="btn btn-findinfo">아이디/비밀번호 찾기</button>
 														</div>
+=======
+												<div class="col-md-12">
+													<div class="form-group-log-p">
+														<button type="submit" onclick="login()"  class="btn btn-primary">로그인</button>
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 													</div>
 												</div>
 											</div>

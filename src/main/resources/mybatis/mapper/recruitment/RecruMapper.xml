@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bemyfriend.bmf.recruitment.model.mapper.RecruMapper">
+
+    <!-- 페이징 처리는 추후에~ -->
+	 <select id="selectRecruList" resultType="recruitment">
+      select * 
+      from 
+         (
+              select
+                 rownum as rnum, a.*
+                 from com_hire a
+                 )
+             where
+             rnum between ${startRow} and ${endRow}  order by job_no desc
+    </select>  
+        
+    <insert id="insertRecru">
+    insert into review(review_no,user_id,review_title,review_content) 
+    values(sc_rv_idx.nextval,#{userId},#{reviewTitle},#{reviewContent})
+    </insert>
+
+    
+    <!-- 게시글 상세보기 조회 -->
+    <select id="viewRecruId" resultType="recruitment" parameterType="int">
+    select *from com_hire where job_no = #{view}
+    </select>
+    
+    <!-- 게시글 삭제 -->
+    <delete id="deleteRecru" parameterType="int">
+          delete from com_hire where job_no = #{view}
+    </delete>
+     
+</mapper>

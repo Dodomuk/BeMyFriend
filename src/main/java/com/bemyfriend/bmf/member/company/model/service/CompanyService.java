@@ -12,4 +12,5 @@ public interface CompanyService {
 	Company selectMemberById(String comId);
 	
 
+
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bemyfriend.bmf.member.user.model.vo.User;
 
+
 @Mapper //Mapper로도 사용
 public interface UserRepository {
 	

@@ -26,6 +26,7 @@ public class UserRepositoryTest {
 	public void memberAuthenticate() {
 		String userId = "test";
 		User usermember = userRepository.memberAuthenticate(userId);
+
 		System.out.println(usermember);
 	}
 	

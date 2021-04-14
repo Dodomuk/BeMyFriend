@@ -150,16 +150,28 @@ border: 1px solid #d2d2d2;
                         <c:if test="${!empty lawList}">
                 <c:forEach items="${lawList}" var="law">
           <div class="col-md-4 d-flex ftco-animate">
+<<<<<<< HEAD
             <div class="blog-entry align-self-stretch"  onclick="location.href='#';">
              <div class="box_img_wrap"  style="background-image: url('/resources/law/${law.lawImg}')" >
+=======
+            <div class="blog-entry align-self-stretch">
+             <div class="box_img_wrap" onclick="location.href='${context}/community/lawView?lawView=${law.lawNo}';" style="background-image: url('/resources/law/${law.lawImg}')" >
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
               </div>
               <div class="text p-4">
               	<div class="meta mb-2">
                   <div><fmt:formatDate value="${law.lawDate}" pattern="yyyy.MM.dd" /></div>
+<<<<<<< HEAD
                   <div>${law.lawNo}</a></div>
                   <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                 </div>
                 <h3 class="heading"><a href="#">${law.lawTitle}</a></h3>
+=======
+                  <div>${law.lawNo}</div>
+                  <div><a href="${context}/community/lawView?lawView=${law.lawNo}" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                </div>
+                <h3 class="heading"><a href="${context}/community/lawView?lawView=${law.lawNo}">${law.lawTitle}</a></h3>
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
               </div>
             </div>
           </div>

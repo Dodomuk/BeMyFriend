@@ -8,6 +8,7 @@ public enum ConfigCode {
 	DOMAIN("http://localhost:9090"),
 	EMAIL("qkraldud5020@naver.com"),
 	UPLOAD_PATH("/Users/miyoung/Desktop/final/CODE/"); //업로드패스 웹으로 잡아주기
+
 	
 	public String desc;
 	

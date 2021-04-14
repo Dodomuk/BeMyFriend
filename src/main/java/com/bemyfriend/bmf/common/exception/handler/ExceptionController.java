@@ -19,12 +19,13 @@ import com.bemyfriend.bmf.common.exception.CustomException;
 //Advice : 공통관심사
 //지정한 패키지 내의 모든 컨트롤러들의 공통 관심사를 처리하는 클래스
 @ControllerAdvice(basePackages = {"com.bemyfriend.bmf"})
+
 public class ExceptionController {
 	
 	Logger logger = LoggerFactory.getLogger(ExceptionController.class);
 	
-	
 	//Controller에서 발생하는 모든 예외를 받아줄 수 있음
+
 	@ExceptionHandler(CustomException.class)
 	public String businessExceptionHandler(CustomException e, Model model) {
 		model.addAttribute("alertMsg", e.error.errMsg());

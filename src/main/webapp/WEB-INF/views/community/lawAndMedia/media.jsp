@@ -151,16 +151,27 @@ border: 1px solid #d2d2d2;
                         <c:if test="${!empty mediaList}">
                 <c:forEach items="${mediaList}" var="media">
           <div class="col-md-4 d-flex ftco-animate">
+<<<<<<< HEAD
             <div class="blog-entry align-self-stretch"  onclick="location.href='#';">
              <div class="box_img_wrap"  style="background-image: url('/resources/law/${media.mediaImg}')" >
+=======
+            <div class="blog-entry align-self-stretch">
+             <div class="box_img_wrap" onclick="location.href='${context}/community/mediaView?mediaView=${media.mediaNo}';" style="background-image: url('/resources/media/${media.mediaImg}')" >
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
               </div>
               <div class="text p-4">
               	<div class="meta mb-2">
                   <div><fmt:formatDate value="${media.mediaDate}" pattern="yyyy.MM.dd" /></div>
                   <div>${media.mediaNo}</div>
+<<<<<<< HEAD
                   <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                 </div>
                 <h3 class="heading"><a href="#">${media.mediaTitle}</a></h3>
+=======
+                  <div><a href="${context}/community/mediaView?mediaView=${media.mediaNo}" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                </div>
+                <h3 class="heading"><a href="${context}/community/mediaView?mediaView=${media.mediaNo}">${media.mediaTitle}</a></h3>
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
               </div>
             </div>
           </div>

@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_lawAndMedia.mapper.LawMediaMapper;
 import com.bemyfriend.bmf.community.model_lawAndMedia.service.LawMediaService;
+
+import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law;
+import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media;
+
 import com.bemyfriend.bmf.community.model_review.mapper.ReviewMapper;
 import com.bemyfriend.bmf.community.model_review.service.ReviewService;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
@@ -42,6 +46,11 @@ public class LawMediaServiceImpl implements LawMediaService {
 	}
 
 	@Override
+	public Law viewLawId(int lawNo) {
+		return mapper.viewLawId(lawNo);
+	}
+	
+	@Override
 	public Map<String, Object> selectMediaList(int currentPage) {
 		Paging paging = Paging.builder()
 				.currentPage(currentPage)
@@ -58,6 +67,13 @@ public class LawMediaServiceImpl implements LawMediaService {
 		
 		return commandMap; 
 	}
+
+
+	@Override
+	public Media viewMediaId(int mediaNo) {
+		return mapper.viewMediaId(mediaNo);
+	}
+
 
     
 

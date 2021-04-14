@@ -33,7 +33,7 @@
 	<beans:bean class="org.springframework.web.client.RestTemplate">
 		<beans:constructor-arg name="requestFactory" ref="SimpleClientHttpRequestFactory"/>
 	</beans:bean>
-	
+
 	
 	<!-- Password Encoder사용을 위한 빈 등록 -->
 	<beans:bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
@@ -47,6 +47,7 @@
 		</interceptor>
 	</interceptors>
 	
+
 	<context:component-scan base-package="com.bemyfriend.bmf" />
 	
 	

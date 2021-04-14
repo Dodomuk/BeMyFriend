@@ -9,6 +9,7 @@ import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media;
 
+import com.bemyfriend.bmf.community.model_review.vo.Review;
 @Mapper
 public interface LawMediaMapper {
 
@@ -16,6 +17,10 @@ public interface LawMediaMapper {
 	
     public List<Media> selectMediaList(Paging page);
     
+	public Law viewLawId(int lawNo);
+    
+	public Media viewMediaId(int mediaNo);
+	 
 	  @Select("select count(*) from law")
 	  int selectLawCnt();
 	  

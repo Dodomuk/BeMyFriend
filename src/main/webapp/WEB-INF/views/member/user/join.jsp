@@ -23,7 +23,7 @@
   </head>
   <body>
 
-   		
+
    		<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
@@ -41,6 +41,7 @@
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
 				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
+
 								</c:if>
 								<c:if test="${sessionScope.userMember != null}">
 										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
@@ -151,17 +152,21 @@
 								<div class="col-md-7-p">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 										<!-- modelAttribute 를 지정, user안에 들어있는 errors 를 사용할 수 있음 -->
-										<form:form modelAttribute="user" action="${context}/member/user/mailauth" method="POST" id="contactForm" name="contactForm" class="contactForm">
+
+					
+										<form:form modelAttribute="User" action="${context}/member/user/mailauth" method="POST" id="contactForm" name="contactForm" class="contactForm">
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
 														<div>
+
 															<label class="label" id="check-group">아이디</label><span id="idCheck" class="id_check"></span>
 															<!-- path : rejectValue의 field 매개변수 -->
 															<form:errors path="userId" cssClass="id_check"></form:errors>
 														</div>
 														<div class="idcheck-group">
 															<input type="text" class="form-control" name="userId" id="userId" required="required">
+
 															<button type="button" onclick="idCheck()" class="btn btn-primary-p">확인</button>
 														</div>
 													</div>
@@ -170,6 +175,7 @@
 													<div class="form-group">
 														<label class="label">이름</label>
 														<input type="text" class="form-control" name="userName" id="userName" required="required" >
+
 													</div>
 												</div>
 												
@@ -178,32 +184,44 @@
 													<div class="form-group">
 														<label class="label">비밀번호</label>
 														<input type="password" class="form-control" name="userPw" id="userPw" placeholder="비밀번호를 입력하세요." required="required">
+
 													</div>
 												</div>
 												
 												<div class="col-md-6"> 
 													<div class="form-group">
+
+
 														<label class="label" id="check-group">비밀번호 확인</label>
 														<span id="pw_confirm" class="pw_check"></span>
 														<form:errors path="userPw" cssClass="pw_check"></form:errors>
+
+
 														<input type="password" class="form-control" id="checkpw" placeholder="비밀번호를 다시 입력하세요." > <!-- 확인비번 전송X -->
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" >전화번호</label>
+
 														<input type="tel" class="form-control" name="userTell" id="userTell" placeholder="숫자만 입력하세요." required="required">
+
+
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" >이메일</label>
+
 														<input type="email" class="form-control" name="userMail" id="userMail" required="required">
+
+
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" >주소</label>
+<<<<<<< HEAD
 														<select onchange="addressInfo(this)" class="form-control" name="userAdd" id="userAdd" required="required" >
 															<option value="">지역을 선택하세요</option>
 															<option value="서울특별시">서울특별시</option>
@@ -226,7 +244,7 @@
 														</select>
 														<select class="form-control" name="twoadd" id="twoadd" required="required" style="display: none">
 														</select>
-														
+
 													</div>
 												</div>
 												<div class="col-md-6">
@@ -239,6 +257,7 @@
 													<div class="form-group">
 														<label class="label" >이미지 사진</label>
 														<input type="file" class="form-control" name="userPhoto" id="userPhoto" >
+
 													</div>
 												</div>
 												
@@ -267,6 +286,7 @@
 					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
 						<h2 class="footer-heading">Be my Friends</h2>
 						<p>사회로의 첫걸음, [ Be My Friends ] 와 함께하세요.</p>
+
 						<ul class="ftco-footer-social p-0">
               <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
               <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
@@ -356,7 +376,7 @@
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
   <script src="../../../../resources/js/user.js"></script> 
- 
+
     
   </body>
 </html>

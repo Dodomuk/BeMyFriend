@@ -24,7 +24,6 @@
   <body>
 
    		<!-- header bar -->
-   		<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -132,6 +131,7 @@
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Mypage <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-0 bread">Mypage</h1>
+
           </div>
         </div>
       </div>
@@ -193,8 +193,7 @@
 													</div>
 												</div>
 												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label"id="check-group" >주소</label>
+													<div class="form-group"><label class="label"id="check-group" >주소</label>
 														<input type="text" class="form-control" name="userAdd" id="userAdd" value ="${userMember.userAdd}">
 													</div>
 												</div>

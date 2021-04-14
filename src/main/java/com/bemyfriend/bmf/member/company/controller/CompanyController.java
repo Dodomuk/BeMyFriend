@@ -32,6 +32,7 @@ public class CompanyController {
 	}
 	
 	
+
 	//해당 id의 존재유무 파악
 	@GetMapping("idcheck")
 	@ResponseBody

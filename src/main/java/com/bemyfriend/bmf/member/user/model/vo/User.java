@@ -9,6 +9,7 @@ public class User {
 	private String userName;
 	private String userAdd;
 	private String twoadd; //2dept주소
+
 	private String userTell;
 	private String userMail;
 	private Date userBirth;
@@ -36,11 +37,7 @@ public class User {
 		this.userIsleave = userIsleave;
 	}
 
-	
-	
 
-
-	
 	public String getUserId() {
 		return userId;
 	}
@@ -88,6 +85,7 @@ public class User {
 	}
 
 
+
 	public void setUserAdd(String userAdd) {
 		this.userAdd = userAdd;
 	}
@@ -103,6 +101,7 @@ public class User {
 	public void setTwoadd(String twoadd) {
 		this.twoadd = twoadd;
 	}
+
 
 
 	public String getUserTell() {

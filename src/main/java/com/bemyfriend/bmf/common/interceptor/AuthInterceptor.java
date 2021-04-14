@@ -2,16 +2,20 @@ package com.bemyfriend.bmf.common.interceptor;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.bemyfriend.bmf.common.code.ConfigCode;
+
 import com.bemyfriend.bmf.common.code.ErrorCode;
 import com.bemyfriend.bmf.common.exception.ToAlertException;
 
@@ -21,6 +25,7 @@ import com.bemyfriend.bmf.common.exception.ToAlertException;
 public class AuthInterceptor implements HandlerInterceptor{
    
    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException, ServletException {
+
      
     
       HttpSession session =request.getSession();
@@ -66,6 +71,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 	         }
     	 }
   
+
       }
       return true;
    }

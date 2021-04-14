@@ -9843,6 +9843,7 @@ textarea.form-control {
 
 .logo_space {
    width: 27%;
+
     margin: auto;
     display: flex;
     justify-content: space-around;
@@ -9961,11 +9962,13 @@ div#ftco-nav {
     font-size: 0.5px;
 }
 
+
 .findpw{
 	background: slateBlue;
     border: 1px solid slateBlue;
     color: #fff;
 }
+
 
 .btn-primary-p:hover {
     color: #fff;
@@ -10009,6 +10012,7 @@ span#idCheck{
 	font-size: smaller;
     color: crimson;
 }
+
 .id_check{
 	font-size: smaller;
     color: crimson;
@@ -10019,6 +10023,7 @@ span#idCheck{
 }
 
 
+
 .updateForm .label {
   color: #00bd56 !important;
   text-transform: uppercase;
@@ -10027,9 +10032,11 @@ span#idCheck{
 
 
 .updateform .form-control {
+
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0; }
+
 
 .updateform .form-control {
   height: 36px;
@@ -10040,6 +10047,7 @@ span#idCheck{
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
   .updateform .form-control::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: rgba(0, 0, 0, 0.5) !important; }
@@ -10056,6 +10064,7 @@ span#idCheck{
     border-color: #00bd56 !important; }
 
 .updateform textarea.form-control {
+
   height: inherit !important; }
 
 #pw_confirm{
@@ -10181,7 +10190,8 @@ span#idCheck{
 	display:flex;
 }
  
- #searchText_2{
+
+ #signSearchText{
     width: 500px;
     padding: 0 10px 3px 12px;
     height: 35px;
@@ -10191,7 +10201,8 @@ span#idCheck{
     border-radius: 6px;
  }
  
-.searchBtn_2{
+
+.signSearchBtn{
 	background-color: darkseagreen;
 	border: 1px solid darkseagreen;
 	width: 50px;
@@ -10200,7 +10211,9 @@ span#idCheck{
 	cursor: pointer;
 }
 
-.searchBtn_2:hover{
+
+.signSearchBtn:hover{
 	background-color: cadetblue;
 }
+
 

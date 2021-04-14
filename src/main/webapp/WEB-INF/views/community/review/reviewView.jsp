@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/include/head.jsp" %>
@@ -68,6 +69,8 @@ $(function(){
 
 </body>
 =======
+=======
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/include/head.jsp" %>
@@ -245,5 +248,8 @@ function getCommentList(){
 
 
 </body>
+<<<<<<< HEAD
 >>>>>>> 05889f4c52b1c158a063cb47285b537c5f193eb1
+=======
+>>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 </html>

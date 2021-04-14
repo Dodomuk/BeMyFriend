@@ -16,17 +16,16 @@
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
 		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.Company" alias="company"/>
 		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
+
+		<typeAlias alias="recruitment" type="com.bemyfriend.bmf.recruitment.model.vo.Recruitment"/>
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="mybatis/mapper/review/ReviewMapper.xml"/>
+		<mapper resource="mybatis/mapper/community/review/ReviewMapper.xml"/>
+		<mapper resource="mybatis/mapper/community/LawAndMedia/LawAndMediaMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
-		<!-- <mapper resource="mybatis/mapper/community/review/ReviewMapper.xml"/> -->
-		<!-- <mapper resource="mybatis/mapper/community/LawAndMedia/LawAndMediaMapper.xml"/> -->
-		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
-		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
-		<!-- <mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/> -->
+		<mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/>
 
 	</mappers>
 	

@@ -23,7 +23,7 @@
   </head>
   <body>
 	
-   		
+
    		<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
@@ -37,10 +37,11 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
+				    		<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
 				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
+
 								</c:if>
 								<c:if test="${sessionScope.userMember != null}">
 										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
@@ -159,6 +160,7 @@
 														<label class="label" for="comId">기업 아이디</label>
 															<div class="idcheck-group">
 																<input type="text" class="form-control" name="comId" id="comId" >
+
 																<button type="button" onclick="idCheck()" class="btn btn-primary-p">확인</button>
 															</div>
 													</div>
@@ -245,6 +247,7 @@
 												</div>
 											</div>
 										</form:form>
+
 									</div>
 								</div>
 								

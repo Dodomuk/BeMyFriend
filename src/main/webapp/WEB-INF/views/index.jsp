@@ -83,8 +83,7 @@
 						    <div id="navwidth">
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
-						        	<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item"><a href="/lawAndMedia" class="nav-link">법률/매체</a></li>
+						        	<li class="nav-item "><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
 						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>

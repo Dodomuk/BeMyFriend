@@ -161,6 +161,7 @@ border: 1px solid #d2d2d2;
                   <div><a href="${context}/community/mediaView?mediaView=${media.mediaNo}" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                 </div>
                 <h3 class="heading"><a href="${context}/community/mediaView?mediaView=${media.mediaNo}">${media.mediaTitle}</a></h3>
+              </div>
             </div>
           </div>
           </c:forEach>
@@ -299,4 +300,4 @@ border: 1px solid #d2d2d2;
 
     
   </body>
-</html> --%>
+</html>

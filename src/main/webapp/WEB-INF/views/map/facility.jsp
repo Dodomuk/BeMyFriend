@@ -15,8 +15,8 @@
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="서울 장애인 시설" id="keyword" size="15"> 
-                    <button type="submit">검색하기</button> 
+                    <input type="hidden" value="서울 장애인 시설" id="keyword" size="15"> 
+                    <span style="font-weight: bold; font-size: 1.5em">서울 장애인 시설 목록</span> 
                 </form>
             </div>
         </div>
@@ -25,7 +25,6 @@
         <div id="pagination"></div>
     </div>
 </div>
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f762ca58e04e30355c1fe779c61ff72&libraries=services"></script>
 <script>
 // 마커를 담을 배열입니다

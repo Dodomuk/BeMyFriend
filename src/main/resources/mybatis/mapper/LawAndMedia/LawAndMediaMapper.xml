@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bemyfriend.bmf.community.model_lawAndMedia.mapper.LawMediaMapper">
+
+    <!-- 페이징 처리는 추후에~ -->
+	 <select id="selectLawList" resultType="law">
+
+      select * 
+      from 
+         (
+              select
+                 rownum as rnum, a.*
+                 from law a
+                 )
+             where
+             rnum between ${startRow} and ${endRow}  order by law_no desc
+    </select>  
+       
+    <!-- 게시글 상세보기 조회 -->
+    <select id="lawViewId" resultType="law" parameterType="int">
+    select *from review where law_no = #{view}
+    </select>
+    
+    
+        <!-- 페이징 처리는 추후에~ -->
+	 <select id="selectMediaList" resultType="media">
+
+      select * 
+      from 
+         (
+              select
+                 rownum as rnum, a.*
+                 from media a
+                 )
+             where
+             rnum between ${startRow} and ${endRow}  order by media_no desc
+    </select>  
+       
+    <!-- 게시글 상세보기 조회 -->
+    <select id="mediaViewId" resultType="media" parameterType="int">
+    select *from media where media_no = #{view}
+    </select>
+    
+</mapper>

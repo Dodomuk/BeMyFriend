@@ -16,6 +16,7 @@
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
 		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.Company" alias="company"/>
 		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
+		<typeAlias type="com.bemyfriend.bmf.kmap.model.vo.Kmap" alias="kmap"/>
 
 		<typeAlias alias="recruitment" type="com.bemyfriend.bmf.recruitment.model.vo.Recruitment"/>
 	</typeAliases>
@@ -26,6 +27,7 @@
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 		<mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/>
+		<mapper resource="mybatis/mapper/kmap/kmapMapper.xml"/>
 
 	</mappers>
 	

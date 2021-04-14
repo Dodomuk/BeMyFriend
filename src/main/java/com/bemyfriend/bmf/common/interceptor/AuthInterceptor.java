@@ -65,9 +65,11 @@ public class AuthInterceptor implements HandlerInterceptor{
 				    			}
 				    				break;
 					        	  
-	        	  
+	        	    
 	        	  }
-	              break;
+	        	  break;
+	        	  
+	            
 	         }
     	 }
   

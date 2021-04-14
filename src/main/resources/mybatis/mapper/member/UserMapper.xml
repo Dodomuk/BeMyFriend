@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.bemyfriend.bmf.member.user.model.repository.UserRepository">
-
+ 
  
  	<!-- 회원정보 수정하기 -->
  	<update id="updateUserInfo"><!--update문 resultType 필요X -->
@@ -19,6 +19,9 @@
  				<if test="userAdd != null">
  					,user_add = #{userAdd}
  				</if>	
+ 				<if test="userTell != null">
+ 					,user_tell = #{userTell}
+ 				</if>
  				<if test="userMail != null">
  					,user_mail = #{userMail}
  				</if>
@@ -31,7 +34,5 @@
  
  
  
- 
- 
- 
 </mapper>
+

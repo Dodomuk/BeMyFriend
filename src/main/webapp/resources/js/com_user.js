@@ -14,21 +14,21 @@
 		let idCheck = document.querySelector('#idCheck');
 		
 		
-		if(userId.value){ // true일때
+		if(comId.value){ // true일때
 			fetch("idcheck?comId=" + comId.value,{
 				method: "GET",
 				headers: headerObj
 				
 			}).then(response => response.text()) // then해주면 응답(response)이 넘어옴, 바로 return
 			  .then((message)=>{ // message가 넘어올 것
-				 
+				 console.dir(message);
 				if(message == 'available'){
 					idCheckFlg = true;
 					idCheck.innerHTML = '사용 가능한 아이디 입니다.';
 				} else {
 					idCheckFlg = false;
 					idCheck.innerHTML = '사용 불가능한 아이디 입니다.';
-					userId.value="";
+					comId.value="";
 				}				
 			  }).catch(error => {
 				 
@@ -51,14 +51,14 @@
 			         e.preventDefault();
 			      }
 			      
-			      let password =comPw.value;
+			      let password = comPw.value;
 			      let regExp = /^(?!.*[ㄱ-힣])(?=.*\W)(?=.*\d)(?=.*[a-zA-Z])(?=.{8,})/;
 			     
 			      if(!(regExp.test(password))){
 			         //form의 데이터 전송을 막음
 			         e.preventDefault();
 			         pw_confirm.innerHTML = '비밀번호는 숫자,영문자,특수문자 조합의 8글자 이상이어야 합니다.';
-			         userPw.value = '';
+			         comPw.value = '';
 			      } else {
 			    	  
 			    	  let firstPw = comPw.value;
@@ -175,7 +175,7 @@
 	if(document.querySelector('.updateform') != null){
 		  document.querySelector('.updateform').addEventListener('submit',(e) => {			      
 			      
-			      let password = userPw.value;
+			      let password = comPw.value;
 			      let regExp = /^(?!.*[ㄱ-힣])(?=.*\W)(?=.*\d)(?=.*[a-zA-Z])(?=.{8,})/;
 			
 			      if(password == ''){
@@ -188,10 +188,10 @@
 				         //form의 데이터 전송을 막음
 				         e.preventDefault();
 				         pw_confirm.innerHTML = '비밀번호는 숫자,영문자,특수문자 조합의 8글자 이상이어야 합니다.';
-				         userPw.value = '';
+				         comPw.value = '';
 				      } else {
 				    	  
-				    	  let firstPw = userPw.value;
+				    	  let firstPw = comPw.value;
 						  let secondPw = checkpw.value;
 						  //비밀번호 double check 메소드
 						  if(firstPw != secondPw){
@@ -228,8 +228,8 @@
 		  var 제주특별자치도= ["1","2"];
 		  
 
-		  let target = document.getElementById("twoadd");
-		  document.getElementById("twoadd").style.display="inline";
+		  let target = document.getElementById("twoAdd");
+		  document.getElementById("twoAdd").style.display="inline";
 		  
 		  
 		  if(e.value == "서울특별시") var d = 서울특별시;

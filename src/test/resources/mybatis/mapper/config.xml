@@ -20,6 +20,7 @@
 	<mappers>
 		<mapper resource="mybatis/mapper/board/BoardMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
+		<mapper resource="mybatis/mapper/member/CompanyMapper.xml"/>
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 		
 	</mappers>

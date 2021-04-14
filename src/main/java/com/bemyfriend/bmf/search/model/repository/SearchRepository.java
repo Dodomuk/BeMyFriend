@@ -19,7 +19,7 @@ public interface SearchRepository {
 	
 	
 	
-	@Select("SELECT * FROM COM_HIRE WHERE JOB_TITLE LIKE '%'||${seachTitle}||'%'")
+	@Select("SELECT * FROM COM_HIRE WHERE JOB_TITLE LIKE '%'||#{seachTitle}||'%' or COM_ID LIKE '%'||#{seachTitle}||'%'")
 	List<CompanyHire> searchTitle(String searchTitle);
 
 }

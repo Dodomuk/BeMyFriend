@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
   <body>
-	<!-- header bar -->
+
+   		<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -82,25 +83,25 @@
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
 						        	<li class="nav-item"><a href="/recruit" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item"><a href="vet.html" class="nav-link">법률/매체</a></li>
-						        	<li class="nav-item"><a href="services.html" class="nav-link">커뮤니티</a></li>
-							        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+						        	<li class="nav-item"><a href="/lawAndMedia" class="nav-link">법률/매체</a></li>
+						        	<li class="nav-item"><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
+							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume" class="nav-link">자료실</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item"><a href="member/company/hire" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item active"><a href="/member/user/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item active"><a href="/member/company/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
 									</c:choose>
@@ -123,55 +124,126 @@
     
     
     
-  
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('../../../../resources/images/bg_15.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Mypage <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-0 bread">Mypage</h1>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="ftco-section bg-light">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">회원정보 찾기 결과</h2>
+						<h2 class="heading-section">기업회원정보</h2>
 					</div>
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-md-12">
 						<div class="wrapper">
-							<div class="row no-gutters-log">
-								<div class="col-md-7-p-log">
+							<div class="row no-gutters">
+								<div class="col-md-7-p">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 					
-										<div id="contactForm" class="contactForm">
+										<form:form modelAttribute="Company" action="${context}/member/company/updateinfo" method="POST" id="updateform" name="updateform" class="updateform">
 											<div class="row">
-												<div class="col-md-12">
-													<div class="form-group find-result" >
-													<c:if test="${!empty userId}">
-														<span>당신의 아이디는 ${userId} 입니다.</span>
-													</c:if>
-													<c:if test="${!empty fail}">
-														<span>${fail}</span>
-													</c:if>
-													<c:if test="${!empty userPw}">
-														<span>당신의 새로운 비밀번호는 ${userPw} 입니다.</span><br>
-														<span>회원정보수정 페이지에서 비밀번호를 변경하세요.</span>
-													</c:if>
-														
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" id="check-group">기업 아이디</label><span id="idCheck"></span>
+														<input type="text" value ="${comMember.comId}" class="form-control" name="comId" id="comId" readonly>
 													</div>
-												</div>												
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" id="check-group">기업명</label>
+														<input type="text" class="form-control" name="comName" id="comName"  value ="${comMember.comName}" readonly>
+													</div>
+												</div>
+												
+												
+												<div class="col-md-6"> 
+													<div class="form-group">
+														<label class="label" id="check-group">비밀번호</label><span id="pw_check"></span>
+														<input type="password" class="form-control" name="comPw" id="comPw" placeholder="비밀번호/변경할 비밀번호를 입력하세요.">
+													</div>
+												</div>
+												
+												<div class="col-md-6"> 
+													<div class="form-group">
+														<label class="label" id="check-group">비밀번호 확인</label><span id="pw_confirm"></span>
+														<input type="password" class="form-control" id="checkpw" placeholder="비밀번호를 다시 입력하세요." > <!-- 확인비번 전송X -->
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" id="check-group" >기업 전화번호</label>
+														<input type="tel" class="form-control" name="comTell" id="comTell" value ="${comMember.comTell}" >
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label"id="check-group" >기업 이메일</label>
+														<input type="email" class="form-control" name="comMail" id="comMail"  value ="${comMember.comMail}">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group"><label class="label"id="check-group" >기업주소</label>
+														<input type="text" class="form-control" name="comAddress" id="comAddress" value ="${comMember.comAddress}" readonly>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" id="check-group">기업형태</label><br>
+															<c:if test="${comMember.comType == '스타트업'}">
+																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
+																<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
+																<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
+																<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업	
+															</c:if>
+															<c:if test="${comMember.comType == '중소기업'}">
+																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
+																<input type="radio" class ="status" name="comType" value="small"id="small" checked="checked"> 중소기업<br>
+																<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
+																<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업	
+															</c:if>
+															<c:if test="${comMember.comType == '중견기업'}">
+																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
+																<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
+																<input type="radio" class ="status" name="comType" value="middle" id="middle" checked="checked"> 중견기업<br>
+																<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업	
+															</c:if>
+															<c:if test="${comMember.comType == '대기업'}">
+																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
+																<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
+																<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
+																<input type="radio" class ="status" name="comType" value="big" id="big" checked="checked">  대기업	
+															</c:if>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="label" id="check-group">인사담당자</label>
+														<input type="text" class="form-control" name="comManager" id="comManager" value ="${comMember.comManager}">
+													</div>
+												</div>
+												
+												<div class="col-md-12">
+													<div class="form-group-log">
+														<button type="submit" class="delete-btn btn-delete" id="withdrawUser" onclick="withdraw()">회원탈퇴하기</button>
+														<button type="submit" class="btn btn-primary" id="modifyInfo">기업정보 수정</button>
+													</div>
+												</div>
 											</div>
-										</div>
+										</form:form>
 									</div>
-									
-									<div class="row move_btn_form">
-										<div class="col-md-6 move_btn">
-											<button type="submit" onclick="location.href='/member/user/login'"  class="btn btn-primary">로그인 하기</button>
-										</div>
-										<c:if test="${!empty userId}">
-											<div class="col-md-6 move_btn">
-											<button type="submit" onclick="location.href='/member/user/findinfo'"  class="btn btn-primary">비밀번호 찾기</button>
-										</div>
-										</c:if>
-										
-									</div>
-									
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -180,7 +252,7 @@
 		</section>
 
 		
-<!-- footer -->
+
     <footer class="footer">
 			<div class="container">
 				<div class="row">
@@ -256,10 +328,11 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-  
-  
-  
-  
+
+
+
+	
+
   <script src="../../../../resources/js/jquery.min.js"></script>
   <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../../../../resources/js/popper.min.js"></script>
@@ -274,7 +347,7 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
-  <script src="../../../../resources/js/user.js"></script>
+  <script src="../../../../resources/js/com_user.js"></script> 
 
 
     

@@ -29,6 +29,7 @@ public class ComUserValidator implements Validator{
 		return 	Company.class.equals(clazz);
 	}
 
+	
 	@Override
 	public void validate(Object target, Errors errors) {
 		//Object target : 컨트롤러 메서드의 파라미터
@@ -44,7 +45,7 @@ public class ComUserValidator implements Validator{
 		 */
 		//2. password가 8자리 이상 숫자, 영문자, 특수기호가 각 하나씩 들어있는지
 		if(!pattern.matcher(persistInfo.getComPw()).find()) {
-			errors.rejectValue("password", "error.password", "비밀번호는 숫자,영문자,특수문자 조합의 8글자 이상인 문자열입니다.");
+			errors.rejectValue("comPw", "comPW.password", "비밀번호는 숫자,영문자,특수문자 조합의 8글자 이상인 문자열입니다.");
 			
 		}
 		

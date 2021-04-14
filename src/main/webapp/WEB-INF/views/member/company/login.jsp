@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../../../resources/css/style.css">
   </head>
   <body>
-	<!-- header bar -->
+<!-- header bar -->
    		<div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -35,24 +35,27 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:choose>
-									<c:when test ="${sessionScope.userMember == null || sessionScope.comMember == null}">
+				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
 										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
-									</c:when>
-								</c:choose>
-				    			
-				    			<c:choose>
-									<c:when test ="${sessionScope.comMember != null}">
-										<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
-									</c:when>
-								</c:choose>
+				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
+								</c:if>
+								<c:if test="${sessionScope.userMember != null}">
+										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
+								</c:if>
+								<c:if test="${sessionScope.comMember != null}">
+				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
+								</c:if>
+								<c:if test ="${sessionScope.comMember != null}">
+									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
+								</c:if>
 				    			
 				    		</p>
 		        		</div>
 					</div>
 				</div>
 			</div>
+			
 			
 			
 			
@@ -152,18 +155,23 @@
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" id="userId" for="userId">아이디</label>
-														<input type="text" class="form-control" name="userId" id="userId" >
+														<input type="text" class="form-control" name="comId" id="comId" >
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" id="userPw" for="userPw" >비밀번호</label>
-														<input type ="password" class="form-control" name="userPw" id="userPw">
+														<input type ="password" class="form-control" name="comPw" id="comPw">
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group-log-p">
 														<button type="submit" onclick="login()" class="btn btn-primary">로그인</button>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group-log-p">
+														<button type="submit" onclick="location.href='/member/company/findinfo'"  class="btn btn-findinfo">아이디/비밀번호 찾기</button>
 													</div>
 												</div>
 											</div>
@@ -271,7 +279,7 @@
   <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
-
+   <script src="../../../../resources/js/com_user.js"></script>
 
     
   </body>

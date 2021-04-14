@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bemyfriend.bmf.member.company.model.repository.CompanyRepository">
+
+
+	<!-- 회원가입하기 -->
+	<insert id ="insertCompany">
+		INSERT INTO COM_USER
+		(COM_ID, COM_PW, COM_NAME, COM_ADDRESS, COM_TELL, COM_MAIL, COM_TYPE, COM_MANAGER)
+		VALUES
+		(#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail},
+		<if test="comType == 'start'">
+		'스타트업'
+		</if>
+		<if test="comType == 'small'">
+		'중소기업'
+		</if>
+		<if test="comType == 'middle'">
+		'중견기업'
+		</if>
+		<if test="comType == 'big'">
+		'대기업'
+		</if>
+		, #{comManager})
+	</insert>
+
+	
+	<!-- 회원정보수정하기 -->
+	<update id="updateComInfo"><!--update문 resultType 필요X -->
+ 		UPDATE COM_USER
+ 			<set>
+ 				<if test="comPw != null">
+ 					com_pw = #{comPw}
+ 				</if>
+ 				<if test="comName != null">
+ 					,com_name = #{comName}
+ 				</if>
+ 				<if test="comAddress != null">
+ 					,com_address = #{comAddress}
+ 				</if>
+ 				<if test="comTell != null">
+ 					,com_tell = #{comTell}
+ 				</if>
+ 				<if test="comMail != null">
+ 					,com_mail = #{comMail}
+ 				</if>		
+ 				<if test="comType != null">
+ 					<if test="comType == 'start'">
+					,com_type = '스타트업'
+					</if>
+					<if test="comType == 'small'">
+					,com_type = '중소기업'
+					</if>
+					<if test="comType == 'middle'">
+					,com_type = '중견기업'
+					</if>
+					<if test="comType == 'big'">
+					,com_type = '대기업'
+ 					</if>
+ 				</if>	
+ 				<if test="comManager != null">
+ 					,com_manager = #{comManager}
+ 				</if>
+ 			</set>
+ 		WHERE com_id = #{comId}
+ 	</update>
+
+</mapper>

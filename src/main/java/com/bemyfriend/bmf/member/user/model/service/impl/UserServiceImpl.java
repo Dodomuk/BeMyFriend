@@ -35,26 +35,17 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private MailSender mail;
+	/*
 	@Autowired
 	private RestTemplate http;
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+	*/
+	
+	RestTemplate http = new RestTemplate();
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 
-	
-	@Bean //RestTemplate Bean 생성오류로 직접 Bean으로 생성
-	public RestTemplate restTemplate() {
-	    return new RestTemplate();
-	}
-	
-	@Bean
-	public BCryptPasswordEncoder encoder(){
-	  return new BCryptPasswordEncoder();
-	}
-
-
-	
-	
 	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	

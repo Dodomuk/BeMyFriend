@@ -171,7 +171,7 @@ public class UserController {
 			
 			
 		model.addAttribute("userId",userId);
-		return "member/user/find_result";
+		return "member/find_result";
 	}
 	
 	
@@ -201,14 +201,14 @@ public class UserController {
 			userService.updateUserInfo(updateUser);
 			model.addAttribute("userPw", randomStr);
 			
-			return "member/user/find_result";
+			return "member/find_result";
 			
 		
 		}
 		
 		model.addAttribute("fail","조회되는 회원이 없습니다.");
 		
-		return "member/user/find_result";
+		return "member/find_result";
 	}	
 	
 
@@ -252,8 +252,8 @@ public class UserController {
 	//로그아웃하기
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
+		
 		userService.userLogout(session);
-
 		
 		return "/index";
 	}

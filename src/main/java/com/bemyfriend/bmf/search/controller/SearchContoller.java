@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-
+import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +25,21 @@ public class SearchContoller {
 	
 	
 	@GetMapping("searchtitle")				//get으로 받은 값
-	public List<CompanyHire> searchTitle (@RequestParam String searchText
-											,HttpSession session){
+	public String searchTitle (@RequestParam String searchText
+								,Model model){
 		
-		List<CompanyHire> searchResult = searchService.searchTitle(searchText);
+		List<CompanyHire> searchList = searchService.searchTitle(searchText);
+		System.out.println(searchList);
 		
-		return searchResult;
+		if(searchList == null) {
+			
+			model.addAttribute("fail","결과값이 존재하지않습니다.");
+			
+			return "search/searchlist";
+		}
+		model.addAttribute("searchList",searchList);
+		
+		return "search/searchlist";
 	}
 	
 	

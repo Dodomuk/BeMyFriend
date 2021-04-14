@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/include/head.jsp"%>
-<<<<<<< HEAD
-<%@include file="/WEB-INF/views/include/community_head.jsp"%>
-=======
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -100,22 +97,9 @@
               <div class="media-body p-3">
                 <h3 class="heading">${review.reviewTitle}</h3>
                 <p>${review.userId}</p>
-<<<<<<< HEAD
-                <p>${review.viewCnt}</p> 
-                <span class="position">
-               <c:choose>
-                <c:when test="${review.reviewDate eq today}">
-                             <fmt:formatDate value="${review.reviewDate}" pattern="HH:mm:ss" />
-				</c:when>
-                <c:otherwise>
-                             <fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
-				</c:otherwise>
-				</c:choose>		
-=======
                 <p>조회수 : ${review.viewCnt}</p> 
                 <span class="position">
                              <fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
                 </span>
                 <p></p>
                 <a href="${context}/community/review/reviewView?view=${review.reviewNo}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>

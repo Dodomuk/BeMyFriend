@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,19 +132,12 @@
 			<div class="row no-gutters slider-text align-items-end">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs mb-2">
-<<<<<<< HEAD
-						<span class="mr-2"><a href="index.html">수 to the <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>화 <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-					<h1 class="mb-0 bread">이거슨 수화1</h1>
-=======
-						<span class="mr-2"><a href="index.html">Learn Sign
+					<span class="mr-2"><a href="index.html">Learn Sign
 								Language<i class="ion-ios-arrow-forward"></i>
 						</a></span> <span>화 <i class="ion-ios-arrow-forward"></i></span>
 					</p>
 					<h1 class="mb-0 bread">수화를 배워봅시다</h1>
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
+
 
 
 				</div>
@@ -158,202 +148,7 @@
 	<section class="ftco-section">
 
 		<div class="container">
-<<<<<<< HEAD
-		
-		<!-- 수화 검색창 -->
-		<div class="row mb-5">
-			<div class="col text-center">
-					<div class="wrapSearch">
-							<input type="text" id="searchText_2" title="searchJob" name="stext"
-								maxlength="50" style="background: none;">
-							<button type="submit" class="searchBtn_2" id="common_search_btn">
-								<i class="fas fa-search"></i>
-							</button>
-					</div>
-			</div>
-		</div>
-			<div class="row">
-				<!-- 수화 임시 테스트용 -->
-				<div class="col-md-4 ftco-animate">
-					<div class="mb-4 img d-flex align-items-end">
 
-
-						<video id="html5Video" controls="true" preload="auto" width="100%"
-							height="100%" controlslist="nodownload">
-
-							<source
-								src="http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20191007/625090/MOV000248444_700X466.webm"
-								type="video/webm">
-							<source
-								src="http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20191007/625090/MOV000248444_700X466.mp4"
-								type="video/mp4">
-							<source
-								src="http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20191007/625090/MOV000248444_700X466.ogv"
-								type="video/ogv">
-
-						</video>
-
-					</div>
-				</div>
-
-
-				<div class="col-md-4 ftco-animate">
-					<div class="mb-4 img d-flex align-items-end">
-						<video id="html5Video" controls="true" preload="auto" width="100%"
-							height="100%" controlslist="nodownload">
-
-							<source
-								src="http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20200825/735662/MOV000256616_700X466.webm"
-								type="video/webm">
-							<source
-								src="http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20200825/735662/MOV000256616_700X466.mp4"
-								type="video/mp4">
-							<source
-								src="http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20200825/735662/MOV000256616_700X466.ogv"
-								type="video/ogv">
-
-						</video>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-2.jpg);">
-						<a href="images/gallery-2.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Dog</span>
-								<h2>
-									<a href="work-single.html">Pomeranian</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-3.jpg);">
-						<a href="images/gallery-3.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Cat</span>
-								<h2>
-									<a href="work-single.html">Sphynx Cat</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-4.jpg);">
-						<a href="images/gallery-4.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Cat</span>
-								<h2>
-									<a href="work-single.html">British Shorthair</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-5.jpg);">
-						<a href="images/gallery-5.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Dog</span>
-								<h2>
-									<a href="work-single.html">Beagle</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-6.jpg);">
-						<a href="images/gallery-6.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Dog</span>
-								<h2>
-									<a href="work-single.html">Pug</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-7.jpg);">
-						<a href="images/gallery-7.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Cat</span>
-								<h2>
-									<a href="work-single.html">British Shorthair</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-8.jpg);">
-						<a href="images/gallery-8.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Dog</span>
-								<h2>
-									<a href="work-single.html">Beagle</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="work mb-4 img d-flex align-items-end"
-						style="background-image: url(../resources/images/gallery-9.jpg);">
-						<a href="images/gallery-9.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="fa fa-expand"></span>
-						</a>
-						<div class="desc w-100 px-4">
-							<div class="text w-100 mb-3">
-								<span>Dog</span>
-								<h2>
-									<a href="work-single.html">Pug</a>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-=======
 
 			<!-- 수화 검색창 -->
 			<div class="row mb-5">
@@ -418,8 +213,6 @@
 						</span>
 					</div>
 				</c:forEach>
-
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 			</div>
 			<div class="row mt-5">
 				<div class="col text-center">

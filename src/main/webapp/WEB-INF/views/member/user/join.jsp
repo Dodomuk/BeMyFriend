@@ -221,7 +221,6 @@
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" >주소</label>
-<<<<<<< HEAD
 														<select onchange="addressInfo(this)" class="form-control" name="userAdd" id="userAdd" required="required" >
 															<option value="">지역을 선택하세요</option>
 															<option value="서울특별시">서울특별시</option>

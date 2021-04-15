@@ -27,7 +27,7 @@
     
     <!-- 게시글 상세보기 조회 -->
     <select id="viewId" resultType="review" parameterType="int">
-    select *from review where review_no = #{view}
+    select * from review where review_no = #{view}
     </select>
     
     <!-- 게시글 삭제 -->
@@ -45,10 +45,5 @@
           update review set view_cnt= view_cnt+1 where review_no = ${view}
     </update> 
     
-    <!-- 댓글 작성 기능 --> 
-    <insert id="reviewReply">
-    insert into review_comment(review_comment_no,review_no,user_id,review_comment_content)
-    values(sc_rvc_idx.nextval,#{reviewNo},#{userId},#{reviewCommentContent})
-    </insert>
-   
+ 
 </mapper>

@@ -15,13 +15,14 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
-<!--   DB 계정 정보  -->
+<!--   DB 계정 정보 -->
 	 <bean id = "dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@pclassdb_high?TNS_ADMIN=/Users/miyoung/06_oracle/Wallet_pclassDB"/>
 		<property name="username" value="admin"/>
 		<property name="password" value="1*aL201210380"/>
 	</bean>
+
 	
 
 		 
@@ -34,8 +35,7 @@
 		<property name="username" value="admin"/>
 		<property name="password" value="1*aL201210380"/> 
 
-	</bean>   -->
-
+	</bean> -->
 
 
 	<!-- mybatis sql -->

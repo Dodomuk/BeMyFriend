@@ -25,8 +25,6 @@ public interface ReviewMapper {
 	
 	public void viewCount(int no);
 	
-	public void reviewReply(ReviewComment reviewComment);
-	
 	// 게시글 업로드
 	
 	  //더미데이터 집어넣으려고 임시로 만듦

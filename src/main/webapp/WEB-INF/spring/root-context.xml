@@ -22,8 +22,10 @@
 		<property name="username" value="admin"/>
 		<property name="password" value="1*aL201210380"/>
 	</bean>
-		
+	
 
+		 
+ 
 	<!--  DB 계정 정보 /동묵
 
 	 <bean id = "dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -64,6 +66,26 @@
 			</props>
 		</property>
 	</bean>
+		
+		
+		
+	<!-- RestTemplate 사용 위한 bean 등록 -->
+	<bean id="SimpleClientHttpRequestFactory" class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+		<property name="connectTimeout" value ="5000"/>
+		<property name="readTimeout" value ="5000"/>
+	</bean>
+	
+	<bean class="org.springframework.web.client.RestTemplate" id="rest">
+		<constructor-arg name="requestFactory" ref="SimpleClientHttpRequestFactory"/>
+	</bean>
+	
+	
+	<!-- Password Encoder사용을 위한 빈 등록 -->
+	<bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+	
+		
+		
+		
 		
 		
 		

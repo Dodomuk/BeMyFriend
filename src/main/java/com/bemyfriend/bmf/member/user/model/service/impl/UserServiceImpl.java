@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
@@ -33,24 +34,27 @@ public class UserServiceImpl implements UserService {
 	
 	private final UserRepository userRepository;
 	
-	@Autowired
+	@Autowired 
 	private MailSender mail;
-	/*
+
 	@Autowired
 	private RestTemplate http;
+	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	*/
 	
+	
+	
+	/*
 	RestTemplate http = new RestTemplate();
 	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
+*/
 
 	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	
 	 }
-	
+
 	
 
 	//idCheck
@@ -90,7 +94,7 @@ public class UserServiceImpl implements UserService {
 		
 		
 
-		 
+		
 		//템플릿에 보내줘야 할 값 : userId
 		// (RequestEntity, 원하는 Response 타입)
 		ResponseEntity<String> response = http.exchange(request, String.class);

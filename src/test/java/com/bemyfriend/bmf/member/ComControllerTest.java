@@ -35,7 +35,7 @@ public class ComControllerTest {
 	
 	
 	@Test
-	public void joinTest() throws Exception {
+	public void joinTest() throws Exception { 
 		mockMvc.perform(get("/member/company/join"))
 				.andDo(print()); //요청에 대한 결과 console로 받기 
 		

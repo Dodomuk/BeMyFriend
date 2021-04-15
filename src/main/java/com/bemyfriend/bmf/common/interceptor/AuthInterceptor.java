@@ -48,6 +48,11 @@ public class AuthInterceptor implements HandlerInterceptor{
 	            	  				throw new ToAlertException(ErrorCode.AUTH02);
 	              				}
 	              					break;
+	              case "resume": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
+          			
+  	  								throw new ToAlertException(ErrorCode.AUTH01);
+			    				}
+			    					break;
 	              }
 	              break;
 	              
@@ -64,7 +69,12 @@ public class AuthInterceptor implements HandlerInterceptor{
 				  	  				throw new ToAlertException(ErrorCode.AUTH02);
 				    			}
 				    				break;
-					        	  
+	        	  case "hire": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 채용공고 작성패이지로의 접근을 막음
+				        			
+				  	  				throw new ToAlertException(ErrorCode.AUTH01);
+				    			}
+				    				break;
+								        	  
 	        	    
 	        	  }
 	        	  break;

@@ -153,10 +153,16 @@
 					
 										<form:form modelAttribute="User" action="${context}/member/user/updateinfo" method="POST" id="updateform" name="updateform" class="updateform">
 											<div class="row">
-												<div class="col-md-6">
+												<div class="col-md-3">
 													<div class="form-group">
 														<label class="label" id="check-group">아이디</label><span id="idCheck"></span>
 														<input type="text" value ="${userMember.userId}" class="form-control" name="userId" id="userId" readonly>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group">
+														<label class="label" id="check-group">사진등록하기</label><span id="idCheck"></span>
+														<input type="text" value ="${userMember.userPhoto}" class="form-control" name="userId" id="userId" readonly>
 													</div>
 												</div>
 												<div class="col-md-6">

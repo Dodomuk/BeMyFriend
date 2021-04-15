@@ -6,7 +6,7 @@ public enum ConfigCode {
 	//DOMAIN("https://www.bemyfriend.ga"),
 	//개발용
 	DOMAIN("http://localhost:9090"),
-	EMAIL("qkraldud5020@naver.com"),
+	EMAIL("bemyfirend_@naver.com"),
 	UPLOAD_PATH("/Users/miyoung/Desktop/final/CODE/"); //업로드패스 웹으로 잡아주기
 
 	

@@ -60,7 +60,7 @@ public class CompanyServiceImpl implements CompanyService{
 		MimeMessage msg = mail.createMimeMessage();
 		System.out.println("impl : " + authPath);
 		try {
-			msg.setFrom("qkraldud5020@naver.com");
+			msg.setFrom("bemyfriend_@naver.com");
 			msg.setRecipients(Message.RecipientType.TO, persistUser.getComMail());
 			msg.setSubject("회원가입을 축하드립니다.");
 			msg.setContent("<h2> 반갑습니다." + persistUser.getComId() 

@@ -1,5 +1,6 @@
 package com.bemyfriend.bmf.community.model_review.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.bemyfriend.bmf.community.model_review.vo.Review;
@@ -17,5 +18,4 @@ public interface ReviewService {
      
      public void viewCount(int no);
      
-     public void reviewReply(ReviewComment reviewComment);
 }

@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf.community.model_review.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -71,11 +72,5 @@ public class ReviewServiceImpl implements ReviewService {
 		mapper.viewCount(no);
 	}
 
-	@Override
-	public void reviewReply(ReviewComment reviewComment) {
-		mapper.reviewReply(reviewComment);
-	}
-
-    
-
+	
 }

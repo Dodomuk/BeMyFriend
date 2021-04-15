@@ -50,14 +50,14 @@ public class ReviewControllerTest {
 		
 	}*/
 
-	@Test
+	/*@Test
 	public void intTest() throws Exception{
 		mockMvc.perform(get("/community/review/reviewFix").param("no", "100240"))
 		.andDo(print()); //요청에 대한 결과 console로 받기 
 	
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void updateTest() throws Exception{
 		mockMvc.perform(post("/community/review/updateForm")
 				.param("userId", "siderid")
@@ -67,8 +67,20 @@ public class ReviewControllerTest {
 		.andDo(print())
 		.andExpect(redirectedUrl("/community/review/review")); //요청에 대한 결과 console로 받기 
 	
+	}*/
+	
+	@Test
+	public void commentList() throws Exception{
+		mockMvc.perform(get("/community/commentList").param("reviewNo", "100040"))
+		.andDo(print());
 	}
-	
-	
-
+ 
+	@Test
+	public void commentInsert() throws Exception{
+		mockMvc.perform(get("/community/commentInsert")
+				.param("replyUserId", "sisi")
+				.param("reviewNo", "100040")
+				)
+		.andDo(print());
+	}
 }

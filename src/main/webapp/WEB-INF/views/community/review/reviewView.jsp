@@ -93,87 +93,54 @@ $(function(){
 	});
 
 </script>
+<!--  
 <script>
-/*
- * 댓글 등록하기(Ajax)
- */
-function fn_comment(code){
-    
-    $.ajax({
-        type:'POST',
-        url : "<c:url value='/board/addComment.do'/>",
-        data:$("#commentForm").serialize(),
-        success : function(data){
-            if(data=="success")
-            {
-                getCommentList();
-                $("#comment").val("");
-            }
-        },
-        error:function(request,status,error){
-            //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-       }
-        
-    });
-}
- 
-/**
- * 초기 페이지 로딩시 댓글 불러오기
- */
-$(function(){
-    
-    getCommentList();
-    
+$(document).ready(function(){
+	
+	listReply2();
+	
+	$("#btnReply").click(function(){
+		var replytext=$("#replytext").val();
+		var no = "${review.reviewno}" /* 여기 주목 */
+		var param ="replytext="+replytext+"&no="+no;
+		$.ajax({
+			type : "post",
+			url : "${path}/reply/insert.do"
+			data: param,
+			success : function(){
+				alert("댓글이 등록되었습니다!");
+				listReply2();
+			}
+		});
+		
 });
- 
-/**
- * 댓글 불러오기(Ajax)
- */
-function getCommentList(){
-    
-    $.ajax({
-        type:'GET',
-        url : "<c:url value='/board/commentList.do'/>",
-        dataType : "json",
-        data:$("#commentForm").serialize(),
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
-        success : function(data){
-            
-            var html = "";
-            var cCnt = data.length;
-            
-            if(data.length > 0){
-                
-                for(i=0; i<data.length; i++){
-                    html += "<div>";
-                    html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
-                    html += data[i].comment + "<tr><td></td></tr>";
-                    html += "</table></div>";
-                    html += "</div>";
-                }
-                
-            } else {
-                
-                html += "<div>";
-                html += "<div><table class='table'><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
-                html += "</table></div>";
-                html += "</div>";
-                
-            }
-            
-            $("#cCnt").html(cCnt);
-            $("#commentList").html(html);
-            
-        },
-        error:function(request,status,error){
-            
-       }
-        
-    });
-}
- 
+	
+	function listReply(){
+	$.ajax({
+	 type: "get",
+	 url: "${path}/reply/list.do?no=${review.reviewno}",
+			 success: function(result){
+				 $("listReply").html(result);
+			 }
+	});
+	}
+	
+	function listReply2(){
+	$.ajax({
+	    type: "get",
+	    url : "${path}/reply/listJson.do?no=${review.reviewno}",
+	    success: function(result){
+	    	var output = "<table>";
+	    	for(var i in result){
+	    	output += "<tr>";	
+	    	output += "<td>"+result[i].userName;	
+	    	}
+	})
+	}
+	}
+	
 </script>
-
+-->
 
 </body>
 </html>

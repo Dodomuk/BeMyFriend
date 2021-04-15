@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
-<%@ include file="/WEB-INF/views/include/community_head.jsp"%>
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/board.css" />
@@ -143,9 +141,7 @@ $(function(){
 <script src="../../resources/js/owl.carousel.min.js"></script>
 <script src="../../resources/js/jquery.magnific-popup.min.js"></script>
 <script src="../../resources/js/scrollax.min.js"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="../../resources/js/google-map.js"></script>
 <script src="../../resources/js/main.js"></script>
->>>>>>> 2359e4e758cec12a8c72cd99b03e897b327f378e
 </html>

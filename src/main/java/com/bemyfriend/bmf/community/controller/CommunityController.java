@@ -2,16 +2,22 @@ package com.bemyfriend.bmf.community.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bemyfriend.bmf.common.util.paging.Paging;
@@ -30,7 +36,6 @@ public class CommunityController {
 	private ReviewServiceImpl reviewService;
 	@Autowired
 	private LawMediaServiceImpl lawMediaService;
-	
 	//----------------------------------------------------------------------------------------리뷰 게시판
 	// 게시판 메인
 	@GetMapping("/review/review")
@@ -71,12 +76,13 @@ public class CommunityController {
 	public String view(Review review,Model model,@RequestParam("view")int view) 
 	{
 	    System.out.println("게시글 보기");
-	    reviewService.viewCount(view);
+	    reviewService.viewId(view);
 	    model.addAttribute("view", reviewService.viewId(view));
 	    return "/community/review/reviewView";
 	} 
 	
 	//게시글 댓글 작성
+	/*
 	@PostMapping("/reviewcomment")
 	public String comment(ReviewComment reviewComment,Paging paging,RedirectAttributes ra) {
 		ra.addAttribute("replyId",reviewComment.getReplyUserId());
@@ -85,7 +91,7 @@ public class CommunityController {
 		return "redirect:/community/review/reviewView";
 		
 	}
-	
+	*/
 	//게시글 삭제
 	@GetMapping("/review/delete")
 	public String delete(int no) {

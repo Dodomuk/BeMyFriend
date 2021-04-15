@@ -38,7 +38,7 @@
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
 				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
-										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
+				    					<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
 				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
 								</c:if>
@@ -77,6 +77,8 @@
 						            <form class="smKey searchTitle"  action="${context}/search/searchtitle" method="GET" id="searchTitle" name ="searchTitle">
 						                <input type="search" id="searchText" title="searchJob" name="searchText" maxlength="50" style="background: none;">
 						                <button type="submit"  class="searchBtn" id="common_search_btn"><i class="fas fa-search"></i></button>
+						               
+ 
 									</form>
 					    		</div>
 					   		</div>
@@ -110,6 +112,7 @@
 						</div>
 					</div>
 				</div>
+				 <button type="button" class="btn btn-success" onclick="startSpeechRecognition()"><i class="fas fa-headset">음성인식</i></button>
 			</nav>
 		</div>
 		
@@ -1031,7 +1034,8 @@
 <script src="../resources/js/whaleeTest.js"></script>
 <!-- 결제 모듈 js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<!-- 음성인식 js -->
+<script src="../resources/js/dodomuk.js"></script>
 
-    
   </body>
 </html>

@@ -16,8 +16,8 @@ public interface CrawlingRepository {
 	int insertBaseBall(Map<String, String> commandMap);
 		
 
-	@Insert("insert into calendar(event_start_date, event_end_date, event_com_name)"
-			+ "values(CURRENT_TIMESTAMP, #{event_end_date}, #{event_com_name})")
+	@Insert("insert into calendar(cal_no, event_start_date, event_end_date, event_com_name)"
+			+ "values(sc_cal_idx.nextval, to_char(sysdate,'YYYY-MM-DD'), #{event_end_date}, #{event_com_name})")
 	int insertRecruit(Map<String,String> commandMap);
 
 }

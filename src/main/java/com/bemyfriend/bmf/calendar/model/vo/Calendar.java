@@ -3,10 +3,17 @@ package com.bemyfriend.bmf.calendar.model.vo;
 import java.util.Date;
 
 public class Calendar {
+	private int calNo;
 	private String eventStartDate;
 	private String eventEndDate;
 	private String eventComName;
 	
+	public int getCalNo() {
+		return calNo;
+	}
+	public void setCalNo(int calNo) {
+		this.calNo = calNo;
+	}
 	public String getEventStartDate() {
 		return eventStartDate;
 	}
@@ -28,9 +35,11 @@ public class Calendar {
 	
 	@Override
 	public String toString() {
-		return "Calendar [eventStartDate=" + eventStartDate + ", eventEndDate=" + eventEndDate + ", eventComName="
-				+ eventComName + "]";
+		return "Calendar [calNo=" + calNo + ", eventStartDate=" + eventStartDate + ", eventEndDate=" + eventEndDate
+				+ ", eventComName=" + eventComName + "]";
 	}
+	
+	
 	
 	
 	

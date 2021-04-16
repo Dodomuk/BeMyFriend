@@ -31,4 +31,15 @@ private final KmapRepository kmapRepository;
 		return commandMap;
 	}
 
+	@Override
+	public Map<String, Object> selectParkingLocation() {
+		System.out.println("서비스 임플 : "+kmapRepository.selectParkingLocation());
+		
+		Map<String,Object> commandMap = new HashMap<String, Object>();
+		commandMap.put("kmapList", kmapRepository.selectParkingLocation());
+		return commandMap;
+	}
+	
+	
+
 }

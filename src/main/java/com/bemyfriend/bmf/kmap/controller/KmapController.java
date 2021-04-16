@@ -32,9 +32,11 @@ public class KmapController {
 		
 	}
 	
-	@GetMapping("test")
-	public void testCalendar() {
-		
+	@GetMapping("parkingLocation")
+	public String parking(Model model) {
+		System.out.println("컨트롤러 : "+kmapService.selectParkingLocation());
+		model.addAllAttributes(kmapService.selectParkingLocation());
+		return "kmap/parkingLocation";
 	}
 	
 	

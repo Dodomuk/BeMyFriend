@@ -13,5 +13,8 @@ public interface KmapRepository {
 	
 	List<Kmap> selectCompanyLocation();
 	
+	@Select("select * from com_user")
+	List<Kmap> selectParkingLocation();
+	
 
 }

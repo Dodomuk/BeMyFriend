@@ -2,6 +2,8 @@ package com.bemyfriend.bmf.member.user.controller;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -22,11 +24,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bemyfriend.bmf.common.code.ConfigCode;
 import com.bemyfriend.bmf.common.code.ErrorCode;
 import com.bemyfriend.bmf.common.exception.ToAlertException;
 import com.bemyfriend.bmf.common.random.RandomString;
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.service.UserService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
 import com.bemyfriend.bmf.member.user.validator.UserValidator;
@@ -104,10 +108,12 @@ public class UserController {
 			persistUser.setUserAdd(userAdd);
 		}
 		
-
+		
+		
 		String authPath = UUID.randomUUID().toString(); //유니크한 아이디 생성
 		session.setAttribute("authPath", authPath);
 		session.setAttribute("persistUser", persistUser);
+		
 
 		userService.authenticateEmail(persistUser, authPath);
 		model.addAttribute("alertMsg", "이메일이 발송되었습니다.");
@@ -130,12 +136,15 @@ public class UserController {
 							,@SessionAttribute("persistUser") User persistUser
 							,Model model) {
 		
+
 		if(!urlPath.contentEquals(sessionPath)) {
 			
 			throw new ToAlertException(ErrorCode.AUTH02);
 		}
 
 		userService.insertUser(persistUser);
+	
+
 		//세션 만료시키기
 		session.removeAttribute("persistUser");
 		
@@ -197,6 +206,8 @@ public class UserController {
 			updateUser.setUserId(userId);
 			updateUser.setUserPw(randomStr);
 			
+			
+			List<MultipartFile> files =new ArrayList<MultipartFile>();
 			//업데이트 문 돌리기(비밀번호 인코딩 진행됨)
 			userService.updateUserInfo(updateUser);
 			model.addAttribute("userPw", randomStr);
@@ -234,12 +245,19 @@ public class UserController {
 		// ResponseBody에 찍힌 문자열은 .then((text) => {
 		// 이 형태로 fatch를 이용해 꺼내게 되는 것
 		User userMember = userService.memberAuthenticate(user);
-
-		 // 없는 회원이라면
+		
+		// 없는 회원이라면
 		if(userMember == null) {
 			return "fail";
 	
 		}else { //로그인 성공시
+			// 가지고 있는 이미지 파일을 찾아내기
+			FileVo file = userService.selectUserFile(userMember.getUserIdx());
+			//이미지 파일이 있다면 파일정보 세션에 저장
+			if(file != null) {
+			session.setAttribute("file", file);
+			}
+			//로그인 정보 세션 저장
 			session.setAttribute("userMember", userMember);
 			return "success";
 		}
@@ -264,8 +282,8 @@ public class UserController {
 	
 	//마이페이지 이동
 	@GetMapping("mypage")
-	public String mypage() {
-		
+	public String mypage(HttpSession session) {
+			
 		return "member/user/mypage";
 	}
 	
@@ -274,16 +292,26 @@ public class UserController {
 	
 	//마이페이지 수정하기
 	@PostMapping("updateinfo")
-	public String updateUserInfo(@ModelAttribute User user, HttpSession session, Model model){
+	public String updateUserInfo(@RequestParam MultipartFile file
+								, User user
+								, HttpSession session
+								, Model model){
 		
-
+		
+		System.out.println(file);
+		//넘어오는 파일의 사이즈가 0이 아닌경우에만 보내기
+		if(file.getSize() != 0) {
+			userService.uploadFile(file, session);
+		}
+			
 		int result =  userService.updateUserInfo(user);
-
+		
 		if(result > 0) {
 			
 			User userMember = userService.selectMemberById(user.getUserId());			
-			
+			FileVo updateFile = userService.selectUserFile(userMember.getUserIdx());
 			session.setAttribute("userMember", userMember);
+			session.setAttribute("file", updateFile);
 
 			model.addAttribute("alertMsg", "회원정보 수정이 성공하였습니다.");
 			model.addAttribute("url",ConfigCode.DOMAIN+"/member/user/mypage");

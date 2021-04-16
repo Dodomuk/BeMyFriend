@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtil {
    
-   public List<FileVo> fileUpload(List<MultipartFile> files) throws IllegalStateException, IOException{
+   public List<FileVo> filesUpload(List<MultipartFile> files) throws IllegalStateException, IOException{
       
       //파일정보를 가지고 반환될 list
       List<FileVo> fileList = new ArrayList<FileVo>();
@@ -33,12 +33,34 @@ public class FileUtil {
       return fileList;
    }
    
+   
+   public FileVo fileUpload(MultipartFile file) throws IllegalStateException, IOException {
+	  
+	   
+	   FileVo fileVo = new FileVo();
+	   String savePath  =  getSavePath(); // 파일저장경로 생성
+	   
+	   fileVo.setOriginFileName(file.getOriginalFilename());
+	   fileVo.setRenameFileName(UUID.randomUUID().toString());
+	   fileVo.setSavePath(savePath);
+	   
+	   saveFile(fileVo, file);
+	   
+	   return fileVo;
+	   
+   }
+   
+   
+   
+   
    private String getSavePath() {
       Calendar cal = Calendar.getInstance();
       return cal.get(Calendar.YEAR) + "/"
             + (cal.get(Calendar.MONTH) + 1) + "/"
             + cal.get(Calendar.DAY_OF_MONTH) + "/";
    }
+   
+   
    
    private void saveFile(FileVo fileVo, MultipartFile multipartFile) throws IllegalStateException, IOException {
       File dest = new File(fileVo.getFullPath() + fileVo.getRenameFileName());

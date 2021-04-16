@@ -154,7 +154,7 @@
 										<!-- modelAttribute 를 지정, user안에 들어있는 errors 를 사용할 수 있음 -->
 
 					
-										<form:form modelAttribute="User" action="${context}/member/user/mailauth" method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<form:form modelAttribute="User" action="${context}/member/user/mailauth" method="POST"  id="contactForm" name="contactForm" class="contactForm">
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
@@ -178,8 +178,7 @@
 
 													</div>
 												</div>
-												
-												
+											
 												<div class="col-md-6"> 
 													<div class="form-group">
 														<label class="label">비밀번호</label>
@@ -252,13 +251,7 @@
 														<input type="date" class="form-control" name="userBirth" id="userBirth" required="required">
 													</div>
 												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" >이미지 사진</label>
-														<input type="file" class="form-control" name="userPhoto" id="userPhoto" >
-
-													</div>
-												</div>
+												
 												
 												<div class="col-md-12">
 													<div class="form-group-log-p">

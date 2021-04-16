@@ -151,7 +151,7 @@
 								<div class="col-md-7-p">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 					
-										<form:form modelAttribute="User" action="${context}/member/user/updateinfo" method="POST" id="updateform" name="updateform" class="updateform">
+										<form:form modelAttribute="User" action="${context}/member/user/updateinfo" method="POST" enctype="multipart/form-data" id="updateform" name="updateform" class="updateform">
 											<div class="row">
 												<div class="col-md-3">
 													<div class="form-group">
@@ -161,16 +161,36 @@
 												</div>
 												<div class="col-md-3">
 													<div class="form-group">
-														<label class="label" id="check-group">사진등록하기</label><span id="idCheck"></span>
-														<input type="text" value ="${userMember.userPhoto}" class="form-control" name="userId" id="userId" readonly>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
 														<label class="label" id="check-group">이름</label>
 														<input type="text" class="form-control" name="userName" id="userName"  value ="${userMember.userName}">
 													</div>
 												</div>
+												<c:if test="${!empty file}">
+													<div class="col-md-3">
+														<div class="form-group">
+															<label class="label" id="check-group">이미지</label>
+															<input type="file" class="form-control" name="file" id="file">
+														</div>
+													</div>	
+													<div class="col-md-3">
+														<div class="form-group" >
+															<img src = "/file/${file.savePath}${file.renameFileName}" class="user-photo">
+														</div>
+													</div>	
+												</c:if>
+												<c:if test="${empty file}">
+													<div class="col-md-3">
+														<div class="form-group">
+															<label class="label" id="check-group">이미지</label>
+															<input type="file" class="form-control" name="file" id="file">
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+															<span class="label" id="check-group">이미지가 존재하지 않습니다.</span>
+														</div>
+													</div>
+												</c:if>
 												
 												
 												<div class="col-md-6"> 
@@ -179,7 +199,6 @@
 														<input type="password" class="form-control" name="userPw" id="userPw" placeholder="비밀번호/변경할 비밀번호를 입력하세요.">
 													</div>
 												</div>
-												
 												<div class="col-md-6"> 
 													<div class="form-group">
 														<label class="label" id="check-group">비밀번호 확인</label><span id="pw_confirm"></span>

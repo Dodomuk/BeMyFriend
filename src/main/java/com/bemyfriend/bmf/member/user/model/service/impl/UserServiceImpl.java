@@ -3,6 +3,9 @@ package com.bemyfriend.bmf.member.user.model.service.impl;
 
 
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -20,10 +23,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bemyfriend.bmf.common.code.ConfigCode;
+import com.bemyfriend.bmf.common.code.ErrorCode;
+import com.bemyfriend.bmf.common.exception.ToAlertException;
 import com.bemyfriend.bmf.common.mail.MailSender;
+import com.bemyfriend.bmf.common.util.file.FileUtil;
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.repository.UserRepository;
 import com.bemyfriend.bmf.member.user.model.service.UserService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
@@ -44,11 +53,6 @@ public class UserServiceImpl implements UserService {
 	private BCryptPasswordEncoder encoder;
 	
 	
-	
-	/*
-	RestTemplate http = new RestTemplate();
-	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-*/
 
 	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
@@ -68,7 +72,7 @@ public class UserServiceImpl implements UserService {
 
 	//회원가입 - mail 보내기
 	@Override 
-	public void authenticateEmail(User persistUser, String authPath) {
+	public void authenticateEmail(@RequestParam User persistUser, String authPath) {
 		
 		
 		//form-url-encoded 방식으로 받기
@@ -135,6 +139,21 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	
+	
+	// 유저 사진정보 가져오기
+	@Override
+	public FileVo selectUserFile(String userIdx) {
+		
+		String FindUserIdx = "u" + userIdx;
+		System.out.println(FindUserIdx);
+		System.out.println("file : " + userRepository.selectUserFile(FindUserIdx));
+		return userRepository.selectUserFile(FindUserIdx);
+	}
+
+
+
+
+	
 	// 로그아웃 기능
 	@Override
 	public void userLogout(HttpSession session) {
@@ -142,6 +161,8 @@ public class UserServiceImpl implements UserService {
 		session.invalidate();
 		
 	}
+	
+	
 	
 	
 	// 회원정보 업데이트
@@ -178,8 +199,58 @@ public class UserServiceImpl implements UserService {
 		return userRepository.selectUserForFindPw(userId, userMail);
 	}
 
-	
 
+	// 파일 업로드
+	@Override
+	public void uploadFile(MultipartFile fileData, HttpSession session) {
+		
+		FileUtil fileUtil = new FileUtil();
+		
+		
+			// 기존에 없는 파일인 경우 해당 정보에 typeIdx를 세팅해줘서 Insert문 돌리기
+		if(session.getAttribute("file") == null) {
+			User user = (User) session.getAttribute("userMember");
+			String userIdx = user.getUserIdx();
+			String typeIdx = "u" + userIdx;
+			System.out.println("typeIdx : " + typeIdx);
+		
+			try {
+				FileVo file = fileUtil.fileUpload(fileData);
+				file.setTypeIdx(typeIdx);
+				userRepository.uploadFile(file);
+			} catch (IllegalStateException | IOException e) {
+				throw new ToAlertException(ErrorCode.FILE01); // 파일 업로드중 예외 발생
+			}
+			
+			
+			
+		}else if(session.getAttribute("file") != null) {
+			// 기존에 파일이 있는 경우 해당 정보의 typeIdx를 where에 넣어서 update문 돌리기
+			
+			// 세션값 file에 저장
+			FileVo originfile = (FileVo) session.getAttribute("file");
+			
+			// 새로 받아온 file, fileVo로 만들기
+			try {
+				FileVo file = fileUtil.fileUpload(fileData);
+				file.setTypeIdx(originfile.getTypeIdx());
+				userRepository.updateFile(file);
+			} catch (IllegalStateException | IOException e) {
+				throw new ToAlertException(ErrorCode.FILE01); // 파일 업로드중 예외 발생
+			}
+			
+		}
+	
+	}
+
+
+
+
+
+
+
+
+	
 	
 	
 	

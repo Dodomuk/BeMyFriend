@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf.member.user.model.repository;
 
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Insert;
@@ -10,6 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.vo.User;
 
 
@@ -23,8 +25,8 @@ public interface UserRepository {
 	
 	
 	//회원가입하기
-	@Insert("INSERT INTO USERS(user_id, user_pw, user_name, user_add, user_tell, user_mail, user_birth)"
-			+ "values(#{userId},#{userPw},#{userName},#{userAdd}, #{userTell}, #{userMail}, #{userBirth})")
+	@Insert("INSERT INTO USERS(user_id, user_idx, user_pw, user_name, user_add, user_tell, user_mail, user_birth)"
+			+ "values(#{userId}, sc_user_idx.nextval, #{userPw},#{userName},#{userAdd}, #{userTell}, #{userMail}, #{userBirth})")
 	int insertUser(User persistUser);
 	
 	
@@ -54,6 +56,14 @@ public interface UserRepository {
 	//회원정보수정하기 
 	int updateUserInfo(User user);
 
+	//파일업로드하기
+	void uploadFile(FileVo fileVo);
+	
+	//파일업데이트하기
+	int updateFile(FileVo fileVo);
+	
+	//사진정보가져오기
+	FileVo selectUserFile(String FindUserIdx);
 	
 	
 	

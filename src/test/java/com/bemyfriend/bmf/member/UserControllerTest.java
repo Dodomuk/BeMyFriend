@@ -24,6 +24,8 @@ public class UserControllerTest {
 	@Autowired
 	private WebApplicationContext context;
 	
+	
+	
 	//Mock 객체 선언
 	private MockMvc mockMvc;
 	
@@ -78,10 +80,11 @@ public class UserControllerTest {
 	
 	@Test
 	public void login() throws Exception {
-		mockMvc.perform(get("/member/user/login")
-						.param("userId", "test")
-						.param("userPw", "12345")).andDo(print());
+		mockMvc.perform(get("/member/user/login")).andDo(print());
+							
 	}
+	
+	
 	
 	
 	@Test

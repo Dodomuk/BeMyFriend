@@ -1,10 +1,15 @@
 package com.bemyfriend.bmf.member.user.model.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.vo.User;
 
 public interface UserService {
@@ -25,6 +30,10 @@ public interface UserService {
 	void userLogout(HttpSession session);
 	
 	int updateUserInfo(User user);
+	
+	void uploadFile(MultipartFile file, HttpSession session);
+
+	FileVo selectUserFile(String userIdx);
 	
 	int withdrawUser(String userId);
 	

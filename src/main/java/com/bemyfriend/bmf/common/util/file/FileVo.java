@@ -6,7 +6,7 @@ import com.bemyfriend.bmf.common.code.ConfigCode;
 
 
 public class FileVo {
-	private int fIdx;
+	private int fileNo;
 	private String typeIdx;
 	private String originFileName;
 	private String renameFileName;
@@ -15,12 +15,12 @@ public class FileVo {
 	private Date regDate;
 	private int isDel;
 	
-	public int getfIdx() {
-		return fIdx;
+	public int getfileNo() {
+		return fileNo;
 	}
 	
-	public void setfIdx(int fIdx) {
-		this.fIdx = fIdx;
+	public void fileNo(int fileNo) {
+		this.fileNo = fileNo;
 	}
 	
 	public String getTypeIdx() {
@@ -77,7 +77,7 @@ public class FileVo {
 	
 	@Override
 	public String toString() {
-		return "FileVO [fIdx=" + fIdx + ", typeIdx=" + typeIdx + ", originFileName=" + originFileName
+		return "FileVO [fileNo=" + fileNo + ", typeIdx=" + typeIdx + ", originFileName=" + originFileName
 				+ ", renameFileName=" + renameFileName + ", savePath=" + savePath + ", regDate=" + regDate + ", isDel="
 				+ isDel + "]";
 	}

@@ -31,8 +31,28 @@
  			</set>
  		WHERE USER_ID = #{userId}
  	</update>
- 
- 
- 
+ 	
+ 	
+
+ 	
+ 	<!-- 회원 사진파일 새로 업로드-->
+ 	<insert id ="uploadFile">
+ 		INSERT INTO B_FILE(FILE_NO, TYPE_IDX, ORIGIN_FILE_NAME, RENAME_FILE_NAME, SAVE_PATH)
+ 			VALUES (SC_FILE_IDX.NEXTVAL, #{typeIdx}, #{originFileName}, #{renameFileName}, #{savePath})
+ 	</insert>
+ 	
+ 	
+ 	<!-- 회원 사진파일 업데이트 -->
+ 	<update id = "updateFile">
+ 		UPDATE B_FILE SET ORIGIN_FILE_NAME = #{originFileName}, RENAME_FILE_NAME = #{renameFileName}
+ 		, SAVE_PATH = #{savePath} WHERE TYPE_IDX = #{typeIdx}
+ 	</update>
+ 	
+ 	
+ 	
+ 	<!--  회원사진 정보 가져오기 -->
+ 	<select id = "selectUserFile" resultType = "file">
+ 		SELECT * FROM B_FILE WHERE TYPE_IDX = #{FindUserIdx}
+ 	</select>
 </mapper>
 

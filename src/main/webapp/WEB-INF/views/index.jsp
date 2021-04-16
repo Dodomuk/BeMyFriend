@@ -89,21 +89,20 @@
 						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item"><a href="member/company/hire/list" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item"><a href="/member/company/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
 									</c:choose>

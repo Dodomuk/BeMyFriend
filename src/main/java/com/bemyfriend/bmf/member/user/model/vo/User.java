@@ -5,6 +5,7 @@ import java.sql.Date;
 public class User {
 	
 	private String userId;
+	private String userIdx;
 	private String userPw;
 	private String userName;
 	private String userAdd;
@@ -21,15 +22,18 @@ public class User {
 	public User() {
 		
 	}
-	
-	
-	public User(String userId, String userPw, String userName, String userAdd, String userTell, String userMail,
-			Date userBirth, Date userJoindate, int userIsleave) {
+
+
+
+	public User(String userId, String userIdx, String userPw, String userName, String userAdd, String twoadd,
+			String userTell, String userMail, Date userBirth, Date userJoindate, int userIsleave) {
 		super();
 		this.userId = userId;
+		this.userIdx = userIdx;
 		this.userPw = userPw;
 		this.userName = userName;
 		this.userAdd = userAdd;
+		this.twoadd = twoadd;
 		this.userTell = userTell;
 		this.userMail = userMail;
 		this.userBirth = userBirth;
@@ -38,10 +42,10 @@ public class User {
 	}
 
 
+
 	public String getUserId() {
 		return userId;
 	}
-
 
 
 
@@ -51,11 +55,21 @@ public class User {
 
 
 
+	public String getUserIdx() {
+		return userIdx;
+	}
+
+
+
+	public void setUserIdx(String userIdx) {
+		this.userIdx = userIdx;
+	}
+
+
 
 	public String getUserPw() {
 		return userPw;
 	}
-
 
 
 
@@ -65,18 +79,15 @@ public class User {
 
 
 
-
 	public String getUserName() {
 		return userName;
 	}
 
 
 
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
 
 
 
@@ -90,8 +101,8 @@ public class User {
 		this.userAdd = userAdd;
 	}
 
-	
-	
+
+
 	public String getTwoadd() {
 		return twoadd;
 	}
@@ -110,11 +121,9 @@ public class User {
 
 
 
-
 	public void setUserTell(String userTell) {
 		this.userTell = userTell;
 	}
-
 
 
 
@@ -124,11 +133,9 @@ public class User {
 
 
 
-
 	public void setUserMail(String userMail) {
 		this.userMail = userMail;
 	}
-
 
 
 
@@ -138,11 +145,9 @@ public class User {
 
 
 
-
 	public void setUserBirth(Date userBirth) {
 		this.userBirth = userBirth;
 	}
-
 
 
 
@@ -152,11 +157,9 @@ public class User {
 
 
 
-
 	public void setUserJoindate(Date userJoindate) {
 		this.userJoindate = userJoindate;
 	}
-
 
 
 
@@ -166,20 +169,18 @@ public class User {
 
 
 
-
 	public void setUserIsleave(int userIsleave) {
 		this.userIsleave = userIsleave;
 	}
 
 
 
-
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userAdd=" + userAdd
-				+ ", userTell=" + userTell + ", userMail=" + userMail + ", userBirth=" + userBirth + ", userJoindate="
-				+ userJoindate + ", userIsleave=" + userIsleave + "]";
-	} 
+		return "User [userId=" + userId + ", userIdx=" + userIdx + ", userPw=" + userPw + ", userName=" + userName
+				+ ", userAdd=" + userAdd + ", twoadd=" + twoadd + ", userTell=" + userTell + ", userMail=" + userMail
+				+ ", userBirth=" + userBirth + ", userJoindate=" + userJoindate + ", userIsleave=" + userIsleave + "]";
+	}
 	
 	
 	

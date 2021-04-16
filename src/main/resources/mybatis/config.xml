@@ -15,6 +15,7 @@
 		<typeAlias type="com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media" alias="media"/>		
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
 		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.Company" alias="company"/>
+		<typeAlias type="com.bemyfriend.bmf.common.util.file.FileVo" alias="file"/>
 		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
 		<typeAlias type="com.bemyfriend.bmf.kmap.model.vo.Kmap" alias="kmap"/>
 

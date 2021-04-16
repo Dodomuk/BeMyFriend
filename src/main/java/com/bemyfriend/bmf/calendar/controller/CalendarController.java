@@ -25,8 +25,8 @@ private final CalendarService calendarService;
 		return "calendar/recruit";
 	}
 	
-	@GetMapping("program")
-	public void programCalendar() {
+	@GetMapping("index")
+	public void index() {
 		
 	}
 	

@@ -36,7 +36,7 @@
 					</div>
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
-				    		<p class="mb-0 d-flex">
+				    		<%-- <p class="mb-0 d-flex">
 				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
 				    					<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
@@ -50,7 +50,7 @@
 								</c:if>
 								<c:if test ="${sessionScope.comMember != null}">
 									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
-								</c:if>
+								</c:if> --%>
 				    			
 				    		</p>
 		        		</div>
@@ -90,7 +90,7 @@
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="/calendar/index" class="nav-link">calendar/map</a></li>
 							        
-							        <c:choose>
+							        <%--  <c:choose>
 										<c:when test ="${sessionScope.userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
 										</c:when>
@@ -106,7 +106,7 @@
 										<c:when test ="${sessionScope.comMember != null}">
 											<li class="nav-item"><a href="/member/company/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
-									</c:choose>
+									</c:choose> --%>
 						        </ul>
 						    </div>
 						</div>
@@ -132,12 +132,7 @@
 				class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
 				data-scrollax-parent="true">
 				<div class="col-md-11 ftco-animate text-center">
-					<h1 class="mb-4">당신의 새로운 시작을 응원합니다.</h1>
-					<p>
-						<a href="#" class="btn btn-primary mr-md-4 py-3 px-4">Learn
-							more <span class="ion-ios-arrow-forward"></span>
-						</a>
-					</p>
+					<h1 class="mb-4">캘린더 맵</h1>
 				</div>
 			</div>
 		</div>
@@ -152,11 +147,11 @@
 							<span class="flaticon-blind"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading">Dog Walking</h3>
+							<h3 class="heading">채용공고 calendar</h3>
 							<p>Far far away, behind the word mountains, far from the
 								countries Vokalia and Consonantia, there live the blind texts.
 								Separated they live in Bookmarksgrove right.</p>
-							<a href="#"
+							<a href="/calendar/recruit"
 								class="btn-custom d-flex align-items-center justify-content-center"><span
 								class="fa fa-chevron-right"></span><i class="sr-only">Read
 									more</i></a>
@@ -169,11 +164,11 @@
 							<span class="flaticon-dog-eating"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading">Pet Daycare</h3>
+							<h3 class="heading">회사 위치</h3>
 							<p>Far far away, behind the word mountains, far from the
 								countries Vokalia and Consonantia, there live the blind texts.
 								Separated they live in Bookmarksgrove right.</p>
-							<a href="#"
+							<a href="/kmap/companyLocation"
 								class="btn-custom d-flex align-items-center justify-content-center"><span
 								class="fa fa-chevron-right"></span><i class="sr-only">Read
 									more</i></a>
@@ -186,11 +181,11 @@
 							<span class="flaticon-grooming"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading">Pet Grooming</h3>
+							<h3 class="heading">장애인 시설 위치</h3>
 							<p>Far far away, behind the word mountains, far from the
 								countries Vokalia and Consonantia, there live the blind texts.
 								Separated they live in Bookmarksgrove right.</p>
-							<a href="#"
+							<a href="/kmap/facility"
 								class="btn-custom d-flex align-items-center justify-content-center"><span
 								class="fa fa-chevron-right"></span><i class="sr-only">Read
 									more</i></a>
@@ -200,6 +195,8 @@
 			</div>
 		</div>
 	</section>
+	
+	<!--
 
 	<section class="ftco-section ftco-no-pt ftco-no-pb">
 		<div class="container">
@@ -927,6 +924,8 @@
 			</div>
 		</div>
 	</section>
+	
+	-->
 
 	<footer class="footer">
 			<div class="container">

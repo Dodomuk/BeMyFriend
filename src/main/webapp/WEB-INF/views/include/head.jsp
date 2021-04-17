@@ -64,6 +64,6 @@
 <!--  -->
 	
 	
-	<script type="text/javascript" src="/resources/js/common/urlEncoder.js"></script>
+	
 	<script type="text/javascript" src="/resources/js/common/asyncPageError.js"></script>
 </head>

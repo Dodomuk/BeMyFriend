@@ -10155,7 +10155,7 @@ span#idCheck{
 	text-align: center;
 }
 .empty_space{
-	height: 80px;
+	height: 130px;
 	width: 100%;
 	
 }
@@ -10187,6 +10187,41 @@ span#idCheck{
 	width: 70%;
 	background-image: cover;
 }
+
+
+.resume_list{
+	flex-direction: column;
+}
+
+.create_btn{
+	margin-top: 30px;
+	background: darkslateblue;
+    border: 1px solid darkslateblue;
+    color: #fff;
+    margin-left: 80%;
+}
+
+
+.career{
+	width:100%;
+}
+
+.service_part {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.photo{
+	display:flex;
+}
+
+.photo img{
+	margin-left:20px;
+}
+
+
+
 
 
 

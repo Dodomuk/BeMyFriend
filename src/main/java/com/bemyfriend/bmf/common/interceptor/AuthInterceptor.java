@@ -37,10 +37,19 @@ public class AuthInterceptor implements HandlerInterceptor{
     		  switch (uriArr[2]) {
 	          case "user":
 	              switch (uriArr[3]) {
+	              
+	              case "login" : if(session.getAttribute("userMember") != null) {
+	            	  				throw new ToAlertException(ErrorCode.AU01);
+	              				}
+	              					break;
+	              case "loginimpl" : if(session.getAttribute("userMember") != null) {
+  	  								throw new ToAlertException(ErrorCode.AU01);
+    							}
+	              					break;
 	             
 	              case "mypage": if(session.getAttribute("userMember") == null) { //session에 userMember 속성이 없을 경우 mypage로의 접근을 막음
 	            	  				
-	            	  				throw new ToAlertException(ErrorCode.AUTH01);
+	            	  				throw new ToAlertException(ErrorCode.U_AUTH01);
 	              				}
 	             					break;
 	              case "joinimpl": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 joinimpl로의 접근을 막음
@@ -48,9 +57,13 @@ public class AuthInterceptor implements HandlerInterceptor{
 	            	  				throw new ToAlertException(ErrorCode.AUTH02);
 	              				}
 	              					break;
-	              case "resume": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
-          			
-  	  								throw new ToAlertException(ErrorCode.AUTH01);
+	              case "resume": if(session.getAttribute("userMember") == null) { //session에 persistUser 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
+	            	  				
+	            	  				
+  	  								throw new ToAlertException(ErrorCode.U_AUTH01);
+  	  								
+  	  								
+  	  								
 			    				}
 			    					break;
 	              }
@@ -61,7 +74,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 	        	  
 	        	  case "mypage": if(session.getAttribute("comMember") == null) { //session에 userMember 속성이 없을 경우 mypage로의 접근을 막음
 	            	  
-				  	  				throw new ToAlertException(ErrorCode.AUTH01);
+				  	  				throw new ToAlertException(ErrorCode.C_AUTH01);
 				    			}
 				   					break;
 	        	  case "joinimpl": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 joinimpl로의 접근을 막음
@@ -69,9 +82,9 @@ public class AuthInterceptor implements HandlerInterceptor{
 				  	  				throw new ToAlertException(ErrorCode.AUTH02);
 				    			}
 				    				break;
-	        	  case "hire": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 채용공고 작성패이지로의 접근을 막음
+	        	  case "hire": if(session.getAttribute("comMember") == null) { //session에 persistUser 속성이 없을 경우 채용공고 작성패이지로의 접근을 막음
 				        			
-				  	  				throw new ToAlertException(ErrorCode.AUTH01);
+				  	  				throw new ToAlertException(ErrorCode.C_AUTH01);
 				    			}
 				    				break;
 								        	  

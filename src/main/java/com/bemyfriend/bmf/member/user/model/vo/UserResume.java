@@ -4,7 +4,9 @@ import java.sql.Date;
 
 public class UserResume {
 	
-	
+	private int resIdx;
+	private String resTitle;
+	private int resStatus;
 	private String userId;
 	private String school;
 	private String schMajor;
@@ -13,23 +15,43 @@ public class UserResume {
 	private Date schEnroll;
 	private Date schGraduate;
 	private String carCom;
-	private String carDepartment;
+	private String carDept;
 	private String carPosition;
-	private String carEnter;
-	private String carQuit;
+	private Date carEnter;
+	private Date carQuit;
 	private String carSalary;
 	private String hopeStatus;
-	private String hopeWorkPlcae;
+	private String hopeWorkPlace;
 	private String hopeSalary;
-	private String hoprPosition;
+	private String hopePosition;
+	private String cvlTitleFir;
+	private String cvlTitleSec;
+	private String cvlTitleThr;
+	private String cvlContentFir;
+	private String cvlContentSec;
+	private String cvlContentThr;
 	
 	
 	
 	
-	public UserResume(String userId, String school, String schMajor, String schScore, String schStatus, Date schEnroll,
-			Date schGraduate, String carCom, String carDepartment, String carPosition, String carEnter, String carQuit,
-			String carSalary, String hopeStatus, String hopeWorkPlcae, String hopeSalary, String hoprPosition) {
+	
+	public UserResume() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	public UserResume(int resIdx, String resTitle, int resStatus, String userId, String school, String schMajor,
+			String schScore, String schStatus, Date schEnroll, Date schGraduate, String carCom, String carDept,
+			String carPosition, Date carEnter, Date carQuit, String carSalary, String hopeStatus, String hopeWorkPlace,
+			String hopeSalary, String hopePosition, String cvlTitleFir, String cvlTitleSec, String cvlTitleThr,
+			String cvlContentFir, String cvlContentSec, String cvlContentThr) {
 		super();
+		this.resIdx = resIdx;
+		this.resTitle = resTitle;
+		this.resStatus = resStatus;
 		this.userId = userId;
 		this.school = school;
 		this.schMajor = schMajor;
@@ -38,16 +60,71 @@ public class UserResume {
 		this.schEnroll = schEnroll;
 		this.schGraduate = schGraduate;
 		this.carCom = carCom;
-		this.carDepartment = carDepartment;
+		this.carDept = carDept;
 		this.carPosition = carPosition;
 		this.carEnter = carEnter;
 		this.carQuit = carQuit;
 		this.carSalary = carSalary;
 		this.hopeStatus = hopeStatus;
-		this.hopeWorkPlcae = hopeWorkPlcae;
+		this.hopeWorkPlace = hopeWorkPlace;
 		this.hopeSalary = hopeSalary;
-		this.hoprPosition = hoprPosition;
+		this.hopePosition = hopePosition;
+		this.cvlTitleFir = cvlTitleFir;
+		this.cvlTitleSec = cvlTitleSec;
+		this.cvlTitleThr = cvlTitleThr;
+		this.cvlContentFir = cvlContentFir;
+		this.cvlContentSec = cvlContentSec;
+		this.cvlContentThr = cvlContentThr;
 	}
+
+
+
+
+
+	public int getResIdx() {
+		return resIdx;
+	}
+
+
+
+
+
+	public void setResIdx(int resIdx) {
+		this.resIdx = resIdx;
+	}
+
+
+
+
+
+	public String getResTitle() {
+		return resTitle;
+	}
+
+
+
+
+
+	public void setResTitle(String resTitle) {
+		this.resTitle = resTitle;
+	}
+
+
+
+
+
+	public int getResStatus() {
+		return resStatus;
+	}
+
+
+
+
+
+	public void setResStatus(int resStatus) {
+		this.resStatus = resStatus;
+	}
+
 
 
 
@@ -59,9 +136,11 @@ public class UserResume {
 
 
 
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 
 
 
@@ -73,9 +152,11 @@ public class UserResume {
 
 
 
+
 	public void setSchool(String school) {
 		this.school = school;
 	}
+
 
 
 
@@ -87,9 +168,11 @@ public class UserResume {
 
 
 
+
 	public void setSchMajor(String schMajor) {
 		this.schMajor = schMajor;
 	}
+
 
 
 
@@ -101,9 +184,11 @@ public class UserResume {
 
 
 
+
 	public void setSchScore(String schScore) {
 		this.schScore = schScore;
 	}
+
 
 
 
@@ -115,9 +200,11 @@ public class UserResume {
 
 
 
+
 	public void setSchStatus(String schStatus) {
 		this.schStatus = schStatus;
 	}
+
 
 
 
@@ -129,9 +216,11 @@ public class UserResume {
 
 
 
+
 	public void setSchEnroll(Date schEnroll) {
 		this.schEnroll = schEnroll;
 	}
+
 
 
 
@@ -143,9 +232,11 @@ public class UserResume {
 
 
 
+
 	public void setSchGraduate(Date schGraduate) {
 		this.schGraduate = schGraduate;
 	}
+
 
 
 
@@ -157,6 +248,7 @@ public class UserResume {
 
 
 
+
 	public void setCarCom(String carCom) {
 		this.carCom = carCom;
 	}
@@ -164,16 +256,19 @@ public class UserResume {
 
 
 
-	public String getCarDepartment() {
-		return carDepartment;
+
+	public String getCarDept() {
+		return carDept;
 	}
 
 
 
 
-	public void setCarDepartment(String carDepartment) {
-		this.carDepartment = carDepartment;
+
+	public void setCarDept(String carDept) {
+		this.carDept = carDept;
 	}
+
 
 
 
@@ -185,6 +280,7 @@ public class UserResume {
 
 
 
+
 	public void setCarPosition(String carPosition) {
 		this.carPosition = carPosition;
 	}
@@ -192,30 +288,35 @@ public class UserResume {
 
 
 
-	public String getCarEnter() {
+
+	public Date getCarEnter() {
 		return carEnter;
 	}
 
 
 
 
-	public void setCarEnter(String carEnter) {
+
+	public void setCarEnter(Date carEnter) {
 		this.carEnter = carEnter;
 	}
 
 
 
 
-	public String getCarQuit() {
+
+	public Date getCarQuit() {
 		return carQuit;
 	}
 
 
 
 
-	public void setCarQuit(String carQuit) {
+
+	public void setCarQuit(Date carQuit) {
 		this.carQuit = carQuit;
 	}
+
 
 
 
@@ -227,9 +328,11 @@ public class UserResume {
 
 
 
+
 	public void setCarSalary(String carSalary) {
 		this.carSalary = carSalary;
 	}
+
 
 
 
@@ -241,6 +344,7 @@ public class UserResume {
 
 
 
+
 	public void setHopeStatus(String hopeStatus) {
 		this.hopeStatus = hopeStatus;
 	}
@@ -248,16 +352,19 @@ public class UserResume {
 
 
 
-	public String getHopeWorkPlcae() {
-		return hopeWorkPlcae;
+
+	public String getHopeWorkPlace() {
+		return hopeWorkPlace;
 	}
 
 
 
 
-	public void setHopeWorkPlcae(String hopeWorkPlcae) {
-		this.hopeWorkPlcae = hopeWorkPlcae;
+
+	public void setHopeWorkPlace(String hopeWorkPlace) {
+		this.hopeWorkPlace = hopeWorkPlace;
 	}
+
 
 
 
@@ -269,6 +376,7 @@ public class UserResume {
 
 
 
+
 	public void setHopeSalary(String hopeSalary) {
 		this.hopeSalary = hopeSalary;
 	}
@@ -276,31 +384,135 @@ public class UserResume {
 
 
 
-	public String getHoprPosition() {
-		return hoprPosition;
+
+	public String getHopePosition() {
+		return hopePosition;
 	}
 
 
 
 
-	public void setHoprPosition(String hoprPosition) {
-		this.hoprPosition = hoprPosition;
+
+	public void setHopePosition(String hopePosition) {
+		this.hopePosition = hopePosition;
 	}
+
+
+
+
+
+	public String getCvlTitleFir() {
+		return cvlTitleFir;
+	}
+
+
+
+
+
+	public void setCvlTitleFir(String cvlTitleFir) {
+		this.cvlTitleFir = cvlTitleFir;
+	}
+
+
+
+
+
+	public String getCvlTitleSec() {
+		return cvlTitleSec;
+	}
+
+
+
+
+
+	public void setCvlTitleSec(String cvlTitleSec) {
+		this.cvlTitleSec = cvlTitleSec;
+	}
+
+
+
+
+
+	public String getCvlTitleThr() {
+		return cvlTitleThr;
+	}
+
+
+
+
+
+	public void setCvlTitleThr(String cvlTitleThr) {
+		this.cvlTitleThr = cvlTitleThr;
+	}
+
+
+
+
+
+	public String getCvlContentFir() {
+		return cvlContentFir;
+	}
+
+
+
+
+
+	public void setCvlContentFir(String cvlContentFir) {
+		this.cvlContentFir = cvlContentFir;
+	}
+
+
+
+
+
+	public String getCvlContentSec() {
+		return cvlContentSec;
+	}
+
+
+
+
+
+	public void setCvlContentSec(String cvlContentSec) {
+		this.cvlContentSec = cvlContentSec;
+	}
+
+
+
+
+
+	public String getCvlContentThr() {
+		return cvlContentThr;
+	}
+
+
+
+
+
+	public void setCvlContentThr(String cvlContentThr) {
+		this.cvlContentThr = cvlContentThr;
+	}
+
 
 
 
 
 	@Override
 	public String toString() {
-		return "UserResume [userId=" + userId + ", school=" + school + ", schMajor=" + schMajor + ", schScore="
-				+ schScore + ", schStatus=" + schStatus + ", schEnroll=" + schEnroll + ", schGraduate=" + schGraduate
-				+ ", carCom=" + carCom + ", carDepartment=" + carDepartment + ", carPosition=" + carPosition
-				+ ", carEnter=" + carEnter + ", carQuit=" + carQuit + ", carSalary=" + carSalary + ", hopeStatus="
-				+ hopeStatus + ", hopeWorkPlcae=" + hopeWorkPlcae + ", hopeSalary=" + hopeSalary + ", hoprPosition="
-				+ hoprPosition + "]";
+		return "UserResume [resIdx=" + resIdx + ", resTitle=" + resTitle + ", resStatus=" + resStatus + ", userId="
+				+ userId + ", school=" + school + ", schMajor=" + schMajor + ", schScore=" + schScore + ", schStatus="
+				+ schStatus + ", schEnroll=" + schEnroll + ", schGraduate=" + schGraduate + ", carCom=" + carCom
+				+ ", carDept=" + carDept + ", carPosition=" + carPosition + ", carEnter=" + carEnter + ", carQuit="
+				+ carQuit + ", carSalary=" + carSalary + ", hopeStatus=" + hopeStatus + ", hopeWorkPlace="
+				+ hopeWorkPlace + ", hopeSalary=" + hopeSalary + ", hopePosition=" + hopePosition + ", cvlTitleFir="
+				+ cvlTitleFir + ", cvlTitleSec=" + cvlTitleSec + ", cvlTitleThr=" + cvlTitleThr + ", cvlContentFir="
+				+ cvlContentFir + ", cvlContentSec=" + cvlContentSec + ", cvlContentThr=" + cvlContentThr + "]";
 	}
-	
-	
+
+
+
+
+
 	
 	
 

@@ -145,8 +145,7 @@ public class UserServiceImpl implements UserService {
 	public FileVo selectUserFile(String userIdx) {
 		
 		String FindUserIdx = "u" + userIdx;
-		System.out.println(FindUserIdx);
-		System.out.println("file : " + userRepository.selectUserFile(FindUserIdx));
+		
 		return userRepository.selectUserFile(FindUserIdx);
 	}
 

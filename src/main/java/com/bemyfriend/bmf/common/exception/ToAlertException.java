@@ -1,5 +1,7 @@
 package com.bemyfriend.bmf.common.exception;
 
+import java.io.IOException;
+
 import com.bemyfriend.bmf.common.code.ErrorCode;
 
 public class ToAlertException  extends CustomException{
@@ -14,6 +16,7 @@ public class ToAlertException  extends CustomException{
 		super(error, e);
 	}
 	
+
 	
 
 }

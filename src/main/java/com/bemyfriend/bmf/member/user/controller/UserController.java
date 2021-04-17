@@ -298,7 +298,6 @@ public class UserController {
 								, Model model){
 		
 		
-		System.out.println(file);
 		//넘어오는 파일의 사이즈가 0이 아닌경우에만 보내기
 		if(file.getSize() != 0) {
 			userService.uploadFile(file, session);

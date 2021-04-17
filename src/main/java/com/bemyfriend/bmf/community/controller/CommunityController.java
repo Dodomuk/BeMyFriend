@@ -42,11 +42,13 @@ public class CommunityController {
 	public String list(
 			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("reviewInfo") Review review) {
 
+		/*
 		Date today = new Date();	
 		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
 		String now = sdfm.format(today);
+		*/
 		
-		System.out.println(now);
+		
 		System.out.println("여기서부터 게시판 시작");
 			System.out.println(reviewService.selectReviewList(page));
 			model.addAllAttributes(reviewService.selectReviewList(page));
@@ -77,21 +79,11 @@ public class CommunityController {
 	{
 	    System.out.println("게시글 보기");
 	    reviewService.viewId(view);
+	    reviewService.viewCount(view);
 	    model.addAttribute("view", reviewService.viewId(view));
 	    return "/community/review/reviewView";
 	} 
 	
-	//게시글 댓글 작성
-	/*
-	@PostMapping("/reviewcomment")
-	public String comment(ReviewComment reviewComment,Paging paging,RedirectAttributes ra) {
-		ra.addAttribute("replyId",reviewComment.getReplyUserId());
-		ra.addAttribute("replyContent",reviewComment.getReviewCommentContent());
-		ra.addAttribute("replyDate",reviewComment.getReviewCommentDate());
-		return "redirect:/community/review/reviewView";
-		
-	}
-	*/
 	//게시글 삭제
 	@GetMapping("/review/delete")
 	public String delete(int no) {

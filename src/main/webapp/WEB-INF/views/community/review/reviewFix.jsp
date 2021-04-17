@@ -26,6 +26,7 @@
 					<tr>
 						<th><span>작성자</span></th>
 						<td><input class="form-control" name="userId" value="${view.userId}"/></td>
+						<td><input class="form-control" name="userName" value="${view.userName}"/></td>
 					</tr>
 					<tr>
 						<td colspan="2">

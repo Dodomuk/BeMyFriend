@@ -11,6 +11,7 @@
 	
 	<typeAliases>
 		<typeAlias type="com.bemyfriend.bmf.community.model_review.vo.Review" alias="review"/>
+		<typeAlias type="com.bemyfriend.bmf.community.model_review.vo.ReviewComment" alias="reviewComment"/>
 		<typeAlias type="com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law" alias="law"/>
 		<typeAlias type="com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media" alias="media"/>		
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
@@ -18,13 +19,12 @@
 		<typeAlias type="com.bemyfriend.bmf.common.util.file.FileVo" alias="file"/>
 		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
 		<typeAlias type="com.bemyfriend.bmf.kmap.model.vo.Kmap" alias="kmap"/>
-
-
 		<typeAlias alias="recruitment" type="com.bemyfriend.bmf.recruitment.model.vo.Recruitment"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mapper/community/review/ReviewMapper.xml"/>
+		<mapper resource="mybatis/mapper/community/review/ReplyMapper.xml"/>
 		<mapper resource="mybatis/mapper/community/LawAndMedia/LawAndMediaMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/CompanyMapper.xml"/>

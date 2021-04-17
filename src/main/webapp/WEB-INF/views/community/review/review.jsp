@@ -50,6 +50,17 @@
 		justify-content:space-around;
 		font-size: x-large;
 	}
+	.newReview { animation-name: blink;
+	 animation-duration: 1.5s;
+	  animation-timing-function: ease;
+	   animation-iteration-count: infinite;
+	      } 
+	       @keyframes blink { 
+	       from {color: white;} 
+	       30% {color: greenyellow;}
+	        to {color: limegreen; font-weight: bold;}
+	        }
+
 </style>
 </head>
 
@@ -59,13 +70,12 @@
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active" href="${context}/community/review/review">기업 리뷰</a>
 		</li>
-		<li class="nav-item"><a class="nav-link" href="${context}/community/law">법률</a></li>
-		<li class="nav-item"><a class="nav-link" href="${context}/community/media">매체</a></li>
-		<li class="nav-item"><a class="nav-link" href="${context}/community/qna">QNA</a>
+		<li class="nav-item" id="viewLaw"><a class="nav-link" href="#">법률</a></li>
+		<li class="nav-item" id="viewMedia"><a class="nav-link" href="#">매체</a></li>
+		<li class="nav-item" id="viewQna"><a class="nav-link" href="#">QNA</a>
 		</li>
 	</ul>
 	<!-- 커뮤니티 nav 끝 -->
-	
 	
 		<h2 class="tit">리뷰 게시판</h2>
 
@@ -76,7 +86,6 @@
              <!-- 오늘 날짜와 게시글 날짜 비교 -->
             <c:set var="date" value="<%=new java.util.Date()%>"/>
             <c:set var="today"><fmt:formatDate value="${date}" pattern="yyyy.MM.dd" /></c:set> 
-
             <!-- 테이블 값이 null 일 경우  -->
             <c:if test="${empty reviewList}">
 	 			    <tr>
@@ -92,14 +101,18 @@
 			<!-- 테이블 값이 null이 아닐 경우 -->	
             <c:if test="${!empty reviewList}">
 			<c:forEach items="${reviewList}" var="review">
+			   <c:set var="reviewdate"><fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" /></c:set> 
 			    <div class="col-md-3 pb-5 d-flex align-self-stretch px-3 ftco-animate">
             <div class="d-block services text-center">
               <div class="media-body p-3">
                 <h3 class="heading">${review.reviewTitle}</h3>
-                <p>${review.userId}</p>
+                               	 <c:if test="${today eq reviewdate}">
+									<span class="newReview">new</span>
+								</c:if>
+                <p>${review.userName}</p>
                 <p>조회수 : ${review.viewCnt}</p> 
                 <span class="position">
-                             <fmt:formatDate value="${review.reviewDate}" pattern="yyyy.MM.dd" />
+                             ${reviewdate}
                 </span>
                 <p></p>
                 <a href="${context}/community/review/reviewView?view=${review.reviewNo}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
@@ -168,19 +181,52 @@
 
 
 </body>
+<c:choose>
+<c:when test="${(userMember.userId == null) && (comMember.comId == null)}">
+   <script>
+    $('#viewLaw').click(function(){
+    	
+    		alert("로그인 후 사용 지원 가능합니다");
+ 		   	   location.href =  "${context}/member/user/login";
+ 		
+    });
+    $('#viewMedia').click(function(){
 
-<!-- 코드 확인하고 삭제 예정 ****-->
-<script type="text/javascript">
+		alert("로그인 후 사용 지원 가능합니다");
+		   	   location.href =  "${context}/member/user/login";
+		
+});
+    $('#viewQna').click(function(){
 
-   function view_move($("#rv_no")){
-	   
-	   e.preventDefault();
-	   
-  	 var rv_no = "${context}/community/review/reviewView" +"?view=" + $("#rv_no").text();
-  	   location.href =  rv_no;
-   }
-   
-</script>
+		alert("로그인 후 사용 지원 가능합니다");
+		   	   location.href =  "${context}/member/user/login";
+		
+});
+  
+  </script>
+  </c:when>
+   <c:otherwise>
+      <script>
+    $('#viewLaw').click(function(){
+    	
+ 		   	   location.href =  "${context}/community/law";
+ 		
+    });
+    $('#viewMedia').click(function(){
+
+		   	   location.href =  "${context}/community/media";
+		
+});
+    $('#viewQna').click(function(){
+    	
+		   	   location.href =  "${context}/community/qna";
+		
+});
+  
+  </script>
+   </c:otherwise>
+    </c:choose>
+
 <script src="../../resources/js/jquery.min.js"></script>
 <script src="../../resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="../../resources/js/popper.min.js"></script>

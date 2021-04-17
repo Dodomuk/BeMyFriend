@@ -153,8 +153,8 @@ border: 1px solid #d2d2d2;
                         <c:if test="${!empty lawList}">
                 <c:forEach items="${lawList}" var="law">
           <div class="col-md-4 d-flex ftco-animate">
-		 <div class="blog-entry align-self-stretch">
-             <div class="box_img_wrap" onclick="location.href='${context}/community/lawView?lawView=${law.lawNo}';" style="background-image: url('/resources/law/${law.lawImg}')" >
+		 <div  class="blog-entry align-self-stretch">
+             <div class="box_img_wrap"  onclick="location.href='${context}/community/lawView?lawView=${law.lawNo}';" style="background-image: url('/resources/law/${law.lawImg}')" >
               </div>
               <div class="text p-4">
               	<div class="meta mb-2">

@@ -155,9 +155,8 @@ border: 1px solid #d2d2d2;
 					<div class="row">
 				<div class="col-lg-6">
 					<div class="heading-section mb-5 mt-5 mt-lg-0">
-						<h2 class="mb-3">Frequently Asks Questions</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h2 class="mb-3">자주 묻는 질문</h2>
+						<p>우리는 어디로 가야하오</p>
 					</div>
 					<div id="accordion" class="myaccordion w-100"
 						aria-multiselectable="true">
@@ -167,23 +166,20 @@ border: 1px solid #d2d2d2;
 									<button href="#collapseOne"
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="true" aria-controls="collapseOne">
-										<p class="mb-0">How to train your pet dog?</p>
+										aria-expanded="false" aria-controls="collapseOne">
+										<p class="mb-0">게시판은 어떻게 만들었나요?</p>
 										<i class="fa" aria-hidden="true"></i>
 									</button>
 								</h2>
 							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
+							<div class="collapse" id="collapseOne" role="tabpanel"
 								aria-labelledby="headingOne">
 								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
+									
+										<p>하다보니까 만들어진거 같아요..
+										   저도 정확한 이유는 잘 모른답니다.
+										</p>
+									
 								</div>
 							</div>
 						</div>
@@ -195,7 +191,7 @@ border: 1px solid #d2d2d2;
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
 										aria-expanded="false" aria-controls="collapseTwo">
-										<p class="mb-0">How to manage your pets?</p>
+										<p class="mb-0">지금 심경이?</p>
 										<i class="fa" aria-hidden="true"></i>
 									</button>
 								</h2>
@@ -203,14 +199,7 @@ border: 1px solid #d2d2d2;
 							<div class="collapse" id="collapseTwo" role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
+									<p> 아 너무 힘듭니다..</p>
 								</div>
 							</div>
 						</div>
@@ -222,7 +211,7 @@ border: 1px solid #d2d2d2;
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
 										aria-expanded="false" aria-controls="collapseThree">
-										<p class="mb-0">What is the best grooming for your pets?</p>
+										<p class="mb-0">내일 뭐할거에요?</p>
 										<i class="fa" aria-hidden="true"></i>
 									</button>
 								</h2>
@@ -230,14 +219,7 @@ border: 1px solid #d2d2d2;
 							<div class="collapse" id="collapseThree" role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
+									<p>밥 먹고 잘랍니다..</p>
 								</div>
 							</div>
 						</div>
@@ -249,8 +231,7 @@ border: 1px solid #d2d2d2;
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
 										aria-expanded="false" aria-controls="collapseFour">
-										<p class="mb-0">What are those requirements for sitting
-											pets?</p>
+										<p class="mb-0">내일 모레는요?</p>
 										<i class="fa" aria-hidden="true"></i>
 									</button>
 								</h2>
@@ -258,15 +239,13 @@ border: 1px solid #d2d2d2;
 							<div class="collapse" id="collapseFour" role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div class="card-body py-3 px-0">
-									<p>Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind texts.
-										Separated they live in Bookmarksgrove right at the coast of
-										the Semantics, a large language ocean.</p>
+									<p>게임하다 잘렵니다..</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-6">
 					<div class="heading-section mb-5 mt-5 mt-lg-0">
 						<h2 class="mb-3">Frequently Asks Questions</h2>
@@ -278,16 +257,16 @@ border: 1px solid #d2d2d2;
 						<div class="card">
 							<div class="card-header p-0" id="headingOne">
 								<h2 class="mb-0">
-									<button href="#collapseOne"
+									<button href="#topOne"
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="true" aria-controls="collapseOne">
+										aria-expanded="false" aria-controls="collapseOne">
 										<p class="mb-0">How to train your pet dog?</p>
 										<i class="fa" aria-hidden="true"></i>
 									</button>
 								</h2>
 							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
+							<div class="collapse" id="topOne" role="tabpanel"
 								aria-labelledby="headingOne">
 								<div class="card-body py-3 px-0">
 									<ol>
@@ -305,7 +284,7 @@ border: 1px solid #d2d2d2;
 						<div class="card">
 							<div class="card-header p-0" id="headingTwo" role="tab">
 								<h2 class="mb-0">
-									<button href="#collapseTwo"
+									<button href="#topTwo"
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
 										aria-expanded="false" aria-controls="collapseTwo">
@@ -314,7 +293,7 @@ border: 1px solid #d2d2d2;
 									</button>
 								</h2>
 							</div>
-							<div class="collapse" id="collapseTwo" role="tabpanel"
+							<div class="collapse" id="topTwo" role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div class="card-body py-3 px-0">
 									<ol>
@@ -332,7 +311,7 @@ border: 1px solid #d2d2d2;
 						<div class="card">
 							<div class="card-header p-0" id="headingThree" role="tab">
 								<h2 class="mb-0">
-									<button href="#collapseThree"
+									<button href="#topThree"
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
 										aria-expanded="false" aria-controls="collapseThree">
@@ -341,7 +320,7 @@ border: 1px solid #d2d2d2;
 									</button>
 								</h2>
 							</div>
-							<div class="collapse" id="collapseThree" role="tabpanel"
+							<div class="collapse" id="topThree" role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div class="card-body py-3 px-0">
 									<ol>
@@ -359,7 +338,7 @@ border: 1px solid #d2d2d2;
 						<div class="card">
 							<div class="card-header p-0" id="headingFour" role="tab">
 								<h2 class="mb-0">
-									<button href="#collapseFour"
+									<button href="#topFour"
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
 										aria-expanded="false" aria-controls="collapseFour">
@@ -369,240 +348,7 @@ border: 1px solid #d2d2d2;
 									</button>
 								</h2>
 							</div>
-							<div class="collapse" id="collapseFour" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<p>Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind texts.
-										Separated they live in Bookmarksgrove right at the coast of
-										the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		    <br>
-		    <br>
-		    <br>
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="heading-section mb-5 mt-5 mt-lg-0">
-						<h2 class="mb-3">Frequently Asks Questions</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-					<div id="accordion" class="myaccordion w-100"
-						aria-multiselectable="true">
-						<div class="card">
-							<div class="card-header p-0" id="headingOne">
-								<h2 class="mb-0">
-									<button href="#collapseOne"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="true" aria-controls="collapseOne">
-										<p class="mb-0">How to train your pet dog?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
-								aria-labelledby="headingOne">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingTwo" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseTwo"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseTwo">
-										<p class="mb-0">How to manage your pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseTwo" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingThree" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseThree"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseThree">
-										<p class="mb-0">What is the best grooming for your pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseThree" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingFour" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseFour"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseFour">
-										<p class="mb-0">What are those requirements for sitting
-											pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseFour" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<p>Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind texts.
-										Separated they live in Bookmarksgrove right at the coast of
-										the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="heading-section mb-5 mt-5 mt-lg-0">
-						<h2 class="mb-3">Frequently Asks Questions</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-					<div id="accordion" class="myaccordion w-100"
-						aria-multiselectable="true">
-						<div class="card">
-							<div class="card-header p-0" id="headingOne">
-								<h2 class="mb-0">
-									<button href="#collapseOne"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="true" aria-controls="collapseOne">
-										<p class="mb-0">How to train your pet dog?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
-								aria-labelledby="headingOne">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingTwo" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseTwo"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseTwo">
-										<p class="mb-0">How to manage your pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseTwo" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingThree" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseThree"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseThree">
-										<p class="mb-0">What is the best grooming for your pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseThree" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingFour" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseFour"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseFour">
-										<p class="mb-0">What are those requirements for sitting
-											pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseFour" role="tabpanel"
+							<div class="collapse" id="topFour" role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div class="card-body py-3 px-0">
 									<p>Far far away, behind the word mountains, far from the
@@ -618,6 +364,39 @@ border: 1px solid #d2d2d2;
 		</div>
 	</section>
 
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col" colspan="3">제목</th>
+      <th scope="col">작성자</th>
+      <th scope="col">날짜</th>
+      <th scope="col">조회수</th>
+    </tr>
+  </thead>
+  <c:forEach items="${qnaList}" var="qna">
+  <tbody>
+    <tr>
+      <th scope="row">${qna.qnaNo}</th>	
+      <c:if test="${qna.secret eq 0}">
+      <td colspan="3">${qna.qnaTitle}</td>
+      </c:if>
+      <c:if test="${qna.secret eq 1}">
+      <td colspan="3">비밀로 작성된 글입니다!</td>
+      </c:if>
+      <td>${qna.userId}</td>
+      <td><fmt:formatDate value="${qna.qnaDate}" pattern="yyyy.MM.dd" /></td>
+      <td>${qna.viewCnt}</td>
+    </tr>
+    </c:forEach>
+  </tbody> 
+</table>
+<hr>
+<br>
+<br>
+<br>
 
  <footer class="footer">
 			<div class="container">

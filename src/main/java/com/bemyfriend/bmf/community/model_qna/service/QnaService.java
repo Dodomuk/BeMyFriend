@@ -1,5 +1,6 @@
 package com.bemyfriend.bmf.community.model_qna.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.bemyfriend.bmf.community.model_qna.vo.Qna;
@@ -18,5 +19,5 @@ public interface QnaService {
 	
 	public void viewCount(int no);
 	
-	
+	public Map<String, Object> qnaTopList(Qna qna);
 }

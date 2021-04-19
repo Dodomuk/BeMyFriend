@@ -86,7 +86,7 @@
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
 						        	<li class="nav-item "><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
+						        	<li class="nav-item "><a href="/community/main" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="/calendar/index" class="nav-link">calendar/map</a></li>
 							        <c:choose>
@@ -112,6 +112,8 @@
 					</div>
 				</div>
 				 <button type="button" class="btn btn-success" onclick="startSpeechRecognition()"><i class="fas fa-headset">음성인식</i></button>
+			
+			
 			</nav>
 		</div>
 		

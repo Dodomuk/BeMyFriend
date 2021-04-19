@@ -2,6 +2,7 @@ package com.bemyfriend.bmf.community.model_review.service;
 
 import java.util.Map;
 
+import com.bemyfriend.bmf.community.model_qna.vo.Qna;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
 
 public interface ReviewService {
@@ -16,5 +17,5 @@ public interface ReviewService {
      
      public void viewCount(int no);
     
-     
+ 	public Map<String, Object> reviewTopList(Review review);
 }

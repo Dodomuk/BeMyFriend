@@ -1,12 +1,5 @@
 package com.bemyfriend.bmf.community.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_lawAndMedia.service.impl.LawMediaServiceImpl;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media;
@@ -28,7 +17,6 @@ import com.bemyfriend.bmf.community.model_qna.service.impl.QnaServiceImpl;
 import com.bemyfriend.bmf.community.model_qna.vo.Qna;
 import com.bemyfriend.bmf.community.model_review.service.impl.ReviewServiceImpl;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
-import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 
 @Controller
 @RequestMapping("community")
@@ -40,8 +28,14 @@ public class CommunityController {
 	private LawMediaServiceImpl lawMediaService;
 	@Autowired
 	private QnaServiceImpl qnaService;
+	
+	//커뮤 메인
+	@GetMapping("main")
+	public String main() {
+		return "community/community_main";
+	}
+	
 	//----------------------------------------------------------------------------------------리뷰 게시판
-	// 게시판 메인
 	@GetMapping("/review/review")
 	public String list(
 			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("reviewInfo") Review review) {
@@ -55,6 +49,7 @@ public class CommunityController {
 		
 		System.out.println("여기서부터 게시판 시작");
 			System.out.println(reviewService.selectReviewList(page));
+			model.addAllAttributes(reviewService.reviewTopList(review));
 			model.addAllAttributes(reviewService.selectReviewList(page));
 			model.addAttribute("page",page);
 			return "community/review/review";
@@ -174,6 +169,7 @@ public class CommunityController {
 	@GetMapping("qna")
 	public String qna(@RequestParam(defaultValue= "1")int qnaPage,Model model, Qna qna) {
 	    
+		model.addAllAttributes(qnaService.qnaTopList(qna));
 		model.addAllAttributes(qnaService.selectQnaList(qnaPage));
 	    model.addAttribute("qnaPage",qnaPage);
 	    

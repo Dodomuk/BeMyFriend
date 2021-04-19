@@ -72,5 +72,12 @@ public class ReviewServiceImpl implements ReviewService {
 		mapper.viewCount(no);
 	}
 
+	@Override
+	public Map<String, Object> reviewTopList(Review review) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("reviewTopList",mapper.reviewTopList(review));
+		return map;
+	}
+
 	
 }

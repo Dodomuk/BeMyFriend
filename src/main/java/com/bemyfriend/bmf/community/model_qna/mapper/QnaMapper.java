@@ -23,6 +23,8 @@ public interface QnaMapper {
 	
 	public void viewCount(int no);
 	
+	public List<Qna> qnaTopList(Qna qna);
+	
 	  @Select("select count(*) from qna")
 	  int selectContentCnt();
 	  

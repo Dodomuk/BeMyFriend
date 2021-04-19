@@ -46,4 +46,9 @@
     <update id="viewCount">
           update qna set view_cnt= view_cnt+1 where qna_no = ${qnaView}
     </update> 
+    
+    <!-- TOP5 게시글 -->
+    <select id="qnaTopList" resultType="qna">
+    select * from qna<![CDATA[where rownum <= 5]]>order by view_cnt desc
+    </select>
 </mapper>

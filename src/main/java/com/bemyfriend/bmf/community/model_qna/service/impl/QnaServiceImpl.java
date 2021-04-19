@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf.community.model_qna.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -60,6 +61,14 @@ public class QnaServiceImpl implements QnaService{
 	@Override
 	public void viewCount(int no) {
 		mapper.viewCount(no);
+	}
+
+	@Override
+	public Map<String, Object> qnaTopList(Qna qna) {
+		
+		Map<String, Object> commandMap = new HashMap<String,Object>();
+		commandMap.put("qnaTopList",mapper.qnaTopList(qna));
+		return commandMap;
 	}
 
 }

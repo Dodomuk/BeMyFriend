@@ -133,7 +133,7 @@
 				class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
 				data-scrollax-parent="true">
 				<div class="col-md-11 ftco-animate text-center">
-					<h1 class="mb-4">캘린더 맵</h1>
+					<h1 class="mb-4">캘린더 / 맵</h1>
 				</div>
 			</div>
 		</div>
@@ -143,7 +143,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
-					<div class="d-block services active text-center">
+					<div class="d-block services  text-center">
 						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
 							<i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
 						</div>

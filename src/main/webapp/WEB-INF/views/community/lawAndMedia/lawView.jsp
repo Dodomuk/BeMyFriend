@@ -127,7 +127,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-degree-bg">
+   <section class="ftco-section ftco-degree-bg">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 ftco-animate">
@@ -147,7 +147,7 @@
             
             <div class="about-author d-flex p-4 bg-light">
               <div class="bio mr-5">
-                <img src="/resources/law/귀여운팽귄.jpg" alt="Image placeholder" class="img-fluid mb-4">
+                <img src="/dongmuk/bup2.jpg" alt="Image placeholder" class="img-fluid mb-4">
               </div>
               <div class="desc">
                 <h3>관리자</h3> <!-- 나중에 받아올 세션값 -->

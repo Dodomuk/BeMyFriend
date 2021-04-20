@@ -5,7 +5,7 @@
     function checkCompatibility(){       
  
         recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition) ();
-        recognition.lang = "ko";  //추후에 한국어로도 확인바람
+        recognition.lang = "ko";  
         recognition.maxAlternatives = 3; //유사 단어 5개로 제한!!
         if(!recognition)
         {

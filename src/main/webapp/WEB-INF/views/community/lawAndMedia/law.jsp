@@ -28,6 +28,16 @@
 border: 1px solid #d2d2d2;
 
 }
+     #pageTitle{     -webkit-animation-name: movingPara;
+                     -webkit-animation-duration: 3s;
+                      animation-name: movingPara;
+                      animation-duration: 3s;
+               }
+
+      @keyframes movingPara {
+          from { margin-left: 70%; }
+          to { margin-left: 0%; }
+               }
 </style>
   </head>
   <body>
@@ -130,7 +140,7 @@ border: 1px solid #d2d2d2;
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-0 bread">법률/매체</h1>
+            <h1 class="mb-0 bread" id="pageTitle">법률</h1>
           </div>
         </div>
       </div>
@@ -153,8 +163,8 @@ border: 1px solid #d2d2d2;
                         <c:if test="${!empty lawList}">
                 <c:forEach items="${lawList}" var="law">
           <div class="col-md-4 d-flex ftco-animate">
-		 <div class="blog-entry align-self-stretch">
-             <div class="box_img_wrap" onclick="location.href='${context}/community/lawView?lawView=${law.lawNo}';" style="background-image: url('/resources/law/${law.lawImg}')" >
+		 <div  class="blog-entry align-self-stretch">
+             <div class="box_img_wrap"  onclick="location.href='${context}/community/lawView?lawView=${law.lawNo}';" style="background-image: url('/resources/law/${law.lawImg}')" >
               </div>
               <div class="text p-4">
               	<div class="meta mb-2">

@@ -10,27 +10,27 @@
 </head>
 <body>
 	<div class="content">
-		<h2 class="tit">게시글 수정</h2>
+		<h2 class="tit">게시판 글쓰기</h2>
 
-		<form action="${context}/community/review/updateForm?reviewNo=${view.reviewNo}" method="post" class="form-group"">
+		<form action="${context}/community/review/uploadForm" method="post" class="form-group">
 			<table style="text-align: center" border="1">
 				<thead>
 					<tr>
 						<th><span>제목</span></th>
-						<td><input class="form-control" name="reviewTitle" value="${view.reviewTitle}"/></td>
+						<td><input class="form-control" name="reviewTitle" /></td>
 					</tr>
 					<tr>
 						<th><span>내용</span></th>
-						<td><textarea class="form-control" name="reviewContent">${view.reviewContent}</textarea></td>
+						<td><textarea class="form-control" name="reviewContent"></textarea></td>
 					</tr>
 					<tr>
 						<th><span>작성자</span></th>
-						<td><input class="form-control" name="userId" value="${view.userId}"/></td>
-						<td><input class="form-control" name="userName" value="${view.userName}"/></td>
+						<td><input class="form-control" name="userId" /></td>
+						<td><input class="form-control" name="userName" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">
-						<button type="submit">등록</button>
+						<button>등록</button>
 						<button type="reset">새로입력</button>
 						<button type="button" class="cancelBtn">취소</button>
 						</td>
@@ -55,7 +55,6 @@ $(function(){
 });
 
 </script>
-
 <script src="../../resources/js/jquery.min.js"></script>
 <script src="../../resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="../../resources/js/popper.min.js"></script>
@@ -73,4 +72,5 @@ $(function(){
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="../../resources/js/google-map.js"></script>
 <script src="../../resources/js/main.js"></script>
+
 </html>

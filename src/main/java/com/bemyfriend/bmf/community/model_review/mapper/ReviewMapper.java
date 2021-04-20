@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.bemyfriend.bmf.common.util.paging.Paging;
+import com.bemyfriend.bmf.community.model_qna.vo.Qna;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
 import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 
@@ -25,6 +26,7 @@ public interface ReviewMapper {
 	
 	public void viewCount(int no);
 	
+	public List<Review> reviewTopList(Review review);
 	// 게시글 업로드
 	
 	  //더미데이터 집어넣으려고 임시로 만듦

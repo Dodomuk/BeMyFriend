@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bemyfriend.bmf.community.model_qna.mapper.QnaMapper">
+
+
+	 <select id="selectQnaList" resultType="qna">
+
+          select * 
+      from 
+         (
+              select
+                  b.*, rownum as rnum
+                 from 
+                 (select * from
+                  qna order by qna_no desc
+                 )b)
+             where
+             rnum between ${startRow} and ${endRow}  
+    
+    </select>  
+       
+    <insert id="insertQna">
+    insert into qna(qna_no,user_id,qna_title,qna_content) 
+    values(sc_rv_idx.nextval,#{userId},#{qnaTitle},#{qnaContent})
+    </insert>
+       
+    <!-- 게시글 상세보기 조회 -->
+    <select id="viewQnaId" resultType="qna" parameterType="int">
+    select *from qna where qna_no = #{qnaView}
+    </select>
+    
+      <!-- 게시글 삭제 -->
+    <delete id="deleteQna" parameterType="int">
+          delete from qna where qna_no = #{qnaView}
+    </delete>
+  
+     <!-- 게시글 수정 -->
+    <update id="updateQna">
+         update qna set user_id=#{userId}, qna_title=#{qnaTitle}, qna_content=#{qnaContent} where qna_no = ${qnaNo} 
+    </update>
+    
+    <!-- 게시판 조회수  -->
+    <update id="viewCount">
+          update qna set view_cnt= view_cnt+1 where qna_no = ${qnaView}
+    </update> 
+    
+    <!-- TOP5 게시글 -->
+    <select id="qnaTopList" resultType="qna">
+    select * from qna<![CDATA[where rownum <= 5]]>order by view_cnt desc
+    </select>
+</mapper>

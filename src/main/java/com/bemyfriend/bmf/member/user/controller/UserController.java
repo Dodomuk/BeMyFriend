@@ -270,6 +270,8 @@ public class UserController {
 			System.out.println("service session : " + service);
 			//로그인 정보 세션 저장
 			session.setAttribute("userMember", userMember);
+			session.setAttribute("memberId", userMember.getUserId());
+			session.setAttribute("memberName", userMember.getUserName());
 			return "success";
 		}
 	}

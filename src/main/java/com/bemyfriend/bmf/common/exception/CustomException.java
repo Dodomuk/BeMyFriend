@@ -1,5 +1,10 @@
 package com.bemyfriend.bmf.common.exception;
 
+import java.io.IOException;
+import java.net.http.HttpResponse;
+
+import javax.servlet.http.HttpServletResponse;
+
 import com.bemyfriend.bmf.common.code.ErrorCode;
 
 public class CustomException extends RuntimeException{
@@ -17,13 +22,11 @@ public class CustomException extends RuntimeException{
 		
 		
 		public CustomException(ErrorCode error, Exception e) {
-			//콘솔탕에 log를 작성
+			//콘솔창에 log를 작성
 			e.printStackTrace(); 
 			//error 전달받은 enum을 저장
 			this.error = error;
 		}
-		
-		
 		
 		
 		

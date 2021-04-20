@@ -1,12 +1,5 @@
 package com.bemyfriend.bmf.community.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,17 +9,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bemyfriend.bmf.common.util.paging.Paging;
 import com.bemyfriend.bmf.community.model_lawAndMedia.service.impl.LawMediaServiceImpl;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media;
+import com.bemyfriend.bmf.community.model_qna.service.impl.QnaServiceImpl;
+import com.bemyfriend.bmf.community.model_qna.vo.Qna;
 import com.bemyfriend.bmf.community.model_review.service.impl.ReviewServiceImpl;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
-import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 
 @Controller
 @RequestMapping("community")
@@ -36,19 +26,30 @@ public class CommunityController {
 	private ReviewServiceImpl reviewService;
 	@Autowired
 	private LawMediaServiceImpl lawMediaService;
+	@Autowired
+	private QnaServiceImpl qnaService;
+	
+	//커뮤 메인
+	@GetMapping("main")
+	public String main() {
+		return "community/community_main";
+	}
+	
 	//----------------------------------------------------------------------------------------리뷰 게시판
-	// 게시판 메인
 	@GetMapping("/review/review")
 	public String list(
 			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("reviewInfo") Review review) {
 
+		/*
 		Date today = new Date();	
 		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
 		String now = sdfm.format(today);
+		*/
 		
-		System.out.println(now);
+		
 		System.out.println("여기서부터 게시판 시작");
 			System.out.println(reviewService.selectReviewList(page));
+			model.addAllAttributes(reviewService.reviewTopList(review));
 			model.addAllAttributes(reviewService.selectReviewList(page));
 			model.addAttribute("page",page);
 			return "community/review/review";
@@ -77,21 +78,11 @@ public class CommunityController {
 	{
 	    System.out.println("게시글 보기");
 	    reviewService.viewId(view);
+	    reviewService.viewCount(view);
 	    model.addAttribute("view", reviewService.viewId(view));
 	    return "/community/review/reviewView";
 	} 
 	
-	//게시글 댓글 작성
-	/*
-	@PostMapping("/reviewcomment")
-	public String comment(ReviewComment reviewComment,Paging paging,RedirectAttributes ra) {
-		ra.addAttribute("replyId",reviewComment.getReplyUserId());
-		ra.addAttribute("replyContent",reviewComment.getReviewCommentContent());
-		ra.addAttribute("replyDate",reviewComment.getReviewCommentDate());
-		return "redirect:/community/review/reviewView";
-		
-	}
-	*/
 	//게시글 삭제
 	@GetMapping("/review/delete")
 	public String delete(int no) {
@@ -176,9 +167,61 @@ public class CommunityController {
 	//-------------------------------------------------------------------------------QNA 게시판
 	
 	@GetMapping("qna")
-	public String qna() {
+	public String qna(@RequestParam(defaultValue= "1")int qnaPage,Model model, Qna qna) {
+	    
+		model.addAllAttributes(qnaService.qnaTopList(qna));
+		model.addAllAttributes(qnaService.selectQnaList(qnaPage));
+	    model.addAttribute("qnaPage",qnaPage);
+	    
 		return "community/qna/qna";
 	}
 
+	@GetMapping("/qna/qnaForm")
+	public String qnaForm()
+	{
+		return "community/qna/qnaForm";
+	}
+	
+	@PostMapping("/qna/qnaUpload")
+	public String write(Qna qna)
+	{
+		System.out.println("다시 qna게시판으로 redirect");
+		
+		qnaService.insertQna(qna);
+		return "redirect:/community/qna/qna";
+	}
+	
+	@GetMapping("qnaView")
+	public String qnaView(Qna qna,Model model,@RequestParam("qnaView")int qnaView) 
+	{
+		
+	    model.addAttribute("qnaView", qnaService.viewId(qnaView));
+	    return "community/qna/qnaView";
+	    
+	} 
+	//게시글 삭제
+	@GetMapping("/qna/delete")
+	public String deleteQna(int no) {
+		qnaService.deleteQna(no);
+		return "redirect:/community/qna/qna"; 
+	}
+	
+	//게시글 수정 화면 이동
+	@GetMapping("/qna/qnaFix")
+	public String updateQna(int no, Model model) {
+		model.addAttribute("qnaView", qnaService.viewId(no));
+		return "community/qna/qnaFix";
+	}
+	
+	
+	//게시글 수정
+	@PostMapping("qna/updateQna")
+	public String updateQna(Qna qna)
+	{
+		qnaService.updateQna(qna);
+		
+		return "redirect:/community/qma/qna";
+	}
+	
 }
 

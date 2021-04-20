@@ -37,18 +37,18 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
+				    			<c:if test="${empty userMember and empty comMember}">
 				    					<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
 				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
 								</c:if>
-								<c:if test="${sessionScope.userMember != null}">
+								<c:if test="${userMember != null}">
 										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
 								</c:if>
-								<c:if test="${sessionScope.comMember != null}">
+								<c:if test="${comMember != null}">
 				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
 								</c:if>
-								<c:if test ="${sessionScope.comMember != null}">
+								<c:if test ="${comMember != null}">
 									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
 								</c:if>
 				    			
@@ -86,7 +86,7 @@
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
 						        	<li class="nav-item "><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
-						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
+						        	<li class="nav-item "><a href="/community/main" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="/calendar/index" class="nav-link">calendar/map</a></li>
 							        <c:choose>
@@ -112,6 +112,8 @@
 					</div>
 				</div>
 				 <button type="button" class="btn btn-success" onclick="startSpeechRecognition()"><i class="fas fa-headset">음성인식</i></button>
+			
+			
 			</nav>
 		</div>
 		

@@ -5,7 +5,50 @@
 
 <link rel="stylesheet" href="${context}/resources/css/board.css" />
 <link rel="stylesheet" href="/resources/css/reset.css"/>
+<script>
+/* 댓글 기능 */
 
+$(document).ready(function(){
+	
+	listReply();
+	
+	$("#btnReply").click(function(){
+		var replytext = $("#replytext").val();
+		var param = {reviewNo:"${view.reviewNo}",reviewCommentContent:replytext};
+		$.ajax({
+			type:"post",
+			url: "${context}/reply/insertReply",
+			data: param,
+			success: function(){
+				alert("댓글이 등록되었습니다!");
+				listReply();
+			}
+		});
+	});
+	
+	function listReply(){
+		$.ajax({
+			type: "get",
+			url:"${context}/reply/replyListJson?reviewNo="+${view.reviewNo},
+					success:function(result){
+						console.log(${view.reviewNo});
+						console.log(result);
+						var output = "";
+						for(var i in result){
+							output += "<div>";
+							output += "<div><table class='table'><h6><strong>" + result[i].replyUserName + "/" + result[i].replyUserId+"</strong><h6>";
+							output += "<tr><td>"+result[i].reviewCommentContent+"</td></td>";
+							output += "</table></div>";
+							output += "</div>";
+						}
+						$("#listReply").html(output);
+					}
+			
+		});
+	}
+	
+})
+</script>
 <body>
 <div class="content">   
     <h2 class="review_view"> 리뷰 보기 게시판 </h2>
@@ -30,7 +73,9 @@
       </div>
       
    </div>
-
+   
+   
+     <!-- 댓글 관련 스크립트  -->
     <div class="container">
     <form id="commentForm" name="commentForm" method="post">
     <br><br>
@@ -42,29 +87,28 @@
                 <table class="table">                    
                     <tr>
                         <td>
-                            <textarea style="width: 1100px" rows="3" cols="30" id="comment" name="comment" placeholder="댓글을 입력하세요"></textarea>
+                            <textarea style="width: 1100px" rows="3" cols="30" id="replytext" name="comment" placeholder="댓글을 입력하세요"></textarea>
                             <br>
                             <div>
-                                <a href='#' onClick="fn_comment('${result.code }')" class="btn pull-right btn-success">등록</a>
+                            <c:if test="${sessionScope.memberId != null}">
+                                <button type="button" id="btnReply" class="btn pull-right btn-success">등록</button>
+                            </c:if>
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
-        </div>
-        <input type="hidden" id="b_code" name="b_code" value="${result.code }" />        
+        </div>       
     </form>
 </div>
 <div class="container">
-    <form id="commentListForm" name="commentListForm" method="post">
-        <div id="commentList">
+        <div id="listReply">
         </div>
-    </form>
 </div>
  
 </div>
 
-<script type="text/javascript">
+<script type="text/javascript">  //게시글 관련 스크립트
 $(function(){
   $("#del_btn").click(function(){
 	  if(confirm("정말 삭제하시겠습니까????")==true){
@@ -92,55 +136,11 @@ $(function(){
 	  });
 	});
 
-</script>
-<!--  
-<script>
-$(document).ready(function(){
+	/*----------------------------------------  */
 	
-	listReply2();
-	
-	$("#btnReply").click(function(){
-		var replytext=$("#replytext").val();
-		var no = "${review.reviewno}" /* 여기 주목 */
-		var param ="replytext="+replytext+"&no="+no;
-		$.ajax({
-			type : "post",
-			url : "${path}/reply/insert.do"
-			data: param,
-			success : function(){
-				alert("댓글이 등록되었습니다!");
-				listReply2();
-			}
-		});
-		
-});
-	
-	function listReply(){
-	$.ajax({
-	 type: "get",
-	 url: "${path}/reply/list.do?no=${review.reviewno}",
-			 success: function(result){
-				 $("listReply").html(result);
-			 }
-	});
-	}
-	
-	function listReply2(){
-	$.ajax({
-	    type: "get",
-	    url : "${path}/reply/listJson.do?no=${review.reviewno}",
-	    success: function(result){
-	    	var output = "<table>";
-	    	for(var i in result){
-	    	output += "<tr>";	
-	    	output += "<td>"+result[i].userName;	
-	    	}
-	})
-	}
-	}
 	
 </script>
--->
+
 
 </body>
 </html>

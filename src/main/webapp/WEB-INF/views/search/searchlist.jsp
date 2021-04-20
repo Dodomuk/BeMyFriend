@@ -47,18 +47,18 @@
 					<div class="col-md-6 d-flex justify-content-md-end">
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<c:if test="${empty sessionScope.userMember and empty sessionScope.comMember}">
-										<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
+				    			<c:if test="${empty userMember and empty comMember}">
+				    					<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
 				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
 				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
 								</c:if>
-								<c:if test="${sessionScope.userMember != null}">
+								<c:if test="${userMember != null}">
 										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
 								</c:if>
-								<c:if test="${sessionScope.comMember != null}">
+								<c:if test="${comMember != null}">
 				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
 								</c:if>
-								<c:if test ="${sessionScope.comMember != null}">
+								<c:if test ="${comMember != null}">
 									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
 								</c:if>
 				    			
@@ -87,6 +87,8 @@
 						            <form class="smKey searchTitle"  action="${context}/search/searchtitle" method="GET" id="searchTitle" name ="searchTitle">
 						                <input type="search" id="searchText" title="searchJob" name="searchText" maxlength="50" style="background: none;">
 						                <button type="submit"  class="searchBtn" id="common_search_btn"><i class="fas fa-search"></i></button>
+						               
+ 
 									</form>
 					    		</div>
 					   		</div>
@@ -96,22 +98,21 @@
 						        	<li class="nav-item "><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
 						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
-							        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-							        
+							        <li class="nav-item"><a href="/calendar/index" class="nav-link">calendar/map</a></li>
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item"><a href="member/company/hire/list" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        
 							        <c:choose>
-										<c:when test ="${sessionScope.userMember != null}">
+										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
-										<c:when test ="${sessionScope.comMember != null}">
+										<c:when test ="${comMember != null}">
 											<li class="nav-item"><a href="/member/company/mypage" class="nav-link">마이페이지</a></li>
 										</c:when>
 									</c:choose>
@@ -120,6 +121,7 @@
 						</div>
 					</div>
 				</div>
+				 <button type="button" class="btn btn-success" onclick="startSpeechRecognition()"><i class="fas fa-headset">음성인식</i></button>
 			</nav>
 		</div>
 		

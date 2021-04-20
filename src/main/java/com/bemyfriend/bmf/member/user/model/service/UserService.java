@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.vo.User;
+import com.bemyfriend.bmf.member.user.model.vo.UserHopeService;
 
 public interface UserService {
 	
@@ -29,7 +30,13 @@ public interface UserService {
 	
 	void userLogout(HttpSession session);
 	
+	int uploadUserService(UserHopeService service);
+	
 	int updateUserInfo(User user);
+	
+	int updateUserService(UserHopeService service);
+	
+	UserHopeService selectUserService(String userId);
 	
 	void uploadFile(MultipartFile file, HttpSession session);
 

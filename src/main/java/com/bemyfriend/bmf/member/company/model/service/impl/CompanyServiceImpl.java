@@ -25,14 +25,12 @@ public class CompanyServiceImpl implements CompanyService{
 	
 	@Autowired
 	private JavaMailSender mail;
-	
-	/*
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	*/
+	@Autowired
+	private RestTemplate http;
 	
-	RestTemplate http = new RestTemplate();
-	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	 
 	
 	//생성자로 의존성 주입
 	public CompanyServiceImpl(CompanyRepository companyRepository) {
@@ -60,7 +58,7 @@ public class CompanyServiceImpl implements CompanyService{
 		MimeMessage msg = mail.createMimeMessage();
 		System.out.println("impl : " + authPath);
 		try {
-			msg.setFrom("bemyfriend_@naver.com");
+			msg.setFrom("bemyfriend486@gmail.com");
 			msg.setRecipients(Message.RecipientType.TO, persistUser.getComMail());
 			msg.setSubject("회원가입을 축하드립니다.");
 			msg.setContent("<h2> 반갑습니다." + persistUser.getComId() 

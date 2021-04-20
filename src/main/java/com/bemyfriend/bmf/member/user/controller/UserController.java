@@ -3,7 +3,9 @@ package com.bemyfriend.bmf.member.user.controller;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -33,6 +35,7 @@ import com.bemyfriend.bmf.common.random.RandomString;
 import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.service.UserService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
+import com.bemyfriend.bmf.member.user.model.vo.UserHopeService;
 import com.bemyfriend.bmf.member.user.validator.UserValidator;
 
 
@@ -240,7 +243,8 @@ public class UserController {
 	//로그인 정보기반 로그인 완료
 	@PostMapping("loginimpl")
 	@ResponseBody		//form-json으로 넘겼기때문에 ! //session에 저장해야 함
-	public String loginmpl(@RequestBody User user, HttpSession session) {
+	public String loginmpl(@RequestBody User user
+							, HttpSession session) {
 		// 로그인 완료되면 success/ fail 문자열 반환(=>ResponseBody에 찍힘)
 		// ResponseBody에 찍힌 문자열은 .then((text) => {
 		// 이 형태로 fatch를 이용해 꺼내게 되는 것
@@ -253,12 +257,21 @@ public class UserController {
 		}else { //로그인 성공시
 			// 가지고 있는 이미지 파일을 찾아내기
 			FileVo file = userService.selectUserFile(userMember.getUserIdx());
+			// 가지고 있는 서비스 정보 가져오기
+			UserHopeService service = userService.selectUserService(userMember.getUserId());
 			//이미지 파일이 있다면 파일정보 세션에 저장
 			if(file != null) {
 			session.setAttribute("file", file);
 			}
+			//서비스 있다면 서비스정보 세션에 저장
+			if(service != null) {
+			session.setAttribute("service", service);
+			}
+			System.out.println("service session : " + service);
 			//로그인 정보 세션 저장
 			session.setAttribute("userMember", userMember);
+			session.setAttribute("memberId", userMember.getUserId());
+			session.setAttribute("memberName", userMember.getUserName());
 			return "success";
 		}
 	}
@@ -293,25 +306,57 @@ public class UserController {
 	//마이페이지 수정하기
 	@PostMapping("updateinfo")
 	public String updateUserInfo(@RequestParam MultipartFile file
+								, UserHopeService serviceInfo
 								, User user
 								, HttpSession session
 								, Model model){
 		
+	
 		
-		System.out.println(file);
+		System.out.println("user : " + user);
+		System.out.println("serviceInfo : " + serviceInfo);
+		
 		//넘어오는 파일의 사이즈가 0이 아닌경우에만 보내기
 		if(file.getSize() != 0) {
 			userService.uploadFile(file, session);
 		}
-			
-		int result =  userService.updateUserInfo(user);
 		
+		System.out.println("session service : " + session.getAttribute("service") );
+		
+		
+		
+		//해당 아이디에 해당하는 서비스 값이 없다면 upload
+		if(userService.selectUserService(user.getUserId()) == null) {
+			int uploadService = userService.uploadUserService(serviceInfo);
+			if(uploadService > 0) {
+				UserHopeService resService = userService.selectUserService(user.getUserId());
+				session.setAttribute("service", resService);
+				System.out.println("서비스 업로드 완료!");
+			}else{
+				System.out.println("서비스 업로드 실패!");
+			}
+			
+		}else {
+			//해당 아이디에 해당하는 서비스 값이 있다면 update
+			int updateService = userService.updateUserService(serviceInfo);	
+			if(updateService > 0) {
+				UserHopeService resService = userService.selectUserService(user.getUserId());
+				session.setAttribute("service", resService);
+				System.out.println("서비스 업로드 완료!");
+			}else{
+				System.out.println("서비스 업로드 실패!");
+			}
+			
+		}
+		
+		int result =  userService.updateUserInfo(user);
 		if(result > 0) {
 			
-			User userMember = userService.selectMemberById(user.getUserId());			
+			User userMember = userService.selectMemberById(user.getUserId());
 			FileVo updateFile = userService.selectUserFile(userMember.getUserIdx());
 			session.setAttribute("userMember", userMember);
 			session.setAttribute("file", updateFile);
+			
 
 			model.addAttribute("alertMsg", "회원정보 수정이 성공하였습니다.");
 			model.addAttribute("url",ConfigCode.DOMAIN+"/member/user/mypage");

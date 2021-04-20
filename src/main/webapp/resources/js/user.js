@@ -190,6 +190,7 @@
 			    	  e.preventDefault();
 				      pw_check.innerHTML = '비밀번호를 입력해주세요.';
 				      
+				      
 			      }else{
 			    	  
 				      if(!(regExp.test(password))){
@@ -197,6 +198,7 @@
 				         e.preventDefault();
 				         pw_confirm.innerHTML = '비밀번호는 숫자,영문자,특수문자 조합의 8글자 이상이어야 합니다.';
 				         userPw.value = '';
+				         alert('비밀번호는 숫자,영문자,특수문자 조합의 8글자 이상이어야 합니다.');
 				      } else {
 				    	  
 				    	  let firstPw = userPw.value;
@@ -205,6 +207,7 @@
 						  if(firstPw != secondPw){
 							
 								document.querySelector("#pw_confirm").innerHTML = '비밀번호가 맞지 않습니다.';
+								alert('비밀번호가 맞지 않습니다.');
 								checkpw.value= ""; //pw의 value값 비워주기
 								e.preventDefault(); //데이터전송 막기
 							}
@@ -267,5 +270,16 @@
 			  target.appendChild(opt);
 		  }
 	  }
+	  
+	  
+	  
+	  
+	 
+	  // 초기화 버튼 클릭시 모든 radio unchecked 
+	  $("#remove_btn").click(function() {
+	  	$('input.userService').removeAttr('checked');
+	  })
 
+
+	  
 

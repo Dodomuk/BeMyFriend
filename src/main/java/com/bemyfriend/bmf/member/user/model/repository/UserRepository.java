@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.vo.User;
+import com.bemyfriend.bmf.member.user.model.vo.UserHopeService;
 
 
 @Mapper //Mapper로도 사용
@@ -45,6 +46,11 @@ public interface UserRepository {
 	User selectUserForFindPw(@Param("userId")String userId, @Param("userMail")String userMail);
 	
 	
+	//회원서비스 가져오기
+	@Select("SELECT * FROM USER_SERVICE WHERE USER_ID = #{userId}")
+	UserHopeService selectUserService(@Param("userId")String userId);
+	
+	
 	//회원탈퇴하기
 	@Update("UPDATE USERS SET USER_ISLEAVE = '1' WHERE USER_ID = #{userId}")
 	int withdrawUser(String userId);
@@ -55,7 +61,13 @@ public interface UserRepository {
 	
 	//회원정보수정하기 
 	int updateUserInfo(User user);
-
+	
+	//회원서비스등록하기
+	int uploadUserService(UserHopeService service);
+	
+	//회원서비스수정하기
+	int updateUserService(UserHopeService service);
+	
 	//파일업로드하기
 	void uploadFile(FileVo fileVo);
 	

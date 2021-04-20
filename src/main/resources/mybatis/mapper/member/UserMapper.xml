@@ -33,6 +33,43 @@
  	</update>
  	
  	
+ 	<!-- 회원 서비스 등록하기 -->
+ 	<insert id="uploadUserService">
+ 		INSERT INTO USER_SERVICE(USER_ID, SUP_LIFT, SUP_ELV, SUP_BATH, SUP_VOICE, SUP_BLOCK, SUP_SIGN, SUP_PARK, SUP_CHARGE, SUP_WELFARE)
+ 		values(#{userId},#{supLift}, #{supElv}, #{supBath}, #{supVoice},#{supBlock}, #{supSign}, #{supPark}, #{supCharge},#{supWelfare})
+ 	</insert>
+ 	
+ 	
+ 	
+ 	<!-- 회원 서비스 수정하기 -->
+ 	<update id="updateUserService">
+ 		UPDATE USER_SERVICE
+ 		<set>
+ 			<if test="supLift == 1">SUP_LIFT = '1'</if>
+ 			<if test="supElv == 1">,SUP_ELV = '1'</if>
+ 			<if test="supBath == 1">,SUP_BATH = '1'</if>
+ 			<if test="supVoice == 1">,SUP_VOICE = '1'</if>
+ 			<if test="supBlock == 1">,SUP_BLOCK = '1'</if>
+ 			<if test="supSign == 1">,SUP_SIGN = '1'</if>
+ 			<if test="supPark == 1">,SUP_PARK = '1'</if>
+ 			<if test="supCharge == 1">,SUP_CHARGE = '1'</if>
+ 			<if test="supWelfare == 1">,SUP_WELFARE = '1'</if>
+ 			<if test="supLift == 0">,SUP_LIFT = '0'</if>
+ 			<if test="supElv == 0">,SUP_ELV = '0'</if>
+ 			<if test="supBath == 0">,SUP_BATH = '0'</if>
+ 			<if test="supVoice == 0">,SUP_VOICE = '0'</if>
+ 			<if test="supBlock == 0">,SUP_BLOCK = '0'</if>
+ 			<if test="supSign == 0">,SUP_SIGN = '0'</if>
+ 			<if test="supPark == 0">,SUP_PARK = '0'</if>
+ 			<if test="supCharge == 0">,SUP_CHARGE = '0'</if>
+ 			<if test="supWelfare == 0">,SUP_WELFARE = '0'</if>
+ 		</set>
+ 		WHERE USER_ID = #{userId}
+ 	</update>
+ 	
+ 	
+ 	
+ 	
 
  	
  	<!-- 회원 사진파일 새로 업로드-->

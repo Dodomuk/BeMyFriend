@@ -5,23 +5,25 @@
     
 <mapper namespace="com.bemyfriend.bmf.community.model_review.mapper.ReviewMapper">
 
-    <!-- 페이징 처리는 추후에~ -->
+    <!-- 댓글 개수 나타내는거 !해야댐!!--> 
 	 <select id="selectReviewList" resultType="review">
 
       select * 
       from 
          (
               select
-                 rownum as rnum, a.*
-                 from review a
-                 )
+                  a.*, rownum as rnum
+                 from 
+                 (select * from
+                  review order by review_no desc
+                 )a)
              where
-             rnum between ${startRow} and ${endRow}  order by review_no desc
+             rnum between ${startRow} and ${endRow}  
     </select>  
         
     <insert id="insertReview">
-    insert into review(review_no,user_id,review_title,review_content) 
-    values(sc_rv_idx.nextval,#{userId},#{reviewTitle},#{reviewContent})
+    insert into review(review_no,user_id,review_title,review_content,user_name) 
+    values(sc_rv_idx.nextval,#{userId},#{reviewTitle},#{reviewContent},#{userName})
     </insert>
 
     
@@ -45,5 +47,8 @@
           update review set view_cnt= view_cnt+1 where review_no = ${view}
     </update> 
     
- 
+     <!-- TOP10 게시글 -->
+    <select id="reviewTopList" resultType="review">
+    select * from review<![CDATA[where rownum <= 10]]>order by view_cnt desc
+    </select>
 </mapper>

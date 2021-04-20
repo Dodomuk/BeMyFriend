@@ -53,9 +53,9 @@
 		
 	<!-- 메일 계정 정보 -->
 	<bean id="mailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.naver.com"></property>
-		<property name="username" value="bemyfriend_@naver.com"></property>
-		<property name="password" value="!aA192837"></property>
+		<property name="host" value="smtp.gmail.com"></property>
+		<property name="username" value="bemyfriend486@gmail.com"></property>
+		<property name="password" value="zznnahesmbweikae"></property>
 		<property name="port" value="465"></property>
 		<property name="javaMailProperties">
 			<props>

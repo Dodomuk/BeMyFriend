@@ -36,6 +36,7 @@ import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.repository.UserRepository;
 import com.bemyfriend.bmf.member.user.model.service.UserService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
+import com.bemyfriend.bmf.member.user.model.vo.UserHopeService;
 
 @Service // @Component 와 다를 것이 없음.
 public class UserServiceImpl implements UserService {
@@ -145,8 +146,7 @@ public class UserServiceImpl implements UserService {
 	public FileVo selectUserFile(String userIdx) {
 		
 		String FindUserIdx = "u" + userIdx;
-		System.out.println(FindUserIdx);
-		System.out.println("file : " + userRepository.selectUserFile(FindUserIdx));
+		
 		return userRepository.selectUserFile(FindUserIdx);
 	}
 
@@ -162,16 +162,47 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+	// 회원서비스 업로드
+	@Override
+	public int uploadUserService(UserHopeService service) {
+		
+		return userRepository.uploadUserService(service);
+	}
+
+
 	
 	
 	
 	// 회원정보 업데이트
 	@Override
 	public int updateUserInfo(User user) {
-		
-		user.setUserPw(encoder.encode(user.getUserPw()));
+		if(user.getUserPw() != null) {
+			user.setUserPw(encoder.encode(user.getUserPw()));
+		}
 		return userRepository.updateUserInfo(user);
 	}
+	
+	
+	
+
+	// 회원서비스 업데이트
+	@Override
+	public int updateUserService(UserHopeService service) {
+		System.out.println("seviceimpl , service : " + service);
+		return userRepository.updateUserService(service);
+	}
+
+
+	
+	// 회원서비스 가져오기
+	@Override
+	public UserHopeService selectUserService(String userId) {
+		
+		return userRepository.selectUserService(userId);
+	}
+
+
+	
 	
 	
 	
@@ -245,7 +276,9 @@ public class UserServiceImpl implements UserService {
 
 
 
+	
 
+	
 
 
 

@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bemyfriend.bmf.member.user.model.service.ResumeService;
+import com.bemyfriend.bmf.member.user.model.service.UserService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
+import com.bemyfriend.bmf.member.user.model.vo.UserHopeService;
 import com.bemyfriend.bmf.member.user.model.vo.UserResume;
 
 @Controller
@@ -25,10 +27,12 @@ public class ResumeController {
 	
 	
 	private final ResumeService resumeService;
+	private final UserService userService;
 	
 	
-	public ResumeController(ResumeService resumeService) {
+	public ResumeController(ResumeService resumeService, UserService userService) {
 		this.resumeService = resumeService;
+		this.userService = userService;
 	}
 	
 	
@@ -60,21 +64,42 @@ public class ResumeController {
 	
 	
 	@PostMapping("upload")
-	public String uploadResume(@RequestParam Map<String, Object> service
-								, Model model) {
+	public String uploadResume(@RequestParam Map<String, String> resume
+								,User user
+								,UserHopeService service
+								, Model model
+								, HttpSession session) {
 	
-		System.out.println("service : " + service);
-		
 		// 인적사항 update 부분
+		int userRes = userService.updateUserInfo(user);
+		int uploadResume = resumeService.uploadResume(resume);
 		
-		
-		
-		
-		
-		
-		//int result = resumeService.uploadResume(service);
-		/*
-		if(result > 0) {
+
+		// 세션에 저장된 service가 없을 경우 업로드로!
+		if(session.getAttribute("service") == null) {
+			int uploadService = userService.uploadUserService(service);
+			if(uploadService > 0) {
+				UserHopeService resService = userService.selectUserService(user.getUserId());
+				session.setAttribute("service", resService);
+				System.out.println("서비스 업로드 완료!");
+			}else{
+				System.out.println("서비스 업로드 실패!");
+			}
+			
+		}else {
+		//세션에 저장된 service가 있는 경우엔 업데이트로! 
+			int updateService = userService.updateUserService(service);	
+			if(updateService > 0) {
+				UserHopeService resService = userService.selectUserService(user.getUserId());
+				session.setAttribute("service", resService);
+				System.out.println("서비스 업로드 완료!");
+			}else{
+				System.out.println("서비스 업로드 실패!");
+			}
+			
+		}
+
+		if(uploadResume > 0) {
 			
 			model.addAttribute("alertMsg","이력서를 등록하였습니다.");
 			model.addAttribute("url","/member/user/resume/list");
@@ -84,7 +109,7 @@ public class ResumeController {
 		
 			model.addAttribute("alertMsg","이력서 등록에 실패하였습니다.");
 			model.addAttribute("url","/member/user/resume/list");
-		*/
+		
 			return "common/result";
 	}
 	
@@ -97,16 +122,13 @@ public class ResumeController {
 		System.out.println(resIdx);
 		User user = (User)session.getAttribute("userMember");
 		String userId = user.getUserId();
-		System.out.println(userId);
 		
 		
 		List<String> service = resumeService.selectService(resIdx); //서비스 파트 가져오기
 		UserResume userResume = resumeService.viewResumeDetail(userId, resIdx); //외 전체파트 가져오기
-		
-		
-		
-		model.addAttribute("service", service);
-		model.addAttribute("userResume", userResume);
+		userResume.setResIdx(resIdx);
+	
+		session.setAttribute("userResume", userResume);
 		
 		
 		
@@ -115,8 +137,85 @@ public class ResumeController {
 	}
 	
 	
-	@PostMapping("update")
-	public String updateResume() {
+	//update 페이지로 이동
+	@GetMapping("updateform")
+	public String updateform() {
+		
+		
+		return "/member/user/resumeupdate";
+	}
+	
+	
+	@PostMapping("updateimpl")
+	public String updateResume(@RequestParam Map<String, String> resume
+								,User user
+								,UserHopeService service
+								, Model model
+								, HttpSession session) {
+		
+		System.out.println(resume);
+		
+		
+		UserResume originResume = (UserResume) session.getAttribute("userResume");
+		int resIdx = originResume.getResIdx();
+		System.out.println("user : " +user);
+		// 인적사항 update
+		int userRes = userService.updateUserInfo(user);
+		
+		// resume update
+		int uploadResume = resumeService.updateResume(resume, resIdx);
+		
+		
+		// 세션에 저장된 service가 없을 경우 업로드로!
+				if(session.getAttribute("service") == null) {
+					int uploadService = userService.uploadUserService(service);
+					if(uploadService > 0) {
+						UserHopeService resService = userService.selectUserService(user.getUserId());
+						session.setAttribute("service", resService);
+						System.out.println("서비스 업로드 완료!");
+					}else{
+						System.out.println("서비스 업로드 실패!");
+					}
+					
+				}else {
+				//세션에 저장된 service가 있는 경우엔 업데이트로! 
+					int updateService = userService.updateUserService(service);	
+					if(updateService > 0) {
+						UserHopeService resService = userService.selectUserService(user.getUserId());
+						session.setAttribute("service", resService);
+						System.out.println("서비스 업로드 완료!");
+					}else{
+						System.out.println("서비스 업로드 실패!");
+					}
+					
+				}
+
+				if(uploadResume > 0) {
+					UserResume userResume = resumeService.viewResumeDetail(user.getUserId(), resIdx); //외 전체파트 가져오기
+					User afterUser = userService.selectMemberById(user.getUserId()); // 유저정보 가져오기
+					session.setAttribute("userResume", userResume);
+					session.setAttribute("userMember", afterUser);
+					
+					model.addAttribute("alertMsg","이력서를 수정하였습니다.");
+					model.addAttribute("url","/member/user/resume/detail?resIdx="+resIdx);
+					
+					return "common/result";
+				}
+				
+					model.addAttribute("alertMsg","이력서 수정에 실패하였습니다.");
+					model.addAttribute("url","/member/user/detailresume");
+				
+					return "common/result";
+	
+	}
+	
+	
+	
+	
+	@GetMapping("delete")
+	public String deleteResume() {
+		
+		
 		return null;
 	}
 

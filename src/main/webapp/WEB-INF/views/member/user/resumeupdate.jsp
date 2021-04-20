@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../../../../resources/css/jquery.timepicker.css">
     <link rel="stylesheet" href="../../../../resources/css/flaticon.css">
     <link rel="stylesheet" href="../../../../resources/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
 
@@ -141,7 +142,7 @@
 			<div class="resume-container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">- 이력서 작성 -</h2>
+						<h2 class="heading-section">- 이력서 수정 -</h2>
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -154,19 +155,18 @@
 										
 										
 										
-										<form:form action="${context}/member/user/resume/upload" method="POST" id="contactForm" name="contactForm" class="contactForm">
-											
+										<form:form action="${context}/member/user/resume/updateimpl" id="contactForm" name="contactForm" class="contactForm">
+										
 											<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="label" id="check-group">이력서 제목</label>
-													<input type="text" class="form-control" name="resTitle" id="resTitle" required="required" placeholder="이력서 제목을 입력하세요.">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" id="check-group">이력서 제목</label>
+														<input type="text" class="form-control" name="resTitle" id="resTitle" required="required" placeholder="이력서 제목을 입력하세요." value="${userResume.resTitle}" >
+													</div>
 												</div>
-											</div>
 												<div class="resume-category">
 													<h3>인적사항</h3><br>
 												</div>
-												
 												<c:if test="${!empty file}">
 													<div class="col-md-3">
 														<div class="form-group" >
@@ -190,7 +190,7 @@
 												<div class="col-md-3" style="margin:auto;">
 													<div class="form-group">
 														<label class="label" id="check-group">아이디</label>
-														<input type="text" class="form-control" name="userId" id="userId"  value ="${userMember.userId}" readonly>
+														<input type="text" class="form-control" name="userId" id="userId"  value ="${userMember.userId}" readonly >
 													</div>
 												</div>
 												<div class="col-md-3" style="margin:auto;">
@@ -224,18 +224,14 @@
 													</div>
 												</div>
 											</div>
-											<br>
 											<div class="empty_space"></div>
 											
 											
 											
-											<div class="resume-category">
-													<h3>학력</h3>
-												
-													<br>
+											<div class="row ">
+												<div class="resume-category">
+													<h3>학력</h3><br>
 												</div>
-											<div class="row" id="aboutSchool">
-											
 												<div class="col-md-6" style="padding-top: 20px;" >
 													<div class="form-group" >
 														<label class="label" id="check-group">학교구분</label>
@@ -247,14 +243,13 @@
 															<option value="대학교 2/3년">대학교 2/3년</option>
 															<option value="대학교 4년">대학교 4년</option>
 															<option value="기타">기타</option>
-															
 														</select>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">전공명<br>(대학선택시)</label>
-														<input type="text" class="form-control" name="schMajor" id="schMajor">
+														<input type="text" class="form-control" name="schMajor" id="schMajor" value="${userResume.schMajor}" >
 													</div>
 												</div>
 												
@@ -276,60 +271,62 @@
 												<div class="col-md-4">
 													<div class="form-group">
 														<label class="label"id="check-group" >입학년월</label>
-														<input type="Date" class="form-control" name="schEnroll" id="schEnroll">
+														<input type="Date" class="form-control" name="schEnroll" id="schEnroll" value="${userResume.schEnroll}" >
 													</div>
 												</div>
 												<div class="col-md-4">
 													<div class="form-group">
 														<label class="label"id="check-group" >졸업년월</label>
-														<input type="Date" class="form-control" name="schGraduate" id="schGraduate">
+														<input type="Date" class="form-control" name="schGraduate" id="schGraduate" value="${userResume.schGraduate}" >
 													</div>
 												</div>
 											</div>
 											<div class="empty_space"></div>
 												
 												
-												<div class="resume-category experience">
-													<h3>경력</h3>											
-													<br>
+												<div class="row carrer">
+												<div class="resume-category">
+													<h3>경력</h3><br>
 												</div>
-												<div class="row" id="experience" >
+												
 												<div class="col-md-6">
-													<div class="form-group">
+														<div class="form-group">
 															<label class="label" id="check-group">회사명</label>
-															<input type="text" class="form-control" name="carCom" id="carCom">
+															<input type="text" class="form-control" name="carCom" id="carCom" value="${userResume.carCom}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label" id="check-group">부서</label>
-															<input type="text" class="form-control" name="carDept" id="carDept">
+															<input type="text" class="form-control" name="carDept" id="carDept" value="${userResume.carDept}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label" id="check-group">직급</label>
-															<input type="text" class="form-control" name="carPosition" id="carPosition">
+															<input type="text" class="form-control" name="carPosition" id="carPosition" value="${userResume.carPosition}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label"id="check-group" >경력연봉</label>
-															<input type="text" class="form-control" name="carSalary" id="carSalary" placeholder="예시: 1000만원">
+															<input type="text" class="form-control" name="carSalary" id="carSalary" placeholder="예시: 1000만원" value="${userResume.carSalary}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label"id="check-group" >입사년월</label>
-															<input type="Date" class="form-control" name="carEnter" id="carEnter">
+															<input type="Date" class="form-control" name="carEnter" id="carEnter" value="${userResume.carEnter}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label"id="check-group" >퇴사년월</label>
-															<input type="Date" class="form-control" name="carQuit" id="carQuit">
+															<input type="Date" class="form-control" name="carQuit" id="carQuit" value="${userResume.carQuit}">
 														</div>
 													</div>
+													
+													
 												</div>
 												
 											<div class="empty_space"></div>
@@ -338,8 +335,9 @@
 											<div class="row">
 											<div class="resume-category">
 												<h3>희망사항</h3><br><br>
-											</div>										
-												<div class="col-md-6">
+											</div>
+											
+												<div class="col-md-3">
 													<div class="form-group">
 														<label class="label"id="check-group" >고용형태</label>
 														<select class="form-control" id="hopeStatus" name="hopeStatus">
@@ -377,28 +375,36 @@
 														</select>
 													</div>
 												</div>
+												<div class="col-md-3">
+													<div class="form-group ">
+														<label class="label">선택한 희망근무지</label><br>
+														<div id="hope_add">
+															<span>#${userResume.hopeWorkPlace}</span>
+														</div>
+													</div>
+												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label"id="check-group" >희망연봉</label>
-														<input type="text" class="form-control" name="hopeSalary" id="hopeSalary" placeholder="예시: 1000만원">
+														<input type="text" class="form-control" name="hopeSalary" id="hopeSalary" placeholder="예시: 1000만원" value="${userResume.hopeSalary}" >
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">희망분야</label>
-														<select class="form-control" id="hopePosition" name="hopePosition">
+														<select class="form-control" id="hopePosition" name="hopePosition" >
 															<option value="">상관없음</option>
-															<option value="경영 샤무">경영/사무</option>
-															<option value="광고 홍보">광고/홍보</option>
-															<option value="IT 인터넷">IT/인터넷</option>
+															<option value="경영/샤무">경영/사무</option>
+															<option value="광고/홍보">광고/홍보</option>
+															<option value="IT/인터넷">IT/인터넷</option>
 															<option value="디자인">디자인</option>
-															<option value="무역 유통">무역/유통</option>
-															<option value="영업 고객상담">영업/고객상담</option>
+															<option value="무역/유통">무역/유통</option>
+															<option value="영업/고객상담">영업/고객상담</option>
 															<option value="서비스">서비스</option>
 															<option value="연구개발">연구개발</option>
-															<option value="생산 제조">생산/제조</option>
+															<option value="생산/제조">생산/제조</option>
 															<option value="교육">교육</option>
-															<option value="건설">건성</option>
+															<option value="건설">건설</option>
 															<option value="의료">의료</option>
 															<option value="미디어">미디어</option>
 														</select>
@@ -444,7 +450,7 @@
 														</div>
 													</div>
 												</div>	
-												</div>
+											</div>
 											<div class="empty_space"></div>
 										
 											<div class="row">
@@ -453,44 +459,41 @@
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleFir" id="cvlTitleFir" >
+														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleFir" id="cvlTitleFir" value="${userResume.cvlTitleFir}">
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<textarea class="content-write" name="cvlContentFir" id="cvlContentFir" ></textarea>
+														<textarea class="content-write" name="cvlContentFir" id="cvlContentFir">${userResume.cvlContentFir}</textarea>
 													</div>
 														
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleSec" id="cvlTitleSec" >
+														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleSec" id="cvlTitleSec" value="${userResume.cvlTitleSec}">
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<textarea class="content-write" name="cvlContentSec" id="cvlContentSec" ></textarea>											
+														<textarea class="content-write" name="cvlContentSec" id="cvlContentSec">${userResume.cvlContentSec}</textarea>											
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요."  name="cvlTitleThr" id="cvlTitleThr">
+														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요."  name="cvlTitleThr" id="cvlTitleThr" value="${userResume.cvlTitleThr}">
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<textarea class="content-write" name="cvlContentThr" id="cvlContentThr" ></textarea>											
+														<textarea class="content-write" name="cvlContentThr" id="cvlContentThr" >${userResume.cvlContentThr}</textarea>											
 													</div>
 												</div>
-												
-												
-												
-												
 												<div class="col-md-12">
 													<div class="form-group-log-p">
-														<button type="submit" class="btn btn-primary">등록하기</button>
+														<button type="submit" class="btn btn-primary">완료</button>
 													</div>
 												</div>
+												
 											</div>
 										</form:form>
 									</div>
@@ -652,7 +655,15 @@
 		  target.appendChild(opt);
 	  }
  }
+
  
+ <%-- select 자동로드 --%>
+ $(document).ready(function(){
+	 $("#school").val("${userResume.school}");
+	 $("#schStatus").val("${userResume.schStatus}");
+	 $("#hopeStatus").val("${userResume.hopeStatus}");
+	 $("#hopePosition").val("${userResume.hopePosition}");
+ })
  
  
  

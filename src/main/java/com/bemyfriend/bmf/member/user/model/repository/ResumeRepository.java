@@ -32,7 +32,12 @@ public interface ResumeRepository {
 	
 	
 	// ResumeMapper.xml 사용하기
-	int uploadResume(Map<String, Object> resume); // 이력서 업로드하기
+	
+	//이력서 업로드하기
+	int uploadResume(Map<String, String> resume);
+	
+	//이력서 업데이트하기
+	int updateResume(@Param("resume")Map<String, String> resume, @Param("resIdx")int resIdx, @Param("userId") String userId);
 	
 	
 }

@@ -27,10 +27,22 @@ public class ResumeServiceImpl implements ResumeService {
 	
 	// 이력서 업로드 하기
 	@Override
-	public int uploadResume(Map<String, Object> resume) {
+	public int uploadResume(Map<String, String> resume) {
 		
 		return resumeRepository.uploadResume(resume);
 	}
+	
+	
+	
+
+	// 이력서 업데이트 하기
+	@Override
+	public int updateResume(Map<String, String> resume, int resIdx) {
+		String userId = resume.get("userId");
+		return resumeRepository.updateResume(resume, resIdx , userId);
+	}
+
+	
 	
 	
 	
@@ -58,7 +70,9 @@ public class ResumeServiceImpl implements ResumeService {
 		return resumeRepository.viewResumeDetail(userId, resIdx);
 	}
 
-	
+
+
+
 	
 	
 

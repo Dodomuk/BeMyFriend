@@ -9,7 +9,9 @@ public interface ResumeService {
 	
 	
 	
-	int uploadResume(Map<String, Object> resume);
+	int uploadResume(Map<String, String> resume);
+	
+	int updateResume(Map<String, String> resume, int resIdx);
 	
 	List<UserResume> selectResume(String userId);
 	

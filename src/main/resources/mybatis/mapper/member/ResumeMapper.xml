@@ -10,11 +10,48 @@
 
 	<insert id="uploadResume"> <!-- DML은 reslutType 필요없음 -->
 	INSERT INTO USER_RESUME
-	(RES_IDX,RES_TITLE, USER_ID, CVL_TITLE_FIR, CVL_TITLE_SEC, CVL_TITLE_THR, CVL_CONTENT_FIR, CVL_CONTENT_SEC, CVL_CONTENT_THR)
-	values(sc_res_idx.nextval ,#{resTitle}, #{userId}, #{cvlTitleFir},#{cvlTitleSec}, #{cvlTitleThr}, #{cvlContentFir}, #{cvlContentSec}, #{cvlContentThr})
+	(RES_IDX, RES_TITLE, USER_ID
+	, SCHOOL, SCH_MAJOR, SCH_STATUS, SCH_ENROLL, SCH_GRADUATE
+	, CAR_COM, CAR_DEPT, CAR_POSITION, CAR_SALARY, CAR_ENTER, CAR_QUIT
+	, HOPE_STATUS, HOPE_WORK_PLACE, HOPE_SALARY, HOPE_POSITION
+	, CVL_TITLE_FIR, CVL_TITLE_SEC, CVL_TITLE_THR, CVL_CONTENT_FIR, CVL_CONTENT_SEC, CVL_CONTENT_THR)
+	values(sc_res_idx.nextval ,#{resTitle}, #{userId}
+	, #{school}, #{schMajor},#{schStatus}, #{schEnroll},#{schGraduate}
+	, #{carCom}, #{carDept}, #{carPosition}, #{carSalary}, #{carEnter}, #{carQuit}
+	, #{hopeStatus}, #{hopeWorkPlace}, #{hopeSalary},#{hopePosition}
+	, #{cvlTitleFir},#{cvlTitleSec}, #{cvlTitleThr}, #{cvlContentFir}, #{cvlContentSec}, #{cvlContentThr})
 	</insert>
 
-
+	
+	
+	<update id="updateResume">
+	UPDATE USER_RESUME
+		<set>
+			<if test="resume.resTitle != null">RES_TITLE = #{resume.resTitle}</if>
+			<if test="resume.school != null">, SCHOOL = #{resume.school}</if>
+			<if test="resume.schMajor != null">, SCH_MAJOR = #{resume.schMajor}</if>
+			<if test="resume.schStatus != null">,SCH_STATUS = #{resume.schStatus}</if>
+			<if test="resume.schEnroll != null">,SCH_ENROLL = #{resume.schEnroll}</if>
+			<if test="resume.schGraduate != null">,SCH_GRADUATE = #{resume.schGraduate}</if>
+			<if test="resume.carCom != null">,CAR_COM = #{resume.carCom}</if>
+			<if test="resume.carDept != null">,CAR_DEPT = #{resume.carDept}</if>
+			<if test="resume.carPosition != null">,CAR_POSITION = #{resume.carPosition}</if>
+			<if test="resume.carSalary != null">,CAR_SALARY = #{resume.carSalary}</if>
+			<if test="resume.carEnter != null">,CAR_ENTER = #{resume.carEnter}</if>
+			<if test="resume.carQuit != null">,CAR_QUIT = #{resume.carQuit}</if>
+			<if test="resume.hopeStatus != null">,HOPE_STATUS = #{resume.hopeStatus}</if>
+			<if test="resume.hopeWorkPlace != null">,HOPE_WORK_PLACE = #{resume.hopeWorkPlace}</if>
+			<if test="resume.hopeSalary != null">,HOPE_SALARY = #{resume.hopeSalary}</if>
+			<if test="resume.hopePosition != null">,HOPE_POSITION = #{resume.hopePosition}</if>
+			<if test="resume.cvlTitleFir != null">,CVL_TITLE_FIR = #{resume.cvlTitleFir}</if>
+			<if test="resume.cvlTitleSec != null">,CVL_TITLE_SEC = #{resume.cvlTitleSec}</if>
+			<if test="resume.cvlTitleThr != null">,CVL_TITLE_THR = #{resume.cvlTitleThr}</if>
+			<if test="resume.cvlContentFir != null">,CVL_CONTENT_FIR = #{resume.cvlContentFir}</if>
+			<if test="resume.cvlContentSec != null">,CVL_CONTENT_SEC = #{resume.cvlContentSec}</if>
+			<if test="resume.cvlContentThr != null">,CVL_CONTENT_THR = #{resume.cvlContentThr}</if>
+		</set>
+		WHERE RES_IDX = #{resIdx} and USER_ID = #{userId}
+	</update>
 
 
 

@@ -9923,6 +9923,7 @@ div#ftco-nav {
    
  
  
+ 
  .no-gutters-log {
     margin-right: 0;
     margin-left: 0;
@@ -10095,6 +10096,12 @@ span#idCheck{
     color: #fff;
 }
 
+.btn-delete{
+	background: crimson;
+    border: 1px solid crimson;
+    color: #fff;
+}
+
 .login_btn_form div {
     display: contents;
     justify-content: center;
@@ -10219,6 +10226,26 @@ span#idCheck{
 .photo img{
 	margin-left:20px;
 }
+
+#choose_service{
+	font-style: italic;
+	
+}
+
+#remove_btn {
+    cursor: pointer;
+    color: salmon;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

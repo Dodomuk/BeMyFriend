@@ -137,6 +137,9 @@
     <section class="ftco-section bg-light">
 			<div class="container resume_list">
 			<div class="row">
+				<c:if test="${resumeList.size() == 0}">
+					<h5>이력서가 존재하지 않습니다.</h5>
+				</c:if>
 				<c:forEach var="resumeList" items="${resumeList}" begin="0" end="11">
 					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
 						<div class="staff">
@@ -155,29 +158,7 @@
 				
 				
 				
-				
-				
-				<div class="row mt-5">
-					<div class="col text-center">
-						<div class="block-27">
-							<ul>
-								<li><a href="#">&lt;</a></li>
-								<li class="active"><span>1</span></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&gt;</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				
-				
-				
-				
-				
+		
 				
 				
 				

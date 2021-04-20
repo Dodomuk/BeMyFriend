@@ -358,22 +358,28 @@
 												</div>
 												<div class="col-md-12">
 													<div class="form-group ">
-													<label class="label" for="userService">선택한 희망제공서비스</label><br>
+													<label class="label" for="userService">희망제공서비스</label><br>
 														<div class="service_part">
-															<div id="choose_service">
-															<c:if test="${service.supLift == 1}"><span>#장애인_리프트</span></c:if>
-															<c:if test="${service.supElv == 1}"><span>#장애인_앨리베이터</span></c:if>
-															<c:if test="${service.supBath == 1}"><span>#장애인_화장실</span></c:if>
-															<c:if test="${service.supVoice == 1}"><span>#장애인_음성유도기</span></c:if>
-															<c:if test="${service.supBlock == 1}"><span>#점자블럭</span></c:if>
-															<c:if test="${service.supSign == 1}"><span>#점자_표지판</span></c:if>
-															<c:if test="${service.supPark == 1}"><span>#장애인_주차장</span></c:if>
-															<c:if test="${service.supCharge == 1}"><span>#전동휠체어_충전기</span></c:if>
-															<c:if test="${service.supWelfare == 1}"><span>#사회복지사</span></c:if>
+															<div>
+																<input type="radio" class ="userService" name="supLift" value="1" id="supLift"> 장애인 리프트<br>
+																<input type="radio" class ="userService" name="supElv" value="1"id="supElv"> 장애인 앨리베이터<br>
+																<input type="radio" class ="userService" name="supBath" value="1" id="supBath"> 장애인 화장실<br>
 															</div>
+															<div>
+																<input type="radio" class ="userService" name="supVoice" value="1" id="supVoice"> 장애인 음성유도기<br>
+																<input type="radio" class ="userService" name="supBlock" value="1" id="supBlock"> 점자 블럭<br>
+																<input type="radio" class ="userService" name="supSign" value="1"id="supSign"> 점자 표지판<br>
+															</div>
+															<div>
+																<input type="radio" class ="userService" name="supPark" value="1" id="supPark"> 장애인 주차장<br>
+																<input type="radio" class ="userService" name="supCharge" value="1" id="supCharge"> 전동휠체어 충전기<br>
+																<input type="radio" class ="userService" name="supWelfare" value="1" id="supWelfare"> 사회복지사<br>						
+															</div>
+															<a id="remove_btn">[ 초기화 ]</a>
 														</div>
 													</div>
-												</div>	
+												</div>
+													
 											</div>
 											<div class="empty_space"></div>
 										
@@ -590,7 +596,42 @@
  })
  
  
- 
+	<%-- 초기화 버튼 클릭시 모든 radio unchecked --%>
+	$("#remove_btn").click(function() {
+		$('input.userService').removeAttr('checked');
+	})
+	
+	
+	<%-- 세센의 값대로 radio checked --%>
+	if(${service.supLift == 1}){
+		$('#supLift').prop('checked', true);
+	}
+	
+	if(${service.supElv == 1}){
+		$('#supElv').prop('checked', true);
+	}
+	if(${service.supBath == 1}){
+		$('#supBath').prop('checked', true);
+	}
+	if(${service.supVoice == 1}){
+		$('#supVoice').prop('checked', true);
+	}
+	if(${service.supBlock == 1}){
+		$('#supBlock').prop('checked', true);
+	}
+	if(${service.supSign == 1}){
+		$('#supSign').prop('checked', true);
+	}
+	if(${service.supPark == 1}){
+		$('#supPark').prop('checked', true);
+	}
+	if(${service.supCharge == 1}){
+		$('#supCharge').prop('checked', true);
+	}
+	if(${service.supWelfare == 1}){
+		$('#supWelfare').prop('checked', true);
+	}
+	
 
  </script>
     

@@ -124,7 +124,6 @@ public class ResumeController {
 		String userId = user.getUserId();
 		
 		
-		List<String> service = resumeService.selectService(resIdx); //서비스 파트 가져오기
 		UserResume userResume = resumeService.viewResumeDetail(userId, resIdx); //외 전체파트 가져오기
 		userResume.setResIdx(resIdx);
 	
@@ -213,10 +212,26 @@ public class ResumeController {
 	
 	
 	@GetMapping("delete")
-	public String deleteResume() {
+	public String deleteResume(HttpSession session
+							,Model model) {
 		
+		UserResume resume = (UserResume)session.getAttribute("userResume");
+		int resIdx = resume.getResIdx();
+		System.out.println("res_idx = " + resIdx);
 		
-		return null;
+		int result = resumeService.deleteResume(resIdx);
+		
+		if(result > 0 ) {
+			model.addAttribute("alertMsg", "이력서가 삭제되었습니다.");
+			model.addAttribute("url","/member/user/resume/list");
+			return "common/result";
+		}else {
+			model.addAttribute("alertMsg", "이력서를 삭제하지 못했습니다.");
+			model.addAttribute("url","/member/user/resume/list");
+			return "common/result";
+		}
+	
+
 	}
 
 }

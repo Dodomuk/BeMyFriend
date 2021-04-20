@@ -55,19 +55,23 @@ public class ResumeServiceImpl implements ResumeService {
 	}
 
 
-	// 이력서 서비스 파트 불러오기
-	@Override
-	public List<String> selectService(int resIdx) {
-	
-		return null;
-	}
 	
 	
-	//이력서 전체 파트 불러오기(서비스 제외)
+	//이력서 불러오기
 	@Override
 	public UserResume viewResumeDetail(String userId, int resIdx) {
 				
 		return resumeRepository.viewResumeDetail(userId, resIdx);
+	}
+
+
+
+
+	// 이력서 삭제하기
+	@Override
+	public int deleteResume(int resIdx) {
+		
+		return resumeRepository.deleteResume(resIdx);
 	}
 
 

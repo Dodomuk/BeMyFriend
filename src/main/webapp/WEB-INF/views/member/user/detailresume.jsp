@@ -409,7 +409,7 @@
 												</div>
 												<div class="col-md-12">
 													<div class="form-group-log">
-														<button type="submit" class="btn btn-delete" onclick="location.href='/member/user/resume/delete'">삭제</button>
+														<button type="submit" class="btn btn-delete" onclick="deleteResume()">삭제</button>
 														<button type="submit" class="btn btn-primary" onclick="location.href='/member/user/resume/updateform'">수정</button>
 													</div>
 												</div>
@@ -584,6 +584,14 @@
 	 $("#hopePosition").val("${userResume.hopePosition}");
  })
  
+function deleteResume() {
+	 let result = confirm("이력서를 정말 삭제하시겠습니까 ?");
+	 
+	 if(result){
+		 location.href="/member/user/resume/delete";
+	 }
+		 
+ }
  
  
 

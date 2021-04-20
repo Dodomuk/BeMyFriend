@@ -31,6 +31,7 @@
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/CompanyMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/ResumeMapper.xml"/>
+		<mapper resource="mybatis/mapper/member/HireMapper.xml"/>
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 		<mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/>
 		<mapper resource="mybatis/mapper/kmap/kmapMapper.xml"/>

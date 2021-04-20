@@ -189,7 +189,7 @@
 			      if(password == ''){
 			    	  e.preventDefault();
 				      pw_check.innerHTML = '비밀번호를 입력해주세요.';
-				      alert('비밀번호를 입력해주세요.');
+				      
 				      
 			      }else{
 			    	  
@@ -270,5 +270,16 @@
 			  target.appendChild(opt);
 		  }
 	  }
+	  
+	  
+	  
+	  
+	 
+	  // 초기화 버튼 클릭시 모든 radio unchecked 
+	  $("#remove_btn").click(function() {
+	  	$('input.userService').removeAttr('checked');
+	  })
 
+
+	  
 

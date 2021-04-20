@@ -15,9 +15,9 @@ public interface ResumeService {
 	
 	List<UserResume> selectResume(String userId);
 	
-	List<String> selectService(int resIdx);
-	
 	UserResume viewResumeDetail(String userId, int resIdx);
+	
+	int deleteResume(int resIdx);
 	
 
 }

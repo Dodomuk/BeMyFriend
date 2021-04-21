@@ -1,10 +1,5 @@
 package com.bemyfriend.bmf.common.exception;
 
-import java.io.IOException;
-import java.net.http.HttpResponse;
-
-import javax.servlet.http.HttpServletResponse;
-
 import com.bemyfriend.bmf.common.code.ErrorCode;
 
 public class CustomException extends RuntimeException{

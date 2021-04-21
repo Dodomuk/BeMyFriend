@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="../../../../resources/css/jquery.timepicker.css">
     <link rel="stylesheet" href="../../../../resources/css/flaticon.css">
     <link rel="stylesheet" href="../../../../resources/css/style.css">
-  </head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
   <!-- 팝업팝업 -->
   <!-- <body onload = "javascript:popup()"> -->
   <body>
@@ -89,6 +91,7 @@
 						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
 							        <li class="nav-item"><a href="/calendar/index" class="nav-link">calendar/map</a></li>
+
 							        <c:choose>
 										<c:when test ="${userMember != null}">
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
@@ -130,7 +133,7 @@
 				class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
 				data-scrollax-parent="true">
 				<div class="col-md-11 ftco-animate text-center">
-					<h1 class="mb-4">캘린더 맵</h1>
+					<h1 class="mb-4">캘린더 / 맵</h1>
 				</div>
 			</div>
 		</div>
@@ -139,16 +142,14 @@
 	<section class="ftco-section bg-light ftco-no-pt ftco-intro">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-					<div class="d-block services active text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-blind"></span>
+				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
+					<div class="d-block services  text-center">
+						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
+							<i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
 						</div>
 						<div class="media-body">
-							<h3 class="heading">채용공고 calendar</h3>
-							<p>Far far away, behind the word mountains, far from the
-								countries Vokalia and Consonantia, there live the blind texts.
-								Separated they live in Bookmarksgrove right.</p>
+							<h3 class="heading">채용공고 달력</h3>
+							<p>여러 회사에서 올라온 채용공고 일정을 달력에서 확인하세요.</p>
 							<a href="/calendar/recruit"
 								class="btn-custom d-flex align-items-center justify-content-center"><span
 								class="fa fa-chevron-right"></span><i class="sr-only">Read
@@ -156,16 +157,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-dog-eating"></span>
+						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
+							<i class="fa fa-building fa-3x" aria-hidden="true"></i>
 						</div>
 						<div class="media-body">
 							<h3 class="heading">회사 위치</h3>
-							<p>Far far away, behind the word mountains, far from the
-								countries Vokalia and Consonantia, there live the blind texts.
-								Separated they live in Bookmarksgrove right.</p>
+							<p>사이트에 등록된 회사의 위치를 확인하세요.</p>
 							<a href="/kmap/companyLocation"
 								class="btn-custom d-flex align-items-center justify-content-center"><span
 								class="fa fa-chevron-right"></span><i class="sr-only">Read
@@ -173,17 +172,30 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-grooming"></span>
+						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
+							<i class="fa fa-building-o fa-3x" aria-hidden="true"></i>
 						</div>
 						<div class="media-body">
 							<h3 class="heading">장애인 시설 위치</h3>
-							<p>Far far away, behind the word mountains, far from the
-								countries Vokalia and Consonantia, there live the blind texts.
-								Separated they live in Bookmarksgrove right.</p>
+							<p>장애인 시설들의 위치를 지도에서 확인하세요.</p>
 							<a href="/kmap/facility"
+								class="btn-custom d-flex align-items-center justify-content-center" ><span
+								class="fa fa-chevron-right"></span><i class="sr-only">Read
+									more</i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
+					<div class="d-block services text-center">
+						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
+							<i class="fa fa-car fa-3x" aria-hidden="true"></i>
+						</div>
+						<div class="media-body">
+							<h3 class="heading">회사별 주차장 위치</h3>
+							<p>사이트에 등록된 회사의 반경 1km내의 주차장 위치를 확인하세요.</p>
+							<a href="/kmap/parkingLocation"
 								class="btn-custom d-flex align-items-center justify-content-center"><span
 								class="fa fa-chevron-right"></span><i class="sr-only">Read
 									more</i></a>

@@ -24,8 +24,8 @@ public class CrawlingTest {
 	}
 	
 	@Test
-	public void crawlingOceanTest() {
-		batch.crawlingOcean();
+	public void crawlingProgramTest() {
+		batch.crawlingProgram();
 	}
 	
 	

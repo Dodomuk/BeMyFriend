@@ -116,12 +116,13 @@ import  { Sky } from '../objects/Sky.js';
 			
 							const textGeo = new THREE.TextGeometry( mainText, {
 								font : font,
-								size : 15,
+								size : 12,
 								height : 0.3,
 								curveSegments : 12
 							});
 			
 							mesh = new THREE.Mesh( textGeo, material );
+							mesh.position.x = 20;
 							mesh.position.y = -16;
 							scene.add(mesh);
 							animate();

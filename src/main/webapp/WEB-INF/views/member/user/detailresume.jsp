@@ -94,7 +94,7 @@
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
 										</c:when>
 										<c:when test ="${comMember != null}">
-											<li class="nav-item"><a href="member/company/hire/list" class="nav-link">자료실</a></li>
+											<li class="nav-item"><a href="/member/company/hire/list" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        
@@ -332,7 +332,7 @@
 												
 												<div class="col-md-6">
 													<div class="form-group ">
-														<label class="label">선택한 희망근무지</label><br>
+														<label class="label">희망근무지</label><br>
 														<div id="hope_add">
 															<input type="text" class="form-control" name="hopeWorkPlace" id="hopeWorkPlace" value="${userResume.hopeWorkPlace}" readonly>
 															
@@ -523,57 +523,7 @@
   <script src="../../../../resources/js/main.js"></script>
   <script src="../../../../resources/js/resume.js"></script>
  <script type="text/javascript">
- function addressInfo(e) {
-	  var 서울특별시 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
-	  var 경기도= ["1","2"];
-	  var 강원도= ["1","2"];
-	  var 인천광역시= ["1","2"];
-	  var 충청남도= ["1","2"];
-	  var 충청북도= ["1","2"];
-	  var 대전광역시= ["1","2"];
-	  var 세종특별시= ["1","2"];
-	  var 전라남도= ["1","2"];
-	  var 전라북도= ["1","2"];
-	  var 광주광역시= ["1","2"];
-	  var 경상남도= ["1","2"];
-	  var 경상북도= ["1","2"];
-	  var 부산광역시= ["1","2"];
-	  var 대구광역시= ["1","2"];
-	  var 울산광역시= ["1","2"];
-	  var 제주특별자치도= ["1","2"];
-	  
 
-	  let target = document.getElementById("twoadd");
-	  document.getElementById("twoadd").style.display="inline";
-	  
-	  
-	  if(e.value == "서울특별시") var d = 서울특별시;
-	  else if(e.value == "경기도") var d = 경기도;
-	  else if(e.value == "인천광역시") var d = 인천광역시;
-	  else if(e.value == "강원도") var d = 강원도;
-	  else if(e.value == "충청남도") var d = 충청남도;
-	  else if(e.value == "충청북도") var d = 충청북도;
-	  else if(e.value == "대전광역시") var d = 대전광역시;
-	  else if(e.value == "세종특별시") var d = 세종특별시;
-	  else if(e.value == "전라남도") var d = 전라남도;
-	  else if(e.value == "전라북도") var d = 전라북도;
-	  else if(e.value == "광주광역시") var d = 광주광역시;
-	  else if(e.value == "경상남도") var d = 경상남도;
-	  else if(e.value == "경상북도") var d = 경상북도;
-	  else if(e.value == "부산광역시") var d = 부산광역시;
-	  else if(e.value == "대구광역시") var d = 대구광역시;
-	  else if(e.value == "울산광역시") var d = 울산광역시;
-	  else if(e.value == "제주특별자치도") var d = 제주특별자치도;
-	  
-	  target.options.length = 0;
-	  
-	  for(x in d){
-		  var opt = document.createElement("option");
-		  opt.value= d[x];
-		  opt.innerHTML = d[x];
-		  target.appendChild(opt);
-	  }
- }
 
  
  <%-- select 자동로드 --%>

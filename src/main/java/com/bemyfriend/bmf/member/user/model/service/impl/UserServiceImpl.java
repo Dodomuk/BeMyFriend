@@ -185,14 +185,6 @@ public class UserServiceImpl implements UserService {
 	
 	
 
-	// 회원서비스 업데이트
-	@Override
-	public int updateUserService(UserHopeService service) {
-		System.out.println("seviceimpl , service : " + service);
-		return userRepository.updateUserService(service);
-	}
-
-
 	
 	// 회원서비스 가져오기
 	@Override

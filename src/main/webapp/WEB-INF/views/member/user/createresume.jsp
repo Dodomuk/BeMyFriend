@@ -93,7 +93,7 @@
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
 										</c:when>
 										<c:when test ="${comMember != null}">
-											<li class="nav-item"><a href="member/company/hire/list" class="nav-link">자료실</a></li>
+											<li class="nav-item"><a href="/member/company/hire/list" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        
@@ -211,13 +211,16 @@
 														<input type="email" class="form-control" name="userMail" id="userMail"  value ="${userMember.userMail}" >
 													</div>
 												</div>
-												<div class="col-md-3">
+												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label"id="check-group" >주소</label>
-														<input type="text" class="form-control" name="userAdd" id="userAdd" value ="${userMember.userAdd}" >
+														<div class="add_set">
+															<input type="text" class="form-control" name="userAdd" id="userAdd" value ="${userMember.userAdd}" >
+															<button type="button" class="add_search_btn" onclick= "addressPop()">주소찾기</button>
+														</div>
 													</div>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-3">
 													<div class="form-group">
 														<label class="label" id="check-group">생년월일</label>
 														<input type="date" class="form-control" name="userBirth" id="userBirth" value ="${userMember.userBirth}" >
@@ -352,29 +355,11 @@
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label"id="check-group" >근무지</label>
-														<select onchange="addressInfo(this)" class="form-control" name="hopeWorkPlace" id="hopeWorkPlace" >
-															<option value="상관없음">상관없음</option>
-															<option value="서울특별시">서울특별시</option>
-															<option value="강원도">강원도</option>
-															<option value="경기도">경기도</option>
-															<option value="인천광역시">인천광역시</option>
-															<option value="충청남도">충청남도</option>
-															<option value="충청북도">충청북도</option>
-															<option value="대전광역시">대전광역시</option>
-															<option value="세종특별시">세종특별시</option>
-															<option value="전라남도">전라남도</option>
-															<option value="전라북도">전라북도</option>
-															<option value="광주광역시">광주광역시</option>
-															<option value="경상남도">경상남도</option>
-															<option value="경상북도">경상북도</option>
-															<option value="부산광역시">부산광역시</option>
-															<option value="대구광역시">대구광역시</option>
-															<option value="울산광역시">울산광역시</option>
-															<option value="제주특별자치도">제주특별자치도</option>
-														</select>
-														<select class="form-control" name="twoadd" id="twoadd" style="display: none">
-														</select>
+														<label class="label"id="check-group" >희망근무지</label>
+														<div class="add_set">
+															<input type="text" class="form-control" name="hopeWorkPlace"  id="hopeWorkPlace" placeholder="주소">
+															<button type="button" class="add_search_btn" onclick= "addPopForWork()">주소찾기</button>
+														</div>
 													</div>
 												</div>
 												<div class="col-md-6">
@@ -427,8 +412,7 @@
 														</div>
 													</div>
 												</div>
-												
-												</div>
+											</div>
 											<div class="empty_space"></div>
 										
 											<div class="row">
@@ -584,58 +568,9 @@
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
   <script src="../../../../resources/js/resume.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
  <script type="text/javascript">
- function addressInfo(e) {
-	  var 서울특별시 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
-	  var 경기도= ["1","2"];
-	  var 강원도= ["1","2"];
-	  var 인천광역시= ["1","2"];
-	  var 충청남도= ["1","2"];
-	  var 충청북도= ["1","2"];
-	  var 대전광역시= ["1","2"];
-	  var 세종특별시= ["1","2"];
-	  var 전라남도= ["1","2"];
-	  var 전라북도= ["1","2"];
-	  var 광주광역시= ["1","2"];
-	  var 경상남도= ["1","2"];
-	  var 경상북도= ["1","2"];
-	  var 부산광역시= ["1","2"];
-	  var 대구광역시= ["1","2"];
-	  var 울산광역시= ["1","2"];
-	  var 제주특별자치도= ["1","2"];
-	  
-
-	  let target = document.getElementById("twoadd");
-	  document.getElementById("twoadd").style.display="inline";
-	  
-	  
-	  if(e.value == "서울특별시") var d = 서울특별시;
-	  else if(e.value == "경기도") var d = 경기도;
-	  else if(e.value == "인천광역시") var d = 인천광역시;
-	  else if(e.value == "강원도") var d = 강원도;
-	  else if(e.value == "충청남도") var d = 충청남도;
-	  else if(e.value == "충청북도") var d = 충청북도;
-	  else if(e.value == "대전광역시") var d = 대전광역시;
-	  else if(e.value == "세종특별시") var d = 세종특별시;
-	  else if(e.value == "전라남도") var d = 전라남도;
-	  else if(e.value == "전라북도") var d = 전라북도;
-	  else if(e.value == "광주광역시") var d = 광주광역시;
-	  else if(e.value == "경상남도") var d = 경상남도;
-	  else if(e.value == "경상북도") var d = 경상북도;
-	  else if(e.value == "부산광역시") var d = 부산광역시;
-	  else if(e.value == "대구광역시") var d = 대구광역시;
-	  else if(e.value == "울산광역시") var d = 울산광역시;
-	  else if(e.value == "제주특별자치도") var d = 제주특별자치도;
-	  
-	  target.options.length = 0;
-	  
-	  for(x in d){
-		  var opt = document.createElement("option");
-		  opt.value= d[x];
-		  opt.innerHTML = d[x];
-		  target.appendChild(opt);
-	  }
- }
+ 
  
  
 	 <%-- 초기화 버튼 클릭시 모든 radio unchecked --%>
@@ -675,12 +610,119 @@
 	 }
 	
 
+   function addressPop() {
+    
+   	new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
- 
- 
- 
+               // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var addr = ''; // 주소 변수
+               var extraAddr = ''; // 참고항목 변수
 
- </script>
+               //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   addr = data.roadAddress;
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   addr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+               if(data.userSelectedType === 'R'){
+                   // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                   // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                   if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있고, 공동주택일 경우 추가한다.
+                   if(data.buildingName !== '' && data.apartment === 'Y'){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                   if(extraAddr !== ''){
+                       extraAddr = ' (' + extraAddr + ')';
+                   }
+                   // 조합된 참고항목을 해당 필드에 넣는다.
+                   document.getElementById("userAdd").value = extraAddr;
+               
+               } else {
+                   document.getElementById("userAdd").value = '';
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('userAdd').value = data.zonecode;
+               document.getElementById("userAdd").value = addr;
+               // 커서를 상세주소 필드로 이동한다.
+               document.getElementById("userAdd").focus();
+           }
+       }).open();
+   }
+   
+   
+   
+   
+   function addPopForWork(){
+	   new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+               // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var addr = ''; // 주소 변수
+               var extraAddr = ''; // 참고항목 변수
+
+               //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   addr = data.roadAddress;
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   addr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+               if(data.userSelectedType === 'R'){
+                   // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                   // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                   if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있고, 공동주택일 경우 추가한다.
+                   if(data.buildingName !== '' && data.apartment === 'Y'){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                   if(extraAddr !== ''){
+                       extraAddr = ' (' + extraAddr + ')';
+                   }
+                   // 조합된 참고항목을 해당 필드에 넣는다.
+                   document.getElementById("hopeWorkPlace").value = extraAddr;
+               
+               } else {
+                   document.getElementById("hopeWorkPlace").value = '';
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('hopeWorkPlace').value = data.zonecode;
+               document.getElementById("hopeWorkPlace").value = addr;
+               // 커서를 상세주소 필드로 이동한다.
+               document.getElementById("hopeWorkPlace").focus();
+           }
+       }).open();
+	   
+	   
+	   
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+	</script>
     
   </body>
 </html>

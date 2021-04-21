@@ -10015,10 +10015,12 @@ span#idCheck{
 }
 
 .id_check{
+	margin-left: 10px;
 	font-size: smaller;
     color: crimson;
 }
 .pw_check{
+	margin-left: 10px;
 	font-size: smaller;
     color: crimson;
 }
@@ -10237,7 +10239,23 @@ span#idCheck{
     color: salmon;
 }
 
+.add_set {
+    display: flex;
+    justify-content: space-around;
+}
 
+
+.add_set button{
+    background: #00bd56;
+    border: 1px solid #00bd56;
+    color: #fff;
+    width: 10vh;
+    height: 5vh;
+    font-size: 0.5px;
+    border-radius: 4px;
+	margin-left: -70px;
+    
+}
 
 
 

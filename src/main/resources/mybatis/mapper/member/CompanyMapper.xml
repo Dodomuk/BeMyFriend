@@ -9,9 +9,9 @@
 	<!-- 회원가입하기 -->
 	<insert id ="insertCompany">
 		INSERT INTO COM_USER
-		(COM_ID, COM_PW, COM_NAME, COM_ADDRESS, COM_TELL, COM_MAIL, COM_TYPE, COM_MANAGER)
+		(COM_IDX, COM_ID, COM_PW, COM_NAME, COM_ADDRESS, COM_TELL, COM_MAIL, COM_TYPE, COM_MANAGER)
 		VALUES
-		(#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail}, #{comType} , #{comManager})
+		(SC_COMUSER_IDX.NEXTVAL,#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail}, #{comType} , #{comManager})
 	</insert>
 
 	
@@ -45,7 +45,7 @@
  	</update>
 
 
-
+	<!-- 서비스 업로드/업데이트하기 프로시저 ! -->
 	<update id="uploadSupport" statementType="CALLABLE">
 		{call pr_company_support(#{comId, mode=IN}, #{supLift, mode=IN}, #{supElv, mode=IN}, #{supBath, mode=IN}, #{supVoice,mode=IN}
 								, #{supBlock, mode=IN}, #{supSign, mode=IN}, #{supPark, mode=IN}, #{supCharge, mode=IN}, #{supWelfare, mode=IN})

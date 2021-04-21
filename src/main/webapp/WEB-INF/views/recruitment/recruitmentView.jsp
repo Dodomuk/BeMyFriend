@@ -100,7 +100,7 @@
 											<li class="nav-item"><a href="/member/user/resume/list" class="nav-link">자료실</a></li>
 										</c:when>
 										<c:when test ="${comMember != null}">
-											<li class="nav-item"><a href="member/company/hire/list" class="nav-link">자료실</a></li>
+											<li class="nav-item"><a href="/member/company/hire/list" class="nav-link">자료실</a></li>
 										</c:when>
 									</c:choose>
 							        

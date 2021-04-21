@@ -98,7 +98,7 @@ public class CompanyServiceImpl implements CompanyService{
 	public Company memberAuthenticate(Company company) {
 		
 		Company authInfo = companyRepository.memberAuthenticate(company.getComId());
-		
+		System.out.println(authInfo);
 		if(authInfo == null || !encoder.matches(company.getComPw(), authInfo.getComPw())) {
 			
 			return null;

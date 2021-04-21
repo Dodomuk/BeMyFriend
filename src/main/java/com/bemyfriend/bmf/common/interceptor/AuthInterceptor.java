@@ -60,6 +60,13 @@ public class AuthInterceptor implements HandlerInterceptor{
 	              					throw new ToAlertException(ErrorCode.AUTH01);
 	              				}
 	             					break;
+	              case "join": if(session.getAttribute("userMember") != null) { //session에 persistUser 속성이 없을 경우 joinimpl로의 접근을 막음
+          			
+			  	  				throw new ToAlertException(ErrorCode.AUTH01);
+			    				}else if(session.getAttribute("comMember") != null) {
+			    					throw new ToAlertException(ErrorCode.AUTH01);
+			    				}
+			    					break;
 	              case "joinimpl": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 joinimpl로의 접근을 막음
 	            			
 	            	  				throw new ToAlertException(ErrorCode.AUTH02);
@@ -101,6 +108,14 @@ public class AuthInterceptor implements HandlerInterceptor{
 	              					throw new ToAlertException(ErrorCode.AUTH01);
 	              				}
 				   					break;
+				   					
+	        	  case "join": if(session.getAttribute("comMember") != null) { //session에 persistUser 속성이 없을 경우 joinimpl로의 접근을 막음
+	          			
+			  	  				throw new ToAlertException(ErrorCode.AUTH01);
+			    				}else if(session.getAttribute("userMember") != null) {
+			    					throw new ToAlertException(ErrorCode.AUTH01);
+			    				}
+			    					break;
 	        	  case "joinimpl": if(session.getAttribute("persistUser") == null) { //session에 persistUser 속성이 없을 경우 joinimpl로의 접근을 막음
   			
 				  	  				throw new ToAlertException(ErrorCode.AUTH02);

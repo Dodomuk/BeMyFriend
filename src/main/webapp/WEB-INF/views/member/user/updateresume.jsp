@@ -142,7 +142,7 @@
 			<div class="resume-container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">- 자기소개서 작성 -</h2>
+						<h2 class="heading-section">- 이력서 수정 -</h2>
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -155,14 +155,13 @@
 										
 										
 										
-										<div  id="contactForm" name="contactForm" class="contactForm">
-											
+										<form:form action="${context}/member/user/resume/updateimpl" id="contactForm" name="contactForm" class="contactForm">
+										
 											<div class="row">
-											
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" id="check-group">이력서 제목</label>
-														<input type="text" class="form-control" name="resTitle" id="resTitle" required="required" placeholder="이력서 제목을 입력하세요." value="${userResume.resTitle}" readonly>
+														<input type="text" class="form-control" name="resTitle" id="resTitle" required="required" placeholder="이력서 제목을 입력하세요." value="${userResume.resTitle}" >
 													</div>
 												</div>
 												<div class="resume-category">
@@ -191,37 +190,40 @@
 												<div class="col-md-3" style="margin:auto;">
 													<div class="form-group">
 														<label class="label" id="check-group">아이디</label>
-														<input type="text" class="form-control" name="userId" id="userId"  value ="${userMember.userId}" readonly>
+														<input type="text" class="form-control" name="userId" id="userId"  value ="${userMember.userId}" readonly >
 													</div>
 												</div>
 												<div class="col-md-3" style="margin:auto;">
 													<div class="form-group">
 														<label class="label" id="check-group">이름</label>
-														<input type="text" class="form-control" name="userName" id="userName"  value ="${userMember.userName}" readonly>
+														<input type="text" class="form-control" name="userName" id="userName"  value ="${userMember.userName}" >
 													</div>
 												</div>
 												<div class="col-md-3" style="margin:auto;">
 													<div class="form-group">
 														<label class="label" id="check-group" >전화번호</label>
-														<input type="tel" class="form-control" name="userTell" id="userTell" value ="${userMember.userTell}" readonly>
+														<input type="tel" class="form-control" name="userTell" id="userTell" value ="${userMember.userTell}" >
 													</div>
 												</div>
 												<div class="col-md-3">
 													<div class="form-group">
 														<label class="label"id="check-group" >이메일</label>
-														<input type="email" class="form-control" name="userMail" id="userMail"  value ="${userMember.userMail}" readonly>
+														<input type="email" class="form-control" name="userMail" id="userMail"  value ="${userMember.userMail}" >
 													</div>
 												</div>
 												<div class="col-md-3">
 													<div class="form-group">
 														<label class="label"id="check-group" >주소</label>
-														<input type="text" class="form-control" name="userAdd" id="userAdd" value ="${userMember.userAdd}" readonly>
+														<div class="add_set">
+															<input type="text" class="form-control" name="userAdd" id="userAdd" value ="${userMember.userAdd}" >
+															<button type="button" class="add_search_btn" onclick="addressPop()">주소찾기</button>
+														</div>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">생년월일</label>
-														<input type="date" class="form-control" name="userBirth" id="userBirth" value ="${userMember.userBirth}" readonly>
+														<input type="date" class="form-control" name="userBirth" id="userBirth" value ="${userMember.userBirth}" >
 													</div>
 												</div>
 											</div>
@@ -236,34 +238,49 @@
 												<div class="col-md-6" style="padding-top: 20px;" >
 													<div class="form-group" >
 														<label class="label" id="check-group">학교구분</label>
-														<input type="text" class="form-control" name="school" id="school" value="${userResume.school}"readonly >
-													
+														<select class="form-control" id="school" name="school">
+															<option value="선택안함">선택안함</option>
+															<option value="초등학교">초등학교</option>
+															<option value="중학교">중학교</option>
+															<option value="고등학교">고등학교</option>
+															<option value="대학교 2/3년">대학교 2/3년</option>
+															<option value="대학교 4년">대학교 4년</option>
+															<option value="기타">기타</option>
+														</select>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">전공명<br>(대학선택시)</label>
-														<input type="text" class="form-control" name="schMajor" id="schMajor" value="${userResume.schMajor}"readonly >
+														<input type="text" class="form-control" name="schMajor" id="schMajor" value="${userResume.schMajor}" >
 													</div>
 												</div>
 												
 												<div class="col-md-4">
 													<div class="form-group">
 														<label class="label" id="check-group">졸업상태</label>
-														<input type="text" class="form-control" name="schStatus" id="schStatus" value="${userResume.schStatus}"readonly >
-														
+														<select class="form-control" id="schStatus" name="schStatus">
+															<option value="선택안함">선택안함</option>
+															<option value="재학">재학</option>
+															<option value="졸업예정">졸업예정</option>
+															<option value="졸업">졸업</option>
+															<option value="수료">수료</option>
+															<option value="휴학">휴학</option>
+															<option value="중퇴">중퇴</option>
+															
+														</select>
 													</div>
 												</div>
 												<div class="col-md-4">
 													<div class="form-group">
 														<label class="label"id="check-group" >입학년월</label>
-														<input type="text" class="form-control" name="schEnroll" id="schEnroll" value="${userResume.schEnroll}" readonly>
+														<input type="Date" class="form-control" name="schEnroll" id="schEnroll" value="${userResume.schEnroll}" >
 													</div>
 												</div>
 												<div class="col-md-4">
 													<div class="form-group">
 														<label class="label"id="check-group" >졸업년월</label>
-														<input type="text" class="form-control" name="schGraduate" id="schGraduate" value="${userResume.schGraduate}" readonly>
+														<input type="Date" class="form-control" name="schGraduate" id="schGraduate" value="${userResume.schGraduate}" >
 													</div>
 												</div>
 											</div>
@@ -278,37 +295,37 @@
 												<div class="col-md-6">
 														<div class="form-group">
 															<label class="label" id="check-group">회사명</label>
-															<input type="text" class="form-control" name="carCom" id="carCom" value="${userResume.carCom}"readonly>
+															<input type="text" class="form-control" name="carCom" id="carCom" value="${userResume.carCom}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label" id="check-group">부서</label>
-															<input type="text" class="form-control" name="carDept" id="carDept" value="${userResume.carDept}"readonly>
+															<input type="text" class="form-control" name="carDept" id="carDept" value="${userResume.carDept}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label" id="check-group">직급</label>
-															<input type="text" class="form-control" name="carPosition" id="carPosition" value="${userResume.carPosition}"readonly>
+															<input type="text" class="form-control" name="carPosition" id="carPosition" value="${userResume.carPosition}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label"id="check-group" >경력연봉</label>
-															<input type="text" class="form-control" name="carSalary" id="carSalary" placeholder="예시: 1000만원" value="${userResume.carSalary}" readonly>
+															<input type="text" class="form-control" name="carSalary" id="carSalary" placeholder="예시: 1000만원" value="${userResume.carSalary}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label"id="check-group" >입사년월</label>
-															<input type="text" class="form-control" name="carEnter" id="carEnter" value="${userResume.carEnter}" readonly>
+															<input type="Date" class="form-control" name="carEnter" id="carEnter" value="${userResume.carEnter}">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="label"id="check-group" >퇴사년월</label>
-															<input type="text" class="form-control" name="carQuit" id="carQuit" value="${userResume.carQuit}" readonly>
+															<input type="Date" class="form-control" name="carQuit" id="carQuit" value="${userResume.carQuit}">
 														</div>
 													</div>
 													
@@ -334,26 +351,40 @@
 														</select>
 													</div>
 												</div>
-												
 												<div class="col-md-6">
-													<div class="form-group ">
-														<label class="label">선택한 희망근무지</label><br>
-														<div id="hope_add">
-															<input type="text" class="form-control" name="hopeWorkPlace" id="hopeWorkPlace" value="${userResume.hopeWorkPlace}" readonly>
-															
+													<div class="form-group">
+														<label class="label"id="check-group" >희망근무지</label>
+														<div class="add_set">
+															<input type="text" class="form-control" name="hopeWorkPlace"  id="hopeWorkPlace" value="${userResume.hopeWorkPlace}">
+															<button type="button" class="add_search_btn" onclick="addPopForWork()">주소찾기</button>
 														</div>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label"id="check-group" >희망연봉</label>
-														<input type="text" class="form-control" name="hopeSalary" id="hopeSalary" placeholder="예시: 1000만원" value="${userResume.hopeSalary}" readonly>
+														<input type="text" class="form-control" name="hopeSalary" id="hopeSalary" placeholder="예시: 1000만원" value="${userResume.hopeSalary}" >
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">희망분야</label>
-														<input type="text" class="form-control" name="hopePosition" id="hopePosition"  value="${userResume.hopePosition}" readonly>
+														<select class="form-control" id="hopePosition" name="hopePosition" >
+															<option value="">상관없음</option>
+															<option value="경영/샤무">경영/사무</option>
+															<option value="광고/홍보">광고/홍보</option>
+															<option value="IT/인터넷">IT/인터넷</option>
+															<option value="디자인">디자인</option>
+															<option value="무역/유통">무역/유통</option>
+															<option value="영업/고객상담">영업/고객상담</option>
+															<option value="서비스">서비스</option>
+															<option value="연구개발">연구개발</option>
+															<option value="생산/제조">생산/제조</option>
+															<option value="교육">교육</option>
+															<option value="건설">건설</option>
+															<option value="의료">의료</option>
+															<option value="미디어">미디어</option>
+														</select>
 													</div>
 												</div>
 												<div class="col-md-12">
@@ -379,8 +410,7 @@
 														</div>
 													</div>
 												</div>
-													
-											</div>
+												</div>
 											<div class="empty_space"></div>
 										
 											<div class="row">
@@ -419,16 +449,16 @@
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group-log">
-														<button type="submit" class="btn btn-delete" onclick="location.href='/member/user/resume/delete'">삭제</button>
-														<button type="submit" class="btn btn-primary" onclick="location.href='/member/user/resume/updateform'">수정</button>
+													<div class="form-group-log-p">
+														<button type="submit" class="btn btn-primary">완료</button>
 													</div>
 												</div>
 												
 											</div>
-										</div>
+										</form:form>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -533,60 +563,9 @@
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
   <script src="../../../../resources/js/resume.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
  <script type="text/javascript">
- function addressInfo(e) {
-	  var 서울특별시 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
-	  var 경기도= ["1","2"];
-	  var 강원도= ["1","2"];
-	  var 인천광역시= ["1","2"];
-	  var 충청남도= ["1","2"];
-	  var 충청북도= ["1","2"];
-	  var 대전광역시= ["1","2"];
-	  var 세종특별시= ["1","2"];
-	  var 전라남도= ["1","2"];
-	  var 전라북도= ["1","2"];
-	  var 광주광역시= ["1","2"];
-	  var 경상남도= ["1","2"];
-	  var 경상북도= ["1","2"];
-	  var 부산광역시= ["1","2"];
-	  var 대구광역시= ["1","2"];
-	  var 울산광역시= ["1","2"];
-	  var 제주특별자치도= ["1","2"];
-	  
 
-	  let target = document.getElementById("twoadd");
-	  document.getElementById("twoadd").style.display="inline";
-	  
-	  
-	  if(e.value == "서울특별시") var d = 서울특별시;
-	  else if(e.value == "경기도") var d = 경기도;
-	  else if(e.value == "인천광역시") var d = 인천광역시;
-	  else if(e.value == "강원도") var d = 강원도;
-	  else if(e.value == "충청남도") var d = 충청남도;
-	  else if(e.value == "충청북도") var d = 충청북도;
-	  else if(e.value == "대전광역시") var d = 대전광역시;
-	  else if(e.value == "세종특별시") var d = 세종특별시;
-	  else if(e.value == "전라남도") var d = 전라남도;
-	  else if(e.value == "전라북도") var d = 전라북도;
-	  else if(e.value == "광주광역시") var d = 광주광역시;
-	  else if(e.value == "경상남도") var d = 경상남도;
-	  else if(e.value == "경상북도") var d = 경상북도;
-	  else if(e.value == "부산광역시") var d = 부산광역시;
-	  else if(e.value == "대구광역시") var d = 대구광역시;
-	  else if(e.value == "울산광역시") var d = 울산광역시;
-	  else if(e.value == "제주특별자치도") var d = 제주특별자치도;
-	  
-	  target.options.length = 0;
-	  
-	  for(x in d){
-		  var opt = document.createElement("option");
-		  opt.value= d[x];
-		  opt.innerHTML = d[x];
-		  target.appendChild(opt);
-	  }
- }
-
- 
  <%-- select 자동로드 --%>
  $(document).ready(function(){
 	 $("#school").val("${userResume.school}");
@@ -632,6 +611,111 @@
 		$('#supWelfare').prop('checked', true);
 	}
 	
+function addressPop() {
+    
+   	new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+               // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var addr = ''; // 주소 변수
+               var extraAddr = ''; // 참고항목 변수
+
+               //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   addr = data.roadAddress;
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   addr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+               if(data.userSelectedType === 'R'){
+                   // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                   // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                   if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있고, 공동주택일 경우 추가한다.
+                   if(data.buildingName !== '' && data.apartment === 'Y'){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                   if(extraAddr !== ''){
+                       extraAddr = ' (' + extraAddr + ')';
+                   }
+                   // 조합된 참고항목을 해당 필드에 넣는다.
+                   document.getElementById("userAdd").value = extraAddr;
+               
+               } else {
+                   document.getElementById("userAdd").value = '';
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('userAdd').value = data.zonecode;
+               document.getElementById("userAdd").value = addr;
+               // 커서를 상세주소 필드로 이동한다.
+               document.getElementById("userAdd").focus();
+           }
+       }).open();
+   }
+   
+   
+   
+   
+   function addPopForWork(){
+	   new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+               // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var addr = ''; // 주소 변수
+               var extraAddr = ''; // 참고항목 변수
+
+               //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   addr = data.roadAddress;
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   addr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+               if(data.userSelectedType === 'R'){
+                   // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                   // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                   if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있고, 공동주택일 경우 추가한다.
+                   if(data.buildingName !== '' && data.apartment === 'Y'){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                   if(extraAddr !== ''){
+                       extraAddr = ' (' + extraAddr + ')';
+                   }
+                   // 조합된 참고항목을 해당 필드에 넣는다.
+                   document.getElementById("hopeWorkPlace").value = extraAddr;
+               
+               } else {
+                   document.getElementById("hopeWorkPlace").value = '';
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('hopeWorkPlace').value = data.zonecode;
+               document.getElementById("hopeWorkPlace").value = addr;
+               // 커서를 상세주소 필드로 이동한다.
+               document.getElementById("hopeWorkPlace").focus();
+           }
+       }).open();
+	   
+	   
+	   
+   }
+   
+		   
+ 
 
  </script>
     

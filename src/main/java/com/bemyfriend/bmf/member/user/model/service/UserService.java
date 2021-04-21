@@ -34,8 +34,6 @@ public interface UserService {
 	
 	int updateUserInfo(User user);
 	
-	int updateUserService(UserHopeService service);
-	
 	UserHopeService selectUserService(String userId);
 	
 	void uploadFile(MultipartFile file, HttpSession session);

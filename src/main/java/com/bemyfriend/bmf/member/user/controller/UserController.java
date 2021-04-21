@@ -313,9 +313,6 @@ public class UserController {
 		
 	
 		
-		System.out.println("user : " + user);
-		System.out.println("serviceInfo : " + serviceInfo);
-		
 		//넘어오는 파일의 사이즈가 0이 아닌경우에만 보내기
 		if(file.getSize() != 0) {
 			userService.uploadFile(file, session);
@@ -324,38 +321,20 @@ public class UserController {
 		System.out.println("session service : " + session.getAttribute("service") );
 		
 		
-		
-		//해당 아이디에 해당하는 서비스 값이 없다면 upload
-		if(userService.selectUserService(user.getUserId()) == null) {
-			int uploadService = userService.uploadUserService(serviceInfo);
-			if(uploadService > 0) {
-				UserHopeService resService = userService.selectUserService(user.getUserId());
-				session.setAttribute("service", resService);
-				System.out.println("서비스 업로드 완료!");
-			}else{
-				System.out.println("서비스 업로드 실패!");
-			}
-			
-		}else {
-			//해당 아이디에 해당하는 서비스 값이 있다면 update
-			int updateService = userService.updateUserService(serviceInfo);	
-			if(updateService > 0) {
-				UserHopeService resService = userService.selectUserService(user.getUserId());
-				session.setAttribute("service", resService);
-				System.out.println("서비스 업로드 완료!");
-			}else{
-				System.out.println("서비스 업로드 실패!");
-			}
-			
-		}
-		
 		int result =  userService.updateUserInfo(user);
+		// 서비스 업로드/업데이트 프로시저 진행
+		int serviceRes = userService.uploadUserService(serviceInfo);
+		
+		
 		if(result > 0) {
 			
+			System.out.println("service 등록 완료 !");
 			User userMember = userService.selectMemberById(user.getUserId());
 			FileVo updateFile = userService.selectUserFile(userMember.getUserIdx());
+			UserHopeService service = userService.selectUserService(user.getUserId());
 			session.setAttribute("userMember", userMember);
 			session.setAttribute("file", updateFile);
+			session.setAttribute("service", service);
 			
 
 			model.addAttribute("alertMsg", "회원정보 수정이 성공하였습니다.");

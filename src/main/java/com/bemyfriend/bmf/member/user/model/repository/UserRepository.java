@@ -62,11 +62,9 @@ public interface UserRepository {
 	//회원정보수정하기 
 	int updateUserInfo(User user);
 	
-	//회원서비스등록하기
+	//회원서비스 등록하기/ 수정하기
 	int uploadUserService(UserHopeService service);
 	
-	//회원서비스수정하기
-	int updateUserService(UserHopeService service);
 	
 	//파일업로드하기
 	void uploadFile(FileVo fileVo);

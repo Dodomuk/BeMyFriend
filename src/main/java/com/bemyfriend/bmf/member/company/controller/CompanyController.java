@@ -88,13 +88,7 @@ public class CompanyController {
 		if(errors.hasErrors()) {
 			return "member/company/join";
 		}
-		
-		// 두번째 주소 세팅
-		if(persistUser.getTwoAdd() != null) {
-			String comAdd = persistUser.getComAddress() + " " + persistUser.getTwoAdd();
-			persistUser.setComAddress(comAdd);
-		}
-		
+	
 		
 		String authPath = UUID.randomUUID().toString();
 		System.out.println("mailauth : " +authPath);
@@ -218,7 +212,7 @@ public class CompanyController {
 	@PostMapping("loginimpl")
 	@ResponseBody
 	public String loginImpl(@RequestBody Company company, HttpSession session){
-		
+		System.out.println(company);
 		Company comMember = companyService.memberAuthenticate(company);
 		//company 없을 경우
 		if(comMember == null) {
@@ -271,7 +265,7 @@ public class CompanyController {
 		
 		if(result > 0) {
 			
-			if(supportRes > 0) {
+			
 				// 서포트가 성공적으로 저장되면 관련정보 다시 세션에 저장
 				System.out.println("support 등록 완료 !");
 				CompanySupport comSupport = companyService.selectSupport(support.getComId());
@@ -280,13 +274,7 @@ public class CompanyController {
 				session.setAttribute("comMember", comMember);
 				
 				model.addAttribute("alertMsg", "기업회원 정보 수정이 성공하였습니다.");
-			}else {
-				//서포트가 저장되지 않으면
-				System.out.println("support 등록 실패 !");
-			}
-			
-			
-			model.addAttribute("url",ConfigCode.DOMAIN+"/member/company/mypage");
+				model.addAttribute("url",ConfigCode.DOMAIN+"/member/company/mypage");
 			return "common/result";
 
 		}else {

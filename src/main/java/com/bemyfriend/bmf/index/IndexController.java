@@ -9,10 +9,16 @@ public class IndexController {
 
 	@GetMapping("/index")
 	public String index() {
-		return "index";
+		return "indexMain";
 	}
+	
 	@GetMapping("/")
 	public String main(){
+		return "indexMain";
+	}
+	
+	@GetMapping("/index2")
+	public String index2(){
 		return "index";
 	}
 	

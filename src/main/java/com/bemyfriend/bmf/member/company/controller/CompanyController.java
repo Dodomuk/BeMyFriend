@@ -257,10 +257,8 @@ public class CompanyController {
 								, Model model) {
 		
 		
-		System.out.println("support : " + support);
 		int result = companyService.updateComInfo(company);
 		int supportRes = companyService.uploadSupport(support);
-		System.out.println("supportRes : " + supportRes);
 		
 		
 		if(result > 0) {

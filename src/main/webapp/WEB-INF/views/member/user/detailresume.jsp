@@ -410,7 +410,8 @@
 												<div class="col-md-12">
 													<div class="form-group-log">
 														<button type="submit" class="btn btn-delete" onclick="deleteResume()">삭제</button>
-														<button type="submit" class="btn btn-primary" onclick="location.href='/member/user/resume/updateform'">수정</button>
+														<button type="submit" class="btn btn-primary btn_update" onclick="location.href='/member/user/resume/updateform'">수정</button>
+														<button type="submit" class="btn btn-primary btn_list" onclick="location.href='/member/user/resume/list'">목록</button>
 													</div>
 												</div>
 												

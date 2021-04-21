@@ -9856,12 +9856,14 @@ textarea.form-control {
     width: 70%;
     margin: 0 10% 0 10%;
     display: flex;
+   
     justify-content: center;
 }
 
 
 .smKey {
 	display:flex;
+	
 }
 
 .searchBtn{
@@ -9922,7 +9924,9 @@ div#ftco-nav {
    }
    
  
- 
+ .wrapSearch {
+    width: 100%;
+}
  
  .no-gutters-log {
     margin-right: 0;
@@ -10258,12 +10262,37 @@ span#idCheck{
 }
 
 
+.btn_update{
+	
+	width: 100px;
+	
+}
+.ftco-sections {
+    padding: 3em 0;
+    position: relative;
+}
 
+.search_box {
+    display: flex;
+}
 
+.search_row {
+    justify-content: center;
+}
 
+.recru_search_btn{
+	width: 80px;
+	background: darkslateblue;
+    border: 1px solid darkslateblue;
+    color: #fff;
+    margin-left: -50px;
+    margin-top: inherit;
+}
 
-
-
+.main_title {
+    justify-content: center;
+    display: flex;
+}
 
 
 

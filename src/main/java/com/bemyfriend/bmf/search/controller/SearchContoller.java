@@ -45,6 +45,21 @@ public class SearchContoller {
 	
 	
 	
+	@GetMapping("searchDeep")
+	public String searchDeep(@RequestParam String searchType
+							, @RequestParam String keyword
+							, Model model) {
+		
+		
+		
+		
+		return null;
+		
+	}
+	
+	
+	
+	
 	
 	
 	

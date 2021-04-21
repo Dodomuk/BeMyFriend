@@ -152,7 +152,7 @@ public class UserController {
 		session.removeAttribute("persistUser");
 		
 		model.addAttribute("alertMsg", "회원가입이 완료되었습니다.");
-		model.addAttribute("url",ConfigCode.DOMAIN+"/index");
+		model.addAttribute("url","/member/user/login");
 		return "common/result";
 		
 	}

@@ -11,20 +11,7 @@
 		INSERT INTO COM_USER
 		(COM_ID, COM_PW, COM_NAME, COM_ADDRESS, COM_TELL, COM_MAIL, COM_TYPE, COM_MANAGER)
 		VALUES
-		(#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail},
-		<if test="comType == 'start'">
-		'스타트업'
-		</if>
-		<if test="comType == 'small'">
-		'중소기업'
-		</if>
-		<if test="comType == 'middle'">
-		'중견기업'
-		</if>
-		<if test="comType == 'big'">
-		'대기업'
-		</if>
-		, #{comManager})
+		(#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail}, #{comType} , #{comManager})
 	</insert>
 
 	
@@ -48,18 +35,7 @@
  					,com_mail = #{comMail}
  				</if>		
  				<if test="comType != null">
- 					<if test="comType == 'start'">
-					,com_type = '스타트업'
-					</if>
-					<if test="comType == 'small'">
-					,com_type = '중소기업'
-					</if>
-					<if test="comType == 'middle'">
-					,com_type = '중견기업'
-					</if>
-					<if test="comType == 'big'">
-					,com_type = '대기업'
- 					</if>
+ 					,com_type = #{comType}
  				</if>	
  				<if test="comManager != null">
  					,com_manager = #{comManager}
@@ -67,5 +43,27 @@
  			</set>
  		WHERE com_id = #{comId}
  	</update>
+
+
+
+	<update id="uploadSupport" statementType="CALLABLE">
+		{call pr_company_support(#{comId, mode=IN}, #{supLift, mode=IN}, #{supElv, mode=IN}, #{supBath, mode=IN}, #{supVoice,mode=IN}
+								, #{supBlock, mode=IN}, #{supSign, mode=IN}, #{supPark, mode=IN}, #{supCharge, mode=IN}, #{supWelfare, mode=IN})
+		}
+	</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>

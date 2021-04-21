@@ -227,11 +227,11 @@
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="status">기업형태</label><br>
-															<input type="radio" class ="status" name="comType" value="start" id="start"> 스타트업<br>
-															<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
-															<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
-															<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업				
+														<label class="label" id="check-group">기업형태</label><br>
+														<input type="radio" class ="status" name="comType" value="스타트업" id="start"> 스타트업<br>
+														<input type="radio" class ="status" name="comType" value="중소기업"id="small"> 중소기업<br>
+														<input type="radio" class ="status" name="comType" value="중견기업" id="middle"> 중견기업<br>
+														<input type="radio" class ="status" name="comType" value="대기업" id="big"> 대기업	
 													</div>
 												</div>
 												<div class="col-md-6">
@@ -240,6 +240,7 @@
 														<input type="text" class="form-control" name="comManager"  id="comManager"></input>
 													</div>
 												</div>
+												
 												<div class="col-md-12">
 													<div class="form-group-log-p">
 														<button type="submit" class="btn btn-primary">회원가입</button>

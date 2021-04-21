@@ -377,6 +377,7 @@
 	})
 	
 	
+	
 	<%-- 세센의 값대로 radio checked --%>
 	if(${service.supLift == 1}){
 		$('#supLift').prop('checked', true);

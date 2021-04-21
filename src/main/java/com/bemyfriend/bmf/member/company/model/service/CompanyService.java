@@ -3,6 +3,7 @@ package com.bemyfriend.bmf.member.company.model.service;
 import javax.servlet.http.HttpSession;
 
 import com.bemyfriend.bmf.member.company.model.vo.Company;
+import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 import com.bemyfriend.bmf.member.user.model.vo.User;
 
 public interface CompanyService {
@@ -36,7 +37,11 @@ public interface CompanyService {
 	//비밀번호 찾기
 	Company findComPw(String comId, String comMail);
 	
+	//서포트 등록하기 / 업데이트 하기
+	int uploadSupport(CompanySupport support);
 	
+	//서포트 가져오기
+	CompanySupport selectSupport(String comId);
 
 
 }

@@ -25,6 +25,7 @@ import com.bemyfriend.bmf.common.exception.ToAlertException;
 import com.bemyfriend.bmf.common.random.RandomString;
 import com.bemyfriend.bmf.member.company.model.service.CompanyService;
 import com.bemyfriend.bmf.member.company.model.vo.Company;
+import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 import com.bemyfriend.bmf.member.company.validator.ComUserValidator;
 
 
@@ -128,7 +129,7 @@ public class CompanyController {
 		session.removeAttribute("persistUser");
 		
 		model.addAttribute("alertMsg", "회원가입이 완료되었습니다.");
-		model.addAttribute("url",ConfigCode.DOMAIN + "member/company/login");
+		model.addAttribute("url","/member/company/login");
 		
 		return "common/result";
 	}
@@ -219,10 +220,13 @@ public class CompanyController {
 	public String loginImpl(@RequestBody Company company, HttpSession session){
 		
 		Company comMember = companyService.memberAuthenticate(company);
-		
+		//company 없을 경우
 		if(comMember == null) {
 			return "fail";
 		}else {
+			//company 있는 경우, support 있는지 확인해서 session에 저장
+			CompanySupport comSupport = companyService.selectSupport(company.getComId());
+			session.setAttribute("comSupport", comSupport);
 			session.setAttribute("comMember", comMember);
 			return "success";
 		}
@@ -254,19 +258,34 @@ public class CompanyController {
 	// 마이페이지 수정하기
 	@PostMapping("updateinfo")
 	public String UpdateComInfo(@ModelAttribute Company company
+								, CompanySupport support
 								, HttpSession session
 								, Model model) {
 		
 		
+		System.out.println("support : " + support);
 		int result = companyService.updateComInfo(company);
+		int supportRes = companyService.uploadSupport(support);
+		System.out.println("supportRes : " + supportRes);
+		
 		
 		if(result > 0) {
 			
-			Company comMember = companyService.selectMemberById(company.getComId());
+			if(supportRes > 0) {
+				// 서포트가 성공적으로 저장되면 관련정보 다시 세션에 저장
+				System.out.println("support 등록 완료 !");
+				CompanySupport comSupport = companyService.selectSupport(support.getComId());
+				Company comMember = companyService.selectMemberById(company.getComId());
+				session.setAttribute("comSupport", comSupport);
+				session.setAttribute("comMember", comMember);
+				
+				model.addAttribute("alertMsg", "기업회원 정보 수정이 성공하였습니다.");
+			}else {
+				//서포트가 저장되지 않으면
+				System.out.println("support 등록 실패 !");
+			}
 			
-			session.setAttribute("comMember", comMember);
 			
-			model.addAttribute("alertMsg", "기업회원 정보 수정이 성공하였습니다.");
 			model.addAttribute("url",ConfigCode.DOMAIN+"/member/company/mypage");
 			return "common/result";
 

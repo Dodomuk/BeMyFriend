@@ -201,36 +201,40 @@
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">기업형태</label><br>
-															<c:if test="${comMember.comType == '스타트업'}">
-																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
-																<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
-																<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
-																<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업	
-															</c:if>
-															<c:if test="${comMember.comType == '중소기업'}">
-																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
-																<input type="radio" class ="status" name="comType" value="small"id="small" checked="checked"> 중소기업<br>
-																<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
-																<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업	
-															</c:if>
-															<c:if test="${comMember.comType == '중견기업'}">
-																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
-																<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
-																<input type="radio" class ="status" name="comType" value="middle" id="middle" checked="checked"> 중견기업<br>
-																<input type="radio" class ="status" name="comType" value="big" id="big"> 대기업	
-															</c:if>
-															<c:if test="${comMember.comType == '대기업'}">
-																<input type="radio" class ="status" name="comType" value="start" id="start" checked="checked"> 스타트업<br>
-																<input type="radio" class ="status" name="comType" value="small"id="small"> 중소기업<br>
-																<input type="radio" class ="status" name="comType" value="middle" id="middle"> 중견기업<br>
-																<input type="radio" class ="status" name="comType" value="big" id="big" checked="checked">  대기업	
-															</c:if>
+														<input type="radio" class ="status" name="comType" value="스타트업" id="스타트업"> 스타트업<br>
+														<input type="radio" class ="status" name="comType" value="중소기업"id="중소기업"> 중소기업<br>
+														<input type="radio" class ="status" name="comType" value="중견기업" id="중견기업"> 중견기업<br>
+														<input type="radio" class ="status" name="comType" value="대기업" id="대기업"> 대기업	
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" id="check-group">인사담당자</label>
 														<input type="text" class="form-control" name="comManager" id="comManager" value ="${comMember.comManager}">
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group ">
+													<label class="label" for="userService">희망제공서비스</label><br>
+														<div class="service_part">
+															<div>
+																<input type="radio" class ="comSupport" name="supLift" value="1" id="supLift"> 장애인 리프트<br>
+																<input type="radio" class ="comSupport" name="supElv" value="1" id="supElv"> 장애인 앨리베이터<br>
+																<input type="radio" class ="comSupport" name="supBath" value="1" id="supBath"> 장애인 화장실<br>
+															</div>
+															<div>
+																<input type="radio" class ="comSupport" name="supVoice" value="1" id="supVoice"> 장애인 음성유도기<br>
+																<input type="radio" class ="comSupport" name="supBlock" value="1" id="supBlock"> 점자 블럭<br>
+																<input type="radio" class ="comSupport" name="supSign" value="1"id="supSign"> 점자 표지판<br>
+																
+															</div>	
+															<div>
+																<input type="radio" class ="comSupport" name="supPark" value="1" id="supPark"> 장애인 주차장<br>
+																<input type="radio" class ="comSupport" name="supCharge" value="1" id="supCharge"> 전동휠체어 충전기<br>
+																<input type="radio" class ="comSupport" name="supWelfare" value="1" id="supWelfare"> 사회복지사<br>
+															</div>
+															<a id="remove_btn">[ 초기화 ]</a>
+														</div>
 													</div>
 												</div>
 												
@@ -349,7 +353,53 @@
   <script src="../../../../resources/js/scrollax.min.js"></script>
   <script src="../../../../resources/js/main.js"></script>
   <script src="../../../../resources/js/com_user.js"></script> 
+<script type="text/javascript">
 
+	<%-- 초기화 버튼 클릭시 모든 radio unchecked --%>
+	$("#remove_btn").click(function() {
+		$('input.comSupport').removeAttr('checked');
+	})
+
+	
+	<%-- comType에 따라 radio checked --%>
+	if(${comMember.comType != null}){
+		$("#${comMember.comType}").prop('checked', true)
+	}
+	
+	<%-- 세센의 값대로 radio checked --%>
+	if(${comSupport.supLift == 1}){
+		$('#supLift').prop('checked', true);
+	}
+	
+	if(${comSupport.supElv == 1}){
+		$('#supElv').prop('checked', true);
+	}
+	if(${comSupport.supBath == 1}){
+		$('#supBath').prop('checked', true);
+	}
+	if(${comSupport.supVoice == 1}){
+		$('#supVoice').prop('checked', true);
+	}
+	if(${comSupport.supBlock == 1}){
+		$('#supBlock').prop('checked', true);
+	}
+	if(${comSupport.supSign == 1}){
+		$('#supSign').prop('checked', true);
+	}
+	if(${comSupport.supPark == 1}){
+		$('#supPark').prop('checked', true);
+	}
+	if(${comSupport.supCharge == 1}){
+		$('#supCharge').prop('checked', true);
+	}
+	if(${comSupport.supWelfare == 1}){
+		$('#supWelfare').prop('checked', true);
+	}
+
+
+
+
+</script>
 
     
   </body>

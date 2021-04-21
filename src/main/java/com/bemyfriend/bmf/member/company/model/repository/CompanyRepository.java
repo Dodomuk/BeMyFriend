@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import com.bemyfriend.bmf.member.company.model.vo.Company;
+import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 
 
 @Mapper
@@ -38,8 +39,9 @@ public interface CompanyRepository {
 	@Update("UPDATE COM_USER SET COM_ISLEAVE = '1' WHERE COM_ID = #{comId}")
 	int withdrawCompany(String comId);
 	
-	
-	
+	//서포트 불러오기
+	@Select("SELECT * FROM COM_SUPPORT WHERE COM_ID = #{comId}")
+	CompanySupport selectSupport(@Param("comId")String comId);
 	
 	
 	
@@ -50,5 +52,13 @@ public interface CompanyRepository {
 	
 	// 회원정보 수정하기
 	int updateComInfo(Company company);
+	
+	//서포트 등록하기/업데이트
+	int uploadSupport(CompanySupport support);
+	
+	
+	
+	
+	
 	
 }

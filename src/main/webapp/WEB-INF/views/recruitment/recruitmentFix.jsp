@@ -128,7 +128,7 @@
 						</div>
 						<div id="navwidth">
 							<ul class="navbar-nav ml-auto">
-								<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+								<li class="nav-item"><a href="/main" class="nav-link">Home</a></li>
 								<li class="nav-item "><a href="/recruitment/recruitment"
 									class="nav-link">채용정보</a></li>
 								<li class="nav-item "><a href="/community/review/review"
@@ -180,7 +180,7 @@
 			<div class="row no-gutters slider-text align-items-end">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs mb-2">
-						<span class="mr-2"><a href="index.html">Home <i
+						<span class="mr-2"><a href="/main">Home <i
 								class="ion-ios-arrow-forward"></i></a></span>
 					</p>
 					<h1 class="mb-0 bread">채용정보</h1>
@@ -412,7 +412,7 @@
 				<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
 					<h2 class="footer-heading">이동하기</h2>
 					<ul class="list-unstyled">
-						<li><a href="/index" class="py-2 d-block">Home</a></li>
+						<li><a href="/main" class="py-2 d-block">Home</a></li>
 						<li><a href="/recruit" class="py-2 d-block">채용정보</a></li>
 						<li><a href="#" class="py-2 d-block">법률/매체</a></li>
 						<li><a href="#" class="py-2 d-block">커뮤니티</a></li>

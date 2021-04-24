@@ -178,7 +178,7 @@
 		style="align-items: center;">
 		<div class="col-md-8 col-md-offset-4">
 			<div class="contact-wrap w-100 p-md-5 p-4">
-              
+
 				<h3>${recru.comName}</h3>
 				<h1 class="mb-4">${recru.jobTitle}</h1>
 				<form method="POST" id="contactForm" name="contactForm"
@@ -219,19 +219,38 @@
 							</div>
 						</div>
 
+						<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
+
 						<div class="col-md-6 col-md-offset-4">
 							<div class="form-group">
-								<c:if
-									test="${comMember.comIdx ne fn:substring(recru.typeIdx,1,7)}">
-									<input type="submit" value="지원하기" class="btn btn-primary">
+								<c:if test="${today <= recru.jobDeadline}">
+									<c:if
+										test="${comMember.comIdx ne fn:substring(recru.typeIdx,1,7)}">
+										<input type="submit" value="지원하기" class="btn btn-primary">
+									</c:if>
+									<c:if
+										test="${comMember.comIdx eq fn:substring(recru.typeIdx,1,7)}">
+										<div class="form-group">
+											<input type="button" value="수정하기"
+												onClick="location.href='/recruitment/recruitmentFix?recruNo=${recru.typeIdx}'"
+												class="btn btn-primary">
+										</div>
+									</c:if>
+
 								</c:if>
-								<c:if
-									test="${comMember.comIdx eq fn:substring(recru.typeIdx,1,7)}">
-									<div class="form-group">
-										<input type="button" value="수정하기"
-											onClick="location.href='/recruitment/recruitmentFix?recruNo=${recru.typeIdx}'"
-											class="btn btn-primary">
-									</div>
+								<c:if test="${today > recru.jobDeadline}">
+									<c:if
+										test="${comMember.comIdx ne fn:substring(recru.typeIdx,1,7)}">
+										<input value="지원 마감" class="btn btn-secondary">
+									</c:if>
+									<c:if
+										test="${comMember.comIdx eq fn:substring(recru.typeIdx,1,7)}">
+										<div class="form-group">
+											<input type="button" value="수정하기"
+												onClick="location.href='/recruitment/recruitmentFix?recruNo=${recru.typeIdx}'"
+												class="btn btn-secondary">
+										</div>
+									</c:if>
 								</c:if>
 								<div class="submitting"></div>
 							</div>
@@ -355,7 +374,7 @@
 				<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
 					<h2 class="footer-heading">이동하기</h2>
 					<ul class="list-unstyled">
-						<li><a href="/index" class="py-2 d-block">Home</a></li>
+						<li><a href="/main" class="py-2 d-block">Home</a></li>
 						<li><a href="/recruit" class="py-2 d-block">채용정보</a></li>
 						<li><a href="#" class="py-2 d-block">법률/매체</a></li>
 						<li><a href="#" class="py-2 d-block">커뮤니티</a></li>
@@ -425,7 +444,8 @@
 	<script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
 	<script src="../../../../resources/js/scrollax.min.js"></script>
 	<script src="../../../../resources/js/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
 </body>

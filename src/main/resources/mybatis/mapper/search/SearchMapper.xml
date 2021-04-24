@@ -12,7 +12,7 @@
 		SELECT * FROM COM_HIRE  
 		<choose>
 			<when test="searchType == 'searchTotal'">
-				WHERE JOB_TITLE LIKE '%'||#{keyword}||'%'
+				WHERE JOB_TITLE LIKE '%'||#{keyword}||'%' or COM_NAME LIKE '%'||#{keyword}||'%' or JOB_LOCATION LIKE '%'||#{keyword}||'%'
 			</when>
 			<when test="searchType == 'searchDuty'">
 				WHERE JOB_DUTY LIKE '%'||#{keyword}||'%'

@@ -9807,7 +9807,7 @@ textarea.form-control {
  
  
 .smKey #searchText{
-    width: 500px;
+    width: 80%;
     padding: 0 10px 3px 12px;
     height: 35px;
     font: 16px/35px '맑은 고딕',Malgun Gothic,'돋움',Dotum,sans-serif;
@@ -9820,7 +9820,7 @@ textarea.form-control {
 .conheight{
  
  height: 30%;
- width: 80%;
+ width: 100%;
  margin-top:20px
  }
  
@@ -9837,6 +9837,8 @@ textarea.form-control {
 
 #navwidth ul {
     width: 100%;
+    justify-content: center;
+    display: flex;
    
 }
 
@@ -9861,9 +9863,14 @@ textarea.form-control {
 }
 
 
+.nav-search {
+    width: 65%;
+}
+
 .smKey {
 	display:flex;
-	
+	justify-content: center;
+	margin-left: -25px;
 }
 
 .searchBtn{
@@ -10293,6 +10300,15 @@ span#idCheck{
     justify-content: center;
     display: flex;
 }
+
+.bg-other{
+	
+	background-color: Lavender;
+	border-top: 3px dashed;
+}
+
+
+
 
 
 

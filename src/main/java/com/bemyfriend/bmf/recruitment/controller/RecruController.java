@@ -52,7 +52,7 @@ public class RecruController {
 	
 	// 게시글 작성 
 	
-	@GetMapping("/recruitmentForm")
+	@GetMapping("recruitmentForm")
 	public String listForm()
 	{
 		System.out.println("여기서부터 채용정보 게시판 글 작성 시작");
@@ -68,7 +68,7 @@ public class RecruController {
 		String comId = (String)session.getAttribute("comMemberId");
 		String comName = (String)session.getAttribute("comMemberName");
 		String comAddress = (String)session.getAttribute("comMemberAddress");
-		String typeIdx = "r" + String.valueOf(session.getAttribute("comIdx"));;
+		String typeIdx = "r" + String.valueOf(session.getAttribute("comIdx"));
 		
 		recruitment.setComId(comId);
 		recruitment.setComName(comName);
@@ -85,11 +85,9 @@ public class RecruController {
 	
 	//게시글 보기
 	@GetMapping("/recruitmentView")
-	public String view(Recruitment recruitment, Model model, @RequestParam("view")String view) 
+	public String view(Recruitment recruitment,Model model,@RequestParam("view")String view) 
 	{
 	    System.out.println("게시글 보기");
-	    System.out.println("recruitment : " + recruitment);
-	    System.out.println("view : " + view);
 	    model.addAllAttributes(recruService.viewRecruId(view));
 	    
 	    return "/recruitment/recruitmentView"; 
@@ -126,4 +124,3 @@ public class RecruController {
 	
 	
 }
-

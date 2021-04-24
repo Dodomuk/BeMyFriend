@@ -969,7 +969,7 @@
 					<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
 						<h2 class="footer-heading"> 이동하기</h2>
 						<ul class="list-unstyled">
-              <li><a href="/index" class="py-2 d-block">Home</a></li>
+              <li><a href="/main" class="py-2 d-block">Home</a></li>
               <li><a href="/recruit" class="py-2 d-block">채용정보</a></li>
               <li class="nav-item dropdown">
 				<a class="py-2 d-block nav-link dropdown-toggle" data-toggle="dropdown"

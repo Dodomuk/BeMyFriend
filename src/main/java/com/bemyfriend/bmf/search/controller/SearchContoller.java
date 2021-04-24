@@ -24,6 +24,7 @@ public class SearchContoller {
 	}
 	
 	
+	
 	@GetMapping("searchtitle")				//get으로 받은 값
 	public String searchTitle (@RequestParam String searchText
 								,Model model){
@@ -44,7 +45,7 @@ public class SearchContoller {
 	
 	
 	
-	
+	// 해당 searchTyp과 keyword로 리스트
 	@GetMapping("searchkeyword")
 	public String searchDeep(@RequestParam String searchType
 							, @RequestParam String keyword
@@ -53,12 +54,17 @@ public class SearchContoller {
 		System.out.println(searchType);
 		System.out.println(keyword);
 		
-		List<CompanyHire> hireInfo = searchService.searcKeyword(searchType, keyword);
+		List<CompanyHire> searchList = searchService.searcKeyword(searchType, keyword);
 		
-		System.out.println("hireInfo : " + hireInfo);
+		System.out.println("searchList : " + searchList);
 		
+		if(searchList == null) {
+			model.addAttribute("fail","결과값이 존재하지않습니다.");
+			return "search/searchlist";
+		}
 		
-		return "search/searchlist";
+		model.addAttribute("searchList",searchList);
+		return "search/searchlist";	
 		
 	}
 	

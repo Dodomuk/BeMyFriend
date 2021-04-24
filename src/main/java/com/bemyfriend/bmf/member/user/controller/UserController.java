@@ -245,9 +245,7 @@ public class UserController {
 	@ResponseBody		//form-json으로 넘겼기때문에 ! //session에 저장해야 함
 	public String loginmpl(@RequestBody User user
 							, HttpSession session) {
-		// 로그인 완료되면 success/ fail 문자열 반환(=>ResponseBody에 찍힘)
-		// ResponseBody에 찍힌 문자열은 .then((text) => {
-		// 이 형태로 fatch를 이용해 꺼내게 되는 것
+
 		User userMember = userService.memberAuthenticate(user);
 		
 		// 없는 회원이라면

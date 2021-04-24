@@ -47,7 +47,7 @@ public class ResumeServiceImpl implements ResumeService {
 	
 	
 	
-	// 이력서 전체  리스트 불러오기
+	// 이력서 전체 리스트 불러오기
 	@Override
 	public List<UserResume> selectResume(String userId) {
 		

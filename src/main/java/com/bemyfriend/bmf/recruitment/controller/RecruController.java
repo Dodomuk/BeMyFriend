@@ -85,9 +85,11 @@ public class RecruController {
 	
 	//게시글 보기
 	@GetMapping("/recruitmentView")
-	public String view(Recruitment recruitment,Model model,@RequestParam("view")String view) 
+	public String view(Recruitment recruitment, Model model, @RequestParam("view")String view) 
 	{
 	    System.out.println("게시글 보기");
+	    System.out.println("recruitment : " + recruitment);
+	    System.out.println("view : " + view);
 	    model.addAllAttributes(recruService.viewRecruId(view));
 	    
 	    return "/recruitment/recruitmentView"; 

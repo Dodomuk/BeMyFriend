@@ -144,7 +144,7 @@
 					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch" >
-								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);" ></div>
+								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>
 							</div>
 							<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
 								<h3 id="resTitle" >${resumeList.resTitle}</h3>

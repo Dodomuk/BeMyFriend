@@ -17,7 +17,7 @@ public interface ResumeRepository {
 	
 	
 	
-	
+	// 이력서 리스트 불러오기
 	@Select("SELECT * FROM USER_RESUME WHERE USER_ID = #{userId} ORDER BY RES_IDX DESC")
 	List<UserResume> selectResume(@Param("userId")String userId); // 이력서 리스트 불러오기
 	

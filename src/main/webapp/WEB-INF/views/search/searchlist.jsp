@@ -92,7 +92,7 @@
 					   		</div>
 						    <div id="navwidth">
 						    	<ul class="navbar-nav ml-auto">
-						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+						        	<li class="nav-item"><a href="/main" class="nav-link">Home</a></li>
 						        	<li class="nav-item "><a href="/recruitment/recruitment" class="nav-link">채용정보</a></li>
 						        	<li class="nav-item "><a href="/community/review/review" class="nav-link">커뮤니티</a></li>
 							        <li class="nav-item"><a href="/sign/signIndex" class="nav-link">수화를배워보자아</a></li>
@@ -126,6 +126,11 @@
     <!-- END nav -->
     
     
+    
+    
+    
+    
+    
     <section class="hero-wrap hero-wrap-2" style="background-image: url('bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -138,6 +143,37 @@
       </div>
     </section>
 
+
+	 <!-- 채용정보 검색 section -->
+    
+     <section class="ftco-sections ftco-degree-bg">
+      <div class="container">
+        <div class="row search_row">
+           <!-- .col-md-8 -->
+          <div class="col-lg-8 sidebar pl-lg-5 ftco-animate">
+            <div class="sidebar-box">
+              <form action="${context}/search/searchkeyword?searchType=${searchType.value}&keyword=${keyword.value}" Method="GET" class="recru_search-form">
+                <div class="form-group">
+                  <div class="search_box">
+                  	<select class="col-md-2" id="searchType" name="searchType">
+                  		<option value="searchTotal">전체</option>
+                  		<option value="searchDuty">직무별</option>
+                  		<option value="searchPlace">지역별</option>
+                  		<option value="searchCom">기업별</option>
+                  		<option value="searchExp">경력별</option>
+                 	 </select>
+                  	<input type="text" class="form-control col-md-8" id="keyword" name="keyword" placeholder="검색어를 입력하세요.">
+                  	<button type="submit" class="recru_search_btn fa fa-search col-md-2">검색</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <section class="ftco-section bg-light">
 			<div class="container">
 				<div class="row">
@@ -147,11 +183,11 @@
 						
 						<div class="col-md-6 col-lg-3 ftco-animate"  onClick="location.href='/recruitment/recruitmentView?view=${CompanyHire.jobNo}'">
 							<div class="staff">
-								<div class="img-wrap d-flex align-items-stretch">
-									<div class="img align-self-stretch"><img src="/resources/recruitment/${CompanyHire.jobImage}"></div> <!-- 채용공고 작성란에서 어떻게 받아오는지 확인한 뒤 수정 -->
-								</div>
+								<div class="img-wrap d-flex align-items-stretch" >
+								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>
+							</div>
 								<div class="text pt-3 px-3 pb-4 text-center">
-									<h3>${CompanyHire.comId}</h3>
+									<h3>${comMember.comName}</h3>
 									<span class="position mb-2">${CompanyHire.jobTitle}</span>
 									<div class="faded">
 										<p>${CompanyHire.jobLocation}</p>

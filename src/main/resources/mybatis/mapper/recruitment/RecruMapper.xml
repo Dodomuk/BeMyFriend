@@ -47,6 +47,7 @@
 		VALUES (SC_FILE_IDX.NEXTVAL,#{typeIdx},#{originFileName}, #{renameFileName}, #{savePath})
 	</insert>
  	
+ 	<!-- 사진파일 불러오기 -->
  	<select id="selectFileWithBIdx" resultType="HashMap">
         select * from b_file where type_idx = #{view}
     </select>

@@ -38,7 +38,7 @@ public class ExceptionController {
 	@ExceptionHandler(DataAccessException.class)//원래는 우리가 DataAccessException을 만들었지만 스프링에서는 지원해준다.
 	public String dataAccessExceptionHandler(DataAccessException e, Model model) {
 		model.addAttribute("alertMsg", "데이터베이스 접근 중 예외가 발생하였습니다.");
-		model.addAttribute("url", "/index");
+		model.addAttribute("url", "/main");
 		e.printStackTrace();
 		return "common/result";
 	}

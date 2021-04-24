@@ -25,7 +25,7 @@ public enum ErrorCode {
 	//result.jsp를 사용해 띄울 안내문구
 	private String errMsg;
 	//result.jsp를 사용해 이동시킬 경로
-	private String url = "/index";
+	private String url = "/main";
 	
 	// default로 private 가 설정되어있기 때문에 기본생성자의 접근제한자를 생략한다,
 	// index로 이동시킬 경우

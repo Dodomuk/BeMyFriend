@@ -41,18 +41,18 @@
 						<div class="social-media">
 				    		<p class="mb-0 d-flex">
 				    			<c:if test="${empty userMember and empty comMember}">
-				    					<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그인</span></a>
-				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">기업로그인</span></a>
-				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">회원가입</span></a>
+				    					<a href="/member/user/login" class="d-flex align-items-center justify-content-center"><span class="fa">로그인</span></a>
+				    					<a href="/member/company/login" class="d-flex align-items-center justify-content-center"><span class="fa">기업로그인</span></a>
+				    					<a href="/member/join" class="d-flex align-items-center justify-content-center"><span class="fa">회원가입</span></a>
 								</c:if>
 								<c:if test="${userMember != null}">
-										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook">로그아웃</span></a>
+										<a href="/member/user/logout" class="d-flex align-items-center justify-content-center"><span class="fa">로그아웃</span></a>
 								</c:if>
 								<c:if test="${comMember != null}">
-				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">로그아웃</span></a>
+				    					<a href="/member/company/logout" class="d-flex align-items-center justify-content-center"><span class="fa">로그아웃</span></a>
 								</c:if>
 								<c:if test ="${comMember != null}">
-									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram">광고관리</span></a>
+									<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa">광고관리</span></a>
 								</c:if>
 				    			
 				    		</p>

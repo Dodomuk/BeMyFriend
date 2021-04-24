@@ -222,6 +222,10 @@ public class CompanyController {
 			CompanySupport comSupport = companyService.selectSupport(company.getComId());
 			session.setAttribute("comSupport", comSupport);
 			session.setAttribute("comMember", comMember);
+			session.setAttribute("comMemberId", comMember.getComId());
+			session.setAttribute("comMemberName", comMember.getComName());
+			session.setAttribute("comMemberAddress", comMember.getComAddress());
+			session.setAttribute("comIdx", comMember.getComIdx());	
 			return "success";
 		}
 		

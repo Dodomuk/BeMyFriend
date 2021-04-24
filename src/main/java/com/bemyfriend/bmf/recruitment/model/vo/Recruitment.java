@@ -1,11 +1,13 @@
 package com.bemyfriend.bmf.recruitment.model.vo;
 
-import java.util.Date;
+import java.sql.Date;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Recruitment {
 
 	private int jobNo;
-	private String comId;
+	private String comName;
 	private String jobTitle;
 	private Date jobDeadline;
 	private String jobStep;
@@ -20,22 +22,22 @@ public class Recruitment {
 	private String jobWelfare;
 	private String jobSalary;
 	private Date jobDate;
-	private String jobImage;
 	private int pageViewCnt;
+	private String typeIdx;
+	private String comId;
 	
 	public Recruitment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public Recruitment(int jobNo, String comId, String jobTitle, Date jobDeadline, String jobStep, String jobType,
+	public Recruitment(int jobNo, String comName, String jobTitle, Date jobDeadline, String jobStep, String jobType,
 			String jobPerNum, String jobDuty, String jobLocation, String jobCareer, String jobEdu, String jobNeed,
-			String jobPreper, String jobWelfare, String jobSalary, Date jobDate, String jobImage, int pageViewCnt) {
+			String jobPreper, String jobWelfare, String jobSalary, Date jobDate, int pageViewCnt, String typeIdx,
+			String comId) {
 		super();
 		this.jobNo = jobNo;
-		this.comId = comId;
+		this.comName = comName;
 		this.jobTitle = jobTitle;
 		this.jobDeadline = jobDeadline;
 		this.jobStep = jobStep;
@@ -50,11 +52,10 @@ public class Recruitment {
 		this.jobWelfare = jobWelfare;
 		this.jobSalary = jobSalary;
 		this.jobDate = jobDate;
-		this.jobImage = jobImage;
 		this.pageViewCnt = pageViewCnt;
+		this.typeIdx = typeIdx;
+		this.comId = comId;
 	}
-
-
 
 	public int getJobNo() {
 		return jobNo;
@@ -64,12 +65,12 @@ public class Recruitment {
 		this.jobNo = jobNo;
 	}
 
-	public String getComId() {
-		return comId;
+	public String getComName() {
+		return comName;
 	}
 
-	public void setComId(String comId) {
-		this.comId = comId;
+	public void setComName(String comName) {
+		this.comName = comName;
 	}
 
 	public String getJobTitle() {
@@ -184,35 +185,40 @@ public class Recruitment {
 		this.jobDate = jobDate;
 	}
 
-	public String getJobImage() {
-		return jobImage;
-	}
-
-	public void setJobImage(String jobImage) {
-		this.jobImage = jobImage;
-	}
-
-	
 	public int getPageViewCnt() {
 		return pageViewCnt;
 	}
-
-
 
 	public void setPageViewCnt(int pageViewCnt) {
 		this.pageViewCnt = pageViewCnt;
 	}
 
+	public String getTypeIdx() {
+		return typeIdx;
+	}
+
+	public void setTypeIdx(String typeIdx) {
+		this.typeIdx = typeIdx;
+	}
+
+	public String getComId() {
+		return comId;
+	}
+
+	public void setComId(String comId) {
+		this.comId = comId;
+	}
 
 	@Override
 	public String toString() {
-		return "recruitment [jobNo=" + jobNo + ", comId=" + comId + ", jobTitle=" + jobTitle + ", jobDeadline="
+		return "Recruitment [jobNo=" + jobNo + ", comName=" + comName + ", jobTitle=" + jobTitle + ", jobDeadline="
 				+ jobDeadline + ", jobStep=" + jobStep + ", jobType=" + jobType + ", jobPerNum=" + jobPerNum
 				+ ", jobDuty=" + jobDuty + ", jobLocation=" + jobLocation + ", jobCareer=" + jobCareer + ", jobEdu="
 				+ jobEdu + ", jobNeed=" + jobNeed + ", jobPreper=" + jobPreper + ", jobWelfare=" + jobWelfare
-				+ ", jobSalary=" + jobSalary + ", jobDate=" + jobDate + ", jobImage=" + jobImage + ", pageViewCnt="
-				+ pageViewCnt + "]";
+				+ ", jobSalary=" + jobSalary + ", jobDate=" + jobDate + ", pageViewCnt=" + pageViewCnt + ", typeIdx="
+				+ typeIdx + ", comId=" + comId + "]";
 	}
+
 
 
 }

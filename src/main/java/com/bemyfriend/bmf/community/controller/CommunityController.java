@@ -220,7 +220,7 @@ public class CommunityController {
 	{
 		qnaService.updateQna(qna);
 		
-		return "redirect:/community/qma/qna";
+		return "redirect:/community/qna/qna";
 	}
 	
 }

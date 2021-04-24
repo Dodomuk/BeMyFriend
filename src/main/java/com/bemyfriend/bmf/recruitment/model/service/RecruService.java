@@ -1,19 +1,22 @@
 package com.bemyfriend.bmf.recruitment.model.service;
 
+import java.util.List;
 import java.util.Map;
 
-import com.bemyfriend.bmf.community.model_review.vo.Review;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.bemyfriend.bmf.recruitment.model.vo.Recruitment;
 
 public interface RecruService {
 
 	 public Map<String, Object> selectRecruList(int currentPage); 
 	
-	 public Recruitment viewRecruId(int jobNo);
+	 public Map<String,Object> viewRecruId(String view);
 	 
      public boolean deleteRecru(int no);
      
-     //public void updateRecru(Recruitment recruitment);
+     public void updateRecru(Recruitment recruitment, List<MultipartFile> files); 
      
-     //public void pageViewCount(int no);
+     public void insertRecru(Recruitment recruitment, List<MultipartFile> files);
+     
 }

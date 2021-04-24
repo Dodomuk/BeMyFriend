@@ -20,7 +20,7 @@ public class SearchServiceImpl implements SearchService {
 		this.searchRepository = searchRepository;
 	}
 	
-	
+	// 전체검색
 	@Override
 	public List <CompanyHire> searchTitle(String searchTitle) {
 		
@@ -29,6 +29,15 @@ public class SearchServiceImpl implements SearchService {
 		
 		
 		return searchResult;
+	}
+
+
+	
+	// 세부 검색
+	@Override
+	public List<CompanyHire> searcKeyword(String searchType, String keyword) {
+		
+		return searchRepository.searchKeyword(searchType, keyword);
 	}
 
 }

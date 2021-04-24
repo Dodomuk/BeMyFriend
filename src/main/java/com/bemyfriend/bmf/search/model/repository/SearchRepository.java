@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -19,8 +20,10 @@ public interface SearchRepository {
 	
 	
 	
-	@Select("SELECT * FROM COM_HIRE WHERE JOB_TITLE LIKE '%'||#{seachTitle}||'%' or COM_ID LIKE '%'||#{seachTitle}||'%' or JOB_LOCATION LIKE '%'||#{seachTitle}||'%'")
+	@Select("SELECT * FROM COM_HIRE WHERE JOB_TITLE LIKE '%'||#{searchTitle}||'%' or COM_ID LIKE '%'||#{searchTitle}||'%' or JOB_LOCATION LIKE '%'||#{searchTitle}||'%'")
 	List<CompanyHire> searchTitle(String searchTitle);
 	
+	
+	List<CompanyHire> searchKeyword(@Param("searchType")String searchType, @Param("keyword")String keyword);
 	
 }

@@ -9,7 +9,9 @@ public interface SearchService {
 	
 	
 	
-	
+	// 전체 검색
 	List <CompanyHire> searchTitle(String searchTitle);
-
+	
+	// searchType에 따른 검색
+	List <CompanyHire> searcKeyword(String searchType, String keyword);
 }

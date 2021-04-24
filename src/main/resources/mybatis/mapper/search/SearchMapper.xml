@@ -8,7 +8,26 @@
 	
 	
 	
-	<select id="searchTitle"></select>
+	<select id="searchKeyword" resultType="companyHire">
+		SELECT * FROM COM_HIRE  
+		<choose>
+			<when test="searchType == 'searchTotal'">
+				WHERE JOB_TITLE LIKE '%'||#{keyword}||'%'
+			</when>
+			<when test="searchType == 'searchDuty'">
+				WHERE JOB_DUTY LIKE '%'||#{keyword}||'%'
+			</when>
+			<when test="searchType == 'searchPlace'">
+				WHERE JOB_LOCATION LIKE '%'||#{keyword}||'%'
+			</when>
+			<when test="searchType == 'searchCom'">
+				A JOIN COM_USER C ON A.COM_ID = C.COM_ID WHERE C.COM_TYPE LIKE '%'||#{keyword}||'%'
+			</when>
+			<when test="searchType == 'searchExp'">
+				WHERE JOB_CAREER LIKE '%'||#{keyword}||'%'
+			</when>
+		</choose>
+	</select>
 	
 	
 

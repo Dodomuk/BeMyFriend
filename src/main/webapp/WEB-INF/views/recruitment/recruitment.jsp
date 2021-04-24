@@ -70,28 +70,28 @@
 			
 			
 			<!-- logo -->
+			<!-- logo -->
 			<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">	
 				<div class="controll_nav">
-				<div>
-					<div class="" id="ftco-nav">
-					    <div class="wrapSearch">
-				            <form class="smKey searchTitle"  action="${context}/search/searchtitle" method="GET" id="searchTitle" name ="searchTitle">
-				                <input type="search" id="searchText" title="searchJob" name="searchText" maxlength="50" style="background: none;">
-				                <button type="submit"  class="searchBtn" id="common_search_btn"><i class="fas fa-search"></i></button>
-							</form>
-			    		</div>
-			   		</div>
-				</div>
-				<div class="main_title">
 					<div class= "logo_space">
 						<div class="mainlogo" style="background-image: url('../../../../resources/images/logo_b.png')"></div>
 						<div><a class="navbar-brand" href="/index">BeMyFriends</a></div>
 					</div>
-			
+					
 					
 			<!-- nav bar -->
 					<div class="nav-search">
 						<div class="conheight">
+				     		<div class="collapse navbar-collapse" id="ftco-nav">
+							    <div class="wrapSearch">
+						            <form class="smKey searchTitle"  action="${context}/search/searchtitle" method="GET" id="searchTitle" name ="searchTitle">
+						                <input type="search" id="searchText" title="searchJob" name="searchText" maxlength="50" style="background: none;">
+						                <button type="submit"  class="searchBtn" id="common_search_btn"><i class="fas fa-search"></i></button>
+						               
+ 
+									</form>
+					    		</div>
+					   		</div>
 						    <div id="navwidth">
 						    	<ul class="navbar-nav ml-auto">
 						        	<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
@@ -120,15 +120,13 @@
 						    </div>
 						</div>
 					</div>
-				</div>	
 				</div>
-			
-				
 				 <button type="button" class="btn btn-success" onclick="startSpeechRecognition()"><i class="fas fa-headset">음성인식</i></button>
 			</nav>
 		</div>
 		
     <!-- END nav -->
+    
     
     <section class="hero-wrap hero-wrap-2" style="background-image: url('../../../../resources/images/bg_5.png');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -151,18 +149,18 @@
            <!-- .col-md-8 -->
           <div class="col-lg-8 sidebar pl-lg-5 ftco-animate">
             <div class="sidebar-box">
-              <form action="${context}/search/searchdeep?searchType=${searchType.value}&keyword=${keyword.value}" Method="GET" class="recru_search-form">
+              <form action="${context}/search/searchkeyword?searchType=${searchType.value}&keyword=${keyword.value}" Method="GET" class="recru_search-form">
                 <div class="form-group">
                   <div class="search_box">
                   	<select class="col-md-2" id="searchType" name="searchType">
                   		<option value="searchTotal">전체</option>
-                  		<option value="searchDept">직무별</option>
+                  		<option value="searchDuty">직무별</option>
                   		<option value="searchPlace">지역별</option>
                   		<option value="searchCom">기업별</option>
                   		<option value="searchExp">경력별</option>
                  	 </select>
-                  	<input type="text" class="form-control" id="keyword" name="keyword" placeholder="검색어를 입력하세요.">
-                  	<button type="submit" class="recru_search_btn fa fa-search">검색</button>
+                  	<input type="text" class="form-control col-md-8" id="keyword" name="keyword" placeholder="검색어를 입력하세요.">
+                  	<button type="submit" class="recru_search_btn fa fa-search col-md-2">검색</button>
                   </div>
                 </div>
               </form>

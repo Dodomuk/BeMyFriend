@@ -18,6 +18,7 @@
 		<typeAlias type="com.bemyfriend.bmf.recruitment.model.vo.Recruitment" alias="recruitment"/>	
 		<typeAlias type="com.bemyfriend.bmf.member.user.model.vo.User" alias="user"/>
 		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.Company" alias="company"/>
+		<typeAlias type="com.bemyfriend.bmf.member.company.model.vo.CompanyHire" alias="companyHire"/>
 		<typeAlias type="com.bemyfriend.bmf.common.util.file.FileVo" alias="file"/>
 		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
 		<typeAlias type="com.bemyfriend.bmf.kmap.model.vo.Kmap" alias="kmap"/>
@@ -32,6 +33,7 @@
 		<mapper resource="mybatis/mapper/member/CompanyMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/ResumeMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/HireMapper.xml"/>
+		<mapper resource="mybatis/mapper/search/SearchMapper.xml"/>
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 		<mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/>
 		<mapper resource="mybatis/mapper/kmap/kmapMapper.xml"/>

@@ -318,9 +318,6 @@ public class UserController {
 			userService.uploadFile(file, session);
 		}
 		
-		System.out.println("session service : " + session.getAttribute("service") );
-		
-		
 		int result =  userService.updateUserInfo(user);
 		// 서비스 업로드/업데이트 프로시저 진행
 		int serviceRes = userService.uploadUserService(serviceInfo);

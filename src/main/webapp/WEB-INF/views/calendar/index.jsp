@@ -139,10 +139,10 @@
 		</div>
 	</div>
 
-	<section class="ftco-section bg-light ftco-no-pt ftco-intro">
-		<div class="container">
+	<section class="ftco-section  ftco-no-pt ftco-intro">
+		<div class="container mb-4">
 			<div class="row">
-				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
+				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services  text-center">
 						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
 							<i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
@@ -157,7 +157,30 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
+				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+					<div class="d-block services  text-center">
+						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
+							<i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
+						</div>
+						<div class="media-body">
+							<h3 class="heading">프로그램 달력</h3>
+							<p>여러 시설에서 실행하는 프로그램 일정을 달력에서 확인하세요.</p>
+							<a href="/program/calendar"
+								class="btn-custom d-flex align-items-center justify-content-center"><span
+								class="fa fa-chevron-right"></span><i class="sr-only">Read
+									more</i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+			
+			
+	<section class="ftco-section  ftco-no-pt ftco-intro">
+		<div class="container mt-4">
+			<div class="row">
+				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services text-center">
 						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
 							<i class="fa fa-building fa-3x" aria-hidden="true"></i>
@@ -172,7 +195,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
+				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services text-center">
 						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
 							<i class="fa fa-building-o fa-3x" aria-hidden="true"></i>
@@ -187,7 +210,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 d-flex align-self-stretch px-4 ftco-animate">
+				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services text-center">
 						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
 							<i class="fa fa-car fa-3x" aria-hidden="true"></i>

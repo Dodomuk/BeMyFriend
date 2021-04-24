@@ -21,6 +21,83 @@
     <link rel="stylesheet" href="../../../../resources/css/flaticon.css">
     <link rel="stylesheet" href="../../../../resources/css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='${pageContext.request.contextPath}/resources/fullcalendar/lib/main.css' rel='stylesheet' />
+	<script src='${pageContext.request.contextPath}/resources/fullcalendar/lib/main.js'></script>
+	<script src='${pageContext.request.contextPath}/resources/fullcalendar/lib/locales/ko.js'></script>
+	
+	<script type='text/javascript'>
+	document.addEventListener('DOMContentLoaded', function() {
+	  var calendarEl = document.getElementById('calendar');
+	
+	  var calendar = new FullCalendar.Calendar(calendarEl, {
+	    googleCalendarApiKey: 'AIzaSyBvDlrxWdGFdQ89-GKsF0fY1EKrNlyhlOY',
+	    eventSources: [
+	    { 
+	    	googleCalendarId : 'ko.south_korea#holiday@group.v.calendar.google.com',
+	    	className : 'ko_event',
+	    	color:'red'
+	    	}
+	
+	    //google계정으로 추가할 시 이곳에 추가
+	    ],
+	    locale: 'ko', //언어
+	   events:[
+		 
+		   
+		   {
+		   		title:'${programList.get(0).getProgramComName()}',
+		       	start:'${programList.get(0).getProgramStartDate()}',
+		       	end:'${programList.get(0).getProgramEndDate()}',
+		       	color:'#FAEBD7'
+		     },
+		    {
+			   	title:'${programList.get(1).getProgramComName()}',
+			    start:'${programList.get(1).getProgramStartDate()}',
+			    end:'${programList.get(1).getProgramEndDate()}',
+			    color:'#6937a1'
+			 },
+			{
+				title:'${programList.get(2).getProgramComName()}',
+				start:'${programList.get(2).getProgramStartDate()}',
+				end:'${programList.get(2).getProgramEndDate()}',
+				color:'#f7e600'
+			 },
+			{
+				title:'${programList.get(3).getProgramComName()}',
+				start:'${programList.get(3).getProgramStartDate()}',
+				end:'${programList.get(3).getProgramEndDate()}',
+				color:'#2a67b7'
+			 },
+			{
+				title:'${programList.get(4).getProgramComName()}',
+				start:'${programList.get(4).getProgramStartDate()}',
+				end:'${programList.get(4).getProgramEndDate()}',
+				color:'#008d62'
+			},
+			{
+				title:'${programList.get(5).getProgramComName()}',
+				start:'${programList.get(5).getProgramStartDate()}',
+				end:'${programList.get(5).getProgramEndDate()}',
+				color:'#6937a1'
+			},
+			{
+				title:'${programList.get(6).getProgramComName()}',
+				start:'${programList.get(6).getProgramStartDate()}',
+				end:'${programList.get(6).getProgramEndDate()}',
+				color:'#ff3399'
+			}
+	    ]
+	
+	  });
+	  calendar.render();
+	});
+	</script>
+	<style>
+		#calendar{
+	   height:300%;,
+	   margin:2px auto;
+	}
+	</style>
 
 
   <!-- 팝업팝업 -->
@@ -142,178 +219,15 @@
 	 -->
 
 	<section class="ftco-section bg-light ftco-no-pt ftco-intro">
-		<div class="container">
+		<div class="container" style="color:black">
 			<div class="row justify-content-center pb-2">
 				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>등록된 기업 위치</h2>
+					<h2>프로그램 일정 확인</h2>
 				</div>
 			</div>
 			
 			<div class="row">
-			<div id="map" style="width:100%;height:700px; color:black"></div>
-			
-			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f762ca58e04e30355c1fe779c61ff72&libraries=services"></script>
-			<script>
-			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-			    mapOption = {
-			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			        level: 7 // 지도의 확대 레벨
-			    };  
-			
-			// 지도를 생성합니다    
-			var map = new kakao.maps.Map(mapContainer, mapOption); 
-			
-			// 주소-좌표 변환 객체를 생성합니다
-			var geocoder = new kakao.maps.services.Geocoder();
-			
-			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch('${kmapList.get(0).getComAddress()}', function(result, status) {
-			
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${kmapList.get(0).getComName()}</div>'
-			        });
-			        infowindow.open(map, marker);
-			
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        map.setCenter(coords);
-			    } 
-			});
-			
-			geocoder.addressSearch('${kmapList.get(1).getComAddress()}', function(result, status) {
-			
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${kmapList.get(1).getComName()}</div>'
-			        });
-			        infowindow.open(map, marker);
-			
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        map.setCenter(coords);
-			        
-			    } 
-			});
-			
-			geocoder.addressSearch('${kmapList.get(2).getComAddress()}', function(result, status) {
-				
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${kmapList.get(2).getComName()}</div>'
-			        });
-			        infowindow.open(map, marker);
-			
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        
-			    } 
-			});
-			
-			geocoder.addressSearch('${kmapList.get(3).getComAddress()}', function(result, status) {
-				
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${kmapList.get(3).getComName()}</div>'
-			        });
-			        infowindow.open(map, marker);
-			
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			       
-			    } 
-			});
-			
-			geocoder.addressSearch('${kmapList.get(4).getComAddress()}', function(result, status) {
-				
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${kmapList.get(4).getComName()}</div>'
-			        });
-			        infowindow.open(map, marker);
-			
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        
-			    } 
-			});
-			
-			geocoder.addressSearch('${kmapList.get(5).getComAddress()}', function(result, status) {
-				
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${kmapList.get(5).getComName()}</div>'
-			        });
-			        infowindow.open(map, marker);
-			
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        
-			    } 
-			});
-			
-			
-			</script>	
+				<div id='calendar' class="col-md-12" style="color:black"></div>	
 			</div>
 		</div>
 	</section>

@@ -22,6 +22,7 @@
 		<typeAlias type="com.bemyfriend.bmf.common.util.file.FileVo" alias="file"/>
 		<typeAlias type="com.bemyfriend.bmf.calendar.model.vo.Calendar" alias="calendar"/>
 		<typeAlias type="com.bemyfriend.bmf.kmap.model.vo.Kmap" alias="kmap"/>
+		<typeAlias type="com.bemyfriend.bmf.program.model.vo.Program" alias="program"/>
 	</typeAliases>
 
 	<mappers>
@@ -37,6 +38,7 @@
 		<mapper resource="mybatis/mapper/calendar/calendarMapper.xml"/>
 		<mapper resource="mybatis/mapper/recruitment/RecruMapper.xml"/>
 		<mapper resource="mybatis/mapper/kmap/kmapMapper.xml"/>
+		<mapper resource="mybatis/mapper/program/programMapper.xml"/>
 		
 
 	</mappers>

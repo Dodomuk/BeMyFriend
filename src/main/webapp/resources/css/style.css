@@ -8656,6 +8656,7 @@ h1, h2, h3, h4, h5,
 
 .staff {
   overflow: hidden;
+  cursor: pointer;
   border-radius: 4px;
   margin-bottom: 30px;
   -webkit-box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.05);
@@ -10221,6 +10222,14 @@ span#idCheck{
     margin-left: 80%;
 }
 
+
+.view_btn{
+	margin-top: 30px;
+	background: cadetBlue;
+    border: 1px solid cadetBlue;
+    color: #fff;
+    margin-left: 80%;
+}
 
 .career{
 	width:100%;

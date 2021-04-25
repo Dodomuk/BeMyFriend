@@ -265,7 +265,7 @@ public class UserController {
 			if(service != null) {
 			session.setAttribute("service", service);
 			}
-			System.out.println("service session : " + service);
+			
 			//로그인 정보 세션 저장
 			session.setAttribute("userMember", userMember);
 			session.setAttribute("memberId", userMember.getUserId());
@@ -365,6 +365,38 @@ public class UserController {
 			return "fail";
 		
 	}
+	
+	
+	
+	
+	//지원하기
+	@GetMapping("apply")
+	public String applyProcess() {
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 }

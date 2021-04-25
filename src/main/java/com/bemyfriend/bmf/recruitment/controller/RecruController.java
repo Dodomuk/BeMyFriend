@@ -22,6 +22,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.bemyfriend.bmf.common.util.file.FileVo;
+import com.bemyfriend.bmf.member.user.model.service.ResumeService;
+import com.bemyfriend.bmf.member.user.model.vo.User;
+import com.bemyfriend.bmf.member.user.model.vo.UserResume;
 import com.bemyfriend.bmf.recruitment.model.service.impl.RecruServiceImpl;
 import com.bemyfriend.bmf.recruitment.model.vo.Recruitment;
 
@@ -31,11 +34,13 @@ public class RecruController {
 
 	@Autowired
 	private RecruServiceImpl recruService;
+	@Autowired
+	private ResumeService resumeService;
 	
 	// 게시판 메인
 	@GetMapping("recruitment")
 	public String list(
-			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("recruInfo") Recruitment recruitment) {
+			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("recruInfo") Recruitment recruitment, HttpSession session) {
 
 		Date today = new Date();	
 		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
@@ -43,8 +48,8 @@ public class RecruController {
 		
 		System.out.println(now);
 		System.out.println("여기서부터 채용정보 게시판 시작");
+		System.out.println(recruService.selectRecruList(page));
 		
-			System.out.println(recruService.selectRecruList(page));
 			model.addAllAttributes(recruService.selectRecruList(page));
 			model.addAttribute("page",page);
 			return "recruitment/recruitment";
@@ -89,6 +94,8 @@ public class RecruController {
 	{
 	    System.out.println("게시글 보기");
 	    model.addAllAttributes(recruService.viewRecruId(view));
+	    
+	    //사용자 이력서 내역
 	    
 	    return "/recruitment/recruitmentView"; 
 	} 

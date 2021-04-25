@@ -38,20 +38,20 @@ public class ResumeController {
 	
 	
 	
-	
+	// 이력서 리스트 가져오기
 	@GetMapping("list")
 	public String ListResume(HttpSession session
 							, Model model) {
 		
 		User user = (User)session.getAttribute("userMember");
 		String userId = user.getUserId();
-		
 		List<UserResume> resumeList = resumeService.selectResume(userId);
 		
 		model.addAttribute("resumeList", resumeList);
 		
 		return "member/user/listresume";
 	}
+	
 	
 	
 	
@@ -63,6 +63,7 @@ public class ResumeController {
 	
 	
 	
+	//이력서 업로드하기
 	@PostMapping("upload")
 	public String uploadResume(@RequestParam Map<String, String> resume
 								,User user
@@ -95,6 +96,8 @@ public class ResumeController {
 	}
 	
 	
+	
+	//이력서 디테일 보기
 	@GetMapping("detail")
 	public String viewDetail(int resIdx
 							, HttpSession session
@@ -126,6 +129,8 @@ public class ResumeController {
 	}
 	
 	
+	
+	// 이력서 수정하기
 	@PostMapping("updateimpl")
 	public String updateResume(@RequestParam Map<String, String> resume
 								,User user
@@ -171,7 +176,7 @@ public class ResumeController {
 	
 	
 	
-	
+	// 이력서 삭제하기
 	@GetMapping("delete")
 	public String deleteResume(HttpSession session
 							,Model model) {
@@ -192,7 +197,14 @@ public class ResumeController {
 			return "common/result";
 		}
 	
-
 	}
+	
+	
+
+	
+	
+	
+	
+	
 
 }

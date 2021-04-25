@@ -123,8 +123,6 @@
 									<button type="submit" class="searchBtn" id="common_search_btn">
 										<i class="fas fa-search"></i>
 									</button>
-
-
 								</form>
 							</div>
 						</div>
@@ -226,7 +224,7 @@
 								<c:if test="${today <= recru.jobDeadline}">
 									<c:if
 										test="${comMember.comIdx ne fn:substring(recru.typeIdx,1,7)}">
-										<input type="submit" value="지원하기" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" onclick="resumePopup()">지원하기</button>
 									</c:if>
 									<c:if
 										test="${comMember.comIdx eq fn:substring(recru.typeIdx,1,7)}">
@@ -444,9 +442,17 @@
 	<script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
 	<script src="../../../../resources/js/scrollax.min.js"></script>
 	<script src="../../../../resources/js/main.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<script type="text/javascript">
+	
+	function resumePopup(){
+		
+		window.open("/popup/selectresume", "resume", "width=400, height=300, left=100, top=50");
+	}
+	
+	</script>
+	
+	
 
 </body>
 </html>

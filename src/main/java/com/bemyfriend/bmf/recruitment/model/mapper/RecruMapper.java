@@ -16,11 +16,11 @@ public interface RecruMapper {
 
 	public List<Recruitment> selectRecruList(Paging page);
 
-	public Recruitment viewRecruId(String view);
+	public Recruitment viewRecruId(int view);
 
 	public Integer insertRecru(Recruitment recruitment);
 
-	public boolean deleteRecru(int no);
+	public int deleteRecru(int view);
 	
 	public int insertRecruFile(FileVo file) throws Exception;
 
@@ -34,8 +34,8 @@ public interface RecruMapper {
 	@Select("select count(*) from com_hire")
 	int selectContentCnt();
 
-	@Select("select * from com_hire")
-	Recruitment selectRecru();
+	@Select("select max(job_no) from com_hire")
+	int selectRecru();
   
-	public List<Map<String,FileVo>> selectFileWithBIdx(String view);
+	public List<Map<String,FileVo>> selectFileWithBIdx(String fileIdx);
 }

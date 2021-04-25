@@ -5,6 +5,6 @@
     
 <mapper namespace="com.bemyfriend.bmf.program.model.repository.ProgramRepository">
 	<select id="selectCalendarProgram" resultType="program">
-		select  program_start_date, program_end_date, program_com_name from program
+		select program_start_date, program_end_date, program_com_name from program
 	</select>
 </mapper>

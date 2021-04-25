@@ -85,7 +85,7 @@ public class RecruController {
 	
 	//게시글 보기
 	@GetMapping("/recruitmentView")
-	public String view(Recruitment recruitment,Model model,@RequestParam("view")String view) 
+	public String view(Recruitment recruitment,Model model,@RequestParam("view")int view) 
 	{
 	    System.out.println("게시글 보기");
 	    model.addAllAttributes(recruService.viewRecruId(view));
@@ -102,7 +102,7 @@ public class RecruController {
 	
 	//게시글 수정 화면 이동
 	@GetMapping("recruitmentFix")
-	public String update(Recruitment recruitment, Model model,@RequestParam("recruNo")String recruNo) {
+	public String update(Recruitment recruitment, Model model,@RequestParam("recruNo")int recruNo) {
 		model.addAllAttributes(recruService.viewRecruId(recruNo));
 		return "recruitment/recruitmentFix";
 	}
@@ -122,5 +122,13 @@ public class RecruController {
 		return "redirect:/recruitment/recruitment";
 	} 
 	
+	//게시글 삭제
+	
+	@GetMapping("deleteForm") 
+	public String deleteForm(int view)
+	{
+		recruService.deleteRecru(view);
+		return "redirect:/member/company/hire/list";
+	}
 	
 }

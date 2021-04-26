@@ -42,6 +42,9 @@ public interface CompanyService {
 	
 	//서포트 가져오기
 	CompanySupport selectSupport(String comId);
+	
+	//기업 멤버십 등급 조정
+	int updateComMembership(String resultVal, String comIdx);
 
 
 }

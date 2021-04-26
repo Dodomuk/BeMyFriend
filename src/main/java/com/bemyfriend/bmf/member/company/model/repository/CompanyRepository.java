@@ -59,6 +59,11 @@ public interface CompanyRepository {
 	
 	
 	
+	//기업 멤버십 등급 조정
+	@Update("UPDATE COM_USER SET COM_MEMBERSHIP = #{resultVal} WHERE COM_IDX = #{comIdx}")
+	int updateComMembership(@Param("resultVal") String resultVal, @Param("comIdx") String comIdx);
+	
+	
 	
 	
 }

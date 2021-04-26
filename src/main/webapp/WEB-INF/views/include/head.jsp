@@ -128,7 +128,7 @@
 								<li class="nav-item "><a href="/community/review/review"
 									class="nav-link">커뮤니티</a></li>
 								<li class="nav-item"><a href="/sign/signIndex"
-									class="nav-link">수화를배워보자아</a></li>
+									class="nav-link">수화를배워보자</a></li>
 								<li class="nav-item"><a href="/calendar/index"
 									class="nav-link">calendar/map</a></li>
 								<c:choose>

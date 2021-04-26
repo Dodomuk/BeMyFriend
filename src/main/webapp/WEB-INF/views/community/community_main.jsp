@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@include file="/WEB-INF/views/include/head.jsp"%>
-<!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>비 마이 프랜즈</title>
 <link rel="stylesheet" href="../../resources/css/community.css">
 <link rel="stylesheet" href="../../resources/css/community_button.css">
 
@@ -35,6 +31,8 @@
   
 </body>
 
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+	
 <c:choose>
 <c:when test="${(userMember.userId == null) && (comMember.comId == null)}">
    <script>

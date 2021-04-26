@@ -108,6 +108,8 @@ $(document).ready(function(){
  
 </div>
 
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+	
 <script type="text/javascript">  //게시글 관련 스크립트
 $(function(){
   $("#del_btn").click(function(){
@@ -135,12 +137,7 @@ $(function(){
 		 location.href = "${context}/community/review/reviewFix?no=${view.reviewNo}";		  
 	  });
 	});
-
-	/*----------------------------------------  */
-	
 	
 </script>
-
-
 </body>
 </html>

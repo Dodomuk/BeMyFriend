@@ -21,17 +21,17 @@
     <!-- 리뷰 추가 -->    
     <insert id="insertRecru" >
     insert into com_hire(job_no,com_name,com_id,job_title,job_deadline,job_step,job_type,job_per_num,job_duty,job_location,job_career,job_edu,job_need,job_preper,job_welfare,job_salary,type_idx) 
-    values(sc_ch_idx.nextval,#{comName},#{comId},#{jobTitle},#{jobDeadline},#{jobStep},#{jobType},#{jobPerNum},#{jobDuty},#{jobLocation},#{jobCareer},#{jobEdu},#{jobNeed},#{jobPreper},#{jobWelfare},#{jobSalary},#{typeIdx})
+    values(${jobNo},#{comName},#{comId},#{jobTitle},#{jobDeadline},#{jobStep},#{jobType},#{jobPerNum},#{jobDuty},#{jobLocation},#{jobCareer},#{jobEdu},#{jobNeed},#{jobPreper},#{jobWelfare},#{jobSalary},#{typeIdx})
     </insert>
 
     <!-- 게시글 상세보기 조회 -->
     <select id="viewRecruId" resultType="recruitment" parameterType="String">
-    select * from com_hire where type_idx = #{view}
+    select * from com_hire where job_no = ${view}
     </select>
     
     <!-- 게시글 삭제 -->
     <delete id="deleteRecru" parameterType="int">
-          delete from com_hire where job_no = ${jobNo}
+          delete from com_hire where job_no = ${view}
     </delete>
     
     <!-- 게시글 수정 -->
@@ -48,7 +48,7 @@
 	</insert>
  	
  	<select id="selectFileWithBIdx" resultType="HashMap">
-        select * from b_file where type_idx = #{view}
+        select * from b_file where type_idx = #{fileIdx}
     </select>
     
 </mapper>

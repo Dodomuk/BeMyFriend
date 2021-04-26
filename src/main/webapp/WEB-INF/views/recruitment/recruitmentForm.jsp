@@ -44,8 +44,6 @@
 						<div class="row no-gutters">
 							<div class="col-md-7-p">
 								<div class="contact-wrap w-100 p-md-5 p-4">
-									<!-- modelAttribute 를 지정, user안에 들어있는 errors 를 사용할 수 있음 -->
-
 
 									<form:form modelAttribute="recruitment"
 										action="${context}/recruitment/uploadForm" method="POST"

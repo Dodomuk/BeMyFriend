@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
-
+<style>
+img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+}
+</style>
   <body>
     
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
@@ -20,9 +26,6 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 ftco-animate">
-          	<p>
-              <img src="images/law/${lawView.lawImg}" alt="" class="img-fluid">
-            </p>
             <h2 class="mb-3">${lawView.lawTitle}</h2>
             <p>${lawView.lawContent}</p>
             <div class="tag-widget post-tag-container mb-5 mt-5">
@@ -36,7 +39,7 @@
             
             <div class="about-author d-flex p-4 bg-light">
               <div class="bio mr-5">
-                <img src="/dongmuk/bup2.jpg" alt="Image placeholder" class="img-fluid mb-4">
+                <img src="/resources/law/귀여운팽귄.jpg" alt="Image placeholder" class="img-fluid mb-4">
               </div>
               <div class="desc">
                 <h3>관리자</h3> <!-- 나중에 받아올 세션값 -->

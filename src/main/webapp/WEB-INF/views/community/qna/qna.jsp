@@ -35,12 +35,12 @@ border: 1px solid #d2d2d2;
   </head>
   <body>
    
- <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+ <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="${context}/main">Community <i class="ion-ios-arrow-forward"></i></a></span> <span>QNA <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-0 bread" id="pageTitle">QNA</h1>
           </div>
         </div>
@@ -49,8 +49,7 @@ border: 1px solid #d2d2d2;
     
 	<!-- 커뮤니티 nav -->
 	<ul class="nav nav-tabs">
-		<li class="nav-item"><a class="nav-link" href="${context}/community/review/review">기업 리뷰</a>
-		</li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/review/review">기업 리뷰</a></li>
 		<li class="nav-item"><a class="nav-link" href="${context}/community/law">법률</a></li>
 		<li class="nav-item"><a class="nav-link" href="${context}/community/media">매체</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${context}/community/qna">QNA</a>
@@ -185,7 +184,7 @@ border: 1px solid #d2d2d2;
 				
 				<div class="col-lg-6">
 					<div class="heading-section mb-5 mt-5 mt-lg-0">
-						<h2 class="mb-3">주간 인기게시물 TOP5</h2>
+						<h2 class="mb-3">월간 가장 많이 본 질문 TOP5</h2>
 						<p>조회수가 가장 많은 순서대로 기록</p>
 					</div>
 					<div id="accordion" class="myaccordion w-100"

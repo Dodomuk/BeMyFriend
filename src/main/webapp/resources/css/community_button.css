@@ -12,7 +12,7 @@ html,body {
   flex-direction: column;
   flex-wrap: wrap;
   font-family: 'Open Sans Condensed', sans-serif;
-}
+}	
 
 .col {
   height: 100%;
@@ -34,7 +34,7 @@ div[class*=container] {
  BUTTON STYLING
 */
 
-.btn {
+.btn-one {
   position: relative;
   color: #006600;
   width: 256px;
@@ -44,7 +44,7 @@ div[class*=container] {
   
 }
 
-.btn::before, .btn::after {
+.btn-one::before, .btn-one::after {
   content: '';
   position: absolute;
   transition: all 0.3s;

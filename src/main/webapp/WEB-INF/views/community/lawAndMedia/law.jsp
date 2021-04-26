@@ -24,12 +24,12 @@ border: 1px solid #d2d2d2;
   </head>
   <body>
    
- <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+ <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="${context}/main">Community <i class="ion-ios-arrow-forward"></i></a></span> <span>법률 <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-0 bread" id="pageTitle">법률</h1>
           </div>
         </div>
@@ -37,8 +37,7 @@ border: 1px solid #d2d2d2;
     </section>
 	<!-- 커뮤니티 nav -->
 	<ul class="nav nav-tabs">
-		<li class="nav-item"><a class="nav-link" href="${context}/community/review/review">기업 리뷰</a>
-		</li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/review/review">기업 리뷰</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${context}/community/law">법률</a></li>
 		<li class="nav-item"><a class="nav-link" href="${context}/community/media">매체</a></li>
 		<li class="nav-item"><a class="nav-link" href="${context}/community/qna">QNA</a>
@@ -60,7 +59,7 @@ border: 1px solid #d2d2d2;
               	<div class="meta mb-2">
                   <div><fmt:formatDate value="${law.lawDate}" pattern="yyyy.MM.dd" /></div>
 					<div>${law.lawNo}</div>
-                  <div><a href="${context}/community/lawView?lawView=${law.lawNo}" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                  <div><a href="${context}/community/lawView?lawView=${law.lawNo}" class="meta-chat"></a></div>
                 </div>
                 <h3 class="heading"><a href="${context}/community/lawView?lawView=${law.lawNo}">${law.lawTitle}</a></h3>
 

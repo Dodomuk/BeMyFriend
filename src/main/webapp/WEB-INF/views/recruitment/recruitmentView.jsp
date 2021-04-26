@@ -15,6 +15,13 @@
 	width: 200px;
 	height: 200px;
 }
+
+img{
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
 </style>
 </head>
 <body>
@@ -94,7 +101,7 @@
 
 						<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
 
-						<div class="col-md-6 col-md-offset-4">
+						<div class="col-md-4 col-md-offset-1">
 							<div class="form-group">
 
 								<c:if test="${today <= recru.jobDeadline}">
@@ -133,25 +140,24 @@
 
 						</div>
 						<!-- 첨부 사진 -->
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<div class="form-group">
-
 								<a data-fancybox="gallery" href="#"
 									style="width: 70%; height: 70%;"><img
 									src="/files/${savepath1}${files1}"></a>
-								<div class="submitting"></div>
+								<span class="submitting"></span>
 								<c:if test="${files2 ne null}">
 									<a data-fancybox="gallery" href="#"
 										style="width: 70%; height: 70%;"><img
 										src="/files/${savepath2}${files2}" /></a>
 								</c:if>
-								<div class="submitting"></div>
+								<span class="submitting"></span>
 								<c:if test="${files3 ne null}">
 									<a data-fancybox="gallery" href="#"
 										style="width: 70%; height: 70%;"><img
 										src="/files/${savepath3}${files3}" /></a>
 								</c:if>
-								<div class="submitting"></div>
+								<span class="submitting"></span>
 								<c:if test="${files2 ne null}">
 									<a data-fancybox="gallery" href="#"
 										style="width: 70%; height: 70%;"><img
@@ -167,6 +173,7 @@
 			</div>
 
 		</div>
+
 		<div>
 			<section class="ftco-section bg-light ftco-faqs">
 				<div class="container">

@@ -17,7 +17,7 @@ function payment() {
 	    pg : 'inicis', // version 1.1.0부터 지원.
     	pay_method : 'card',
     	merchant_uid : 'merchant_' + new Date().getTime(),
-    	name : '주문명:결제테스트',
+    	name : 'BeMyFriend 멤버쉽 결제',
     	amount : 100,
     	buyer_email : 'iamport@siot.do',
     	buyer_name : '구매자이름',

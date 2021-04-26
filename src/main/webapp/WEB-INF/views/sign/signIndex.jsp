@@ -14,7 +14,7 @@
 					<p class="breadcrumbs mb-2">
 						<span class="mr-2"><a href="index.html">Learn Sign
 								Language<i class="ion-ios-arrow-forward"></i>
-						</a></span> <span>화 <i class="ion-ios-arrow-forward"></i></span>
+						</a></span> <span><i class="ion-ios-arrow-forward"></i></span>
 					</p>
 					<h1 class="mb-0 bread">수화를 배워봅시다</h1>
 

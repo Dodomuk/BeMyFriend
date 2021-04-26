@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/head.jsp" %>
-  <!-- 팝업팝업 -->
-  <!-- <body onload = "javascript:popup()"> -->
-  <body>    
-    
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/include/head.jsp"%>
+<!-- 팝업팝업 -->
+<!-- <body onload = "javascript:popup()"> -->
+<body>
+
 	<div class="hero-wrap js-fullheight"
-		style=" background-image: url('../../../../resources/images/bg_8.jpg'); "
+		style="background-image: url('../../../../resources/images/bg_8.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -25,7 +25,364 @@
 		</div>
 	</div>
 
-	<section class="ftco-section bg-light ftco-no-pt ftco-intro">
+	<hr>
+	<section class="ftco-section ftco-no-pt ftco-no-pb">
+		<div class="container">
+			<div class="row d-flex no-gutters">
+				<div class="col-md-5 d-flex">
+					<div
+						class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
+						style="background-image: url(resources/images/main/wouldSection.jpg);"></div>
+				</div>
+				<div class="col-md-7 pl-md-5 py-md-5">
+					<div class="heading-section pt-md-5">
+						<h2 class="mb-4">Would you be my friend?</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-6 services-2 w-100 d-flex">
+							<div
+								class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-stethoscope"></span>
+							</div>
+							<div class="text pl-3">
+								<h4>Easy</h4>
+								<p>비교적 찾기 쉽지 않은 장애인 구직사이트, 직관적으로 쉽게 사용할 수 있는 구직 사이트를 만들겠습니다.</p>
+							</div>
+						</div>
+						<div class="col-md-6 services-2 w-100 d-flex">
+							<div
+								class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-customer-service"></span>
+							</div>
+							<div class="text pl-3">
+								<h4>Choose</h4>
+								<p>시설별 / 필요조건 등 필터링 검색기능을 도입하여 장애인분들도 원하는 기업을 직접 선택할 수 있도록
+									하겠습니다.</p>
+							</div>
+						</div>
+						<div class="col-md-6 services-2 w-100 d-flex">
+							<div
+								class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-emergency-call"></span>
+							</div>
+							<div class="text pl-3">
+								<h4>Company</h4>
+								<p>국가 공공기관 뿐만이 아닌, 일반 사기업, 사회적 기업 등에 대한 정보도 쉽게 접할 수 있도록
+									하겠습니다.</p>
+							</div>
+						</div>
+						<div class="col-md-6 services-2 w-100 d-flex">
+							<div
+								class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-veterinarian"></span>
+							</div>
+							<div class="text pl-3">
+								<h4>Information / Helpful</h4>
+								<p>구직 용도 외의 박람회, 교육, 사업 등의 자료를 음성 / 영상 기능을 통해 편리하게 이용한 사이트를
+									만들겠습니다.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<hr>
+	<section class="ftco-section bg-light ftco-faqs">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 order-md-last">
+					<div
+						class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
+						style="background-image: url(resources/images/main/introSection.jpg); background-size : contain">
+					</div>
+					<div class="d-flex mt-3">
+						<div class="img img-2 mr-md-2"
+							style="background-image: url(resources/images/main/introSection_2.jpg);"></div>
+						<div class="img img-2 ml-md-2"
+							style="background-image: url(resources/images/main/introSection_3.jpg);"></div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="heading-section mb-5 mt-5 mt-lg-0">
+						<h2 class="mb-3">About Be-My-Friend</p>
+					</div>
+					<div id="accordion" class="myaccordion w-100"
+						aria-multiselectable="true">
+						<div class="card">
+							<div class="card-header p-0" id="headingOne">
+								<h2 class="mb-0">
+									<button href="#collapseOne"
+										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
+										data-parent="#accordion" data-toggle="collapse"
+										aria-expanded="true" aria-controls="collapseOne">
+										<p class="mb-0">기획의도</p>
+										<i class="fa" aria-hidden="true"></i>
+									</button>
+								</h2>
+							</div>
+							<div class="collapse show" id="collapseOne" role="tabpanel"
+								aria-labelledby="headingOne">
+								<div class="card-body py-3 px-0">
+									<ol>
+										<li>1년 이상 실업자 상태 유지 중인 장애인 설문 조사 결과 : 구직 정보 접근의 어려움</li>
+										<li>50% 이상 비율의 장애인분들 : 취업 알선 기관을 통해 취업</li>
+										<li>시간제 근로자가 될 수 밖에 없는 환경</li>
+										<p class = "p-4 mr-3" style = "font-weight : bold; border : 1px solid black; border-radius : 30px;"> -> <span style = "font-weight : bold; color:purple;">구직정보</span>를 쉽게 알 수 있고, 근무환경에 따른 <span style = "font-weight : bold; color:purple;">필터링</span>도 되며, 장애인에 대한 <span style = "font-weight : bold; color:purple;">차별과 선입견</span>도 낮출 수 있는 그런 목적의 웹사이트를 만들어보면 어떨까?</p>
+										
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header p-0" id="headingTwo" role="tab">
+								<h2 class="mb-0">
+									<button href="#collapseTwo"
+										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
+										data-parent="#accordion" data-toggle="collapse"
+										aria-expanded="false" aria-controls="collapseTwo">
+										<p class="mb-0">구현 기능</p>
+										<i class="fa" aria-hidden="true"></i>
+									</button>
+								</h2>
+							</div>
+							<div class="collapse" id="collapseTwo" role="tabpanel"
+								aria-labelledby="headingTwo">
+								<div class="card-body py-3 px-0">
+									<ol>
+										<li>유저 관리</li>
+										<li>게시판, 자료실</li>
+										<li>지도, 캘린더</li>
+										<li>일자리 검색</li>
+										<li>결제</li>
+										<li>음성인식</li>
+										<li>채팅</li>
+										<li>Text를 통한 수화 검색</li>
+										<li>Three.js 메인</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header p-0" id="headingThree" role="tab">
+								<h2 class="mb-0">
+									<button href="#collapseThree"
+										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
+										data-parent="#accordion" data-toggle="collapse"
+										aria-expanded="false" aria-controls="collapseThree">
+										<p class="mb-0">사용 API</p>
+										<i class="fa" aria-hidden="true"></i>
+									</button>
+								</h2>
+							</div>
+							<div class="collapse" id="collapseThree" role="tabpanel"
+								aria-labelledby="headingTwo">
+								<div class="card-body py-3 px-0">
+									<ol>
+										<li>Speech-to-text : 구글 음성인식 AI</li>
+										<li>클로바 : 네이버 음성인식 API</li>
+										<li>Three.js : 3D 메인페이지</li>
+										<li>아임포트 : 결제모듈 API</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header p-0" id="headingFour" role="tab">
+								<h2 class="mb-0">
+									<button href="#collapseFour"
+										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
+										data-parent="#accordion" data-toggle="collapse"
+										aria-expanded="false" aria-controls="collapseFour">
+										<p class="mb-0">참고 사이트</p>
+										<i class="fa" aria-hidden="true"></i>
+									</button>
+								</h2>
+							</div>
+							<div class="collapse" id="collapseFour" role="tabpanel"
+								aria-labelledby="headingTwo">
+								<div class="card-body py-3 px-0">
+									<ol>
+										<li>잡코리아</li>
+										<li>잡플래닛</li>
+										<li>알바몬</li>
+										<li>Three.js Doc Example</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<hr>
+
+	<section class="ftco-section testimony-section"
+		style="background-image: url('resources/images/main/devSection_2.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row justify-content-center pb-5 mb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2>Developer</h2>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel ftco-owl">
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="mb-4">
+										* Three.js를 이용한 메인페이지<br />* Text - SignLang 기능을 맡았습니다.<br />*
+										Payment<br />* PopUp
+									</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img"
+											style="background-image: url(resources/images/profile/WhaleeProfile.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">이 승민</p>
+											<span class="position">잘 아픔</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="mb-4">설명설명</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img"
+											style="background-image: url(resources/images/profile/dodoMukProfile.png)"></div>
+										<div class="pl-3">
+											<p class="name">도도묵</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="mb-4">설명설명</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img"
+											style="background-image: url(resources/images/profile/lucyProfile.png)"></div>
+										<div class="pl-3">
+											<p class="name">미영파크</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="mb-4">설명설명</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img"
+											style="background-image: url(resources/images/profile/songProfile.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">명재햄</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<hr>
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center pb-5 mb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2>결제 모듈 예시로 일단 둠</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="img"
+							style="background-image: url(resources/images/pricing-1.jpg);"></div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">Personal</span> <span class="price"><sup>$</sup>
+								<span class="number">49</span> <sub>/mos</sub></span>
+
+							<ul class="pricing-text mb-5">
+								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
+								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
+								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
+								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
+							</ul>
+
+							<a class="btn btn-primary d-block px-2 py-3" onclick="payment();">Get
+								Started</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="img"
+							style="background-image: url(resources/images/pricing-2.jpg);"></div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">Business</span> <span class="price"><sup>$</sup>
+								<span class="number">79</span> <sub>/mos</sub></span>
+
+							<ul class="pricing-text mb-5">
+								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
+								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
+								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
+								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
+							</ul>
+
+							<a class="btn btn-primary d-block px-2 py-3" onclick="payment();">Get
+								Started</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="img"
+							style="background-image: url(resources/images/pricing-3.jpg);"></div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">Ultimate</span> <span class="price"><sup>$</sup>
+								<span class="number">109</span> <sub>/mos</sub></span>
+
+							<ul class="pricing-text mb-5">
+								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
+								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
+								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
+								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
+							</ul>
+
+							<a class="btn btn-primary d-block px-2 py-3" onclick="payment()">Get
+								Started</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 혹시 몰라 주석처리 -->
+	
+	<!-- <section class="ftco-section bg-light ftco-no-pt ftco-intro">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
@@ -81,72 +438,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb">
-		<div class="container">
-			<div class="row d-flex no-gutters">
-				<div class="col-md-5 d-flex">
-					<div
-						class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-						style="background-image: url(resources/images/about-1.jpg);"></div>
-				</div>
-				<div class="col-md-7 pl-md-5 py-md-5">
-					<div class="heading-section pt-md-5">
-						<h2 class="mb-4">Why Choose Us?</h2>
-					</div>
-					<div class="row">
-						<div class="col-md-6 services-2 w-100 d-flex">
-							<div
-								class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-stethoscope"></span>
-							</div>
-							<div class="text pl-3">
-								<h4>Care Advices</h4>
-								<p>Far far away, behind the word mountains, far from the
-									countries.</p>
-							</div>
-						</div>
-						<div class="col-md-6 services-2 w-100 d-flex">
-							<div
-								class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-customer-service"></span>
-							</div>
-							<div class="text pl-3">
-								<h4>Customer Supports</h4>
-								<p>Far far away, behind the word mountains, far from the
-									countries.</p>
-							</div>
-						</div>
-						<div class="col-md-6 services-2 w-100 d-flex">
-							<div
-								class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-emergency-call"></span>
-							</div>
-							<div class="text pl-3">
-								<h4>Emergency Services</h4>
-								<p>Far far away, behind the word mountains, far from the
-									countries.</p>
-							</div>
-						</div>
-						<div class="col-md-6 services-2 w-100 d-flex">
-							<div
-								class="icon d-flex align-items-center justify-content-center">
-								<span class="flaticon-veterinarian"></span>
-							</div>
-							<div class="text pl-3">
-								<h4>Veterinary Help</h4>
-								<p>Far far away, behind the word mountains, far from the
-									countries.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-counter" id="section-counter">
+	<!-- <section class="ftco-counter" id="section-counter">
 		<div class="container">
 			<div class="row">
 				<div
@@ -195,342 +489,11 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> 
 
-	<section class="ftco-section bg-light ftco-faqs">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 order-md-last">
-					<div
-						class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-						style="background-image: url(resources/images/about.jpg);">
-						<a href="https://vimeo.com/45830194"
-							class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-							<span class="fa fa-play"></span>
-						</a>
-					</div>
-					<div class="d-flex mt-3">
-						<div class="img img-2 mr-md-2"
-							style="background-image: url(resources/images/about-2.jpg);"></div>
-						<div class="img img-2 ml-md-2"
-							style="background-image: url(resources/images/about-3.jpg);"></div>
-					</div>
-				</div>
+	-->
 
-				<div class="col-lg-6">
-					<div class="heading-section mb-5 mt-5 mt-lg-0">
-						<h2 class="mb-3">Frequently Asks Questions</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-					<div id="accordion" class="myaccordion w-100"
-						aria-multiselectable="true">
-						<div class="card">
-							<div class="card-header p-0" id="headingOne">
-								<h2 class="mb-0">
-									<button href="#collapseOne"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="true" aria-controls="collapseOne">
-										<p class="mb-0">How to train your pet dog?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
-								aria-labelledby="headingOne">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingTwo" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseTwo"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseTwo">
-										<p class="mb-0">How to manage your pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseTwo" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingThree" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseThree"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseThree">
-										<p class="mb-0">What is the best grooming for your pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseThree" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<ol>
-										<li>Far far away, behind the word mountains</li>
-										<li>Consonantia, there live the blind texts</li>
-										<li>When she reached the first hills of the Italic
-											Mountains</li>
-										<li>Bookmarksgrove, the headline of Alphabet Village</li>
-										<li>Separated they live in Bookmarksgrove right</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-
-						<div class="card">
-							<div class="card-header p-0" id="headingFour" role="tab">
-								<h2 class="mb-0">
-									<button href="#collapseFour"
-										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
-										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="false" aria-controls="collapseFour">
-										<p class="mb-0">What are those requirements for sitting
-											pets?</p>
-										<i class="fa" aria-hidden="true"></i>
-									</button>
-								</h2>
-							</div>
-							<div class="collapse" id="collapseFour" role="tabpanel"
-								aria-labelledby="headingTwo">
-								<div class="card-body py-3 px-0">
-									<p>Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind texts.
-										Separated they live in Bookmarksgrove right at the coast of
-										the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section testimony-section"
-		style="background-image: url('resources/images/bg_2.jpg');">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-center pb-5 mb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>Happy Clients &amp; Feedbacks</h2>
-				</div>
-			</div>
-			<div class="row ftco-animate">
-				<div class="col-md-12">
-					<div class="carousel-testimony owl-carousel ftco-owl">
-						<div class="item">
-							<div class="testimony-wrap py-4">
-								<div
-									class="icon d-flex align-items-center justify-content-center">
-									<span class="fa fa-quote-left"></span>
-								</div>
-								<div class="text">
-									<p class="mb-4">Far far away, behind the word mountains,
-										far from the countries Vokalia and Consonantia, there live the
-										blind texts.</p>
-									<div class="d-flex align-items-center">
-										<div class="user-img"
-											style="background-image: url(resources/images/person_1.jpg)"></div>
-										<div class="pl-3">
-											<p class="name">Roger Scott</p>
-											<span class="position">Marketing Manager</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap py-4">
-								<div
-									class="icon d-flex align-items-center justify-content-center">
-									<span class="fa fa-quote-left"></span>
-								</div>
-								<div class="text">
-									<p class="mb-4">Far far away, behind the word mountains,
-										far from the countries Vokalia and Consonantia, there live the
-										blind texts.</p>
-									<div class="d-flex align-items-center">
-										<div class="user-img"
-											style="background-image: url(resources/images/person_2.jpg)"></div>
-										<div class="pl-3">
-											<p class="name">Roger Scott</p>
-											<span class="position">Marketing Manager</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap py-4">
-								<div
-									class="icon d-flex align-items-center justify-content-center">
-									<span class="fa fa-quote-left"></span>
-								</div>
-								<div class="text">
-									<p class="mb-4">Far far away, behind the word mountains,
-										far from the countries Vokalia and Consonantia, there live the
-										blind texts.</p>
-									<div class="d-flex align-items-center">
-										<div class="user-img"
-											style="background-image: url(resources/images/person_3.jpg)"></div>
-										<div class="pl-3">
-											<p class="name">Roger Scott</p>
-											<span class="position">Marketing Manager</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap py-4">
-								<div
-									class="icon d-flex align-items-center justify-content-center">
-									<span class="fa fa-quote-left"></span>
-								</div>
-								<div class="text">
-									<p class="mb-4">Far far away, behind the word mountains,
-										far from the countries Vokalia and Consonantia, there live the
-										blind texts.</p>
-									<div class="d-flex align-items-center">
-										<div class="user-img"
-											style="background-image: url(resources/images/person_1.jpg)"></div>
-										<div class="pl-3">
-											<p class="name">Roger Scott</p>
-											<span class="position">Marketing Manager</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap py-4">
-								<div
-									class="icon d-flex align-items-center justify-content-center">
-									<span class="fa fa-quote-left"></span>
-								</div>
-								<div class="text">
-									<p class="mb-4">Far far away, behind the word mountains,
-										far from the countries Vokalia and Consonantia, there live the
-										blind texts.</p>
-									<div class="d-flex align-items-center">
-										<div class="user-img"
-											style="background-image: url(resources/images/person_2.jpg)"></div>
-										<div class="pl-3">
-											<p class="name">Roger Scott</p>
-											<span class="position">Marketing Manager</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section bg-light">
-		<div class="container">
-			<div class="row justify-content-center pb-5 mb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>Affordable Packages</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 ftco-animate">
-					<div class="block-7">
-						<div class="img"
-							style="background-image: url(resources/images/pricing-1.jpg);"></div>
-						<div class="text-center p-4">
-							<span class="excerpt d-block">Personal</span> <span class="price"><sup>$</sup>
-								<span class="number">49</span> <sub>/mos</sub></span>
-
-							<ul class="pricing-text mb-5">
-								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
-							</ul>
-
-							<a class="btn btn-primary d-block px-2 py-3" onclick ="payment();">Get
-								Started</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="block-7">
-						<div class="img"
-							style="background-image: url(resources/images/pricing-2.jpg);"></div>
-						<div class="text-center p-4">
-							<span class="excerpt d-block">Business</span> <span class="price"><sup>$</sup>
-								<span class="number">79</span> <sub>/mos</sub></span>
-
-							<ul class="pricing-text mb-5">
-								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
-							</ul>
-
-							<a class="btn btn-primary d-block px-2 py-3" onclick ="payment();">Get
-								Started</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="block-7">
-						<div class="img"
-							style="background-image: url(resources/images/pricing-3.jpg);"></div>
-						<div class="text-center p-4">
-							<span class="excerpt d-block">Ultimate</span> <span class="price"><sup>$</sup>
-								<span class="number">109</span> <sub>/mos</sub></span>
-
-							<ul class="pricing-text mb-5">
-								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
-							</ul>
-
-							<a class="btn btn-primary d-block px-2 py-3" onclick ="payment()">Get
-								Started</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section">
+	<!-- <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5 mb-3">
 				<div class="col-md-7 heading-section text-center ftco-animate">
@@ -808,13 +771,14 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-        <%@ include file="/WEB-INF/views/include/footer.jsp" %> 
-    
-<!-- whalee js -->
-<script src="../resources/js/whaleeTest.js"></script>
-<!-- 결제 모듈 js -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-  </body>
+	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+	<!-- whalee js -->
+	<script src="../resources/js/whaleeTest.js"></script>
+	<!-- 결제 모듈 js -->
+	<script type="text/javascript"
+		src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+</body>
 </html>

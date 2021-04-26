@@ -40,7 +40,7 @@
 		</div>
 	
 		</section>
-   
+   <%@ include file="/WEB-INF/views/include/footer.jsp" %>
   <script src="../../../../resources/js/com_user.js"></script> 
 
  

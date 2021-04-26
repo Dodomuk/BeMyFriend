@@ -137,54 +137,21 @@
 		</section>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
-  <script src="../../../../resources/js/com_user.js"></script> 
-<script type="text/javascript">
-
-	<%-- 초기화 버튼 클릭시 모든 radio unchecked --%>
-	$("#remove_btn").click(function() {
-		$('input.comSupport').removeAttr('checked');
-	})
-
-	
-	<%-- comType에 따라 radio checked --%>
-	if(${comMember.comType != null}){
-		$("#${comMember.comType}").prop('checked', true)
-	}
-	
-	<%-- 세센의 값대로 radio checked --%>
-	if(${comSupport.supLift == 1}){
-		$('#supLift').prop('checked', true);
-	}
-	
-	if(${comSupport.supElv == 1}){
-		$('#supElv').prop('checked', true);
-	}
-	if(${comSupport.supBath == 1}){
-		$('#supBath').prop('checked', true);
-	}
-	if(${comSupport.supVoice == 1}){
-		$('#supVoice').prop('checked', true);
-	}
-	if(${comSupport.supBlock == 1}){
-		$('#supBlock').prop('checked', true);
-	}
-	if(${comSupport.supSign == 1}){
-		$('#supSign').prop('checked', true);
-	}
-	if(${comSupport.supPark == 1}){
-		$('#supPark').prop('checked', true);
-	}
-	if(${comSupport.supCharge == 1}){
-		$('#supCharge').prop('checked', true);
-	}
-	if(${comSupport.supWelfare == 1}){
-		$('#supWelfare').prop('checked', true);
-	}
-
-
-
-
-</script>
+<script src="../../../../resources/js/jquery.min.js"></script>
+  <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../../../resources/js/popper.min.js"></script>
+  <script src="../../../../resources/js/bootstrap.min.js"></script>
+  <script src="../../../../resources/js/jquery.easing.1.3.js"></script>
+  <script src="../../../../resources/js/jquery.waypoints.min.js"></script>
+  <script src="../../../../resources/js/jquery.stellar.min.js"></script>
+  <script src="../../../../resources/js/jquery.animateNumber.min.js"></script>
+  <script src="../../../../resources/js/bootstrap-datepicker.js"></script>
+  <script src="../../../../resources/js/jquery.timepicker.min.js"></script>
+  <script src="../../../../resources/js/owl.carousel.min.js"></script>
+  <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
+  <script src="../../../../resources/js/scrollax.min.js"></script>
+  <script src="../../../../resources/js/main.js"></script>
+<script src="../../../../resources/js/com_user.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function addressPop() {
@@ -235,6 +202,53 @@
             }
         }).open();
     }
+    
+    
+    
+    
+    
+    
+    <%-- 초기화 버튼 클릭시 모든 radio unchecked --%>
+	$("#remove_btn").click(function() {
+		$('input.comSupport').removeAttr('checked');
+	})
+
+	
+	<%-- comType에 따라 radio checked --%>
+	if(${comMember.comType != null}){
+		$("#${comMember.comType}").prop('checked', true)
+	}
+	
+	<%-- 세센의 값대로 radio checked --%>
+	if(${comSupport.supLift == 1}){
+		$('#supLift').prop('checked', true);
+	}
+	
+	if(${comSupport.supElv == 1}){
+		$('#supElv').prop('checked', true);
+	}
+	if(${comSupport.supBath == 1}){
+		$('#supBath').prop('checked', true);
+	}
+	if(${comSupport.supVoice == 1}){
+		$('#supVoice').prop('checked', true);
+	}
+	if(${comSupport.supBlock == 1}){
+		$('#supBlock').prop('checked', true);
+	}
+	if(${comSupport.supSign == 1}){
+		$('#supSign').prop('checked', true);
+	}
+	if(${comSupport.supPark == 1}){
+		$('#supPark').prop('checked', true);
+	}
+	if(${comSupport.supCharge == 1}){
+		$('#supCharge').prop('checked', true);
+	}
+	if(${comSupport.supWelfare == 1}){
+		$('#supWelfare').prop('checked', true);
+	}
+
 </script>
 
     

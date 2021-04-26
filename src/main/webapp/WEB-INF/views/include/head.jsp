@@ -122,7 +122,7 @@
 						</div>
 						<div id="navwidth">
 							<ul class="navbar-nav ml-auto">
-								<li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+								<li class="nav-item"><a href="/main" class="nav-link">Home</a></li>
 								<li class="nav-item "><a href="/recruitment/recruitment"
 									class="nav-link">채용정보</a></li>
 								<li class="nav-item "><a href="/community/review/review"

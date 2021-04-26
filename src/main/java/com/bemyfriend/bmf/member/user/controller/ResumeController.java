@@ -199,7 +199,13 @@ public class ResumeController {
 	
 	}
 	
-	
+	@GetMapping("popup")
+	public String popup(HttpSession session
+						, Model model) {
+		
+		
+		return "popup/selectresume";
+	}
 
 	
 	

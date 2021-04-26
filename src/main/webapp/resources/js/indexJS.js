@@ -10,7 +10,7 @@ import  { Sky } from '../objects/Sky.js';
 			let INTERSECTED;
 			
 			const mainText = "BE MY FRIEND";
-			const toMovePage = "/index2";
+			const toMovePage = "/main";
 			
 			const pointer = new THREE.Vector2();
 

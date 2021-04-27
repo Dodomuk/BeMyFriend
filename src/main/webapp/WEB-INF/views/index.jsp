@@ -274,10 +274,13 @@
 											style="background-image: url(resources/images/profile/dodoMukProfile.png)"></div>
 										<div class="pl-3">
 											<p class="name">도도묵</p>
-											<span class="position">Marketing Manager</span>
+											<span class="position">잘 까먹음</span>
 										</div>
 									</div>
-									<p class="mb-4">설명설명</p>
+									<p class="mb-4">
+								        <br />* SpeechRecognition Service<br />* Job recruitment Page<br />* ReviewPage
+								        <br />* QNA<br />* Law&Media
+								        </p>
 								</div>
 							</div>
 						</div>

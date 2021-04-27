@@ -13,10 +13,10 @@
          (
               select
                  rownum as rnum, a.*
-                 from law a
+                 from law a order by law_no desc
                  )
              where
-             rnum between ${startRow} and ${endRow}  order by law_no desc
+             rnum between ${startRow} and ${endRow}
     </select>  
        
     <!-- 게시글 상세보기 조회 -->

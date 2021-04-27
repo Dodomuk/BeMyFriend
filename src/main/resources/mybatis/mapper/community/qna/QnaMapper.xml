@@ -49,6 +49,6 @@
     
     <!-- TOP5 게시글 -->
     <select id="qnaTopList" resultType="qna">
-    select * from qna<![CDATA[where rownum <= 5]]>order by view_cnt desc
+    select * from qna<![CDATA[where rownum <= 5 and (sysdate - to_date(qna_date,'yy/mm/dd'))<=28 ]]>order by view_cnt desc
     </select>
 </mapper>

@@ -11,7 +11,7 @@
 	<body>
 
 		<div id="container"></div>
-
+       
 		<script type = "module" src = "../resources/js/indexJS.js"></script>
 	</body>
 </html>

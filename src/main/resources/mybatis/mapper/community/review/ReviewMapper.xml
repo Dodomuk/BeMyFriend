@@ -29,7 +29,7 @@
     
     <!-- 게시글 상세보기 조회 -->
     <select id="viewId" resultType="review" parameterType="int">
-    select * from review where review_no = #{view}
+    select * from review where review_no = #{reviewNo}
     </select>
     
     <!-- 게시글 삭제 -->
@@ -49,6 +49,6 @@
     
      <!-- TOP10 게시글 -->
     <select id="reviewTopList" resultType="review">
-    select * from review<![CDATA[where rownum <= 10]]>order by view_cnt desc
+    select * from review<![CDATA[where rownum <= 10 and (sysdate - to_date(review_date,'yy/mm/dd'))<=7 ]]>order by view_cnt desc
     </select>
 </mapper>

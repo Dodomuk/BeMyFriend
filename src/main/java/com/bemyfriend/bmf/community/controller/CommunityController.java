@@ -1,8 +1,13 @@
 package com.bemyfriend.bmf.community.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bemyfriend.bmf.common.code.ErrorCode;
+import com.bemyfriend.bmf.common.exception.ToAlertException;
 import com.bemyfriend.bmf.community.model_lawAndMedia.service.impl.LawMediaServiceImpl;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law;
 import com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media;
@@ -17,6 +24,8 @@ import com.bemyfriend.bmf.community.model_qna.service.impl.QnaServiceImpl;
 import com.bemyfriend.bmf.community.model_qna.vo.Qna;
 import com.bemyfriend.bmf.community.model_review.service.impl.ReviewServiceImpl;
 import com.bemyfriend.bmf.community.model_review.vo.Review;
+
+
 
 @Controller
 @RequestMapping("community")
@@ -28,7 +37,8 @@ public class CommunityController {
 	private LawMediaServiceImpl lawMediaService;
 	@Autowired
 	private QnaServiceImpl qnaService;
-	
+	@Autowired
+	private DataSourceTransactionManager transactionManager;	
 	//커뮤 메인
 	@GetMapping("main")
 	public String main() {
@@ -39,17 +49,11 @@ public class CommunityController {
 	@GetMapping("/review/review")
 	public String list(
 			@RequestParam(defaultValue = "1")int page, Model model, @ModelAttribute("reviewInfo") Review review) {
-
-		/*
-		Date today = new Date();	
-		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
-		String now = sdfm.format(today);
-		*/
-		
 		
 		System.out.println("여기서부터 게시판 시작");
 			System.out.println(reviewService.selectReviewList(page));
 			model.addAllAttributes(reviewService.reviewTopList(review));
+			System.out.println(reviewService.reviewTopList(review));
 			model.addAllAttributes(reviewService.selectReviewList(page));
 			model.addAttribute("page",page);
 			return "community/review/review";
@@ -59,15 +63,15 @@ public class CommunityController {
 	@GetMapping("/review/reviewForm")
 	public String listForm()
 	{
-		System.out.println("여기서부터 게시판 글 작성 시작");
 		return "community/review/reviewForm";
 	}
 	
 	@PostMapping("/review/uploadForm")
-	public String write(Review review)
+	public String write(Review review,HttpSession session)
 	{
 		System.out.println("다시 게시판으로 redirect");
-		
+		review.setUserId((String)session.getAttribute("memberId"));
+		review.setUserName((String)session.getAttribute("memberName"));
 		reviewService.insertReview(review);
 		return "redirect:/community/review/review";
 	}
@@ -78,7 +82,15 @@ public class CommunityController {
 	{
 	    System.out.println("게시글 보기");
 	    reviewService.viewId(view);
-	    reviewService.viewCount(view);
+	    
+	    TransactionStatus txStatus = transactionManager.getTransaction(new DefaultTransactionDefinition());
+		try {
+			reviewService.viewCount(view);
+		} catch(Exception e) {
+			transactionManager.rollback(txStatus);
+		    throw new ToAlertException(ErrorCode.SM01, e);
+		}transactionManager.commit(txStatus);
+		
 	    model.addAttribute("view", reviewService.viewId(view));
 	    return "/community/review/reviewView";
 	} 
@@ -100,8 +112,10 @@ public class CommunityController {
 	
 	//게시글 수정
 	@PostMapping("/review/updateForm")
-	public String updateForm(Review review)
+	public String updateForm(Review review, HttpSession session)
 	{
+		review.setUserId((String)session.getAttribute("memberId"));
+		review.setUserName((String)session.getAttribute("memberName"));
 		reviewService.updateReview(review);
 		
 		return "redirect:/community/review/review";

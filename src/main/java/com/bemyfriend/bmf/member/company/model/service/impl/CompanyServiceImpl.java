@@ -179,6 +179,15 @@ public class CompanyServiceImpl implements CompanyService{
 
 
 
+	//기업 멤버십 등급 업데이트
+	@Override
+	public int updateComMembership(String resultVal, String comIdx) {
+		// TODO Auto-generated method stub
+		return companyRepository.updateComMembership(resultVal, comIdx);
+	}
+
+
+
 
 
 	

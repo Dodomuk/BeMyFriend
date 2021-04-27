@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -301,6 +302,22 @@ public class CompanyController {
 			
 		}
 			return "fail";
+	}
+	
+	
+	//기업회원 멤버십 결제 후 수정
+	@GetMapping("membership")
+	public String updateMembership(@RequestParam String resultValue, @SessionAttribute("comIdx") String comIdx) {
+		
+		int result = companyService.updateComMembership(resultValue, comIdx);
+		if(result > 0) {
+			
+			return "index";
+		}
+		
+		return "fail";
+		
+		
 	}
 	
 	

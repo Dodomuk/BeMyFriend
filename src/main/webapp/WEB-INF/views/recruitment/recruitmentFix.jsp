@@ -3,6 +3,7 @@
 <%@include file="/WEB-INF/views/include/head.jsp"%>
 <head>
 <link rel="stylesheet" href="../../resources/css/recru.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <style type="text/css">
 .paging {
@@ -94,7 +95,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="label">채용인원</label> <br> <input
-														type="radio" id="check_num" name="jobPerNum" value="0명">
+														type="radio" id="check_num" name="jobPerNum" value="0명" required/>
 													<label for="male">0명</label><br> <input type="radio"
 														id="check_num" name="jobPerNum" value="00명"> <label
 														for="female">00명</label><br> <input type="radio"
@@ -168,7 +169,7 @@
 											<div class="col-md-12">
 												<div class="form-group-log-p">
 
-													<button type="submit" class="btn btn-primary" onClick="alert('수정되었습니다!')">수정</button>
+													<button type="submit" class="btn btn-primary">수정</button>
 													<div style="margin: 5px;"></div>
 													<button class="btn btn-primary">새로입력</button>
 													<div class="col-md-1"></div>
@@ -197,6 +198,13 @@
 				history.back();
 			});
 		});
+	</script>
+	<script>
+	$("#recruForm").submit(function(event){
+
+			alert('수정되었습니다!');
+
+	})
 	</script>
 </body>
 </html>

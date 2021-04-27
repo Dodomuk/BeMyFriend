@@ -95,7 +95,7 @@
 				<div class="col-lg-6 order-md-last">
 					<div
 						class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-						style="background-image: url(resources/images/main/introSection.jpg); background-size : contain">
+						style="background-image: url(resources/images/main/introSection.jpg); background-size: contain">
 					</div>
 					<div class="d-flex mt-3">
 						<div class="img img-2 mr-md-2"
@@ -107,7 +107,9 @@
 
 				<div class="col-lg-6">
 					<div class="heading-section mb-5 mt-5 mt-lg-0">
-						<h2 class="mb-3">About Be-My-Friend</p>
+						<h2 class="mb-3">
+							About Be-My-Friend
+							</p>
 					</div>
 					<div id="accordion" class="myaccordion w-100"
 						aria-multiselectable="true">
@@ -117,7 +119,7 @@
 									<button href="#collapseOne"
 										class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link"
 										data-parent="#accordion" data-toggle="collapse"
-										aria-expanded="true" aria-controls="collapseOne">
+										aria-expanded="false" aria-controls="collapseOne">
 										<p class="mb-0">기획의도</p>
 										<i class="fa" aria-hidden="true"></i>
 									</button>
@@ -130,8 +132,15 @@
 										<li>1년 이상 실업자 상태 유지 중인 장애인 설문 조사 결과 : 구직 정보 접근의 어려움</li>
 										<li>50% 이상 비율의 장애인분들 : 취업 알선 기관을 통해 취업</li>
 										<li>시간제 근로자가 될 수 밖에 없는 환경</li>
-										<p class = "p-4 mr-3" style = "font-weight : bold; border : 1px solid black; border-radius : 30px;"> -> <span style = "font-weight : bold; color:purple;">구직정보</span>를 쉽게 알 수 있고, 근무환경에 따른 <span style = "font-weight : bold; color:purple;">필터링</span>도 되며, 장애인에 대한 <span style = "font-weight : bold; color:purple;">차별과 선입견</span>도 낮출 수 있는 그런 목적의 웹사이트를 만들어보면 어떨까?</p>
-										
+										<p class="p-4 mr-3"
+											style="font-weight: bold; border: 1px solid black; border-radius: 30px;">
+											-> <span style="font-weight: bold; color: purple;">구직정보</span>를
+											쉽게 알 수 있고, 근무환경에 따른 <span
+												style="font-weight: bold; color: purple;">필터링</span>도 되며,
+											장애인에 대한 <span style="font-weight: bold; color: purple;">차별과
+												선입견</span>도 낮출 수 있는 그런 목적의 웹사이트를 만들어보면 어떨까?
+										</p>
+
 									</ol>
 								</div>
 							</div>
@@ -240,10 +249,7 @@
 						<div class="item">
 							<div class="testimony-wrap py-4">
 								<div class="text">
-									<p class="mb-4">
-										* Three.js를 이용한 메인페이지<br />* Text - SignLang 기능을 맡았습니다.<br />*
-										Payment<br />* PopUp
-									</p>
+
 									<div class="d-flex align-items-center">
 										<div class="user-img"
 											style="background-image: url(resources/images/profile/WhaleeProfile.jpg)"></div>
@@ -252,6 +258,10 @@
 											<span class="position">잘 아픔</span>
 										</div>
 									</div>
+									<p class="mb-4">
+										<br />* Three.js Main Page<br />* indexPage<br />* Text -
+										SignLang<br />* Payment<br />* PopUp
+									</p>
 								</div>
 							</div>
 						</div>
@@ -265,9 +275,13 @@
 											style="background-image: url(resources/images/profile/dodoMukProfile.png)"></div>
 										<div class="pl-3">
 											<p class="name">도도묵</p>
-											<span class="position">Marketing Manager</span>
+											<span class="position">잘 까먹음</span>
 										</div>
 									</div>
+									<p class="mb-4">
+								        <br />* SpeechRecognition Service<br />* Job recruitment Page<br />* ReviewPage
+								        <br />* QNA<br />* Law&Media
+								        </p>
 								</div>
 							</div>
 						</div>
@@ -290,13 +304,14 @@
 											<span class="position">건강함</span>
 										</div>
 									</div>
+									<p class="mb-4">설명설명</p>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-wrap py-4">
 								<div class="text">
-									<p class="mb-4">설명설명</p>
+
 									<div class="d-flex align-items-center">
 										<div class="user-img"
 											style="background-image: url(resources/images/profile/songProfile.jpg)"></div>
@@ -305,6 +320,7 @@
 											<span class="position">Marketing Manager</span>
 										</div>
 									</div>
+									<p class="mb-4">설명설명</p>
 								</div>
 							</div>
 						</div>
@@ -315,81 +331,94 @@
 		</div>
 	</section>
 
-	<hr>
-	<section class="ftco-section bg-light">
-		<div class="container">
-			<div class="row justify-content-center pb-5 mb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>결제 모듈 예시로 일단 둠</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 ftco-animate">
-					<div class="block-7">
-						<div class="img"
-							style="background-image: url(resources/images/pricing-1.jpg);"></div>
-						<div class="text-center p-4">
-							<span class="excerpt d-block">Personal</span> <span class="price"><sup>$</sup>
-								<span class="number">49</span> <sub>/mos</sub></span>
 
-							<ul class="pricing-text mb-5">
-								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
-							</ul>
+	<c:choose>
+		<c:when test="${sessionScope.comMember != null }">
+			<hr>
+			<section class="ftco-section bg-light">
+				<div class="container">
+					<div class="row justify-content-center pb-5 mb-3">
+						<div class="col-md-7 heading-section text-center ftco-animate">
+							<h2>기업회원님들을 위한 멤버십 시스템</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 ftco-animate">
+							<div class="block-7">
+								<div class="img"
+									style="background-image: url(resources/images/pricing-1.jpg);"></div>
+								<div class="text-center p-4">
+									<span class="excerpt d-block">Gold</span> <span class="price"><sup>$</sup>
+										<span class="number">49</span> <sub>/mos</sub></span>
 
-							<a class="btn btn-primary d-block px-2 py-3" onclick="payment();">Get
-								Started</a>
+									<ul class="pricing-text mb-5">
+										<li><span class="fa fa-check mr-2"></span>일반 기업회원 대비 공고
+											상단 노출</li>
+										<li><span class="fa fa-check mr-2"></span>배스킨라빈스 더블콘</li>
+										<li><span class="fa fa-check mr-2"></span>기업 추천도 + 1</li>
+										<li><span class="fa fa-check mr-2"></span>배가 덜 고픔</li>
+									</ul>
+
+									<a class="btn btn-primary d-block px-2 py-3"
+										onclick="payment('gold');">Get Started
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 ftco-animate">
+							<div class="block-7">
+								<div class="img"
+									style="background-image: url(resources/images/pricing-2.jpg);"></div>
+								<div class="text-center p-4">
+									<span class="excerpt d-block">Platinum</span> <span
+										class="price"><sup>$</sup> <span class="number">79</span>
+										<sub>/mos</sub></span>
+
+									<ul class="pricing-text mb-5">
+										<li><span class="fa fa-check mr-2"></span>골드 기업회원 대비 공고
+											상단 노출</li>
+										<li><span class="fa fa-check mr-2"></span>배스킨라빈스 파인트</li>
+										<li><span class="fa fa-check mr-2"></span>기업 추천도 + 2</li>
+										<li><span class="fa fa-check mr-2"></span>배가 약간 고픔</li>
+									</ul>
+
+									<a class="btn btn-primary d-block px-2 py-3"
+										onclick="payment('platinum');">Get Started
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 ftco-animate">
+							<div class="block-7">
+								<div class="img"
+									style="background-image: url(resources/images/pricing-3.jpg);"></div>
+								<div class="text-center p-4">
+									<span class="excerpt d-block">Diamond</span> <span
+										class="price"><sup>$</sup> <span class="number">109</span>
+										<sub>/mos</sub></span>
+
+									<ul class="pricing-text mb-5">
+										<li><span class="fa fa-check mr-2"></span>플래티넘 기업회원 대비 공고
+											상단 노출</li>
+										<li><span class="fa fa-check mr-2"></span>배스킨라빈스 패밀리</li>
+										<li><span class="fa fa-check mr-2"></span>기업 추천도 + 3</li>
+										<li><span class="fa fa-check mr-2"></span>배가 안 고픔</li>
+									</ul>
+
+									<a class="btn btn-primary d-block px-2 py-3"
+										onclick="payment('dia')">Get Started
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="block-7">
-						<div class="img"
-							style="background-image: url(resources/images/pricing-2.jpg);"></div>
-						<div class="text-center p-4">
-							<span class="excerpt d-block">Business</span> <span class="price"><sup>$</sup>
-								<span class="number">79</span> <sub>/mos</sub></span>
-
-							<ul class="pricing-text mb-5">
-								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
-							</ul>
-
-							<a class="btn btn-primary d-block px-2 py-3" onclick="payment();">Get
-								Started</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ftco-animate">
-					<div class="block-7">
-						<div class="img"
-							style="background-image: url(resources/images/pricing-3.jpg);"></div>
-						<div class="text-center p-4">
-							<span class="excerpt d-block">Ultimate</span> <span class="price"><sup>$</sup>
-								<span class="number">109</span> <sub>/mos</sub></span>
-
-							<ul class="pricing-text mb-5">
-								<li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-								<li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-								<li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-								<li><span class="fa fa-check mr-2"></span>Free Supports</li>
-							</ul>
-
-							<a class="btn btn-primary d-block px-2 py-3" onclick="payment()">Get
-								Started</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+		</c:when>
+	</c:choose>
 
 	<!-- 혹시 몰라 주석처리 -->
-	
+
 	<!-- <section class="ftco-section bg-light ftco-no-pt ftco-intro">
 		<div class="container">
 			<div class="row">

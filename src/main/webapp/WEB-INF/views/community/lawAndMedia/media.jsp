@@ -22,6 +22,29 @@ border: 1px solid #d2d2d2;
                }
 </style>
   </head>
+  
+  
+   <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="${context}/main">Community <i class="ion-ios-arrow-forward"></i></a></span> <span>매체 <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-0 bread" id="pageTitle">미디어</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+	<!-- 커뮤니티 nav -->
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a class="nav-link" href="${context}/community/review/review">기업 리뷰</a></li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/law">법률</a></li>
+		<li class="nav-item"><a class="nav-link active" href="${context}/community/media">매체</a></li>
+		<li class="nav-item"><a class="nav-link" href="${context}/community/qna">QNA</a>
+		</li>
+	</ul>
+	<!-- 커뮤니티 nav 끝 -->
+  
 	<section class="ftco-section bg-light">
       <div class="container">
         <div class="row d-flex">

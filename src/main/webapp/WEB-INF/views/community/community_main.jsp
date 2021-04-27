@@ -2,10 +2,9 @@
     pageEncoding="UTF-8"%>
     <%@include file="/WEB-INF/views/include/head.jsp"%>
 <head>
-<link rel="stylesheet" href="../../resources/css/community.css">
-<link rel="stylesheet" href="../../resources/css/community_button.css">
+<link rel="stylesheet" href="/resources/css/community.css">
+<link rel="stylesheet" href="/resources/css/community_button.css">
 
-<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
 

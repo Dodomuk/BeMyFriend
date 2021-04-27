@@ -54,7 +54,7 @@ public class RecruServiceImpl implements RecruService {
 	public Map<String,Object> viewRecruId(int view) {
 		String fileIdx = 'r'+String.valueOf(view);
 		List<Map<String,FileVo>> files = mapper.selectFileWithBIdx(fileIdx);
-		System.out.println("files : " + files); //이미지 파일 존재유무 확인
+		//이미지 파일 존재유무 확인
 		Map<String,Object> commandMap = new HashMap<String,Object>();
 		
 		commandMap.put("recru", mapper.viewRecruId(view));
@@ -66,7 +66,7 @@ public class RecruServiceImpl implements RecruService {
 				break; 
 			}
 		}
-		System.out.println("commandMap : " + commandMap);
+		
 		return commandMap;
 	}
 	

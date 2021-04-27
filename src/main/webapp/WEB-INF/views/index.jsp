@@ -288,14 +288,7 @@
 						<div class="item">
 							<div class="testimony-wrap py-4">
 								<div class="text">
-									<p class="mb-4">
-										* 유저관리담당</br>
-										(회원가입/ 아이디 비번찾기/ 마이페이지 수정)</br>
-										* 자료실: 이력서 담당</br>
-										(이력서 리스트, 추가-수정-삭제)</br>
-										
-									
-									</p>
+									<p class="mb-4"></p>
 									<div class="d-flex align-items-center">
 										<div class="user-img"
 											style="background-image: url(resources/images/profile/lucyProfile.png)"></div>
@@ -304,7 +297,13 @@
 											<span class="position">건강함</span>
 										</div>
 									</div>
-									<p class="mb-4">설명설명</p>
+									<p class="mb-4">
+										<br />
+										* Member Management <br />
+										* Resume Page <br />
+										* User Apply
+									
+									</p>
 								</div>
 							</div>
 						</div>

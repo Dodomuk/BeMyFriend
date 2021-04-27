@@ -1,5 +1,6 @@
 package com.bemyfriend.bmf.member.user.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -199,14 +200,50 @@ public class ResumeController {
 	
 	}
 	
+	// 지원할 이력서 팝업 띄우기
 	@GetMapping("popup")
 	public String popup(HttpSession session
+						, int jobNo
+						, String jobTitle
 						, Model model) {
 		
+		User user = (User)session.getAttribute("userMember");
+		String userId = user.getUserId();
+		List<UserResume> resumeList = resumeService.selectResume(userId);
+		Map<String, Object>  jobMap = new HashMap<String, Object>();
+		jobMap.put("jobNo", jobNo);
+		jobMap.put("jobTitle", jobTitle);
+		model.addAttribute("resumeList", resumeList);
+		model.addAttribute("jobMap", jobMap);
+		
+
 		
 		return "popup/selectresume";
 	}
 
+	
+	
+	// 지원하기
+	@GetMapping("selectresume")
+	public String selectResume(String userId
+							   , int resIdx 
+							   , int jobNo
+							   , String jobTitle
+							   , Model model) {
+		
+		
+		int result = resumeService.applyRecrument(userId, resIdx, jobNo, jobTitle);
+		
+		if(result > 0) {
+			model.addAttribute("alertMsg", "해당 채용공고에 지원하였습니다.");
+			model.addAttribute("close", "close");
+		}else {
+			model.addAttribute("alertMsg","이미 지원한 공고 입니다.");
+			model.addAttribute("close", "close");
+		}
+		
+		return "common/result";
+	}
 	
 	
 	

@@ -55,7 +55,7 @@ img{
 								<div>
 									<label class="label col-sm-4">필수조건</label> <label
 										class="col-sm-6">${recru.jobNeed}</label>
-			6					</div>
+								</div>
 								<div>
 									<label class="label col-sm-4">우대조건</label> <label
 										class="col-sm-6">${recru.jobPreper}</label>
@@ -221,7 +221,8 @@ img{
 	
 	function resumePopup(){
 		
-		window.open("/member/user/resume/popup", "resume", "width=400, height=300, left=100, top=50");
+		let popOpen = window.open("/member/user/resume/popup?jobNo=${recru.jobNo}&&jobTitle=${recru.jobTitle}", "resume", "width=400, height=300, left=100, top=50");
+		
 	}
 	
 	

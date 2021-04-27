@@ -46,9 +46,6 @@ public class RecruController {
 		SimpleDateFormat sdfm = new SimpleDateFormat("yyyy.MM.dd");
 		String now = sdfm.format(today);
 		
-		System.out.println(now);
-		System.out.println("여기서부터 채용정보 게시판 시작");
-		System.out.println(recruService.selectRecruList(page));
 		
 			model.addAllAttributes(recruService.selectRecruList(page));
 			model.addAttribute("page",page);
@@ -60,7 +57,7 @@ public class RecruController {
 	@GetMapping("recruitmentForm")
 	public String listForm()
 	{
-		System.out.println("여기서부터 채용정보 게시판 글 작성 시작");
+		
 		return "recruitment/recruitmentForm";
 	}
 	

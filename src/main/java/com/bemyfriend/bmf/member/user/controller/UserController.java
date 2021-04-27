@@ -284,7 +284,7 @@ public class UserController {
 		
 		userService.userLogout(session);
 		
-		return "/index";
+		return "/main";
 	}
 	
 	

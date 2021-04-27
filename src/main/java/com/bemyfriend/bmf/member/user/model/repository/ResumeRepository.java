@@ -33,6 +33,20 @@ public interface ResumeRepository {
 	@Delete("DELETE FROM USER_RESUME WHERE RES_IDX = ${resIdx}")
 	int deleteResume(@Param("resIdx") int resIdx);
 	
+	// 이력서로 지원하기
+	@Insert("INSERT INTO USER_APPLY(apply_idx, user_id, res_idx, job_no, job_title)"
+				+ "values(sc_apl_idx.nextval, #{userId}, #{resIdx}, #{jobNo}, #{jobTitle})")
+	int applyRecrument(@Param("resIdx")int resIdx, @Param("userId")String userId, @Param("jobNo")int jobNo, @Param("jobTitle")String jobTitle);
+	
+	// 지원내역 확인하기
+	@Select("SELECT COUNT(*) FROM USER_APPLY WHERE USER_ID = #{userId} AND JOB_NO = #{jobNo}")
+	int checkApply(@Param("userId")String userId, @Param("jobNo") int jobNo);
+	
+	
+	
+	
+	
+	
 	
 	// ResumeMapper.xml 사용하기
 	

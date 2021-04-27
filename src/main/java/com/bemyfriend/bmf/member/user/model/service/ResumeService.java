@@ -19,5 +19,7 @@ public interface ResumeService {
 	
 	int deleteResume(int resIdx);
 	
+	int applyRecrument(String userId, int resIdx, int jobNo, String jobTitle);
+	
 
 }

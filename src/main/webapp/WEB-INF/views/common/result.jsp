@@ -10,13 +10,16 @@
 			alert("${alertMsg}");
 		</c:if>
 		
-		<%-- 뒤로가기 --%>
 		<c:if test="${back != null}">
 			history.back();
 		</c:if>
 	
 		<c:if test="${url != null}">
 			location.href = context + '${url}';		
+		</c:if>
+		
+		<c:if test= "${close != null}">
+			window.close();
 		</c:if>
 	</script>
 </body>

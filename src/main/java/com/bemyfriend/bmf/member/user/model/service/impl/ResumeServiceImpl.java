@@ -77,6 +77,24 @@ public class ResumeServiceImpl implements ResumeService {
 
 
 
+
+	@Override
+	public int applyRecrument(String userId, int resIdx, int jobNo, String jobTitle) {
+		
+		// 이미 지원한 공고인지 확인 , 지원내역이 있을시 0 리턴
+		if(resumeRepository.checkApply(userId, jobNo) > 0) {
+			
+			return 0;
+		}else {
+			// 지원한 내역이 없다면 1 리턴
+			return resumeRepository.applyRecrument(resIdx, userId, jobNo, jobTitle);
+		}
+		
+	}
+
+
+
+
 	
 	
 

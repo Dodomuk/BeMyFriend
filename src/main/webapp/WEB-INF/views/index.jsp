@@ -6,7 +6,7 @@
 <body>
 
 	<div class="hero-wrap js-fullheight"
-		style="background-image: url('../../../../resources/images/bg_8.jpg');"
+		style="background-image: url('../../../../resources/images/bg_13.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -258,7 +258,8 @@
 						<div class="item">
 							<div class="testimony-wrap py-4">
 								<div class="text">
-									<p class="mb-4">설명설명</p>
+									<p class="mb-4">
+									</p>
 									<div class="d-flex align-items-center">
 										<div class="user-img"
 											style="background-image: url(resources/images/profile/dodoMukProfile.png)"></div>
@@ -273,13 +274,20 @@
 						<div class="item">
 							<div class="testimony-wrap py-4">
 								<div class="text">
-									<p class="mb-4">설명설명</p>
+									<p class="mb-4">
+										* 유저관리담당</br>
+										(회원가입/ 아이디 비번찾기/ 마이페이지 수정)</br>
+										* 자료실: 이력서 담당</br>
+										(이력서 리스트, 추가-수정-삭제)</br>
+										
+									
+									</p>
 									<div class="d-flex align-items-center">
 										<div class="user-img"
 											style="background-image: url(resources/images/profile/lucyProfile.png)"></div>
 										<div class="pl-3">
 											<p class="name">미영파크</p>
-											<span class="position">Marketing Manager</span>
+											<span class="position">건강함</span>
 										</div>
 									</div>
 								</div>

@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 <!-- 팝업팝업 -->
-<!-- <body onload = "javascript:popup()"> -->
-<body>
+<body onload = "javascript:popup()">
+<!-- <body> -->
 
 	<div class="hero-wrap js-fullheight"
 		style="background-image: url('../../../../resources/images/bg_13.jpg');"

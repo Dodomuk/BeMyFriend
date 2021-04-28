@@ -52,21 +52,22 @@ public class RecruServiceImpl implements RecruService {
 	
 	@Override
 	public Map<String,Object> viewRecruId(int view) {
+
 		String fileIdx = 'r'+String.valueOf(view);
 		List<Map<String,FileVo>> files = mapper.selectFileWithBIdx(fileIdx);
-		//이미지 파일 존재유무 확인
+		System.out.println("files : " + files); //이미지 파일 존재유무 확인
 		Map<String,Object> commandMap = new HashMap<String,Object>();
 		
 		commandMap.put("recru", mapper.viewRecruId(view));
-		for (int i = 1; i < files.size(); i++) {
+		for (int i = 0; i < files.size(); i++) {
 			commandMap.put("files"+i,files.get(i).get("RENAME_FILE_NAME"));	
 			commandMap.put("savepath"+i,files.get(i).get("SAVE_PATH"));	
 			
-			if(i>4) {    //사진 4개까지만 허용
+			if(i>4) {    //사진 5개까지만 허용(썸네일 + 소개 4장)
 				break; 
 			}
 		}
-		
+		System.out.println("commandMap : " + commandMap);
 		return commandMap;
 	}
 	

@@ -9,7 +9,7 @@ public enum ConfigCode {
 	EMAIL("bemyfriend486@gmail.com"),
 	UPLOAD_PATH("/Users/miyoung/Desktop/final/CODE/bmf/resources/upload/"); //업로드패스 웹으로 잡아주기
 	//UPLOAD_PATH("C:\\CODE\\git\\Be-My-Friend-\\resources\\upload\\"); // 동묵
-    
+
 	
 	public String desc;
 	

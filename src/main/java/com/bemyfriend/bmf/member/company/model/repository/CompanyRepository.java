@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.company.model.vo.Company;
 import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 
@@ -55,9 +56,6 @@ public interface CompanyRepository {
 	
 	//서포트 등록하기/업데이트
 	int uploadSupport(CompanySupport support);
-	
-	
-	
 	
 	//기업 멤버십 등급 조정
 	@Update("UPDATE COM_USER SET COM_MEMBERSHIP = #{resultVal} WHERE COM_IDX = #{comIdx}")

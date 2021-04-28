@@ -63,10 +63,10 @@ border: 1px solid #d2d2d2;
             <c:set var="date" value="<%=new java.util.Date()%>"/>
             <c:set var="today"><fmt:formatDate value="${date}" pattern="yyyy.MM.dd" /></c:set> 
 	<section class="ftco-section bg-light ftco-faqs">
-		<div class="container">
-					<div class="row">
+		<div class="container" style="background-color:#DCFFDC;border-radius: 80px / 40px;">
+					<div class="row justify-content-center">
 				<div class="col-lg-6">
-					<div class="heading-section mb-5 mt-5 mt-lg-0">
+					<div class="heading-section text-center mb-5 mt-5 mt-lg-0">
 						<h2 class="mb-3">자주 묻는 질문 템플릿 탑5</h2>
 						<p>우리는 어디로 가야하오</p>
 					</div>
@@ -183,7 +183,7 @@ border: 1px solid #d2d2d2;
 				</div>
 				
 				<div class="col-lg-6">
-					<div class="heading-section mb-5 mt-5 mt-lg-0">
+					<div class="heading-section text-center mb-5 mt-5 mt-lg-0">
 						<h2 class="mb-3">월간 가장 많이 본 질문 TOP5</h2>
 						<p>조회수가 가장 많은 순서대로 기록</p>
 					</div>
@@ -218,10 +218,9 @@ border: 1px solid #d2d2d2;
 		</div>
 	</section>
 
-
   <section class="ftco-section bg-light">
     	<div class="container">
-    		<div class="row mb-5 pb-10">
+    		<div class="row mb-2 pb-10">
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -238,7 +237,7 @@ border: 1px solid #d2d2d2;
       <th scope="row">${qna.qnaNo}</th>	
       
       <c:if test="${qna.secret eq 0}">
-      <td colspan="3">${qna.qnaTitle}</td>
+      <td colspan="3" onClick="location.href='/community/qnaView?view=${qna.qnaNo}'">${qna.qnaTitle}</td>
       </c:if>
       <c:if test="${qna.secret eq 1}">
       <td colspan="3">비밀로 작성된 글입니다!</td>
@@ -262,6 +261,14 @@ border: 1px solid #d2d2d2;
 <br>
 </div>
 </div>
+<!-- 로그인한 사람에게만 보이게 -->
+<c:if test="${sessionScope.memberId != null}">
+			         <div style="padding-left:80%;">
+                            <div class="badge bg-primary text-wrap" style="width: 8rem;">
+  <a href="${context}/community/qna/qnaForm" class="btn btn_default">글쓰기</a>
+   </div>
+</div>
+</c:if>
 </section>
 
  	<%@ include file="/WEB-INF/views/include/footer.jsp" %>

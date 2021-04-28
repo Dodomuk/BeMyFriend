@@ -39,8 +39,8 @@ public class QnaServiceImpl implements QnaService{
 	}
 
 	@Override
-	public Qna viewId(int qnaNo) {
-		return mapper.viewId(qnaNo);
+	public Qna viewQnaId(int qnaNo) {
+		return mapper.viewQnaId(qnaNo);
 	}
 
 	@Override

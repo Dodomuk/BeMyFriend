@@ -15,8 +15,12 @@
 	width: 200px;
 	height: 200px;
 }
-
-img{
+#thum_img{
+   width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+#intro_img{
   width: 150px;
   height: 100px;
   object-fit: cover;
@@ -143,24 +147,24 @@ img{
 						<div class="col-md-8">
 							<div class="form-group">
 								<a data-fancybox="gallery" href="#"
-									style="width: 70%; height: 70%;"><img
+									style="width: 70%; height: 70%;"><img id="intro_img"
 									src="/files/${savepath1}${files1}"></a>
 								<span class="submitting"></span>
 								<c:if test="${files2 ne null}">
 									<a data-fancybox="gallery" href="#"
-										style="width: 70%; height: 70%;"><img
+										style="width: 70%; height: 70%;"><img id="intro_img"
 										src="/files/${savepath2}${files2}" /></a>
 								</c:if>
 								<span class="submitting"></span>
 								<c:if test="${files3 ne null}">
 									<a data-fancybox="gallery" href="#"
-										style="width: 70%; height: 70%;"><img
+										style="width: 70%; height: 70%;"><img id="intro_img"
 										src="/files/${savepath3}${files3}" /></a>
 								</c:if>
 								<span class="submitting"></span>
-								<c:if test="${files2 ne null}">
+								<c:if test="${files4 ne null}">
 									<a data-fancybox="gallery" href="#"
-										style="width: 70%; height: 70%;"><img
+										style="width: 70%; height: 70%;"><img id="intro_img"
 										src="/files/${savepath4}${files4}" /></a>
 								</c:if>
 								<div class="submitting"></div>
@@ -178,8 +182,8 @@ img{
 			<section class="ftco-section bg-light ftco-faqs">
 				<div class="container">
 					<div class="row" style="justify-content: 50%;">
-						<div class="col-lg-3">
-							<img src="/resources/recruitment/${view.jobImage}">
+						<div class="col-lg-3" id="thum_img">
+							<img src="/files/${savepath0}${files0}">
 						</div>
 					</div>
 				</div>

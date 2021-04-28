@@ -2,6 +2,9 @@ package com.bemyfriend.bmf.member.company.model.service;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.company.model.vo.Company;
 import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 import com.bemyfriend.bmf.member.user.model.vo.User;
@@ -42,7 +45,7 @@ public interface CompanyService {
 	
 	//서포트 가져오기
 	CompanySupport selectSupport(String comId);
-	
+
 	//기업 멤버십 등급 조정
 	int updateComMembership(String resultVal, String comIdx);
 

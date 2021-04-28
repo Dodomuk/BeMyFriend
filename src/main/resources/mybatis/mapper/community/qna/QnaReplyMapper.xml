@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.bemyfriend.bmf.community.model_qna.mapper.QnaReplyMapper">  
+
+    <!-- 댓글 작성 기능 --> 
+
+    <insert id="create">
+    insert into qna_comment(qna_comment_no,qna_no,reply_user_id,qna_comment_content,reply_user_name)
+    values(sc_qac_idx.nextval,${qnaNo},#{replyUserId},#{qnaCommentContent},#{replyUserName})
+    </insert>
+  
+   <!-- 해당 게시글 댓글리스트 불러오기 -->
+  
+   <select id="list" resultType="qnaComment">
+     select * from qna_comment where qna_no = ${qnaNo}
+     order by qna_comment_no
+   </select>
+
+ </mapper>

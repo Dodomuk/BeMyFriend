@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.bemyfriend.bmf.common.util.file.FileVo;
+import com.bemyfriend.bmf.member.company.model.service.CompanyService;
+import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 import com.bemyfriend.bmf.member.user.model.service.ResumeService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
 import com.bemyfriend.bmf.member.user.model.vo.UserResume;
@@ -36,6 +39,8 @@ public class RecruController {
 	private RecruServiceImpl recruService;
 	@Autowired
 	private ResumeService resumeService;
+	@Autowired
+	private CompanyService comService;
 	
 	// 게시판 메인
 	@GetMapping("recruitment")
@@ -87,11 +92,16 @@ public class RecruController {
 	
 	//게시글 보기
 	@GetMapping("/recruitmentView")
-	public String view(Recruitment recruitment,Model model,@RequestParam("view")int view) 
+	public String view(Recruitment recruitment,Model model
+						,@RequestParam("view")int view
+						,String comId) 
 	{
 	    System.out.println("게시글 보기");
-	    model.addAllAttributes(recruService.viewRecruId(view));
+	    // 회사 서포트 불러오기
+	    CompanySupport support = comService.selectSupport(comId);
 	    
+	    model.addAllAttributes(recruService.viewRecruId(view));
+	    model.addAttribute("comSupport", support);
 	    
 	    return "/recruitment/recruitmentView"; 
 	} 

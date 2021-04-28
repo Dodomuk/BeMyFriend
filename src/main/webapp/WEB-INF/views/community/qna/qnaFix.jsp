@@ -45,11 +45,14 @@
 											<label class="label">내용</label>
 											<textarea class="form-control" name="qnaContent" required="required">${view.qnaContent}</textarea>
 										</div>
-										<div>
 											<div class="col-md-12">
 											<div class="form-group">
 											    <div></div>
 												<label class="label"><strong>작성자</strong>: ${view.userId}</label>
+												<label class="label"><strong>&ensp;&ensp;비밀 여부</strong>:
+															<input type="radio" name="secret" value="yes" checked>예
+                                                            <input type="radio" name="secret" value="no">아니오
+                                                </label>				
 											</div>
 											</div>
 										</div>
@@ -67,10 +70,8 @@
 
 											</div>
 										</div>
-									</div>
 								</form>
-
-
+							</div>
 							</div>
 						</div>
 
@@ -78,7 +79,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	</section>
 

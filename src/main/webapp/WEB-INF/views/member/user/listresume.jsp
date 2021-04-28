@@ -17,6 +17,7 @@
       </div>
     </section>
     
+    <%-- 작성한 이력서 내역확인 --%>
     <section class="ftco-section bg-light">
 		<div class="container resume_list">
 			<h3>이력서 내역</h3><br>
@@ -25,12 +26,12 @@
 					<h5>이력서가 존재하지 않습니다.</h5>
 				</c:if>
 				<c:forEach var="resumeList" items="${resumeList}" begin="0" end="11">
-					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
+					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}&&userId=${resumeList.userId}'">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch" >
 								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>
 							</div>
-							<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
+							<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}&&userId=${resumeList.userId}'">
 								<h3 id="resTitle" >${resumeList.resTitle}</h3>
 								<span class="position mb-2" id="user_id">${resumeList.userId}</span>
 								
@@ -43,6 +44,8 @@
 		</div>
 	</section>
 	
+	
+	<%-- 지원한 공고 내역확인 --%>
 	 <section class="ftco-section bg-other">
 		<div class="container resume_list">
 			<h3>지원현황</h3><br>
@@ -50,19 +53,18 @@
 				<c:if test="${applyList == null}">
 					<h5>지원한 공고내역이 없습니다.</h5>
 				</c:if>
-				<c:forEach var="applyList" items="${applyList}" begin="0" end="11">
-					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/recruitment/recruitmentView?view=${resumeList.jobNo}'">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch" >
-								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>
+				<c:forEach items="${applyList}" var="applyList">
+						<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/recruitment/recruitmentView?view=${applyList.JOB_NO}&&comId=${applyList.COM_ID}'">
+							<div class="staff">
+								<div class="img-wrap d-flex align-items-stretch" >
+									<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>
+								</div>
+								<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/recruitment/recruitmentView?view=${applyList.JOB_NO}&&comId=${applyList.COM_ID}'">
+									<h3 id="resTitle" >${applyList.JOB_TITLE}</h3>
+								</div>
 							</div>
-							<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/recruitment/recruitmentView?view=${resumeList.jobNo}'">
-								<h3 id="resTitle" >${applyList.jobTitle}</h3>
-								<span class="position mb-2">${applyList.jobNo}</span>
-								
-							</div>
-						</div>
-					</form>
+						</form>
+						
 				</c:forEach>
 			</div>	
 			<button type="button" class="btn button view_btn"  onclick="location.href='/recruitment/recruitment'">채용공고 보러가기</button>	

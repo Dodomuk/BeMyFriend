@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf.member.company.model.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,16 @@ public class CompanyHireServiceImpl implements CompanyHireService{
 	public List<CompanyHire> selectHire(String comId) {
 		
 		return comHireRepository.selectHire(comId);
+	}
+
+
+
+
+	@Override
+	public List<Map<String, Object>> selectApplyList(String comId) {
+	
+		
+		return comHireRepository.selectApplyList(comId);
 	}
 	
 	

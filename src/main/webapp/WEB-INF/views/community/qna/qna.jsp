@@ -236,11 +236,24 @@ border: 1px solid #d2d2d2;
     <tr>
       <th scope="row">${qna.qnaNo}</th>	
       
-      <c:if test="${qna.secret eq 0}">
+      <c:if test="${qna.secret eq 'no'}">
       <td colspan="3" onClick="location.href='/community/qnaView?view=${qna.qnaNo}'">${qna.qnaTitle}</td>
       </c:if>
-      <c:if test="${qna.secret eq 1}">
-      <td colspan="3">비밀로 작성된 글입니다!</td>
+      
+      <c:if test="${qna.secret eq 'yes'}">
+      
+      <c:choose>
+      <c:when test="${qna.userId eq sessionScope.memberId || sessionScope.memberId eq 'admin'}">
+      <td colspan="3" onClick="location.href='/community/qnaView?view=${qna.qnaNo}'">
+            <i class="fas fa-lock"></i>비밀로 작성된 글입니다!</td>
+      </c:when>
+      
+      <c:otherwise>
+      <td colspan="3">
+            <i class="fas fa-lock"></i>비밀로 작성된 글입니다!</td>
+      </c:otherwise>
+      </c:choose>
+      
       </c:if>
       
       <c:set var="qnadate"><fmt:formatDate value="${qnatl.qnaDate}" pattern="yyyy.MM.dd" /></c:set>                              	 

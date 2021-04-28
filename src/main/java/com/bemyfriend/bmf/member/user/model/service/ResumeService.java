@@ -15,11 +15,14 @@ public interface ResumeService {
 	
 	List<UserResume> selectResume(String userId);
 	
+	List<Map<String, Object>> selectApplyList(String userId);
+	
 	UserResume viewResumeDetail(String userId, int resIdx);
 	
 	int deleteResume(int resIdx);
 	
-	int applyRecrument(String userId, int resIdx, int jobNo, String jobTitle);
+	int applyRecrument(String userId, int resIdx, int jobNo, String jobTitle, String resTitle, String comId);
+	
 	
 
 }

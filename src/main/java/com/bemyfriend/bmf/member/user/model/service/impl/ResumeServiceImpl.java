@@ -79,7 +79,7 @@ public class ResumeServiceImpl implements ResumeService {
 
 
 	@Override
-	public int applyRecrument(String userId, int resIdx, int jobNo, String jobTitle) {
+	public int applyRecrument(String userId, int resIdx, int jobNo, String jobTitle, String resTitle, String comId) {
 		
 		// 이미 지원한 공고인지 확인 , 지원내역이 있을시 0 리턴
 		if(resumeRepository.checkApply(userId, jobNo) > 0) {
@@ -87,9 +87,19 @@ public class ResumeServiceImpl implements ResumeService {
 			return 0;
 		}else {
 			// 지원한 내역이 없다면 1 리턴
-			return resumeRepository.applyRecrument(resIdx, userId, jobNo, jobTitle);
+			return resumeRepository.applyRecrument(resIdx, userId, jobNo, jobTitle, resTitle, comId);
 		}
 		
+	}
+
+
+
+
+
+	@Override
+	public List<Map<String, Object>> selectApplyList(String userId) {
+		
+		return resumeRepository.selectApplyList(userId);
 	}
 
 

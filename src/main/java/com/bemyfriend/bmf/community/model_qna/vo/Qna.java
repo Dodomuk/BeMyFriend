@@ -10,12 +10,12 @@ public class Qna {
 	private String qnaContent;
 	private Date qnaDate;
 	private int viewCnt;
-	private int secret;
+	private String secret;
 	public Qna() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Qna(int qnaNo, String userId, String qnaTitle, String qnaContent, Date qnaDate, int viewCnt, int secret) {
+	public Qna(int qnaNo, String userId, String qnaTitle, String qnaContent, Date qnaDate, int viewCnt, String secret) {
 		super();
 		this.qnaNo = qnaNo;
 		this.userId = userId;
@@ -61,10 +61,10 @@ public class Qna {
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
-	public int getSecret() {
+	public String getSecret() {
 		return secret;
 	}
-	public void setSecret(int secret) {
+	public void setSecret(String secret) {
 		this.secret = secret;
 	}
 	@Override

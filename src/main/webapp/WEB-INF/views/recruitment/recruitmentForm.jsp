@@ -160,7 +160,8 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" id="check-group" style="width: 85px;">첨부할 이미지</label> 
-													<label class="label" id="check-group" style="width: 300px; color: #336633">(썸네일은 제일 첫번째 사진, 소개란은 최대 4장까지 표시됩니다.)</label> 
+													<label class="label" id="check-group" style="width: 500px; color: #336633">(썸네일은 제일 첫번째 사진, 
+													소개란은 최대 4장까지 표시됩니다.)</label> 
 													<input type="file" class="form-control" name="files" id="contract_file" placeholder="첨부할 이미지 선택" multiple />
 												</div>
 											</div>

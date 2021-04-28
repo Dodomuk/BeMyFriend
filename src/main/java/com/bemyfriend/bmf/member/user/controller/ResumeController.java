@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.user.model.service.ResumeService;
 import com.bemyfriend.bmf.member.user.model.service.UserService;
 import com.bemyfriend.bmf.member.user.model.vo.User;
@@ -47,9 +48,13 @@ public class ResumeController {
 		User user = (User)session.getAttribute("userMember");
 		String userId = user.getUserId();
 		List<UserResume> resumeList = resumeService.selectResume(userId);
+		List<Map<String, Object>> applyList  = resumeService.selectApplyList(userId);
+		
 		
 		model.addAttribute("resumeList", resumeList);
+		model.addAttribute("applyList", applyList);
 		
+
 		return "member/user/listresume";
 	}
 	
@@ -101,18 +106,25 @@ public class ResumeController {
 	//이력서 디테일 보기
 	@GetMapping("detail")
 	public String viewDetail(int resIdx
+							, String userId
 							, HttpSession session
 							, Model model) {
 		
-		System.out.println(resIdx);
 		User user = (User)session.getAttribute("userMember");
-		String userId = user.getUserId();
 		
 		
 		UserResume userResume = resumeService.viewResumeDetail(userId, resIdx); //외 전체파트 가져오기
 		userResume.setResIdx(resIdx);
-	
+		UserHopeService service = userService.selectUserService(userId);
+		User userMember = userService.selectMemberById(userId);
+		FileVo file = userService.selectUserFile(userMember.getUserIdx());
+		if(file != null) {
+			model.addAttribute("file", file);
+		}
+
 		session.setAttribute("userResume", userResume);
+		model.addAttribute("service", service);
+		model.addAttribute("userMember", userMember);
 		
 		
 		
@@ -205,6 +217,7 @@ public class ResumeController {
 	public String popup(HttpSession session
 						, int jobNo
 						, String jobTitle
+						, String comId
 						, Model model) {
 		
 		User user = (User)session.getAttribute("userMember");
@@ -213,6 +226,7 @@ public class ResumeController {
 		Map<String, Object>  jobMap = new HashMap<String, Object>();
 		jobMap.put("jobNo", jobNo);
 		jobMap.put("jobTitle", jobTitle);
+		jobMap.put("comId", comId);
 		model.addAttribute("resumeList", resumeList);
 		model.addAttribute("jobMap", jobMap);
 		
@@ -229,10 +243,12 @@ public class ResumeController {
 							   , int resIdx 
 							   , int jobNo
 							   , String jobTitle
+							   , String resTitle
+							   , String comId
 							   , Model model) {
 		
 		
-		int result = resumeService.applyRecrument(userId, resIdx, jobNo, jobTitle);
+		int result = resumeService.applyRecrument(userId, resIdx, jobNo, jobTitle, resTitle, comId);
 		
 		if(result > 0) {
 			model.addAttribute("alertMsg", "해당 채용공고에 지원하였습니다.");
@@ -246,8 +262,6 @@ public class ResumeController {
 	}
 	
 	
-	
-	
-	
+
 
 }

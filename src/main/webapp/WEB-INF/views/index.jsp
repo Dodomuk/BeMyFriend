@@ -125,7 +125,7 @@
 									</button>
 								</h2>
 							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
+							<div class="collapse" id="collapseOne" role="tabpanel"
 								aria-labelledby="headingOne">
 								<div class="card-body py-3 px-0">
 									<ol>

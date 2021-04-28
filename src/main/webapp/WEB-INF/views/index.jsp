@@ -254,7 +254,7 @@
 										<div class="user-img"
 											style="background-image: url(resources/images/profile/WhaleeProfile.jpg)"></div>
 										<div class="pl-3">
-											<p class="name">이 승민</p>
+											<p class="name">매콤펀치</p>
 											<span class="position">잘 아픔</span>
 										</div>
 									</div>

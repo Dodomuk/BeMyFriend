@@ -19,6 +19,7 @@
          var audioStupid = new Audio('/resources/audio/stupid.mp3');
          var audioLaugh = new Audio('/resources/audio/laugh.mp3');
          var audioPororong = new Audio('/resources/audio/pororong.mp3');
+         
          console.log("시작");
          //recognition.soundstart("입력하세요");
          recognition.addEventListener("speechstart",() =>{

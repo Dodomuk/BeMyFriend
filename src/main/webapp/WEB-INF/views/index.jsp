@@ -193,7 +193,7 @@
 								<div class="card-body py-3 px-0">
 									<ol>
 										<li>Speech-to-text : 구글 음성인식 AI</li>
-										<li>클로바 : 네이버 음성인식 API</li>
+										<li>SpeechRecognition : Web Speech API</li>
 										<li>Three.js : 3D 메인페이지</li>
 										<li>아임포트 : 결제모듈 API</li>
 									</ol>

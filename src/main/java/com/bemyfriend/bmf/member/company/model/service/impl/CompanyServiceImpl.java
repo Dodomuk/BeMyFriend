@@ -1,7 +1,5 @@
 package com.bemyfriend.bmf.member.company.model.service.impl;
 
-import java.io.IOException;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -12,13 +10,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.bemyfriend.bmf.common.code.ConfigCode;
-import com.bemyfriend.bmf.common.code.ErrorCode;
-import com.bemyfriend.bmf.common.exception.ToAlertException;
-import com.bemyfriend.bmf.common.util.file.FileUtil;
-import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.company.model.repository.CompanyRepository;
 import com.bemyfriend.bmf.member.company.model.service.CompanyService;
 import com.bemyfriend.bmf.member.company.model.vo.Company;

@@ -55,7 +55,7 @@
 										<option value="searchCom">기업별</option>
 										<option value="searchExp">경력별</option>
 									</select> <input type="text" class="form-control col-md-8" id="keyword"
-										name="keyword" placeholder="검색어를 입력하세요.">
+										name="keyword" placeholder="검색어를 입력하세요." autocomplete="off">
 									<button type="submit"
 										class="recru_search_btn fa fa-search col-md-2">검색</button>
 								</div>

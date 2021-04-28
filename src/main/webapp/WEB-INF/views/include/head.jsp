@@ -92,12 +92,12 @@
 		<nav
 			class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 			id="ftco-navbar">
-			<div class="controll_nav">
+			<div class="controll_nav" style="margin-right:5%;">
 				<div class="logo_space">
 					<div class="mainlogo"
 						style="background-image: url('../../../../resources/images/logo_b.png')"></div>
 					<div>
-						<a class="navbar-brand" href="/index">BeMyFriends</a>
+						<a class="navbar-brand" href="/main">BeMyFriends</a>
 					</div>
 				</div>
 

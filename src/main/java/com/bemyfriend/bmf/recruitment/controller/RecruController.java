@@ -1,16 +1,11 @@
 package com.bemyfriend.bmf.recruitment.controller;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.company.model.service.CompanyService;
 import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
 import com.bemyfriend.bmf.member.user.model.service.ResumeService;
-import com.bemyfriend.bmf.member.user.model.vo.User;
-import com.bemyfriend.bmf.member.user.model.vo.UserResume;
 import com.bemyfriend.bmf.recruitment.model.service.impl.RecruServiceImpl;
 import com.bemyfriend.bmf.recruitment.model.vo.Recruitment;
 

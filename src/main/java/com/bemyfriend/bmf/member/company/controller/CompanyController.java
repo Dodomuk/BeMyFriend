@@ -243,7 +243,7 @@ public class CompanyController {
 		
 		companyService.companyLogout(session);
 		
-		return "/index";
+		return "redirect:/main";
 	}
 	
 	

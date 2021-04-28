@@ -22,9 +22,17 @@
     
     </select>  
        
-    <insert id="insertQna">
-    insert into qna(qna_no,user_id,qna_title,qna_content) 
-    values(sc_rv_idx.nextval,#{userId},#{qnaTitle},#{qnaContent})
+    <insert id="insertQna" >
+    insert into qna(qna_no,user_id,qna_title,qna_content,secret) 
+    values(sc_rv_idx.nextval,#{userId},#{qnaTitle},#{qnaContent},
+    <choose>
+    <when test="#{secret} == 'yes'">
+    #{secret})
+    </when>
+    <otherwise>
+    #{secret})
+    </otherwise>
+    </choose>
     </insert>
        
     <!-- 게시글 상세보기 조회 -->
@@ -39,7 +47,7 @@
   
      <!-- 게시글 수정 -->
     <update id="updateQna">
-         update qna set user_id=#{userId}, qna_title=#{qnaTitle}, qna_content=#{qnaContent} where qna_no = ${qnaNo} 
+         update qna set user_id=#{userId}, qna_title=#{qnaTitle}, qna_content=#{qnaContent}, secret=#{secret} where qna_no = ${qnaNo} 
     </update>
     
     <!-- 게시판 조회수  -->

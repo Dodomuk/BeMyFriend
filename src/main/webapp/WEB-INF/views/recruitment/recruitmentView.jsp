@@ -16,13 +16,13 @@
 	height: 200px;
 }
 #thum_img{
-   width: 200px;
-  height: 300px;
+  width: 25vh;
+  height: 35vh;
   object-fit: cover;
 }
 #intro_img{
-  width: 150px;
-  height: 100px;
+  width: 12vh;
+  height: 8vh;
   object-fit: cover;
 }
 
@@ -146,26 +146,22 @@
 						<!-- 첨부 사진 -->
 						<div class="col-md-8">
 							<div class="form-group">
-								<a data-fancybox="gallery" href="#"
-									style="width: 70%; height: 70%;"><img
-									src="/files/${savepath0}${files0}"></a>
+								<a data-fancybox="gallery" href="/files/${savepath1}${files1}">
+									    <img id="intro_img" src="/files/${savepath1}${files1}"/></a>
 								<span class="submitting"></span>
 								<c:if test="${files1 ne null}">
-									<a data-fancybox="gallery" href="#"
-										style="width: 70%; height: 70%;"><img
-										src="/files/${savepath1}${files1}" /></a>
+									<a data-fancybox="gallery" href="/files/${savepath2}${files2}">
+										<img id="intro_img" src="/files/${savepath2}${files2}"/></a>
 								</c:if>
 								<span class="submitting"></span>
 								<c:if test="${files2 ne null}">
-									<a data-fancybox="gallery" href="#">
-										style="width: 70%; height: 70%;"><img
-										src="/files/${savepath2}${files2}" /></a>
+									<a data-fancybox="gallery" href="/files/${savepath3}${files3}">
+										<img  id="intro_img" src="/files/${savepath3}${files3}"/></a>
 								</c:if>
 								<span class="submitting"></span>
 								<c:if test="${files3 ne null}">
-									<a data-fancybox="gallery" href="#"
-										style="width: 70%; height: 70%;"><img
-										src="/files/${savepath3}${files3}" /></a>
+									<a data-fancybox="gallery" href="/files/${savepath4}${files4}">
+									<img id="intro_img" src="/files/${savepath4}${files4}"/></a>
 								</c:if>
 								<div class="submitting"></div>
 							</div>
@@ -182,8 +178,10 @@
 			<section class="ftco-section bg-light ftco-faqs">
 				<div class="container">
 					<div class="row" style="justify-content: 50%;">
-						<div class="col-lg-3" id="thum_img">
-							<img src="/files/${savepath0}${files0}">
+						<div class="col-lg-3">
+							<a data-fancybox="gallery" href="/files/${savepath0}${files0}" >
+							<img id="thum_img" src="/files/${savepath0}${files0}"/>
+							</a>
 						</div>
 					</div>
 				</div>

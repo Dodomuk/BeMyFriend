@@ -29,7 +29,7 @@
 								<div class="col-md-7-p">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 					
-										<form:form modelAttribute="Company" action="${context}/member/company/updateinfo" method="POST" id="updateform" name="updateform" class="updateform">
+										<form:form modelAttribute="Company" action="${context}/member/company/updateinfo" method="POST" id="updateform" name="updateform" class="updateform" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
@@ -43,7 +43,6 @@
 														<input type="text" class="form-control" name="comName" id="comName"  value ="${comMember.comName}" readonly>
 													</div>
 												</div>
-												
 												
 												<div class="col-md-6"> 
 													<div class="form-group">

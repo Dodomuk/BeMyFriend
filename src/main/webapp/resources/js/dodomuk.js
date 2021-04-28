@@ -12,8 +12,11 @@
             alert("확인이 불가합니당");
         }        
 }
- 
+     
      function startSpeechRecognition(){
+     
+         var audio = new Audio('resources/audio/imsorry.m4a');
+     
          console.log("시작");
          //recognition.soundstart("입력하세요");
          recognition.addEventListener("speechstart",() =>{
@@ -46,6 +49,8 @@
                break;
            case "채용" :
                location.href ="/recruitment/recruitment";
+           case "공고" :
+               location.href ="/recruitment/recruitment";               
                break;
            case "회원가입" :
                location.href ="/member/join";
@@ -53,8 +58,10 @@
            case "로그인" :
                location.href ="/member/user/login";
                break;
+           case "로그아웃" :
+               location.href ="/member/user/logout";
            default: 
-            	   location.href ="http://www.maplstory.co.kr";
+            	   audio.play();
            } 
         
         });

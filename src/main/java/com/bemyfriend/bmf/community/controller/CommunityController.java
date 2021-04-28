@@ -88,7 +88,7 @@ public class CommunityController {
 			reviewService.viewCount(view);
 		} catch(Exception e) {
 			transactionManager.rollback(txStatus);
-		    throw new ToAlertException(ErrorCode.SM01, e);
+		    throw new ToAlertException(ErrorCode.IM02, e);
 		}transactionManager.commit(txStatus);
 		
 	    model.addAttribute("view", reviewService.viewId(view));
@@ -197,44 +197,51 @@ public class CommunityController {
 	}
 	
 	@PostMapping("/qna/qnaUpload")
-	public String write(Qna qna)
+	public String write(Qna qna, HttpSession session)
 	{
-		System.out.println("다시 qna게시판으로 redirect");
-		
+		qna.setUserId((String)session.getAttribute("memberId"));
 		qnaService.insertQna(qna);
-		return "redirect:/community/qna/qna";
+		return "redirect:/community/qna";
 	}
 	
 	@GetMapping("qnaView")
-	public String qnaView(Qna qna,Model model,@RequestParam("qnaView")int qnaView) 
+	public String qnaView(Qna qna,Model model,@RequestParam("view")int view) 
 	{
+	    TransactionStatus txStatus = transactionManager.getTransaction(new DefaultTransactionDefinition());
+		try {
+			qnaService.viewCount(view);
+		} catch(Exception e) {
+			transactionManager.rollback(txStatus);
+		    throw new ToAlertException(ErrorCode.IM02, e);
+		}transactionManager.commit(txStatus);
 		
-	    model.addAttribute("qnaView", qnaService.viewId(qnaView));
+	    model.addAttribute("view", qnaService.viewQnaId(view));
 	    return "community/qna/qnaView";
 	    
 	} 
 	//게시글 삭제
 	@GetMapping("/qna/delete")
-	public String deleteQna(int no) {
-		qnaService.deleteQna(no);
-		return "redirect:/community/qna/qna"; 
+	public String deleteQna(int qnaNo) {
+		qnaService.deleteQna(qnaNo);
+		return "redirect:/community/qna"; 
 	}
 	
 	//게시글 수정 화면 이동
 	@GetMapping("/qna/qnaFix")
-	public String updateQna(int no, Model model) {
-		model.addAttribute("qnaView", qnaService.viewId(no));
+	public String updateQna(int qnaNo, Model model) {
+		model.addAttribute("view", qnaService.viewQnaId(qnaNo));
 		return "community/qna/qnaFix";
 	}
 	
 	
 	//게시글 수정
 	@PostMapping("qna/updateQna")
-	public String updateQna(Qna qna)
+	public String updateQna(Qna qna,HttpSession session)
 	{
+		qna.setUserId((String)session.getAttribute("memberId"));
 		qnaService.updateQna(qna);
 		
-		return "redirect:/community/qna/qna";
+		return "redirect:/community/qna";
 	}
 	
 }

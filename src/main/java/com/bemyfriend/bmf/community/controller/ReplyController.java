@@ -5,8 +5,6 @@
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import
   org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +14,8 @@ import
   org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bemyfriend.bmf.community.model_qna.service.QnaReplyService;
+import com.bemyfriend.bmf.community.model_qna.vo.QnaComment;
 import com.bemyfriend.bmf.community.model_review.service.ReplyService;
 import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
   
@@ -26,7 +26,8 @@ import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
 	  
   @Inject
   ReplyService replyService;
-  
+  @Inject
+  QnaReplyService qnaReplyService;
   
   @RequestMapping("insertReply") 
   public void insert(@ModelAttribute ReviewComment rc, HttpSession session) {
@@ -51,6 +52,24 @@ import com.bemyfriend.bmf.community.model_review.vo.ReviewComment;
   @ResponseBody
   public List<ReviewComment> replyListJson(@RequestParam int reviewNo){
 	  List<ReviewComment> list = replyService.list(reviewNo);
+	  System.out.println(list);
+	  return list;
+  }
+  
+  @RequestMapping("insertQnaReply") 
+  public void insert(@ModelAttribute QnaComment qc, HttpSession session) {
+  
+  String userid = (String)session.getAttribute("memberId");
+  String userName = (String)session.getAttribute("memberName");
+     qc.setReplyUserId(userid);
+     qc.setReplyUserName(userName);
+     qnaReplyService.create(qc);
+  }
+  
+  @RequestMapping("replyQnaListJson")
+  @ResponseBody
+  public List<QnaComment> replyQnaListJson(@RequestParam int qnaNo){
+	  List<QnaComment> list = qnaReplyService.list(qnaNo);
 	  System.out.println(list);
 	  return list;
   }

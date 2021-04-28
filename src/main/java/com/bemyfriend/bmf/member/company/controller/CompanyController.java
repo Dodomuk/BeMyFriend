@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bemyfriend.bmf.common.code.ConfigCode;
 import com.bemyfriend.bmf.common.code.ErrorCode;
 import com.bemyfriend.bmf.common.exception.ToAlertException;
 import com.bemyfriend.bmf.common.random.RandomString;
+import com.bemyfriend.bmf.common.util.file.FileVo;
 import com.bemyfriend.bmf.member.company.model.service.CompanyService;
 import com.bemyfriend.bmf.member.company.model.vo.Company;
 import com.bemyfriend.bmf.member.company.model.vo.CompanySupport;
@@ -261,7 +263,6 @@ public class CompanyController {
 								, HttpSession session
 								, Model model) {
 		
-		
 		int result = companyService.updateComInfo(company);
 		int supportRes = companyService.uploadSupport(support);
 		
@@ -279,7 +280,7 @@ public class CompanyController {
 				model.addAttribute("alertMsg", "기업회원 정보 수정이 성공하였습니다.");
 				model.addAttribute("url",ConfigCode.DOMAIN+"/member/company/mypage");
 			return "common/result";
-
+			
 		}else {
 			model.addAttribute("alertMsg", "기업회원 정보 수정이 실패하였습니다.");
 			model.addAttribute("url",ConfigCode.DOMAIN+"/member/company/mypage");

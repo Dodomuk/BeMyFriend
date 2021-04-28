@@ -15,10 +15,14 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<!-- 우리의 웹서버에서 리소스로 다룰 것들을 따로 지정해준 곳 resources 폴더 안에 css, image 등을 관리하면 된다. -->
 	<resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- 미영 -->
 	<resources mapping="/file/**" location="/Users/miyoung/Desktop/final/CODE/bmf/resources/upload/"/>
- 	 <!-- 미영 -->
 	<resources mapping="/files/**" location="/Users/miyoung/Desktop/final/CODE/bmf/resources/upload/"/>
-	<!--  <resources mapping="/files/**" location="C:/CODE/git/Be-My-Friend-/resources/upload/"/> -->
+	
+	<!-- 동묵 
+	<resources mapping="/file/**" location="C:\CODE\git\Be-My-Friend-\resources\upload\"/>
+	<resources mapping="/files/**" location="C:\CODE\git\Be-My-Friend-\resources\upload\"/>-->
 	
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->

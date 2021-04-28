@@ -13,6 +13,7 @@
 		<typeAlias type="com.bemyfriend.bmf.community.model_review.vo.Review" alias="review"/>
 		<typeAlias type="com.bemyfriend.bmf.community.model_review.vo.ReviewComment" alias="reviewComment"/>
 		<typeAlias type="com.bemyfriend.bmf.community.model_qna.vo.Qna" alias="qna"/>
+		<typeAlias type="com.bemyfriend.bmf.community.model_qna.vo.QnaComment" alias="qnaComment"/>
 		<typeAlias type="com.bemyfriend.bmf.community.model_lawAndMedia.vo.Law" alias="law"/>
 		<typeAlias type="com.bemyfriend.bmf.community.model_lawAndMedia.vo.Media" alias="media"/>	
 		<typeAlias type="com.bemyfriend.bmf.recruitment.model.vo.Recruitment" alias="recruitment"/>	
@@ -30,6 +31,7 @@
 		<mapper resource="mybatis/mapper/community/review/ReplyMapper.xml"/>
 		<mapper resource="mybatis/mapper/community/LawAndMedia/LawAndMediaMapper.xml"/>
 		<mapper resource="mybatis/mapper/community/qna/QnaMapper.xml"/>
+		<mapper resource="mybatis/mapper/community/qna/QnaReplyMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/UserMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/CompanyMapper.xml"/>
 		<mapper resource="mybatis/mapper/member/ResumeMapper.xml"/>

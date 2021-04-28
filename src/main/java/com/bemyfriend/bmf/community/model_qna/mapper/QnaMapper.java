@@ -13,15 +13,15 @@ public interface QnaMapper {
 
 	public List<Qna> selectQnaList(Paging page); 
 	
-	public Qna viewId(int qnaNo);
+	public Qna viewQnaId(int qnaNo);
 	
 	public Integer insertQna(Qna qna);
 	
-	public boolean deleteQna(int no);
+	public boolean deleteQna(int qnaNo);
 	
 	public void updateQna(Qna qna);
 	
-	public void viewCount(int no);
+	public void viewCount(int qnaNo);
 	
 	public List<Qna> qnaTopList(Qna qna);
 	

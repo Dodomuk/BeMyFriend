@@ -175,7 +175,7 @@ public class ResumeController {
 					session.setAttribute("service", service);
 					
 					model.addAttribute("alertMsg","이력서를 수정하였습니다.");
-					model.addAttribute("url","/member/user/resume/detail?resIdx="+resIdx);
+					model.addAttribute("url","/member/user/resume/detail?resIdx="+resIdx+"&&userId="+user.getUserId());
 					
 					return "common/result";
 				}

@@ -347,6 +347,20 @@
 			</div>
 		</section>
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+  <script src="../../../../resources/js/jquery.min.js"></script>
+  <script src="../../../../resources/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../../../resources/js/popper.min.js"></script>
+  <script src="../../../../resources/js/bootstrap.min.js"></script>
+  <script src="../../../../resources/js/jquery.easing.1.3.js"></script>
+  <script src="../../../../resources/js/jquery.waypoints.min.js"></script>
+  <script src="../../../../resources/js/jquery.stellar.min.js"></script>
+  <script src="../../../../resources/js/jquery.animateNumber.min.js"></script>
+  <script src="../../../../resources/js/bootstrap-datepicker.js"></script>
+  <script src="../../../../resources/js/jquery.timepicker.min.js"></script>
+  <script src="../../../../resources/js/owl.carousel.min.js"></script>
+  <script src="../../../../resources/js/jquery.magnific-popup.min.js"></script>
+  <script src="../../../../resources/js/scrollax.min.js"></script>
+  <script src="../../../../resources/js/main.js"></script>
   <script src="../../../../resources/js/resume.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
  <script type="text/javascript">

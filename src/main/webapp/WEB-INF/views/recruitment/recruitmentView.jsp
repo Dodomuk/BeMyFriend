@@ -144,7 +144,13 @@ img{
 							<div class="form-group">
 								<a data-fancybox="gallery" href="#"
 									style="width: 70%; height: 70%;"><img
-									src="/files/${savepath1}${files1}"></a>
+									src="/files/${savepath0}${files0}"></a>
+								<span class="submitting"></span>
+								<c:if test="${files1 ne null}">
+									<a data-fancybox="gallery" href="#"
+										style="width: 70%; height: 70%;"><img
+										src="/files/${savepath1}${files1}" /></a>
+								</c:if>
 								<span class="submitting"></span>
 								<c:if test="${files2 ne null}">
 									<a data-fancybox="gallery" href="#"
@@ -156,12 +162,6 @@ img{
 									<a data-fancybox="gallery" href="#"
 										style="width: 70%; height: 70%;"><img
 										src="/files/${savepath3}${files3}" /></a>
-								</c:if>
-								<span class="submitting"></span>
-								<c:if test="${files2 ne null}">
-									<a data-fancybox="gallery" href="#"
-										style="width: 70%; height: 70%;"><img
-										src="/files/${savepath4}${files4}" /></a>
 								</c:if>
 								<div class="submitting"></div>
 							</div>

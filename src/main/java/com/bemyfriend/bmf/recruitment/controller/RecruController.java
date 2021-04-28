@@ -92,7 +92,6 @@ public class RecruController {
 	    System.out.println("게시글 보기");
 	    model.addAllAttributes(recruService.viewRecruId(view));
 	    
-	    //사용자 이력서 내역
 	    
 	    return "/recruitment/recruitmentView"; 
 	} 

@@ -45,18 +45,18 @@
 	
 	 <section class="ftco-section bg-other">
 		<div class="container resume_list">
-			<h3>지원한 공고</h3><br>
+			<h3>지원현황</h3><br>
 			<div class="row">
-				<c:if test="${applyList.size() == 0}">
-					<h5>지원내역이 없습니다.</h5>
+				<c:if test="${applyList == null}">
+					<h5>지원한 공고내역이 없습니다.</h5>
 				</c:if>
 				<c:forEach var="applyList" items="${applyList}" begin="0" end="11">
-					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
+					<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;" onclick="location.href='/recruitment/recruitmentView?view=${resumeList.jobNo}'">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch" >
 								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>
 							</div>
-							<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/member/user/resume/detail?resIdx=${resumeList.resIdx}'">
+							<div class="text pt-3 px-3 pb-4 text-center" onclick="location.href='/recruitment/recruitmentView?view=${resumeList.jobNo}'">
 								<h3 id="resTitle" >${applyList.jobTitle}</h3>
 								<span class="position mb-2">${applyList.jobNo}</span>
 								

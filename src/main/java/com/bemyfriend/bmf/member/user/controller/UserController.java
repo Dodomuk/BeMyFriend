@@ -57,8 +57,7 @@ public class UserController {
 	}
 	
 	
-	//@InitBinder : 특정 컨트롤러에서 validator를 사용하기 위해 지정
-	//@InitBinder(value="?") : value 속성에 지정한 요청 파라미터명 또는 modelAttribute명에 대해서만 validator가 동작한다.
+	
 	@InitBinder(value="user")
 	public void InitBinder(WebDataBinder webDataBinder) {
 		// WebDataBinder : Controller 메소드의 파라미터에 데이터를 바인드 해주는 역할을 하는 클래스

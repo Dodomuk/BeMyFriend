@@ -125,7 +125,7 @@
 									</button>
 								</h2>
 							</div>
-							<div class="collapse show" id="collapseOne" role="tabpanel"
+							<div class="collapse" id="collapseOne" role="tabpanel"
 								aria-labelledby="headingOne">
 								<div class="card-body py-3 px-0">
 									<ol>
@@ -316,10 +316,15 @@
 											style="background-image: url(resources/images/profile/songProfile.jpg)"></div>
 										<div class="pl-3">
 											<p class="name">명재햄</p>
-											<span class="position">Marketing Manager</span>
+											<span class="position">배고픔</span>
 										</div>
 									</div>
-									<p class="mb-4">설명설명</p>
+									<p class="mb-4">
+										<br />
+										* Calendar <br />
+										* Map
+									
+									</p>
 								</div>
 							</div>
 						</div>

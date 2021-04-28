@@ -74,12 +74,31 @@ public class AuthInterceptor implements HandlerInterceptor{
 	              					throw new ToAlertException(ErrorCode.AUTH01);
 	              				}
 	              					break;
-	              case "resume": if(session.getAttribute("userMember") == null) { //session에 userMember 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
-  	  								throw new ToAlertException(ErrorCode.U_AUTH01);
+	              case "resume": 
+	            	  switch(uriArr[4]) {
+		            	  case "create" : 
+		            		  if(session.getAttribute("userMember") == null) { //session에 userMember 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
+	  								throw new ToAlertException(ErrorCode.U_AUTH01);
 			    				}else if(session.getAttribute("comMember") != null) {
-	              					throw new ToAlertException(ErrorCode.AUTH01);
-	              				}
+	            					throw new ToAlertException(ErrorCode.AUTH01);
+	            				}
 			    					break;
+		            	  case "upload" :
+		            		  if(session.getAttribute("userMember") == null) { //session에 userMember 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
+									throw new ToAlertException(ErrorCode.U_AUTH01);
+			    				}else if(session.getAttribute("comMember") != null) {
+	          					throw new ToAlertException(ErrorCode.AUTH01);
+	          				}
+		            		  break;
+		            	  case "delete" :
+		            		  if(session.getAttribute("userMember") == null) { //session에 userMember 속성이 없을 경우 이력서 작성페이지로의 접근을 막음
+									throw new ToAlertException(ErrorCode.U_AUTH01);
+			    				}else if(session.getAttribute("comMember") != null) {
+	          					throw new ToAlertException(ErrorCode.AUTH01);
+	          				}
+	            		  break;	
+		    					
+	            	  }			
 	              }
 	              break;
 	              

@@ -199,7 +199,7 @@
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label"id="check-group" >고용형태</label>
-														<select class="form-control" id="hopeStatus" name="hopeStatus">
+														<select class="form-control" id="hopeStatus" name="hopeStatus" disabled="disabled">
 															<option value="상관없음">상관없음</option>
 															<option value="아르바이트">아르바이트</option>
 															<option value="비정규직">비정규직</option>
@@ -256,42 +256,43 @@
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleFir" id="cvlTitleFir" value="${userResume.cvlTitleFir}">
+														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleFir" id="cvlTitleFir" value="${userResume.cvlTitleFir}" readonly>
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<textarea class="content-write" name="cvlContentFir" id="cvlContentFir">${userResume.cvlContentFir}</textarea>
+														<textarea class="content-write" name="cvlContentFir" id="cvlContentFir" readonly>${userResume.cvlContentFir} </textarea>
 													</div>
 														
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleSec" id="cvlTitleSec" value="${userResume.cvlTitleSec}">
+														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요." name="cvlTitleSec" id="cvlTitleSec" value="${userResume.cvlTitleSec}" readonly>
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<textarea class="content-write" name="cvlContentSec" id="cvlContentSec">${userResume.cvlContentSec}</textarea>											
+														<textarea class="content-write" name="cvlContentSec" id="cvlContentSec" readonly>${userResume.cvlContentSec}</textarea>											
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요."  name="cvlTitleThr" id="cvlTitleThr" value="${userResume.cvlTitleThr}">
+														<input type="text" class="content-title" placeholder="항목 제목을 입력하세요."  name="cvlTitleThr" id="cvlTitleThr" value="${userResume.cvlTitleThr}" readonly>
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<textarea class="content-write" name="cvlContentThr" id="cvlContentThr" >${userResume.cvlContentThr}</textarea>											
+														<textarea class="content-write" name="cvlContentThr" id="cvlContentThr" readonly >${userResume.cvlContentThr}</textarea>											
 													</div>
 												</div>
 												<div class="col-md-12">
-												<c:if test="${!empty userMember}"></c:if>
+												<c:if test="${!empty userMember && empty comMember}">
 													<div class="form-group-log" >
 														<button type="submit" class="btn btn-delete" onclick="deleteResume()">삭제</button>
 														<button type="submit" class="btn btn-primary btn_update" onclick="location.href='/member/user/resume/updateform'">수정</button>
 														<button type="submit" class="btn btn-primary btn_list" onclick="location.href='/member/user/resume/list'">목록</button>
 													</div>
+												</c:if>
 												</div>
 												
 											</div>

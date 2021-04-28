@@ -22,7 +22,7 @@
 		<c:forEach var="resumeList" items="${resumeList}" begin="0" end="11">
 			<form class="col-md-6 col-lg-3 ftco-animate detail_list" style="cursor: pointer;">
 				<div class="text pt-3 px-3 pb-4 text-center" id="apply"
-						onclick="location.href='/member/user/resume/selectresume?userId=${resumeList.userId}&&resIdx=${resumeList.resIdx}&&jobNo=${jobMap.jobNo}&&jobTitle=${jobMap.jobTitle}'"
+						onclick="location.href='/member/user/resume/selectresume?userId=${resumeList.userId}&&resIdx=${resumeList.resIdx}&&jobNo=${jobMap.jobNo}&&jobTitle=${jobMap.jobTitle}&&resTitle=${resumeList.resTitle}&&comId=${jobMap.comId}'"
 						style="background-color: darkseagreen; border: 2px solid; margin-bottom: 5px; text-align: center; color: white;">
 					<h4 id="resTitle" >${resumeList.resTitle}</h4>
 					<span class="position mb-2" id="user_id" style="display:none">${resumeList.userId}</span> 

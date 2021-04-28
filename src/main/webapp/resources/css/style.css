@@ -10316,13 +10316,25 @@ span#idCheck{
 	border-top: 3px dashed;
 }
 
+.com_images img{
+	width: 200px;
+    height: 150px;
+}
+
+.service_part{
+	margin-bottom: 30px;
+    margin-top: 20px;
+}
 
 
-
-
-
-
-
+#service_part{
+	font-style: italic;
+    font-size: 1vw;
+    margin-left: 20px;
+}
+.apply_part{
+	margin-top:30px;
+}
 
 
 

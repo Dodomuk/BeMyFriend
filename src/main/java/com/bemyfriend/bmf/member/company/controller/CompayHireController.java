@@ -1,6 +1,7 @@
 package com.bemyfriend.bmf.member.company.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,10 +35,11 @@ public class CompayHireController {
 		String comId = company.getComId();
 		
 		List<CompanyHire> recruList = comHireService.selectHire(comId);
+		List<Map<String, Object>> applyList = comHireService.selectApplyList(comId);
 		
-		System.out.println("recruList : " + recruList);
+
 		model.addAttribute("recruList" , recruList);
-		
+		model.addAttribute("applyList", applyList);
 
 		return "/member/company/listhire";
 	}

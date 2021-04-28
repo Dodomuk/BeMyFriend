@@ -66,17 +66,17 @@
 									class="d-flex align-items-center justify-content-center"><span
 									class="fa fa-instagram">회원가입</span></a>
 							</c:if>
-							<c:if test="${userMember != null}">
+							<c:if test="${userMember != null && comMember == null}">
 								<a href="/member/user/logout"
 									class="d-flex align-items-center justify-content-center"><span
 									class="fa fa-facebook">로그아웃</span></a>
 							</c:if>
-							<c:if test="${comMember != null}">
+							<c:if test="${comMember != null && userMember == null}">
 								<a href="/member/company/logout"
 									class="d-flex align-items-center justify-content-center"><span
 									class="fa fa-instagram">로그아웃</span></a>
 							</c:if>
-							<c:if test="${comMember != null}">
+							<c:if test="${comMember != null && userMember == null}">
 								<a href="#"
 									class="d-flex align-items-center justify-content-center"><span
 									class="fa fa-instagram">광고관리</span></a>
@@ -132,22 +132,22 @@
 								<li class="nav-item"><a href="/calendar/index"
 									class="nav-link">일정표/지도</a></li>
 								<c:choose>
-									<c:when test="${userMember != null}">
+									<c:when test="${userMember != null && comMember == null}">
 										<li class="nav-item"><a href="/member/user/resume/list"
 											class="nav-link">자료실</a></li>
 									</c:when>
-									<c:when test="${comMember != null}">
+									<c:when test="${comMember != null && userMember == null}">
 										<li class="nav-item"><a href="/member/company/hire/list"
 											class="nav-link">자료실</a></li>
 									</c:when>
 								</c:choose>
 
 								<c:choose>
-									<c:when test="${userMember != null}">
+									<c:when test="${userMember != null && comMember == null}">
 										<li class="nav-item"><a href="/member/user/mypage"
 											class="nav-link">마이페이지</a></li>
 									</c:when>
-									<c:when test="${comMember != null}">
+									<c:when test="${comMember != null && userMember == null}">
 										<li class="nav-item"><a href="/member/company/mypage"
 											class="nav-link">마이페이지</a></li>
 									</c:when>

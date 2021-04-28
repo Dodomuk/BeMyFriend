@@ -43,7 +43,7 @@
 				</h1>
 				<form method="POST" id="contactForm" name="contactForm"
 					class="contactForm">
-					<div class="row">
+					<div class="row" style="margin-top: 100px;">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="label" style="font-size: 20px;">지원 자격</label>
@@ -92,13 +92,31 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-							<div class="form-group">
+							<div class="form-group apply_part">
 
 								<label class="label col-sm-2" style="font-size: 17px;">채용인원</label>
 								<label class="col-sm-2">${recru.jobPerNum}</label> <label
 									class="label col-sm-2" style="font-size: 17px;">과정</label> <label
 									class="col-sm-5">${recru.jobStep}</label>
-
+							</div>
+						</div>
+						
+						<div class="col-md-12 service_part">
+							<div class="form-group ">
+							<label class="label" style="font-size: 17px;">회사 내 지원서비스</label>
+								<div class="service_part">
+									<div id="service_part">
+									<c:if test="${comSupport.supLift == 1}"><span>  #장애인_리프트</span></c:if>
+									<c:if test="${comSupport.supElv == 1}"><span>  #장애인_앨리베이터</span></c:if>
+									<c:if test="${comSupport.supBath == 1}"><span>  #장애인_화장실</span></c:if>
+									<c:if test="${comSupport.supVoice == 1}"><span>  #장애인_음성유도기</span></c:if>
+									<c:if test="${comSupport.supBlock == 1}"><span>  #점자블럭</span></c:if>
+									<c:if test="${comSupport.supSign == 1}"><span>  #점자_표지판</span></c:if>
+									<c:if test="${comSupport.supPark == 1}"><span>  #장애인_주차장</span></c:if>
+									<c:if test="${comSupport.supCharge == 1}"><span>  #전동휠체어_충전기</span></c:if>
+									<c:if test="${comSupport.supWelfare == 1}"><span>  #사회복지사</span></c:if>
+									</div>
+								</div>
 							</div>
 						</div>
 
@@ -145,7 +163,7 @@
 						</div>
 						<!-- 첨부 사진 -->
 						<div class="col-md-8">
-							<div class="form-group">
+							<div class="form-group com_images">
 								<a data-fancybox="gallery" href="#"
 									style="width: 70%; height: 70%;"><img
 									src="/files/${savepath0}${files0}"></a>
@@ -157,7 +175,7 @@
 								</c:if>
 								<span class="submitting"></span>
 								<c:if test="${files2 ne null}">
-									<a data-fancybox="gallery" href="#">
+									<a data-fancybox="gallery" href="#"
 										style="width: 70%; height: 70%;"><img
 										src="/files/${savepath2}${files2}" /></a>
 								</c:if>
@@ -171,6 +189,7 @@
 							</div>
 						</div>
 						<!-- 첨부사진끝 -->
+							
 					</div>
 				</form>
 
@@ -179,7 +198,7 @@
 		</div>
 
 		<div>
-			<section class="ftco-section bg-light ftco-faqs">
+			<section class="ftco-sectionftco-faqs">
 				<div class="container">
 					<div class="row" style="justify-content: 50%;">
 						<div class="col-lg-3" id="thum_img">
@@ -190,6 +209,19 @@
 			</section>
 		</div>
 	</div>
+	
+	
+	
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row">
+				
+		</div>
+	</section>
+	
+	
+	
+	
 
 	<!-- 공고 끝 -->
 	
@@ -225,7 +257,7 @@
 	
 	function resumePopup(){
 		
-		let popOpen = window.open("/member/user/resume/popup?jobNo=${recru.jobNo}&&jobTitle=${recru.jobTitle}", "resume", "width=400, height=300, left=100, top=50");
+		let popOpen = window.open("/member/user/resume/popup?jobNo=${recru.jobNo}&&jobTitle=${recru.jobTitle}&&comId=${recru.comId}", "resume", "width=400, height=300, left=100, top=50");
 		
 	}
 	
@@ -234,6 +266,9 @@
 		alert("로그인이 필요한 서비스 입니다.");
 		location.href = "/member/user/login"
 	}
+	
+
+	
 	
 	</script>
 

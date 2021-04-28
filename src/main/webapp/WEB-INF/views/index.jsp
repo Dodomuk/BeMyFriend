@@ -350,7 +350,7 @@
 						<div class="col-md-4 ftco-animate">
 							<div class="block-7">
 								<div class="img"
-									style="background-image: url(resources/images/pricing-1.jpg);"></div>
+									style="background-image: url(resources/images/membership/gold.png);"></div>
 								<div class="text-center p-4">
 									<span class="excerpt d-block">Gold</span> <span class="price"><sup>$</sup>
 										<span class="number">49</span> <sub>/mos</sub></span>
@@ -372,7 +372,7 @@
 						<div class="col-md-4 ftco-animate">
 							<div class="block-7">
 								<div class="img"
-									style="background-image: url(resources/images/pricing-2.jpg);"></div>
+									style="background-image: url(resources/images/membership/platinum.png);"></div>
 								<div class="text-center p-4">
 									<span class="excerpt d-block">Platinum</span> <span
 										class="price"><sup>$</sup> <span class="number">79</span>
@@ -395,7 +395,7 @@
 						<div class="col-md-4 ftco-animate">
 							<div class="block-7">
 								<div class="img"
-									style="background-image: url(resources/images/pricing-3.jpg);"></div>
+									style="background-image: url(resources/images/membership/diamond.png); background-size : cover;"></div>
 								<div class="text-center p-4">
 									<span class="excerpt d-block">Diamond</span> <span
 										class="price"><sup>$</sup> <span class="number">109</span>

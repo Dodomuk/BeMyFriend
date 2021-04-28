@@ -15,8 +15,10 @@
      
      function startSpeechRecognition(){
      
-         var audio = new Audio('resources/audio/imsorry.m4a');
-     
+         var audio = new Audio('/resources/audio/nogod.mp3');
+         var audioStupid = new Audio('/resources/audio/stupid.mp3');
+         var audioLaugh = new Audio('/resources/audio/laugh.mp3');
+         var audioPororong = new Audio('/resources/audio/pororong.mp3');
          console.log("시작");
          //recognition.soundstart("입력하세요");
          recognition.addEventListener("speechstart",() =>{
@@ -36,9 +38,11 @@
                location.href ="http://www.google.com";
                break;
            case "커뮤니티" :
+              audioPororong.play();
         	   location.href ="/community/review/review";
                break;
            case "법률" :
+              audioPororong.play();
                location.href ="/community/law";
                break;
            case "매체" :
@@ -53,13 +57,26 @@
                location.href ="/recruitment/recruitment";               
                break;
            case "회원가입" :
+               audioPororong.play();
                location.href ="/member/join";
                break;
            case "로그인" :
+              audioPororong.play();
                location.href ="/member/user/login";
                break;
            case "로그아웃" :
+               audioPororong.play();
                location.href ="/member/user/logout";
+               break;
+           case "바보" :
+                 audioStupid.play();
+               break;
+           case "멍청이" :
+                 audioStupid.play();
+               break;
+           case "오늘 시험 망침":
+                  audioLaugh.play();
+               break;
            default: 
             	   audio.play();
            } 

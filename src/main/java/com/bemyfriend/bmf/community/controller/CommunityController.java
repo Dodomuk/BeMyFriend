@@ -182,7 +182,6 @@ public class CommunityController {
 	
 	@GetMapping("qna")
 	public String qna(@RequestParam(defaultValue= "1")int qnaPage,Model model, Qna qna) {
-	    
 		model.addAllAttributes(qnaService.qnaTopList(qna));
 		model.addAllAttributes(qnaService.selectQnaList(qnaPage));
 	    model.addAttribute("qnaPage",qnaPage);

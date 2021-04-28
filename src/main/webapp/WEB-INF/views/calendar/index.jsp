@@ -80,7 +80,7 @@
 				<div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
 					<div class="d-block services text-center">
 						<div class="icon d-flex align-items-center justify-content-center" style="color:#00bd56">
-							<i class="fa fa-building-o fa-3x" aria-hidden="true"></i>
+							<i class="fa fa-building fa-3x" aria-hidden="true"></i>
 						</div>
 						<div class="media-body">
 							<h3 class="heading">장애인 시설 위치</h3>

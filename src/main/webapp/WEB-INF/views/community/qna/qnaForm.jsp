@@ -51,19 +51,21 @@
 													<textarea class="form-control" name="qnaContent"
 														required="required"></textarea>
 												</div>
-												<div>
+												<div></div>
+									
 													<div class="col-md-12">
 														<div class="form-group">
-															<div></div>
 															<label class="label"><strong>작성자</strong>:
 																${memberName} / ${memberId}</label>
+            												<label class="label"><strong>   비밀 여부</strong>:
+															<input type="radio" name="secret" value="yes" checked>예
+                                                            <input type="radio" name="secret" value="no">아니오
+                                                            </label>														
 														</div>
-													</div>
-												</div>
+													  </div>
+														</div>
 												<div class="col-md-12">
-
 													<div class="form-group-log-p">
-
 														<button type="submit" class="btn btn-primary"
 															onclick="alert('등록되었습니다!')">등록</button>
 														<div style="margin: 5px;"></div>
@@ -71,11 +73,11 @@
 														<div class="col-md-1"></div>
 														<button type="button" class="btn btn-secondary"
 															id="cancelBtn">취소</button>
-
 													</div>
 												</div>
+										       </form>
 											</div>
-										</form>
+
 
 
 									</div>
@@ -85,8 +87,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			  </div>
 	</section>
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>

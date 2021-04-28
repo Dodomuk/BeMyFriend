@@ -3,11 +3,49 @@
  */
 
 function popup(){
-    var url = "/popup";
-    var name = "popup test";
-    var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-    window.open(url, name, option);
+	var cookieCheck = getCookie("popupYN");
+	if(cookieCheck != "N"){
+		var url = "/popup";
+    	var name = "popup test";
+    	var option = "width = 400, height = 550, top = 100, left = 200, location = no"
+    	window.open(url, name, option);
+	}
+    
 }
+
+function getCookie(name){
+	var cookie = document.cookie;
+	
+	if(document.cookie != ""){
+		var cookie_array = cookie.split("; ");
+		
+		for(var index in cookie_array){
+			var cookie_name = cookie_array[index].split("=");
+			
+			if(cookie_name[0] == "popupYN"){
+				return cookie_name[1];
+			}
+		}
+	}
+	
+	return ;
+}
+
+function setCookie(name, value, expiredays){
+	var date = new Date();
+	date.setDate(date.getDate() + expiredays);
+	document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();
+}
+
+function closePopup(){
+	if(document.getElementById("check").value){
+		setCookie("popupYN", "N", 1);
+		self.close();
+	}
+}
+
+
+
 
 function payment(memberValue) {
 	

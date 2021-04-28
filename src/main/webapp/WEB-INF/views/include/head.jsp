@@ -183,7 +183,7 @@
 <script defer src="/resources/js/scrollax.min.js"></script>
 <script defer src="/resources/js/main.js"></script>
 <!-- 음성인식 js -->
-<script src="/resources/js/dodomuk.js"></script>
+<script src="/resources/js/dodomuk.js?v=<%=System.currentTimeMillis() %>"></script>
 
 <!-- 1:1채팅 -->
 <script>

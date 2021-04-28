@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.bemyfriend.bmf.community.model_review.mapper.ReplyMapper">  
+
+    <!-- 댓글 작성 기능 --> 
+
+    <insert id="create">
+    insert into review_comment(review_comment_no,review_no,reply_user_id,review_comment_content,reply_user_name)
+    values(sc_rvc_idx.nextval,${reviewNo},#{replyUserId},#{reviewCommentContent},#{replyUserName})
+    </insert>
+  
+   <!-- 해당 게시글 댓글리스트 불러오기 -->
+  
+   <select id="list" resultType="reviewComment">
+     select * from review_comment where review_no = ${reviewNo}
+     order by review_comment_no
+   </select>
+
+ </mapper>

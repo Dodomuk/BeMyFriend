@@ -316,6 +316,7 @@ public class UserController {
 		}
 		
 		int result =  userService.updateUserInfo(user);
+		
 		// 서비스 업로드/업데이트 프로시저 진행
 		int serviceRes = userService.uploadUserService(serviceInfo);
 		

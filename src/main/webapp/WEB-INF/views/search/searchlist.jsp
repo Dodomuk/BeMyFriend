@@ -66,7 +66,7 @@
 				
 					<c:forEach items="${searchList}" var="CompanyHire">
 						
-						<div class="col-md-6 col-lg-3 ftco-animate"  onClick="location.href='/recruitment/recruitmentView?view=${CompanyHire.jobNo}'">
+						<div class="col-md-6 col-lg-3 ftco-animate"  onClick="location.href='/recruitment/recruitmentView?view=${CompanyHire.jobNo}&&comId=${CompanyHire.comId}'">
 							<div class="staff">
 								<div class="img-wrap d-flex align-items-stretch" >
 								<div class="img align-self-stretch" style="background-image: url(../../../../resources/images/resume7.png);"></div>

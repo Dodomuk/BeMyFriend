@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import = "com.bemyfriend.bmf.common.code.ConfigCode"
     %>
-<%@ include file="/WEB-INF/views/include/head.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <body>
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bemyfriend.bmf.member.company.model.repository.CompanyRepository">
+
+
+	<!-- 회원가입하기 -->
+	<insert id ="insertCompany">
+		INSERT INTO COM_USER
+		(COM_IDX, COM_ID, COM_PW, COM_NAME, COM_ADDRESS, COM_TELL, COM_MAIL, COM_TYPE, COM_MANAGER)
+		VALUES
+		(SC_COMUSER_IDX.NEXTVAL,#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail}, #{comType} , #{comManager})
+	</insert>
+
+	
+	<!-- 회원정보수정하기 -->
+	<update id="updateComInfo"><!--update문 resultType 필요X -->
+ 		UPDATE COM_USER
+ 			<set>
+ 				<if test="comPw != null">
+ 					com_pw = #{comPw}
+ 				</if>
+ 				<if test="comName != null">
+ 					,com_name = #{comName}
+ 				</if>
+ 				<if test="comAddress != null">
+ 					,com_address = #{comAddress}
+ 				</if>
+ 				<if test="comTell != null">
+ 					,com_tell = #{comTell}
+ 				</if>
+ 				<if test="comMail != null">
+ 					,com_mail = #{comMail}
+ 				</if>		
+ 				<if test="comType != null">
+ 					,com_type = #{comType}
+ 				</if>	
+ 				<if test="comManager != null">
+ 					,com_manager = #{comManager}
+ 				</if>
+ 			</set>
+ 		WHERE com_id = #{comId}
+ 	</update>
+
+
+	<!-- 서비스 업로드/업데이트하기 프로시저 ! -->
+	<update id="uploadSupport" statementType="CALLABLE">
+		{call pr_company_support(#{comId, mode=IN}, #{supLift, mode=IN}, #{supElv, mode=IN}, #{supBath, mode=IN}, #{supVoice,mode=IN}
+								, #{supBlock, mode=IN}, #{supSign, mode=IN}, #{supPark, mode=IN}, #{supCharge, mode=IN}, #{supWelfare, mode=IN})
+		}
+	</update>
+
+</mapper>

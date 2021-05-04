@@ -280,7 +280,7 @@
 									</div>
 									<p class="mb-4">
 								        <br />* SpeechRecognition Service<br />* Job recruitment Page<br />* ReviewPage
-								        <br />* QNA<br />* Law&Media
+								        <br />* Community 
 								        </p>
 								</div>
 							</div>

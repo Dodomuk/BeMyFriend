@@ -25,8 +25,6 @@
 	<resources mapping="/file/**" location="file:///C:/CODE/git/Be-My-Friend-/resources/upload/"/>
 	<resources mapping="/files/**" location="file:///C:/CODE/git/Be-My-Friend-/resources/upload/"/>
 	
-	
-	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 우리의 view 들이 담겨있는 경로와 어떤 템플릿을 사용하는지 우리가 등록해주어야 한다. -->

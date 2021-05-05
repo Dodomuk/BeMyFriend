@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bemyfriend.bmf.calendar.model.repository.CalendarRepository">
+	<select id="selectCalendarRecruit" resultType="calendar">
+		select to_char(event_start_date, 'YYYY-MM-DD') event_start_date,
+		case when substr(event_end_date,-1)=')' then '2021-'||substr(event_end_date,1,2)||'-'||substr(event_end_date,4,2)
+		     when event_end_date = '내일마감' then to_char(sysdate+1, 'YYYY-MM-DD')
+		     else to_char(sysdate+2, 'YYYY-MM-DD')
+		     end as event_end_date,
+		EVENT_COM_NAME
+		from calendar
+	</select>
+</mapper>

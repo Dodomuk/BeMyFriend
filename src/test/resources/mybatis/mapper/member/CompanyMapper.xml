@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bemyfriend.bmf.member.company.model.repository.CompanyRepository">
+
+
+
+	<insert id ="insertCompany">
+		INSERT INTO COM_USER
+		(COM_ID, COM_PW, COM_NAME, COM_ADDRESS, COM_TELL, COM_MAIL, COM_TYPE, COM_MANAGER)
+		VLAUES
+		(#{comId}, #{comPw}, #{comName}, #{comAddress}, #{comTell}, #{comMail}, #{comType}, #{comManage});
+	</insert>
+
+
+
+
+
+
+</mapper>
